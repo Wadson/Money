@@ -1,0 +1,11 @@
+//envio de arquivos par o git//
+
+git init 
+git add . 
+git commit -m "primeiro commit"
+git branch -M main 
+git remote add origin https://github.com/Wadson/Money.git 
+git push -u origin main
+
+
+//******baixar  repositorio para o computador********///
