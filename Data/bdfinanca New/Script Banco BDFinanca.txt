@@ -1,0 +1,313 @@
+/*==============================================================*/
+/* DBMS name:      SAP SQL Anywhere 17                          */
+/* Created on:     11/12/2024 19:44:36                          */
+/*==============================================================*/
+
+
+if exists(select 1 from sys.sysforeignkey where role='FK_CONTASRE_REFERENCE_FORMAPGT') then
+    alter table CONTASRECEBER
+       delete foreign key FK_CONTASRE_REFERENCE_FORMAPGT
+end if;
+
+if exists(select 1 from sys.sysforeignkey where role='FK_CONTAS_A_REFERENCE_CATEGORI') then
+    alter table CONTAS_A_PAGAR
+       delete foreign key FK_CONTAS_A_REFERENCE_CATEGORI
+end if;
+
+if exists(select 1 from sys.sysforeignkey where role='FK_CONTAS_A_REFERENCE_FORNECED') then
+    alter table CONTAS_A_PAGAR
+       delete foreign key FK_CONTAS_A_REFERENCE_FORNECED
+end if;
+
+if exists(select 1 from sys.sysforeignkey where role='FK_CONTAS_A_REFERENCE_SUBCATEG') then
+    alter table CONTAS_A_PAGAR
+       delete foreign key FK_CONTAS_A_REFERENCE_SUBCATEG
+end if;
+
+if exists(select 1 from sys.sysforeignkey where role='FK_CONTAS_A_REFERENCE_FORMAPGT') then
+    alter table CONTAS_A_PAGAR
+       delete foreign key FK_CONTAS_A_REFERENCE_FORMAPGT
+end if;
+
+if exists(select 1 from sys.sysforeignkey where role='FK_ITENSVEN_REFERENCE_VENDA') then
+    alter table ITENSVENDA
+       delete foreign key FK_ITENSVEN_REFERENCE_VENDA
+end if;
+
+if exists(select 1 from sys.sysforeignkey where role='FK_ITENSVEN_REFERENCE_PRODUTO') then
+    alter table ITENSVENDA
+       delete foreign key FK_ITENSVEN_REFERENCE_PRODUTO
+end if;
+
+if exists(select 1 from sys.sysforeignkey where role='FK_REGISTRO_REFERENCE_FORMAPGT') then
+    alter table REGISTROPAGAMENTO
+       delete foreign key FK_REGISTRO_REFERENCE_FORMAPGT
+end if;
+
+if exists(select 1 from sys.sysforeignkey where role='FK_REGISTRO_REFERENCE_VENDA') then
+    alter table REGISTROPAGAMENTO
+       delete foreign key FK_REGISTRO_REFERENCE_VENDA
+end if;
+
+if exists(select 1 from sys.sysforeignkey where role='FK_SUBCATEG_REFERENCE_CATEGORI') then
+    alter table SUBCATEGORIA
+       delete foreign key FK_SUBCATEG_REFERENCE_CATEGORI
+end if;
+
+if exists(select 1 from sys.sysforeignkey where role='FK_VENDA_REFERENCE_CLIENTE') then
+    alter table VENDA
+       delete foreign key FK_VENDA_REFERENCE_CLIENTE
+end if;
+
+drop table if exists CATEGORIA;
+
+drop table if exists CLIENTE;
+
+drop table if exists CONTASRECEBER;
+
+drop table if exists CONTAS_A_PAGAR;
+
+drop table if exists FORMAPGTO;
+
+drop table if exists FORNECEDOR;
+
+drop table if exists ITENSVENDA;
+
+drop table if exists PRODUTO;
+
+drop table if exists REGISTROPAGAMENTO;
+
+drop table if exists SUBCATEGORIA;
+
+drop table if exists USUARIO;
+
+drop table if exists VENDA;
+
+/*==============================================================*/
+/* Table: CATEGORIA                                             */
+/*==============================================================*/
+create or replace table CATEGORIA 
+(
+   ID_CATEGORIA         int                            not null,
+   NOME_CATEGORIA       varchar                        null,
+   constraint PK_CATEGORIA primary key clustered (ID_CATEGORIA)
+);
+
+/*==============================================================*/
+/* Table: CLIENTE                                               */
+/*==============================================================*/
+create or replace table CLIENTE 
+(
+   ID_CLIENTE           int                            not null,
+   NOME_CLIENTE         varchar                        null,
+   DTCADASTRO_CLIENTE   varchar                        null,
+   FONE_CLIENTE         varchar                        null,
+   ENDERECO_CLIENTE     varchar                        null,
+   BAIRRO_CLIENTE       varchar                        null,
+   CIDADE_CLIENTE       varchar                        null,
+   ESTADO_CLIENTE       varchar                        null,
+   constraint PK_CLIENTE primary key clustered (ID_CLIENTE)
+);
+
+/*==============================================================*/
+/* Table: CONTASRECEBER                                         */
+/*==============================================================*/
+create or replace table CONTASRECEBER 
+(
+   ID_PARCELA           int                            not null,
+   NUM_PARCELA          int                            null,
+   VALOR_PARCELA        double                         null,
+   DTVENC_PARCELA       date                           null,
+   DTPGTO_PARCELA       date                           null,
+   STATUS_PARCELA       char                           null,
+   VALORPAGO_PARCELA    double                         null,
+   ID_FORMAPGTO         int                            null,
+   constraint PK_CONTASRECEBER primary key clustered (ID_PARCELA)
+);
+
+/*==============================================================*/
+/* Table: CONTAS_A_PAGAR                                        */
+/*==============================================================*/
+create or replace table CONTAS_A_PAGAR 
+(
+   ID_CONTASAPAGAR      int                            not null,
+   DT_CADASTRO          date                           null,
+   ID_FORNECEDOR        int                            null,
+   ID_CATEGORIA         int                            null,
+   ID_SUBCATEGORIA      int                            null,
+   ID_FORMAPGTO         int                            null,
+   DESCRICAO_CONTA      varchar                        null,
+   constraint PK_CONTAS_A_PAGAR primary key clustered (ID_CONTASAPAGAR)
+);
+
+/*==============================================================*/
+/* Table: FORMAPGTO                                             */
+/*==============================================================*/
+create or replace table FORMAPGTO 
+(
+   ID_FORMAPGTO         int                            not null,
+   FORMAPGTO            varchar                        null,
+   constraint PK_FORMAPGTO primary key clustered (ID_FORMAPGTO)
+);
+
+/*==============================================================*/
+/* Table: FORNECEDOR                                            */
+/*==============================================================*/
+create or replace table FORNECEDOR 
+(
+   ID_FORNECEDOR        int                            not null,
+   NOME_FORNECEDOR      varchar>                       null,
+   ENDERE_FORNECEDOR    varchar                        null,
+   BAIRRO_FORNECEDOR    varchar                        null,
+   CIDADE_FORNECEDOR    varchar                        null,
+   ESTADO_FORNECEDOR    varchar                        null,
+   DTCADASTRO_FORNECEDOR varchar                        null,
+   CNPJ_FORNECEDOR      varchar                        null,
+   constraint PK_FORNECEDOR primary key clustered (ID_FORNECEDOR)
+);
+
+/*==============================================================*/
+/* Table: ITENSVENDA                                            */
+/*==============================================================*/
+create or replace table ITENSVENDA 
+(
+   ID_ITENSVENDA        int                            not null,
+   ID_VENDA             int                            null,
+   ID_PRODUTO           int                            null,
+   QTD_PRODUTO          image                          null,
+   constraint PK_ITENSVENDA primary key clustered (ID_ITENSVENDA)
+);
+
+/*==============================================================*/
+/* Table: PRODUTO                                               */
+/*==============================================================*/
+create or replace table PRODUTO 
+(
+   ID_PRODUTO           int                            not null,
+   NOME_PRODUTO         varchar                        null,
+   DESCRICAO_PRODUTO    varchar                        null,
+   MARCA_PRODUTO        varchar                        null,
+   PRECOCUSTO_PRODUTO   double                         null,
+   LUCRO_PRODUTO        real                           null,
+   PRECOVENDA_PRODUTO   double                         null,
+   constraint PK_PRODUTO primary key clustered (ID_PRODUTO)
+);
+
+/*==============================================================*/
+/* Table: REGISTROPAGAMENTO                                     */
+/*==============================================================*/
+create or replace table REGISTROPAGAMENTO 
+(
+   ID_PAGAMENTO         int                            not null,
+   ID_VENDA             int                            null,
+   ID_FORMAPGTO         int                            null,
+   VALOR_PGTO           double                         null,
+   DT_PGTO              date                           null,
+   constraint PK_REGISTROPAGAMENTO primary key clustered (ID_PAGAMENTO)
+);
+
+/*==============================================================*/
+/* Table: SUBCATEGORIA                                          */
+/*==============================================================*/
+create or replace table SUBCATEGORIA 
+(
+   ID_SUBCATEGORIA      int                            not null,
+   NOME_SUBCATEGORIA    varchar                        null,
+   ID_CATEGORIA         int                            null,
+   constraint PK_SUBCATEGORIA primary key clustered (ID_SUBCATEGORIA)
+);
+
+/*==============================================================*/
+/* Table: USUARIO                                               */
+/*==============================================================*/
+create or replace table USUARIO 
+(
+   ID_USUARIO           numeric                        not null,
+   NOME_USUARIO         varchar                        null,
+   SENHA_USUARIO        varchar                        null,
+   NIVELACESSO_USUARIO  varchar                        null,
+   USER_USUARIO         varchar                        null,
+   EMAIL_USUARIO        varchar                        null,
+   DT_NASCIMENTO        date                           null,
+   constraint PK_USUARIO primary key clustered (ID_USUARIO)
+);
+
+/*==============================================================*/
+/* Table: VENDA                                                 */
+/*==============================================================*/
+create or replace table VENDA 
+(
+   ID_VENDA             int                            not null,
+   DT_VENDA             date                           null,
+   ID_CLIENTE           int                            null,
+   ID_ITENSVENDA        int                            null,
+   STATUS_VENDA         char                           null,
+   constraint PK_VENDA primary key clustered (ID_VENDA)
+);
+
+alter table CONTASRECEBER
+   add constraint FK_CONTASRE_REFERENCE_FORMAPGT foreign key (ID_FORMAPGTO)
+      references FORMAPGTO (ID_FORMAPGTO)
+      on update restrict
+      on delete restrict;
+
+alter table CONTAS_A_PAGAR
+   add constraint FK_CONTAS_A_REFERENCE_CATEGORI foreign key (ID_CATEGORIA)
+      references CATEGORIA (ID_CATEGORIA)
+      on update restrict
+      on delete restrict;
+
+alter table CONTAS_A_PAGAR
+   add constraint FK_CONTAS_A_REFERENCE_FORNECED foreign key (ID_FORNECEDOR)
+      references FORNECEDOR (ID_FORNECEDOR)
+      on update restrict
+      on delete restrict;
+
+alter table CONTAS_A_PAGAR
+   add constraint FK_CONTAS_A_REFERENCE_SUBCATEG foreign key (ID_SUBCATEGORIA)
+      references SUBCATEGORIA (ID_SUBCATEGORIA)
+      on update restrict
+      on delete restrict;
+
+alter table CONTAS_A_PAGAR
+   add constraint FK_CONTAS_A_REFERENCE_FORMAPGT foreign key (ID_FORMAPGTO)
+      references FORMAPGTO (ID_FORMAPGTO)
+      on update restrict
+      on delete restrict;
+
+alter table ITENSVENDA
+   add constraint FK_ITENSVEN_REFERENCE_VENDA foreign key (ID_VENDA)
+      references VENDA (ID_VENDA)
+      on update restrict
+      on delete restrict;
+
+alter table ITENSVENDA
+   add constraint FK_ITENSVEN_REFERENCE_PRODUTO foreign key (ID_PRODUTO)
+      references PRODUTO (ID_PRODUTO)
+      on update restrict
+      on delete restrict;
+
+alter table REGISTROPAGAMENTO
+   add constraint FK_REGISTRO_REFERENCE_FORMAPGT foreign key (ID_FORMAPGTO)
+      references FORMAPGTO (ID_FORMAPGTO)
+      on update restrict
+      on delete restrict;
+
+alter table REGISTROPAGAMENTO
+   add constraint FK_REGISTRO_REFERENCE_VENDA foreign key (ID_VENDA)
+      references VENDA (ID_VENDA)
+      on update restrict
+      on delete restrict;
+
+alter table SUBCATEGORIA
+   add constraint FK_SUBCATEG_REFERENCE_CATEGORI foreign key (ID_CATEGORIA)
+      references CATEGORIA (ID_CATEGORIA)
+      on update restrict
+      on delete restrict;
+
+alter table VENDA
+   add constraint FK_VENDA_REFERENCE_CLIENTE foreign key (ID_CLIENTE)
+      references CLIENTE (ID_CLIENTE)
+      on update restrict
+      on delete restrict;
+

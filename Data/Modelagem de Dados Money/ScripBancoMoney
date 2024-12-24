@@ -1,0 +1,132 @@
+/* Money: */
+
+CREATE TABLE Usuario (
+    ID_Usuario INTEGER PRIMARY KEY UNIQUE,
+    Nome_Usuario NCHAR,
+    Senha_Usuario NCHAR,
+    NivelAcesso_Usuario NCHAR,
+    User_Usuario NCHAR,
+    Email_Usuario NCHAR,
+    DataNasc_Usuario DATE
+);
+
+CREATE TABLE Cliente (
+    ID_Cliente INTEGER PRIMARY KEY UNIQUE,
+    Nome_Cliente NCHAR,
+    DTCadastro_Cliente DATE,
+    Telefone_Cliente NCHAR,
+    Endereco_Cliente NCHAR,
+    Bairro_Cliente NCHAR,
+    Cidade_Cliente NCHAR,
+    Estado_Cliente NCHAR
+);
+
+CREATE TABLE FormaPgto (
+    ID_FormaPgto INTEGER PRIMARY KEY UNIQUE,
+    FormaPagamento NCHAR
+);
+
+CREATE TABLE Fornecedor (
+    ID_Fornecedor INTEGER PRIMARY KEY UNIQUE,
+    Nome_Fornecedor NCHAR,
+    Endereco_Fornecedor NCHAR,
+    Bairro_Fornecedor NCHAR,
+    Cidade_Fornecedor NCHAR,
+    Estado_Fornecedor NCHAR,
+    DT_Cadastro DATE,
+    CNPJ_Fornecedor NCHAR,
+    Telefone_Fornecedor NCHAR
+);
+
+CREATE TABLE Contas (
+    ID_Conta INTEGER PRIMARY KEY UNIQUE,
+    DT_Cadastro DATE,
+    ID_Fornecedor INTEGER,
+    ID_Categoria INTEGER,
+    ID_SubCategoria INTEGER,
+    ID_FormaPgto INTEGER,
+    Descricao_Conta NCHAR
+);
+
+CREATE TABLE ItensPedido (
+    ID_Item INTEGER PRIMARY KEY UNIQUE,
+    ID_Pedido INTEGER,
+    ID_Produto INTEGER,
+    QTD_Produto INTEGER
+);
+
+CREATE TABLE Parcelas (
+    ID_Parcela INTEGER PRIMARY KEY UNIQUE,
+    Num_Parcela INTEGER,
+    Valor_Parcela DOUBLE,
+    DT_Venc_Parc DATE,
+    DT_Pgto_Parc DATE,
+    Status_Parc CHAR,
+    Valor_Pago_Parc DOUBLE,
+    ID_FormaPgto INTEGER
+);
+
+CREATE TABLE Pedido (
+    ID_Pedido INTEGER PRIMARY KEY UNIQUE,
+    DT_Pedido DATE,
+    ID_Cliente INTEGER,
+    Status_Pedido CHAR,
+    ID_ItensPedido INTEGER
+);
+
+CREATE TABLE Produto (
+    ID_Produto INTEGER PRIMARY KEY UNIQUE,
+    Nome_Produto NCHAR,
+    Descricao_Produto NCHAR,
+    Marca_Produto NCHAR,
+    Preco_Produto DOUBLE,
+    Lucro_Produto NUMÉRIC,
+    PrecoVenda_Produto DOUBLE
+);
+
+CREATE TABLE RegistroPagamento (
+    ID_RegistroPagamento INTEGER PRIMARY KEY UNIQUE,
+    ID_Pedido INTEGER,
+    ID_FormaPgto INTEGER,
+    Valor_Pagamento DOUBLE,
+    DT_Pagamento DATE
+);
+
+CREATE TABLE SubCategoria (
+    ID_SubCategoria INTEGER PRIMARY KEY UNIQUE,
+    ID_Categoria INTEGER,
+    Nome_SubCategoria NCHAR
+);
+
+CREATE TABLE Categoria (
+    ID_Categoria INTEGER PRIMARY KEY UNIQUE,
+    Nome_Categoria NCHAR
+);
+ 
+ALTER TABLE Contas ADD CONSTRAINT FK_Contas_1
+    FOREIGN KEY (ID_Fornecedor???, ID_Categoria???, ID_SubCategoria???, ID_FormaPgto???)
+    REFERENCES ??? (???);
+ 
+ALTER TABLE ItensPedido ADD CONSTRAINT FK_ItensPedido_3
+    FOREIGN KEY (ID_Pedido???, ID_Produto???)
+    REFERENCES ??? (???);
+ 
+ALTER TABLE Parcelas ADD CONSTRAINT FK_Parcelas_3
+    FOREIGN KEY (ID_FormaPgto???)
+    REFERENCES ??? (???);
+ 
+ALTER TABLE Pedido ADD CONSTRAINT FK_Pedido_3
+    FOREIGN KEY (ID_Cliente???, ID_ItensPedido???)
+    REFERENCES ??? (???);
+ 
+ALTER TABLE Produto ADD CONSTRAINT FK_Produto_3
+    FOREIGN KEY (ID_Categoria???)
+    REFERENCES ??? (???);
+ 
+ALTER TABLE RegistroPagamento ADD CONSTRAINT FK_RegistroPagamento_3
+    FOREIGN KEY (ID_Pedido???, ID_FormaPgto???)
+    REFERENCES ??? (???);
+ 
+ALTER TABLE SubCategoria ADD CONSTRAINT FK_SubCategoria_1
+    FOREIGN KEY (ID_Categoria???)
+    REFERENCES ??? (???);

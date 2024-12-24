@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bdfinancaModelStoreContainer" CdmEntityContainer="bdfinancaEntities1">
+    <EntitySetMapping Name="comprovantes">
+      <EntityTypeMapping TypeName="bdfinancaModel.comprovantes">
+        <MappingFragment StoreEntitySet="comprovantes">
+          <ScalarProperty Name="idcomprovante" ColumnName="idcomprovante" />
+          <ScalarProperty Name="comprovante" ColumnName="comprovante" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contas">
+      <EntityTypeMapping TypeName="bdfinancaModel.contas">
+        <MappingFragment StoreEntitySet="contas">
+          <ScalarProperty Name="idconta" ColumnName="idconta" />
+          <ScalarProperty Name="datacadastro" ColumnName="datacadastro" />
+          <ScalarProperty Name="idfornecedor" ColumnName="idfornecedor" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fornecedor">
+      <EntityTypeMapping TypeName="bdfinancaModel.fornecedor">
+        <MappingFragment StoreEntitySet="fornecedor">
+          <ScalarProperty Name="idfornecedor" ColumnName="idfornecedor" />
+          <ScalarProperty Name="fornecedor1" ColumnName="fornecedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="parcelas">
+      <EntityTypeMapping TypeName="bdfinancaModel.parcelas">
+        <MappingFragment StoreEntitySet="parcelas">
+          <ScalarProperty Name="idparcela" ColumnName="idparcela" />
+          <ScalarProperty Name="idconta" ColumnName="idconta" />
+          <ScalarProperty Name="num_parcela" ColumnName="num_parcela" />
+          <ScalarProperty Name="valor_parc" ColumnName="valor_parc" />
+          <ScalarProperty Name="datavenc" ColumnName="datavenc" />
+          <ScalarProperty Name="datapgto" ColumnName="datapgto" />
+          <ScalarProperty Name="pago" ColumnName="pago" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="receitas">
+      <EntityTypeMapping TypeName="bdfinancaModel.receitas">
+        <MappingFragment StoreEntitySet="receitas">
+          <ScalarProperty Name="idreceita" ColumnName="idreceita" />
+          <ScalarProperty Name="origem" ColumnName="origem" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="dtprevreceb" ColumnName="dtprevreceb" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="bdfinancaModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="usuario1" ColumnName="usuario" />
+          <ScalarProperty Name="senha" ColumnName="senha" />
+          <ScalarProperty Name="nivelacesso" ColumnName="nivelacesso" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="dtnascimento" ColumnName="dtnascimento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

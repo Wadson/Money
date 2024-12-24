@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bdfinancaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="bdfinancaEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="comprovantes" EntityType="bdfinancaModel.comprovantes" />
+    <EntitySet Name="contas" EntityType="bdfinancaModel.contas" />
+    <EntitySet Name="fornecedor" EntityType="bdfinancaModel.fornecedor" />
+    <EntitySet Name="parcelas" EntityType="bdfinancaModel.parcelas" />
+    <EntitySet Name="receitas" EntityType="bdfinancaModel.receitas" />
+    <EntitySet Name="usuario" EntityType="bdfinancaModel.usuario" />
+    <AssociationSet Name="FK_IDCONTA" Association="bdfinancaModel.FK_IDCONTA">
+      <End Role="contas" EntitySet="contas" />
+      <End Role="parcelas" EntitySet="parcelas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IDFORN" Association="bdfinancaModel.FK_IDFORN">
+      <End Role="fornecedor" EntitySet="fornecedor" />
+      <End Role="contas" EntitySet="contas" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="comprovantes">
+    <Key>
+      <PropertyRef Name="idcomprovante" />
+    </Key>
+    <Property Name="idcomprovante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="comprovante" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="descricao" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="contas">
+    <Key>
+      <PropertyRef Name="idconta" />
+    </Key>
+    <Property Name="idconta" Type="Int32" Nullable="false" />
+    <Property Name="datacadastro" Type="DateTime" Nullable="false" />
+    <Property Name="idfornecedor" Type="Int32" Nullable="false" />
+    <Property Name="descricao" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="parcelas" Relationship="bdfinancaModel.FK_IDCONTA" FromRole="contas" ToRole="parcelas" />
+    <NavigationProperty Name="fornecedor" Relationship="bdfinancaModel.FK_IDFORN" FromRole="contas" ToRole="fornecedor" />
+  </EntityType>
+  <EntityType Name="fornecedor">
+    <Key>
+      <PropertyRef Name="idfornecedor" />
+    </Key>
+    <Property Name="idfornecedor" Type="Int32" Nullable="false" />
+    <Property Name="fornecedor1" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="contas" Relationship="bdfinancaModel.FK_IDFORN" FromRole="fornecedor" ToRole="contas" />
+  </EntityType>
+  <EntityType Name="parcelas">
+    <Key>
+      <PropertyRef Name="idparcela" />
+    </Key>
+    <Property Name="idparcela" Type="Int32" Nullable="false" />
+    <Property Name="idconta" Type="Int32" Nullable="false" />
+    <Property Name="num_parcela" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="valor_parc" Type="Single" />
+    <Property Name="datavenc" Type="DateTime" />
+    <Property Name="datapgto" Type="DateTime" />
+    <Property Name="pago" Type="Boolean" />
+    <NavigationProperty Name="contas" Relationship="bdfinancaModel.FK_IDCONTA" FromRole="parcelas" ToRole="contas" />
+  </EntityType>
+  <EntityType Name="receitas">
+    <Key>
+      <PropertyRef Name="idreceita" />
+    </Key>
+    <Property Name="idreceita" Type="Int32" Nullable="false" />
+    <Property Name="origem" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="valor" Type="Single" />
+    <Property Name="dtprevreceb" Type="DateTime" />
+    <Property Name="status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idusuario" Type="Int32" Nullable="false" />
+    <Property Name="usuario1" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="senha" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="nivelacesso" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="nome" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+    <Property Name="dtnascimento" Type="DateTime" />
+  </EntityType>
+  <Association Name="FK_IDCONTA">
+    <End Role="contas" Type="bdfinancaModel.contas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="parcelas" Type="bdfinancaModel.parcelas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="contas">
+        <PropertyRef Name="idconta" />
+      </Principal>
+      <Dependent Role="parcelas">
+        <PropertyRef Name="idconta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IDFORN">
+    <End Role="fornecedor" Type="bdfinancaModel.fornecedor" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="contas" Type="bdfinancaModel.contas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fornecedor">
+        <PropertyRef Name="idfornecedor" />
+      </Principal>
+      <Dependent Role="contas">
+        <PropertyRef Name="idfornecedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

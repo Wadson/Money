@@ -1,0 +1,7 @@
+C:\Money\obj\x86\Debug\MoneyNey.csprojAssemblyReference.cache
+C:\Money\obj\x86\Debug\MoneyNey.csproj.AssemblyReference.cache
+C:\Money\obj\x86\Debug\BotaoNovo.baml
+C:\Money\obj\x86\Debug\BotaoNovo.g.cs
+C:\Money\obj\x86\Debug\WindowsApplication_Content.g.cs
+C:\Money\obj\x86\Debug\WindowsApplication_MarkupCompile.cache
+C:\Money\obj\x86\Debug\WindowsApplication.g.resources

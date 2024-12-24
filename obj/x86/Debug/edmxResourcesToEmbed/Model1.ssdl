@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bdfinancaModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.3.5" ProviderManifestToken="3.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="bdfinancaModelStoreContainer">
+    <EntitySet Name="comprovantes" EntityType="bdfinancaModel.Store.comprovantes" store:Type="Tables" />
+    <EntitySet Name="contas" EntityType="bdfinancaModel.Store.contas" store:Type="Tables" />
+    <EntitySet Name="fornecedor" EntityType="bdfinancaModel.Store.fornecedor" store:Type="Tables" />
+    <EntitySet Name="parcelas" EntityType="bdfinancaModel.Store.parcelas" store:Type="Tables" />
+    <EntitySet Name="receitas" EntityType="bdfinancaModel.Store.receitas" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="bdfinancaModel.Store.usuario" store:Type="Tables" />
+    <AssociationSet Name="FK_IDCONTA" Association="bdfinancaModel.Store.FK_IDCONTA">
+      <End Role="contas" EntitySet="contas" />
+      <End Role="parcelas" EntitySet="parcelas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IDFORN" Association="bdfinancaModel.Store.FK_IDFORN">
+      <End Role="fornecedor" EntitySet="fornecedor" />
+      <End Role="contas" EntitySet="contas" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="comprovantes">
+    <Key>
+      <PropertyRef Name="idcomprovante" />
+    </Key>
+    <Property Name="idcomprovante" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="comprovante" Type="image" Nullable="false" />
+    <Property Name="descricao" Type="nvarchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="contas">
+    <Key>
+      <PropertyRef Name="idconta" />
+    </Key>
+    <Property Name="idconta" Type="int" Nullable="false" />
+    <Property Name="datacadastro" Type="datetime" Nullable="false" />
+    <Property Name="idfornecedor" Type="int" Nullable="false" />
+    <Property Name="descricao" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="fornecedor">
+    <Key>
+      <PropertyRef Name="idfornecedor" />
+    </Key>
+    <Property Name="idfornecedor" Type="int" Nullable="false" />
+    <Property Name="fornecedor" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="parcelas">
+    <Key>
+      <PropertyRef Name="idparcela" />
+    </Key>
+    <Property Name="idparcela" Type="int" Nullable="false" />
+    <Property Name="idconta" Type="int" Nullable="false" />
+    <Property Name="num_parcela" Type="nvarchar" MaxLength="1000" />
+    <Property Name="valor_parc" Type="real" />
+    <Property Name="datavenc" Type="datetime" />
+    <Property Name="datapgto" Type="datetime" />
+    <Property Name="pago" Type="bit" />
+  </EntityType>
+  <EntityType Name="receitas">
+    <Key>
+      <PropertyRef Name="idreceita" />
+    </Key>
+    <Property Name="idreceita" Type="int" Nullable="false" />
+    <Property Name="origem" Type="nvarchar" MaxLength="100" />
+    <Property Name="valor" Type="real" />
+    <Property Name="dtprevreceb" Type="datetime" />
+    <Property Name="status" Type="bit" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idusuario" Type="int" Nullable="false" />
+    <Property Name="usuario" Type="nvarchar" MaxLength="100" />
+    <Property Name="senha" Type="nvarchar" MaxLength="100" />
+    <Property Name="nivelacesso" Type="nvarchar" MaxLength="100" />
+    <Property Name="nome" Type="nvarchar" MaxLength="60" />
+    <Property Name="dtnascimento" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_IDCONTA">
+    <End Role="contas" Type="bdfinancaModel.Store.contas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="parcelas" Type="bdfinancaModel.Store.parcelas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="contas">
+        <PropertyRef Name="idconta" />
+      </Principal>
+      <Dependent Role="parcelas">
+        <PropertyRef Name="idconta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IDFORN">
+    <End Role="fornecedor" Type="bdfinancaModel.Store.fornecedor" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="contas" Type="bdfinancaModel.Store.contas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fornecedor">
+        <PropertyRef Name="idfornecedor" />
+      </Principal>
+      <Dependent Role="contas">
+        <PropertyRef Name="idfornecedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

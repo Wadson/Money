@@ -1,0 +1,232 @@
+*cliente*
+id_cliente
+nome_cliente
+dtcadastro_cliente
+fone_cliente
+endereco_cliente
+bairro_cliente
+cidade_cliente
+estado_cliente
+
+id_cliente, nome_cliente, dtcadastro_cliente, fone_cliente, endereco_cliente, bairro_cliente, cidade_cliente, estado_cliente
+"@id_Cliente", 
+"@nome_Cliente", 
+"@dtCadastro_Cliente", 
+"@fone_Cliente", 
+"@endereco_Cliente", 
+"@bairro_Cliente", 
+"@cidade_Cliente", 
+"@estado_Cliente",
+
+
+**----------------categoria----------------------------------------------
+
+id_categoria
+nome_categoria
+
+id_categoria, nome_categoria
+"@id_categoria",
+"@nome_categoria",
+
+**------------------ subcategoria -------------------------------------------
+
+id_subcategoria
+nome_subcategoria
+id_categoria
+
+"@id_Subcategoria",
+"@nome_Subcategoria",
+"@id_Categoria",
+
+id_subcategoria = @id_Subcategoria, nome_subcategoria = @nome_Subcategoria, id_categoria = @id_Categoria,
+
+**----------------- contas_a_pagar ------------------------------------------
+
+id_contasapagar
+dt_cadastro
+id_fornecedor
+id_categoria
+id_subcategoria
+id_formapgto
+descricao_conta
+
+"@id_Contasapagar",
+"@dt_Cadastro",
+"@id_Cornecedor",
+"@id_Categoria",
+"@id_Subcategoria",
+"@id_Formapgto",
+"@descricao_Conta",
+
+id_contasapagar = @id_Contasapagar, dt_cadastro = @dt_Cadastro, id_fornecedor = @id_Cornecedor, id_categoria = @id_Categoria, id_subcategoria = @id_Subcategoria, id_formapgto = @id_Formapgto, descricao_conta = @descricao_Conta 
+
+**----------------- contasreceber ------------------------------------------
+
+id_contasreceber
+id_parcela
+valor_parcela
+id_formapgto
+
+id_contasreceber, id_parcela, valor_parcela, id_formapgto 
+
+"@id_Contasreceber",
+"@id_Parcela",
+"@valor_Parcela",
+"@id_Formapgto",
+
+@id_Contasreceber, @id_Parcela, @valor_Parcela, @id_Formapgto,
+
+id_contasreceber = @id_Contasreceber, id_parcela = @id_Parcela, valor_parcela = @valor_Parcela, id_formapgto = @id_Formapgto, 
+
+**----------------- formapgto ------------------------------------------
+
+id_formapgto
+formapgto
+
+"@id_Formapgto",
+"@Formapgto",
+
+id_formapgto = @id_Formapgto, formapgto = @Formapgto
+
+**----------------- itensvenda ------------------------------------------
+
+id_itensvenda
+id_produto
+qtd_produto
+valor_produto
+id_venda
+
+id_itensvenda, id_produto, qtd_produto, valor_produto, id_venda
+@id_Itensvenda, @id_Produto, @qtd_Produto, @valor_Produto, @id_Venda
+
+"@id_Itensvenda",
+"@id_Produto",
+"@qtd_Produto",
+"@valor_Produto",
+
+id_itensvenda = @id_Itensvenda, id_produto = @id_Produto, qtd_produto = @qtd_Produto, valor_produto = @valor_Produto, id_venda = @id_Venda
+
+**----------------- parcelas ------------------------------------------
+
+
+id_parcela
+valor_parcela
+num_parcela
+dt_vcto_parcela
+id_venda
+
+
+id_parcela, valor_parcela, num_parcela, dt_vcto_parcela, status_parcela, id_venda
+
+@id_Parcela, @valor_Parcela, @num_Parcela, @dt_Vcto_Parcela, @status_Parcela, @id_Venda
+
+"@id_Parcela",
+"@valor_Parcela",
+"@num_Parcela",
+"@dt_vcto_Parcela",
+"@id_venda",
+
+INSERT INTO parcelas (id_parcela, valor_parcela, num_parcela, dt_vcto_parcela, status_parcela) VALUES()
+
+id_parcela = @id_Parcela, valor_parcela = @valor_Parcela, num_parcela = @num_Parcela, dt_vcto_parcela = @dt_vcto_Parcela, status_parcela = @status_Parcela,
+
+**----------------- produto ------------------------------------------
+
+id_produto
+nome_produto
+descricao_produto
+marca_produto
+precocusto_produto
+lucro_produto
+precovenda_produto
+
+INSERT INTO produto (id_produto, nome_produto, descricao_produto, marca_produto, precocusto_produto, lucro_produto, precovenda_produto) VALUES ()
+
+"@id_Produto",
+"@nome_Produto",
+"@descricao_Produto",
+"@marca_Produto",
+"@precocusto_Produto",
+"@lucro_Produto",
+"@precovenda_Produto",
+
+id_produto  = @id_Produto, nome_produto = @nome_Produto, descricao_produto = @descricao_Produto, marca_produto = @marca_Produto, precocusto_produto = @precocusto_Produto, lucro_produto = @lucro_Produto, precovenda_produto = @precovenda_Produto, 
+
+
+**----------------- registropagamento ------------------------------------------
+ 
+id_pagamento
+id_contasreceber
+id_formapgto
+valor_pgto
+dt_pgto
+
+id_pagamento, id_contasreceber, id_formapgto, valor_pgto, dt_pgto
+
+"@id_Pagamento",
+"@id_Contasreceber",
+"@id_Formapgto",
+"@valor_Pgto",
+"@dt_pgto",
+
+id_pagamento = @id_Pagamento, id_contasreceber = @id_Contasreceber, id_formapgto = @id_Formapgto, valor_pgto = @valor_Pgto, dt_pgto = @dt_pgto,
+@id_Pagamento, @id_Contasreceber, @id_Formapgto, @valor_Pgto, @dt_pgto,
+
+**----------------- usuario  *CLASSES OK*------------------------------------------
+
+id_usuario
+nome_usuario
+senha_usuario
+nivelacesso_usuario
+user_usuario
+email_usuario
+dt_nascimento
+
+id_usuario, nome_usuario, senha_usuario, nivelacesso_usuario, user_usuario, email_usuario, dt_nascimento,
+
+"@id_Usuario",
+"@nome_Usuario",
+"@senha_Usuario",
+"@nivelacesso_Usuario",
+"@user_Usuario",
+"@email_Usuario",
+"@dt_Nascimento",
+
+id_usuario = @id_Usuario, nome_usuario = @nome_Usuario, senha_usuario = @senha_Usuario, nivelacesso_usuario = @nivelacesso_Usuario, user_usuario = @user_Usuario, email_usuario = @email_Usuario, dt_nascimento = @dt_Nascimento,
+
+**----------------- venda CLASSES OK------------------------------------------
+
+id_venda
+dt_venda
+id_cliente
+id_itensvenda
+
+
+id_venda, dt_venda, id_cliente, id_itensvenda, status_venda
+
+"@id_Venda",
+"@dt_Venda",
+"@id_Cliente",
+"@id_Itensvenda",
+"@status_Venda",
+
+@id_Venda, @dt_Venda, @id_Cliente, @id_Itensvenda, @status_Venda 
+id_venda = @id_Venda, dt_venda = @dt_Venda, id_cliente = @id_Cliente, id_itensvenda = @id_Itensvenda, status_venda = @status_Venda
+
+**----------------- fornecedor  CLASSES OK------------------------------------------
+
+id_fornecedor
+nome_fornecedor
+endere_fornecedor
+
+id_fornecedor, nome_fornecedor, endere_fornecedor,
+
+"@id_fornecedor",
+"@nome_fornecedor",
+"@endere_fornecedor",
+
+id_fornecedor = @id_fornecedor, nome_fornecedor = @nome_fornecedor, endere_fornecedor = @endere_fornecedor,
+
+
+
+

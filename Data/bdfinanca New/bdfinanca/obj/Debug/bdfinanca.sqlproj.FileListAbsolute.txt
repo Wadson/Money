@@ -1,0 +1,10 @@
+D:\Money\Data\bdfinanca New\bdfinanca\bin\Debug\bdfinanca.dacpac
+D:\Money\Data\bdfinanca New\bdfinanca\bin\Debug\bdfinanca.dll
+D:\Money\Data\bdfinanca New\bdfinanca\bin\Debug\bdfinanca.pdb
+D:\Money\Data\bdfinanca New\bdfinanca\obj\Debug\bdfinanca.sqlproj.AssemblyReference.cache
+D:\Money\Data\bdfinanca New\bdfinanca\obj\Debug\Model.xml
+D:\Money\Data\bdfinanca New\bdfinanca\obj\Debug\refactor.xml
+D:\Money\Data\bdfinanca New\bdfinanca\obj\Debug\postdeploy.sql
+D:\Money\Data\bdfinanca New\bdfinanca\obj\Debug\predeploy.sql
+D:\Money\Data\bdfinanca New\bdfinanca\obj\Debug\bdfinanca.dll
+D:\Money\Data\bdfinanca New\bdfinanca\obj\Debug\bdfinanca.pdb

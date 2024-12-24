@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="Model1Container1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="parcelasSet" EntityType="Model1.parcelas" />
+    <EntitySet Name="fornecedor" EntityType="Model1.fornecedo" />
+    <EntitySet Name="usuarioSet" EntityType="Model1.usuario" />
+    <AssociationSet Name="contasparcelas" Association="Model1.contasparcelas">
+      <End Role="contas" EntitySet="contasSet" />
+      <End Role="parcelas" EntitySet="parcelasSet" />
+    </AssociationSet>
+    <AssociationSet Name="fornrecedorcontas" Association="Model1.fornrecedorcontas">
+      <End Role="fornrecedor" EntitySet="fornecedor" />
+      <End Role="contas" EntitySet="contasSet" />
+    </AssociationSet>
+    <EntitySet Name="centrocustoSet" EntityType="Model1.centrocusto" />
+    <EntitySet Name="contasSet" EntityType="Model1.contas" />
+  </EntityContainer>
+  <EntityType Name="contas">
+    <Key>
+      <PropertyRef Name="idconta" />
+    </Key>
+    <Property Type="Int32" Name="idconta" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="datacadastro" Nullable="false" />
+    <Property Type="Int32" Name="idfornecedor" Nullable="false" />
+    <Property Type="String" Name="descricao" Nullable="false" />
+    <NavigationProperty Name="parcelas" Relationship="Model1.contasparcelas" FromRole="contas" ToRole="parcelas" />
+    <NavigationProperty Name="fornrecedor" Relationship="Model1.fornrecedorcontas" FromRole="contas" ToRole="fornrecedor" />
+  </EntityType>
+  <EntityType Name="parcelas">
+    <Key>
+      <PropertyRef Name="idparcelas" />
+    </Key>
+    <Property Type="Int32" Name="idparcelas" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="idconta" Nullable="false" />
+    <Property Type="String" Name="num_parcela" Nullable="false" />
+    <Property Type="Double" Name="valor_parc" Nullable="false" />
+    <Property Type="DateTime" Name="datavenc" Nullable="false" />
+    <Property Type="DateTime" Name="datapgto" Nullable="false" />
+    <Property Type="Byte" Name="pago" Nullable="false" />
+    <NavigationProperty Name="contas" Relationship="Model1.contasparcelas" FromRole="parcelas" ToRole="contas" />
+  </EntityType>
+  <EntityType Name="fornecedo">
+    <Key>
+      <PropertyRef Name="idfornecedor" />
+    </Key>
+    <Property Type="Int32" Name="idfornecedor" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="fornecedor" Nullable="false" />
+    <NavigationProperty Name="contas" Relationship="Model1.fornrecedorcontas" FromRole="fornrecedor" ToRole="contas" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Type="Int32" Name="idusuario" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="usuari" Nullable="false" />
+    <Property Type="String" Name="senha" Nullable="false" />
+    <Property Type="String" Name="nivelacesso" Nullable="false" />
+    <Property Type="String" Name="nome" Nullable="false" />
+    <Property Type="String" Name="dtnascimento" Nullable="false" />
+  </EntityType>
+  <Association Name="contasparcelas">
+    <End Type="Model1.contas" Role="contas" Multiplicity="1" />
+    <End Type="Model1.parcelas" Role="parcelas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="contas">
+        <PropertyRef Name="idconta" />
+      </Principal>
+      <Dependent Role="parcelas">
+        <PropertyRef Name="idconta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fornrecedorcontas">
+    <End Type="Model1.fornecedo" Role="fornrecedor" Multiplicity="1" />
+    <End Type="Model1.contas" Role="contas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fornrecedor">
+        <PropertyRef Name="idfornecedor" />
+      </Principal>
+      <Dependent Role="contas">
+        <PropertyRef Name="idfornecedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="centrocusto">
+    <Key>
+      <PropertyRef Name="idcentrocusto" />
+    </Key>
+    <Property Type="Int32" Name="idcentrocusto" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="nomecentrocusto" Nullable="false" />
+  </EntityType>
+</Schema>

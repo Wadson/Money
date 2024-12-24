@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Money\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ED69A52C-6D07-4A98-8BB5-C4AC135C88B1}|MoneyNey.csproj|c:\\money\\frmpesquisagrupo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ED69A52C-6D07-4A98-8BB5-C4AC135C88B1}|MoneyNey.csproj|solutionrelative:frmpesquisagrupo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED69A52C-6D07-4A98-8BB5-C4AC135C88B1}|MoneyNey.csproj|C:\\Money\\frmpesquisausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ED69A52C-6D07-4A98-8BB5-C4AC135C88B1}|MoneyNey.csproj|solutionrelative:frmpesquisausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|MoneyNey||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FrmPesquisaGrupo.cs [Design]",
+              "DocumentMoniker": "C:\\Money\\FrmPesquisaGrupo.cs",
+              "RelativeDocumentMoniker": "FrmPesquisaGrupo.cs",
+              "ToolTip": "C:\\Money\\FrmPesquisaGrupo.cs [Design]",
+              "RelativeToolTip": "FrmPesquisaGrupo.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-03T01:51:27.474Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FrmPesquisaUsuario.cs [Design]",
+              "DocumentMoniker": "C:\\Money\\FrmPesquisaUsuario.cs",
+              "RelativeDocumentMoniker": "FrmPesquisaUsuario.cs",
+              "ToolTip": "C:\\Money\\FrmPesquisaUsuario.cs [Design]",
+              "RelativeToolTip": "FrmPesquisaUsuario.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-03T01:48:02.941Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MoneyNey",
+              "DocumentMoniker": "C:\\Money\\MoneyNey.csproj",
+              "RelativeDocumentMoniker": "MoneyNey.csproj",
+              "ToolTip": "C:\\Money\\MoneyNey.csproj",
+              "RelativeToolTip": "MoneyNey.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-12-03T01:38:13.903Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
