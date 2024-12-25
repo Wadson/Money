@@ -69,6 +69,8 @@ namespace Money
         public void salvarcontasreceber(ContasReceberMODEL conta)
         {
             var conn = Conexao.Conex();
+
+
             try
             {
                 SqlCommand sql = new SqlCommand("INSERT INTO contasreceber (id_contasreceber, id_parcela, valor_parcela, id_formapgto, status_conta ) "+

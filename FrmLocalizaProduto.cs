@@ -60,7 +60,7 @@ namespace Money
                 ((FrmVendas)Application.OpenForms["FrmVendas"]).IdProduto = Convert.ToInt32(dataGridPesquisa[0, linhaAtual].Value);
                 ((FrmVendas)Application.OpenForms["FrmVendas"]).txtProduto.Text = dataGridPesquisa[1, linhaAtual].Value.ToString();
                 ((FrmVendas)Application.OpenForms["FrmVendas"]).txtValorProduto.Text = dataGridPesquisa[2, linhaAtual].Value.ToString();
-                ((FrmVendas)Application.OpenForms["FrmVendas"]).txtQuantidade.Select();
+                ((FrmVendas)Application.OpenForms["FrmVendas"]).txtQuantidade.Focus();
             }
         }
        

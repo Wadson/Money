@@ -36,7 +36,7 @@ namespace Money
             }
         }
 
-        public void SalvarRegistro(ItensVendaMODEL itensvenda)
+        public void SalvarItensVenda(ItensVendaMODEL itensvenda)
         {
             var conn = Conexao.Conex();
 

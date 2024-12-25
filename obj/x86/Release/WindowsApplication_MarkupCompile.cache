@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-D:\Money\obj\x86\Debug\
+D:\Money\obj\x86\Release\
 MoneyNey
 none
 false
-DEBUG;TRACE
+TRACE
 
 1432279033
 163-1282667857

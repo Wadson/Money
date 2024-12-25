@@ -28,12 +28,11 @@ namespace Money
         }
 
         public void SalvarItensVenda(ItensVendaMODEL itensvenda)
-        {
-            itensvendasdall = new ItensVendaDAL();
-            itensvendasdall.SalvarRegistro(itensvenda);
+        {            
             try
             {
-                
+                itensvendasdall = new ItensVendaDAL();
+                itensvendasdall.SalvarItensVenda(itensvenda);
             }
             catch (Exception erro)
             {
