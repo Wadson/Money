@@ -15,12 +15,22 @@ namespace Money
             try
             {
                 //NOTEOBOOK
-                //string conn = "Data Source=NOTEBOOK-DELL\\SQLEXPRESS;Initial Catalog=bdmoney;Integrated Security=True;";
+                var nomeComputador = Environment.MachineName;
 
-                // DESKTOP
-                string conn = "Data Source=DESKTOP-WR\\SQLEXPRESS;Initial Catalog=bdmoney;Integrated Security=True;";
-                SqlConnection myConn = new SqlConnection(conn);
-                return myConn;   
+                if (nomeComputador == "NOTEBOOK-DELL")
+                {
+                    string conn = "Data Source=" + nomeComputador +"\\SQLEXPRESS;Initial Catalog=bdmoney;Integrated Security=True;";
+                    SqlConnection myConn = new SqlConnection(conn);
+                    return myConn;
+                }
+                else
+                {
+                    string conn = "Data Source=" + nomeComputador + "\\SQLEXPRESS;Initial Catalog=bdmoney;Integrated Security=True;";
+                    SqlConnection myConn = new SqlConnection(conn);
+                    return myConn;
+                }
+                
+                  
             }
             catch (SqlException  ex) // SqlException
             {

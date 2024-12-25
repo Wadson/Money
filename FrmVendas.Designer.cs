@@ -85,6 +85,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnLocalizarCliente = new System.Windows.Forms.Button();
             this.txtComboBoxNeg = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblEstação = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVendas)).BeginInit();
@@ -736,10 +738,36 @@
             this.txtComboBoxNeg.Size = new System.Drawing.Size(327, 22);
             this.txtComboBoxNeg.TabIndex = 543;
             // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 14.25F);
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(8, 518);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(89, 22);
+            this.label10.TabIndex = 472;
+            this.label10.Text = "Estação:";
+            // 
+            // lblEstação
+            // 
+            this.lblEstação.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblEstação.AutoSize = true;
+            this.lblEstação.Font = new System.Drawing.Font("Century Gothic", 14.25F);
+            this.lblEstação.ForeColor = System.Drawing.Color.White;
+            this.lblEstação.Location = new System.Drawing.Point(100, 518);
+            this.lblEstação.Name = "lblEstação";
+            this.lblEstação.Size = new System.Drawing.Size(89, 22);
+            this.lblEstação.TabIndex = 544;
+            this.lblEstação.Text = "Estação:";
+            // 
             // FrmVendas
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(957, 545);
+            this.Controls.Add(this.lblEstação);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.txtComboBoxNeg);
             this.Controls.Add(this.btnLocalizarCliente);
             this.Controls.Add(this.groupBox1);
@@ -778,6 +806,8 @@
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.btnLocalizarCliente, 0);
             this.Controls.SetChildIndex(this.txtComboBoxNeg, 0);
+            this.Controls.SetChildIndex(this.label10, 0);
+            this.Controls.SetChildIndex(this.lblEstação, 0);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -840,5 +870,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CódigoProdut;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_venda;
         public System.Windows.Forms.TextBox txtComboBoxNeg;
+        private System.Windows.Forms.Label lblEstação;
+        private System.Windows.Forms.Label label10;
     }
 }

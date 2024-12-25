@@ -132,6 +132,11 @@ namespace Money
        
         private void FrmCadastroContas_Load(object sender, EventArgs e)
         {
+
+            //Console.WriteLine();
+            var nomeComputador = Environment.MachineName;
+            lblEstação.Text = nomeComputador;
+
             preencherComboBoxT(cmbForma_Pgto, "SELECT * FROM formapgto", "id_formapgto", "formapgto");
             
             IdFormaPgto = Convert.ToInt32(cmbForma_Pgto.SelectedValue);
