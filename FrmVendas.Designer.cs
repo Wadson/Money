@@ -53,7 +53,7 @@
             this.nome_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qtd_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valor_parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dt_vencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_venda = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,15 +87,24 @@
             this.radioButtonNao = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnLocalizarCliente = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblEstação = new System.Windows.Forms.Label();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblEstação = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblData = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblHoraAtual = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVendas)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -237,7 +246,7 @@
             this.nome_produto,
             this.qtd_produto,
             this.valor_parcela,
-            this.subtotal,
+            this.total,
             this.dt_vencimento,
             this.id_produto,
             this.id_venda,
@@ -312,17 +321,18 @@
             this.valor_parcela.ReadOnly = true;
             this.valor_parcela.Width = 104;
             // 
-            // subtotal
+            // total
             // 
-            this.subtotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.total.DataPropertyName = "total";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subtotal.DefaultCellStyle = dataGridViewCellStyle5;
-            this.subtotal.DividerWidth = 1;
-            this.subtotal.HeaderText = "ValorTotal";
-            this.subtotal.Name = "subtotal";
-            this.subtotal.ReadOnly = true;
-            this.subtotal.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.total.DefaultCellStyle = dataGridViewCellStyle5;
+            this.total.DividerWidth = 1;
+            this.total.HeaderText = "ValorTotal";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // dt_vencimento
             // 
@@ -763,30 +773,6 @@
             this.btnLocalizarCliente.UseVisualStyleBackColor = false;
             this.btnLocalizarCliente.Click += new System.EventHandler(this.btnLocalizarCliente_Click_1);
             // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 14.25F);
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(-74, 518);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(89, 22);
-            this.label10.TabIndex = 472;
-            this.label10.Text = "Estação:";
-            // 
-            // lblEstação
-            // 
-            this.lblEstação.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblEstação.AutoSize = true;
-            this.lblEstação.Font = new System.Drawing.Font("Century Gothic", 14.25F);
-            this.lblEstação.ForeColor = System.Drawing.Color.White;
-            this.lblEstação.Location = new System.Drawing.Point(18, 518);
-            this.lblEstação.Name = "lblEstação";
-            this.lblEstação.Size = new System.Drawing.Size(89, 22);
-            this.lblEstação.TabIndex = 544;
-            this.lblEstação.Text = "Estação:";
-            // 
             // btnNovo
             // 
             this.btnNovo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
@@ -804,13 +790,91 @@
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel2,
+            this.lblEstação,
+            this.toolStripStatusLabel6,
+            this.toolStripStatusLabel5,
+            this.lblData,
+            this.toolStripStatusLabel4,
+            this.lblHoraAtual});
+            this.statusStrip1.Location = new System.Drawing.Point(2, 521);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(788, 22);
+            this.statusStrip1.TabIndex = 546;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(88, 17);
+            this.toolStripStatusLabel1.Text = "Nome do Host:";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel2.Text = ":";
+            // 
+            // lblEstação
+            // 
+            this.lblEstação.BackColor = System.Drawing.SystemColors.Control;
+            this.lblEstação.Name = "lblEstação";
+            this.lblEstação.Size = new System.Drawing.Size(12, 17);
+            this.lblEstação.Text = "-";
+            // 
+            // toolStripStatusLabel6
+            // 
+            this.toolStripStatusLabel6.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
+            this.toolStripStatusLabel6.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel6.Text = "|";
+            // 
+            // toolStripStatusLabel5
+            // 
+            this.toolStripStatusLabel5.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(34, 17);
+            this.toolStripStatusLabel5.Text = "Data:";
+            // 
+            // lblData
+            // 
+            this.lblData.BackColor = System.Drawing.SystemColors.Control;
+            this.lblData.Name = "lblData";
+            this.lblData.Size = new System.Drawing.Size(12, 17);
+            this.lblData.Text = "-";
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel4.Text = "|";
+            // 
+            // lblHoraAtual
+            // 
+            this.lblHoraAtual.BackColor = System.Drawing.SystemColors.Control;
+            this.lblHoraAtual.Name = "lblHoraAtual";
+            this.lblHoraAtual.Size = new System.Drawing.Size(12, 17);
+            this.lblHoraAtual.Text = "-";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // FrmVendas
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(792, 545);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnNovo);
-            this.Controls.Add(this.lblEstação);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.btnLocalizarCliente);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnFechar);
@@ -847,9 +911,8 @@
             this.Controls.SetChildIndex(this.btnFechar, 0);
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.btnLocalizarCliente, 0);
-            this.Controls.SetChildIndex(this.label10, 0);
-            this.Controls.SetChildIndex(this.lblEstação, 0);
             this.Controls.SetChildIndex(this.btnNovo, 0);
+            this.Controls.SetChildIndex(this.statusStrip1, 0);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -860,6 +923,8 @@
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -903,14 +968,22 @@
         public System.Windows.Forms.TextBox txtIdProduto;
         private System.Windows.Forms.Button btnLocalizarCliente;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblEstação;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel lblEstação;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
+        private System.Windows.Forms.ToolStripStatusLabel lblData;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+        private System.Windows.Forms.ToolStripStatusLabel lblHoraAtual;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
+        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_itensvenda;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome_produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn qtd_produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn valor_parcela;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private System.Windows.Forms.DataGridViewTextBoxColumn dt_vencimento;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_venda;

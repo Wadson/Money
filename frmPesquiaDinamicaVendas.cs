@@ -72,10 +72,10 @@ namespace Money
         private void frmPesquiaDinamicaVendas_Load(object sender, EventArgs e)
         {
             CarregarDataGrid(sqlListaCliente,dataGridCliente);
-            CarregarDataGrid(sqlListaContas, dataGridVendas);
-            CarregarDataGrid(sqlListaItensVenda, dataGridItensVenda);
-            CarregarDataGrid(sqllistaParcelas, dataGridParcelas);
-            CarregarDataGrid(sqlListaContasReceber, dataGridContasReceber);
+            //CarregarDataGrid(sqlListaContas, dataGridVendas);
+            //CarregarDataGrid(sqlListaItensVenda, dataGridItensVenda);
+            //CarregarDataGrid(sqllistaParcelas, dataGridParcelas);
+            //CarregarDataGrid(sqlListaContasReceber, dataGridContasReceber);
 
             ContaRegistros(dataGridCliente, lblContaCliente);
             ContaRegistros(dataGridVendas, lblContaVendas);
@@ -91,21 +91,17 @@ namespace Money
        
         private void dataGridCliente_SelectionChanged(object sender, EventArgs e)
         {
-            linhaAtual = dataGridCliente.CurrentRow.Index;
+            
 
             if (dataGridCliente.DataSource != null)
             {
-                try
-                {
-                    IDCliente = Convert.ToInt32(dataGridCliente.Rows[linhaAtual].Cells[0].Value);
-                    Cliente = dataGridCliente.Rows[linhaAtual].Cells[1].Value.ToString();
+                linhaAtual = dataGridCliente.CurrentRow.Index;
 
-                    SqlString = "SELECT id_venda, dt_venda FROM venda WHERE id_cliente LIKE  '" + IDCliente + "'";
-                    CarregarDataGrid(SqlString, dataGridVendas);
-                }
-                catch
-                {
-                }
+                IDCliente = Convert.ToInt32(dataGridCliente.Rows[linhaAtual].Cells["id_cliente"].Value);
+                Cliente = dataGridCliente.Rows[linhaAtual].Cells["nome_cliente"].Value.ToString();
+
+                SqlString = "SELECT id_venda, dt_venda FROM venda WHERE id_cliente LIKE  '" + IDCliente + "'";
+                CarregarDataGrid(SqlString, dataGridVendas);
             }
             else
             {
@@ -136,9 +132,10 @@ namespace Money
             {
                 try
                 {
-                    Id_Venda = Convert.ToInt32(dataGridVendas.Rows[linhaAtual].Cells[0].Value);
+                    Id_Venda = Convert.ToInt32(dataGridVendas.Rows[linhaAtual].Cells["id_venda"].Value);
 
                     SqlString = "SELECT * FROM itensvenda WHERE id_venda LIKE  '" + Id_Venda + "'";
+
                     CarregarDataGrid(SqlString, dataGridItensVenda);
                 }
                 catch
@@ -194,20 +191,15 @@ namespace Money
 
         private void dataGridParcelas_SelectionChanged(object sender, EventArgs e)
         {
-            linhaAtual = dataGridParcelas.CurrentRow.Index;
 
             if (dataGridParcelas.DataSource != null)
             {
-                try
-                {
-                    Id_Venda = Convert.ToInt32(dataGridParcelas.Rows[linhaAtual].Cells[4].Value);
+                linhaAtual = dataGridParcelas.CurrentRow.Index;
 
-                    SqlString = "SELECT * FROM contasreceber WHERE id_venda LIKE  '" + Id_Venda + "'";
-                    CarregarDataGrid(SqlString, dataGridContasReceber);
-                }
-                catch
-                {
-                }
+                Id_Venda = Convert.ToInt32(dataGridParcelas.Rows[linhaAtual].Cells["id_venda"].Value);
+
+                SqlString = "SELECT * FROM contasreceber WHERE id_venda LIKE  '" + Id_Venda + "'";
+                CarregarDataGrid(SqlString, dataGridContasReceber);
             }
             else
             {               
@@ -229,7 +221,7 @@ namespace Money
                 if (result == DialogResult.Yes)
                 {                    
                     ClienteMODEL clienteModel = new ClienteMODEL();
-                    clienteModel.Id_cliente = IDCliente;
+                    clienteModel.Id_cliente = Convert.ToInt32(dataGridParcelas.Rows[linhaAtual].Cells["id_cliente"].Value);
 
                     ClienteBLL clienteBLL = new ClienteBLL();
                     clienteBLL.Excluir(clienteModel);
@@ -247,11 +239,11 @@ namespace Money
         {
             try
             {
-                DialogResult result = MessageBox.Show("Deseja realmente Excluir esse cliente?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Deseja realmente Excluir a Venda Selecionada?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     VendaMODEL vendaModel = new VendaMODEL();
-                    vendaModel.Id_venda = Id_Venda;
+                    vendaModel.Id_venda = Convert.ToInt32(dataGridParcelas.Rows[linhaAtual].Cells["id_venda"].Value);
 
                     VendaBLL vendaBLL = new VendaBLL();
                     vendaBLL.ExcluirVenda(vendaModel);
@@ -272,7 +264,7 @@ namespace Money
                 if (result == DialogResult.Yes)
                 {
                     ItensVendaMODEL itensvendaModel = new ItensVendaMODEL();
-                    itensvendaModel.Id_itensvenda = Id_Itensvenda;
+                    itensvendaModel.Id_itensvenda = Convert.ToInt32(dataGridParcelas.Rows[linhaAtual].Cells["id_itensvenda"].Value);
 
                     ItensVendaBLL itensVendaBll = new ItensVendaBLL();
                     itensVendaBll.ExcluirItensVenda(itensvendaModel);
@@ -294,7 +286,7 @@ namespace Money
                 if (result == DialogResult.Yes)
                 {
                     VendaMODEL vendaModel = new VendaMODEL();
-                    vendaModel.Id_venda = Id_Venda;
+                    vendaModel.Id_venda = Convert.ToInt32(dataGridParcelas.Rows[linhaAtual].Cells["id_venda"].Value);
 
                     VendaBLL vendaBLL = new VendaBLL();
                     vendaBLL.ExcluirVenda(vendaModel);
@@ -352,7 +344,26 @@ namespace Money
 
         private void btnExcluirContaReceber_Click(object sender, EventArgs e)
         {
-            ExcluirContasReceber_Selecionados();
+            
+
+            if (dataGridParcelas.DataSource != null)
+            {
+                linhaAtual = dataGridParcelas.CurrentRow.Index;
+
+                try
+                {
+                    ContasReceberMODEL contasreceberMODEL = new ContasReceberMODEL();
+                    contasreceberMODEL.Id_contasreceber =  Convert.ToInt32(dataGridParcelas.Rows[linhaAtual].Cells["id_contasreceber"].Value);
+
+                    ContasReceberBLL contasreceberbll = new ContasReceberBLL();
+                    contasreceberbll.exclui_ContaReceber(contasreceberMODEL);
+
+                    CarregarDataGrid(SqlString, dataGridContasReceber);
+                }
+                catch
+                {
+                }
+            }
         }
     }
 }

@@ -127,25 +127,28 @@ namespace Money
             Id_Itensvenda = RetornaCodigoContaMaisUm(QueryItensVenda);
             Id_ContasReceber = RetornaCodigoContaMaisUm(QueryContasReceber);
             txtIdVenda.Text = RetornaCodigoContaMaisUm(QueryVendas).ToString();
-            Id_Parcela = RetornaCodigoContaMaisUm(QueryParcela);            
+            Id_Parcela = RetornaCodigoContaMaisUm(QueryParcela);                 
         }
        
         private void FrmCadastroContas_Load(object sender, EventArgs e)
         {
-            txtIdVenda.Text = RetornaCodigoContaMaisUm(QueryVendas).ToString();
-            //Console.WriteLine();
-            AcrescenteZero_a_Esquerda2(txtIdVenda);
+            txtIdVenda.Text = RetornaCodigoContaMaisUm(QueryVendas).ToString();  
+                        
             var nomeComputador = Environment.MachineName;
             lblEstação.Text = nomeComputador;
+            lblData.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            lblHoraAtual.Text = DateTime.Now.ToString("HH:mm:ss");
+            //lblHoraAtual.Text = DateTime.UtcNow.ToString("HH:mm:ss");
 
             preencherComboBoxT(cmbForma_Pgto, "SELECT * FROM formapgto", "id_formapgto", "formapgto");
             
             IdFormaPgto = Convert.ToInt32(cmbForma_Pgto.SelectedValue);
             //txtIdFormaPgto.Text = (DataRowView)cmbFormaPgto.SelectedItem, DataRowView).Item("CompanyID");
-
+            
             if (StatusOperacao == "NOVO")
             {
                 NovoCodigo();
+                AcrescenteZero_a_Esquerda2(txtIdVenda);
                 txtNomeCliente.Select();
             }
             if (StatusOperacao == "ALTERAR")
@@ -318,19 +321,46 @@ namespace Money
 
             // fim da criação
 
-            string zeroColumn = Id_Itensvenda.ToString();
-            string primeiraColumn = txtProduto.Text;
-            string segundaColumn = txtQuantidade.Text;            
-            string terceiraColumn = txtTotal.Text;            
-            string quartaColumn = txtTotal.Text;
-            string quintaColumn = dtpVencimento.Text;
-            string sextaColumn = txtIdProduto.Text;//IdProduto.ToString();
-            string setimaColumn = txtIdVenda.Text;//Id_Venda.ToString();
-            string oitavaColumn = Id_Parcela.ToString();
-            string nonaColumn = txtValorProduto.Text;
+            //string zeroColumn = Id_Itensvenda.ToString();
+            //string primeiraColumn = txtProduto.Text;
+            //string segundaColumn = txtQuantidade.Text;            
+            //string terceiraColumn = txtTotal.Text;            
+            //string quintaColumn = dtpVencimento.Text;
 
-            string[] row = { zeroColumn, primeiraColumn, segundaColumn, terceiraColumn, quartaColumn, quintaColumn, sextaColumn, setimaColumn, oitavaColumn, nonaColumn };
-            dataGridVendas.Rows.Add(row);
+            //string sextaColumn = txtIdProduto.Text;//IdProduto.ToString();
+            //string setimaColumn = txtIdVenda.Text;//Id_Venda.ToString();
+            //string oitavaColumn = Id_Parcela.ToString();
+            //string nonaColumn = txtValorProduto.Text;
+
+            //ALTERAÇÃO WR
+            //DataTable dt = new DataTable();
+
+            dt.Columns.Add("id_itensvenda", typeof(int));
+            dt.Columns.Add("nome_produto", typeof(string));
+            dt.Columns.Add("qtd_produto", typeof(int));
+            dt.Columns.Add("valor_parcela", typeof(Decimal));
+            dt.Columns.Add("total", typeof(decimal));
+            dt.Columns.Add("dt_vcto_parcela", typeof(DateTime));
+            dt.Columns.Add("id_produto", typeof(int));
+            dt.Columns.Add("id_venda", typeof(int));
+           dt.Columns.Add("id_parcela", typeof(int));            
+            dt.Columns.Add("valor_produto", typeof(Decimal));
+            
+
+            for (var i = 0; i < Id_Parcela; i++)
+            {
+                dt.Rows.Add(Id_Itensvenda, txtProduto.Text, txtTotal.Text, dtpVencimento.Text, txtIdProduto.Text, txtIdVenda.Text, Id_Parcela++, txtQuantidade.Text, txtValorProduto.Text);
+            }
+            dataGridVendas.DataSource = dt;
+            //if (dataGridVendas.RowCount != 0)
+            //{
+            //    foreach (DataGridViewRow row in dataGridVendas.Rows)
+            //    {
+            //        row.Height = 15;
+            //    }
+            //}
+            //*****FIM
+
 
             foreach (DataGridViewRow Row in dataGridVendas.Rows)
             {
@@ -456,9 +486,6 @@ namespace Money
         }
         public void SalvarContasReceber()
         {
-            Id_Parcela = RetornaUltimoCodigoCadastrado(QueryParcela);
-            Id_ContasReceber = RetornaUltimoCodigoCadastrado(QueryContasReceber);   
-
             ContasReceberMODEL objoContaReceber = new ContasReceberMODEL();
             if (dataGridVendas.Rows.Count != 0)
             {
@@ -477,7 +504,7 @@ namespace Money
                     LimpaCampo();
                     dataGridVendas.Rows.Clear();
                     dataGridVendas.Refresh();
-                    NovoCodigo();
+                   
                     ((frmManutContasReceber)System.Windows.Forms.Application.OpenForms["frmManutContasReceber"]).HabilitarTimer(true);
                 }
                 catch (Exception erro)
@@ -683,7 +710,14 @@ namespace Money
             btnLocalizarCliente.Enabled = true;
             btnLocalizarProduto.Enabled = true;
             btnIncluir.Enabled = true;
-            txtIdVenda.Text = RetornaCodigoContaMaisUm(QueryVendas).ToString(); 
+            txtIdVenda.Text = RetornaCodigoContaMaisUm(QueryVendas).ToString();
+            NovoCodigo();
+            AcrescenteZero_a_Esquerda2(txtIdVenda);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblHoraAtual.Text = DateTime.Now.ToString("HH:mm:ss");
         }
     }
     public static class TextFormadoDinheiro

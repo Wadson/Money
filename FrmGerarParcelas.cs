@@ -66,7 +66,7 @@ namespace Money
                         dt.Rows.Add(Id_Parcela++, ValorParc, (i + 1), Dt_Vcto_Parc.AddDays((i) * dias), txtIdVenda.Text);
                     }
                 }
-                dataGrid_Parcelas.DataSource = dt; //implementado dia 13/05/2017 as 21:29 por Wadson R. Lima              
+                //dataGrid_Parcelas.DataSource = dt; //implementado dia 13/05/2017 as 21:29 por Wadson R. Lima              
 
             }
             if (dataGrid_Parcelas.RowCount != 0)
