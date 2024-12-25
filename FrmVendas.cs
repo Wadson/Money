@@ -226,14 +226,15 @@ namespace Money
 
             ToMoney(txtValorProduto);
             ToMoney(txtTotal);
+            txtQuantidade.Focus();
+            CalculaPrecoTotal();
         }
 
         private void txtPrecoVenda_Enter(object sender, EventArgs e)
         {
             txtValorProduto.BackColor = Color.Yellow;
         }
-        
-        private void txtQuantidade_Leave(object sender, EventArgs e)
+        private void CalculaPrecoTotal()
         {
             txtTotal.Text = txtTotal.Text;
 
@@ -245,15 +246,19 @@ namespace Money
                     int quantidade = int.Parse(txtQuantidade.Text);
                     decimal subtotal = precovenda * quantidade;
                     txtTotal.Text = subtotal.ToString();
-                    
+
                 }
-                
+
             }
-            catch(SqlException ex) 
+            catch (SqlException ex)
             {
-                MessageBox.Show("Atenção!", "Erro"+ ex,MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Atenção!", "Erro" + ex, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
+        }
+        private void txtQuantidade_Leave(object sender, EventArgs e)
+        {
+            CalculaPrecoTotal();
             
             txtQuantidade.BackColor = Color.White;
         }        
@@ -289,17 +294,20 @@ namespace Money
             DataTable dt = new DataTable();
             dt = (DataTable)dataGridVendas.DataSource;
             Id_Itensvenda = RetornaCodigoContaMaisUm(QueryItensVenda);
+            Id_Parcela  = RetornaCodigoContaMaisUm(QueryParcela);
 
             string zeroColumn = Id_Itensvenda.ToString();
             string primeiraColumn = txtProduto.Text;
             string segundaColumn = txtQuantidade.Text;            
-            string terceiraColumn = txtValorProduto.Text;            
+            string terceiraColumn = txtTotal.Text;            
             string quartaColumn = txtTotal.Text;
             string quintaColumn = dtpVencimento.Text;            
             string sextaColumn = IdProduto.ToString();
             string setimaColumn = txtIdVenda.Text;
+            string oitavaColumn = Id_Parcela.ToString();
+            string nonaColumn = txtValorProduto.Text;
 
-            string[] row = { zeroColumn, primeiraColumn, segundaColumn, terceiraColumn, quartaColumn, quintaColumn, sextaColumn, setimaColumn };
+            string[] row = { zeroColumn, primeiraColumn, segundaColumn, terceiraColumn, quartaColumn, quintaColumn, sextaColumn, setimaColumn, oitavaColumn, nonaColumn };
             dataGridVendas.Rows.Add(row);
 
             foreach (DataGridViewRow Row in dataGridVendas.Rows)
@@ -333,6 +341,11 @@ namespace Money
             {
                 IncluirItemNaGrid();
                 txtIdProduto.Text = "";
+                txtProduto.Text = "";
+                txtQuantidade.Text = "";
+                txtValorProduto.Text = "";
+                txtTotal.Text = "";
+                txtProduto.Focus();
             }
         }
         public void SalvarVenda()

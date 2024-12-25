@@ -34,7 +34,7 @@ namespace Money
         private int IdCliente;
             public int IDCliente { get; set; }
         public int Id_Itensvenda { get; set; }
-        
+        public int Id_Parcela { get; set; }
         public string StatusOperacao { get; set; }
         public string nome_FormaPgto { get; set; }
         public string Usuário { get; set; }
@@ -83,7 +83,6 @@ namespace Money
        
         public int Id_Venda { get; set; }
      
-        public int Id_Parcela { get; set; }
         public int Id_ContasReceber { get; set; }
         public int IdFornecedor { get; set; }
         public int IdProduto { get; set; }
