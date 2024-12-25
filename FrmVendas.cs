@@ -134,6 +134,7 @@ namespace Money
         {
             txtIdVenda.Text = RetornaCodigoContaMaisUm(QueryVendas).ToString();
             //Console.WriteLine();
+            AcrescenteZero_a_Esquerda2(txtIdVenda);
             var nomeComputador = Environment.MachineName;
             lblEstação.Text = nomeComputador;
 
@@ -218,6 +219,12 @@ namespace Money
                 text.Text = "0,00";
             }
         }
+        private void TirarZeroEsquerda(System.Windows.Forms.TextBox tx)
+        {
+            string valor = tx.Text;
+            string NovoValorSemZero = valor.TrimStart('0');
+            tx.Text = NovoValorSemZero;
+        }
         private void btnLocalizarProduto_Click(object sender, EventArgs e)
         {
             FrmLocalizaProduto localizaProduto = new FrmLocalizaProduto();
@@ -228,6 +235,7 @@ namespace Money
             ToMoney(txtTotal);
             txtQuantidade.Focus();
             CalculaPrecoTotal();
+            AcrescenteZero_a_Esquerda2(txtIdProduto);
         }
 
         private void txtPrecoVenda_Enter(object sender, EventArgs e)
@@ -296,14 +304,28 @@ namespace Money
             Id_Itensvenda = RetornaCodigoContaMaisUm(QueryItensVenda);
             Id_Parcela  = RetornaCodigoContaMaisUm(QueryParcela);
 
+
+            //Criado em 25/12/2024 tirar zero a esquerda
+            //string valor = txtIdVenda.Text;
+            //string NovoValorSemZeroIDVenda = valor.TrimStart('0');
+            string valorIDVenda = txtIdVenda.Text;
+            string NovoValorSemZeroIDVenda = valorIDVenda.TrimStart('0');
+            txtIdVenda.Text = NovoValorSemZeroIDVenda;
+
+            string valorIDproduto = txtIdProduto.Text;
+            string NovoValorSemZeroIDProduto = valorIDproduto.TrimStart('0');
+            txtIdProduto.Text = NovoValorSemZeroIDProduto;
+
+            // fim da criação
+
             string zeroColumn = Id_Itensvenda.ToString();
             string primeiraColumn = txtProduto.Text;
             string segundaColumn = txtQuantidade.Text;            
             string terceiraColumn = txtTotal.Text;            
             string quartaColumn = txtTotal.Text;
-            string quintaColumn = dtpVencimento.Text;            
-            string sextaColumn = IdProduto.ToString();
-            string setimaColumn = txtIdVenda.Text;
+            string quintaColumn = dtpVencimento.Text;
+            string sextaColumn = txtIdProduto.Text;//IdProduto.ToString();
+            string setimaColumn = txtIdVenda.Text;//Id_Venda.ToString();
             string oitavaColumn = Id_Parcela.ToString();
             string nonaColumn = txtValorProduto.Text;
 
@@ -339,6 +361,7 @@ namespace Money
         {
             if (IDCliente != 0 && IdProduto != 0)
             {
+                
                 IncluirItemNaGrid();
                 txtIdProduto.Text = "";
                 txtProduto.Text = "";
@@ -363,7 +386,7 @@ namespace Money
                     VendaBLL venda_bll = new VendaBLL();
 
                     venda_bll.SalvarVenda(objVenda);
-                    MessageBox.Show("VENDA gravada com sucesso!", "Informação!!!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    //MessageBox.Show("VENDA gravada com sucesso!", "Informação!!!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
                 
             }
@@ -380,21 +403,22 @@ namespace Money
             ItensVendaMODEL objItensVenda = new ItensVendaMODEL();
 
             if (dataGridVendas.Rows.Count != 0)
-            {
-                objItensVenda.Id_itensvenda = Id_Itensvenda;//Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_itensvenda"].Value);
-                objItensVenda.Qtd_produto = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["qtd_produto"].Value);
-                objItensVenda.Valor_produto = Convert.ToDouble(dataGridVendas.CurrentRow.Cells["valor_produto"].Value);
-                objItensVenda.Id_produto = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_produto"].Value);
-                //objItensVenda.Id_venda = //Convert.ToInt32(dataGridVendas.CurrentRow.Cells[7].Value);
-                objItensVenda.Id_venda = Id_Venda;
-                objItensVenda.Num_parcela = Convert.ToInt32(1);
-
-
-                ItensVendaBLL Itensvenda_bll = new ItensVendaBLL();
-                Itensvenda_bll.SalvarItensVenda(objItensVenda);
+            {                
                 try
                 {
-                    MessageBox.Show("Itens da Venda gravado com sucesso!", "Informação!!!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    objItensVenda.Id_itensvenda = Id_Itensvenda;//Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_itensvenda"].Value);
+                    objItensVenda.Qtd_produto = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["qtd_produto"].Value);
+                    objItensVenda.Valor_produto = Convert.ToDouble(dataGridVendas.CurrentRow.Cells["valor_produto"].Value);
+                    objItensVenda.Id_produto = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_produto"].Value);
+                    //objItensVenda.Id_venda = //Convert.ToInt32(dataGridVendas.CurrentRow.Cells[7].Value);
+                    objItensVenda.Id_venda = Id_Venda;
+                    objItensVenda.Num_parcela = Convert.ToInt32(1);
+
+
+                    ItensVendaBLL Itensvenda_bll = new ItensVendaBLL();
+                    Itensvenda_bll.SalvarItensVenda(objItensVenda);
+
+                    //MessageBox.Show("Itens da Venda gravado com sucesso!", "Informação!!!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
                 catch (Exception erro)
                 {
@@ -421,7 +445,7 @@ namespace Money
                     ParcelaBLL parcela_bll = new ParcelaBLL();
                     parcela_bll.Salvar_Parcelas(objoParcela);
 
-                    MessageBox.Show("Parcelas gravadas com sucesso!", "Informação!!!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);                   
+                    //MessageBox.Show("Parcelas gravadas com sucesso!", "Informação!!!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);                   
                 }
 
             }
@@ -433,6 +457,7 @@ namespace Money
         public void SalvarContasReceber()
         {
             Id_Parcela = RetornaUltimoCodigoCadastrado(QueryParcela);
+            Id_ContasReceber = RetornaUltimoCodigoCadastrado(QueryContasReceber);   
 
             ContasReceberMODEL objoContaReceber = new ContasReceberMODEL();
             if (dataGridVendas.Rows.Count != 0)
@@ -448,11 +473,12 @@ namespace Money
                     ContasReceberBLL parcela_bll = new ContasReceberBLL();
                     parcela_bll.GravaContasReceberDal(objoContaReceber);
 
-                    MessageBox.Show("Contas a Receber gravadas com sucesso!", "Informação!!!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Vendas gravadas com sucesso!", "Informação!!!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     LimpaCampo();
                     dataGridVendas.Rows.Clear();
                     dataGridVendas.Refresh();
                     NovoCodigo();
+                    ((frmManutContasReceber)System.Windows.Forms.Application.OpenForms["frmManutContasReceber"]).HabilitarTimer(true);
                 }
                 catch (Exception erro)
                 {
@@ -471,7 +497,23 @@ namespace Money
             SalvarItensVenda();  
             SalvarParcelas();  
             SalvarContasReceber();
+            txtNomeCliente.Text = "";
+            txtProduto.Text = "";
+            txtQuantidade.Text = "";
+            txtValorProduto.Text = "";
+            txtTotal.Text = "";
+            txtIdProduto.Text = "";
+            txtIdVenda.Text = "";
+            txtNomeCliente.Enabled = false;
+            txtProduto.Enabled = false;
+            btnFinalizar.Enabled = false;
+
+            btnLocalizarCliente.Enabled = false;
+            btnLocalizarProduto.Enabled = false;
+            btnIncluir.Enabled = false;
         }
+
+       
         private void txtNomeCliente_Enter(object sender, EventArgs e)
         {
             txtNomeCliente.BackColor = Color.Yellow;
@@ -491,16 +533,7 @@ namespace Money
         {
             txtProduto.BackColor= Color.White;
         }
-
-        private void txtNomeCliente_KeyPress(object sender, KeyPressEventArgs e)
-        {           
-           
-        }
-
-        private void txtProduto_KeyPress(object sender, KeyPressEventArgs e)
-        {  
-        }
-
+      
         private void txtNomeCliente_KeyDown(object sender, KeyEventArgs e)
         {            
         }
@@ -631,6 +664,26 @@ namespace Money
         private void cmbForma_Pgto_SelectedIndexChanged(object sender, EventArgs e)
         {
             nome_FormaPgto = cmbForma_Pgto.Text;
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            txtNomeCliente.Text = "";
+            txtProduto.Text = "";
+            txtQuantidade.Text = "";
+            txtValorProduto.Text = "";
+            txtTotal.Text = "";
+            txtIdProduto.Text = "";
+            txtIdVenda.Text = "";
+
+            txtNomeCliente.Enabled = true;
+            txtProduto.Enabled = true;
+            btnFinalizar.Enabled = true;
+
+            btnLocalizarCliente.Enabled = true;
+            btnLocalizarProduto.Enabled = true;
+            btnIncluir.Enabled = true;
+            txtIdVenda.Text = RetornaCodigoContaMaisUm(QueryVendas).ToString(); 
         }
     }
     public static class TextFormadoDinheiro

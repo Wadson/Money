@@ -58,7 +58,7 @@ namespace Money
             }
         }
         //***********************************************************************************************
-        public void exclui_Conta(ContasReceberMODEL contas)
+        public void exclui_ContaReceber(ContasReceberMODEL contas)
         {
             try
             {

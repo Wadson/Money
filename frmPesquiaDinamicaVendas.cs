@@ -319,7 +319,7 @@ namespace Money
                     contasreceberModel.Id_contasreceber = Id_ContasReceber;
 
                     ContasReceberBLL contasreceberBll = new ContasReceberBLL();
-                    contasreceberBll.exclui_Conta(contasreceberModel);
+                    contasreceberBll.exclui_ContaReceber(contasreceberModel);
 
                     MessageBox.Show("Contas a Receber Excluido(os) com Sucesso !", "Informação!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

@@ -44,8 +44,8 @@ namespace Money
             var conn = Conexao.Conex();
             try
             {               
-                SqlCommand sql = new SqlCommand("DELETE FROM parcelas WHERE id_venda = @IdVenda", conn);
-                sql.Parameters.AddWithValue("@IdVenda", parcela.IdVenda);
+                SqlCommand sql = new SqlCommand("DELETE FROM parcelas WHERE id_parcela = @IdParcela", conn);
+                sql.Parameters.AddWithValue("@IdParcela", parcela.IdVenda);
                 conn.Open();
                 sql.ExecuteNonQuery();
             }

@@ -560,7 +560,7 @@ namespace Money
             if ((TxtResultado.Text.Length < 10))
             {
                 tamanho = TxtResultado.Text.Length;
-                for (int t = 1; (t <= (3 - tamanho)); t++)
+                for (int t = 1; (t <= (6 - tamanho)); t++)
                 {
                     textofinal = (textofinal + "0");
                 }
@@ -568,12 +568,12 @@ namespace Money
                 TxtResultado.Text = (textofinal + TxtResultado.Text);
             }
 
-            if ((TxtResultado.Text == "0000"))
+            if ((TxtResultado.Text == "000000"))
             {
                 //MessageBox.Show("DEVE SER DIGITADO ALGUM VALOR NO CAMPO CÓDIGO.","INFORMAÇÃO !", MessageBoxButtons.OK,MessageBoxIcon.Information);
                 //txtCodForn.Text = "";
                 //txtCodForn.Focus();
-            }
+            }            
         }
        
         public virtual int RetornaUltimoCodigoCadastrado(string query)

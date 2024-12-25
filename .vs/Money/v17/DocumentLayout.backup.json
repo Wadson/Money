@@ -1,24 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Money\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|D:\\Money\\frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmbasegeral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmbasegeral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmprincip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmprincip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -26,61 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:1792700580:0:{683b7fa4-6a84-40c1-a43b-1803dc159f14}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FrmBaseGeral.cs",
-              "DocumentMoniker": "D:\\Money\\FrmBaseGeral.cs",
-              "RelativeDocumentMoniker": "FrmBaseGeral.cs",
-              "ToolTip": "D:\\Money\\FrmBaseGeral.cs",
-              "RelativeToolTip": "FrmBaseGeral.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAADwv1MAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T18:46:22.857Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FrmPrincip.cs [Design]",
-              "DocumentMoniker": "D:\\Money\\FrmPrincip.cs",
-              "RelativeDocumentMoniker": "FrmPrincip.cs",
-              "ToolTip": "D:\\Money\\FrmPrincip.cs [Design]",
-              "RelativeToolTip": "FrmPrincip.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T18:14:37.474Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FrmVendas.cs",
-              "DocumentMoniker": "D:\\Money\\FrmVendas.cs",
-              "RelativeDocumentMoniker": "FrmVendas.cs",
-              "ToolTip": "D:\\Money\\FrmVendas.cs",
-              "RelativeToolTip": "FrmVendas.cs",
-              "ViewState": "AgIAACMBAAAAAAAAAAA+wDUBAACnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T01:19:20.381Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FrmVendas.cs [Design]",
-              "DocumentMoniker": "D:\\Money\\FrmVendas.cs",
-              "RelativeDocumentMoniker": "FrmVendas.cs",
-              "ToolTip": "D:\\Money\\FrmVendas.cs [Design]",
-              "RelativeToolTip": "FrmVendas.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T01:19:14.314Z",
-              "EditorCaption": " [Design]"
             }
           ]
         }

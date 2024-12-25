@@ -34,31 +34,31 @@ namespace Money
             {
                 //*************CONTASRECEBER**********************
                 ContasReceberMODEL contasreceberMODEL = new ContasReceberMODEL();
-                contasreceberMODEL.Id_contasreceber = Convert.ToInt32(Id_ContasReceber);
+                contasreceberMODEL.Id_contasreceber = Convert.ToInt32(txtIdContReceber.Text);
 
                 ContasReceberBLL contasreceberbll = new ContasReceberBLL();
-                contasreceberbll.exclui_Conta(contasreceberMODEL);
+                contasreceberbll.exclui_ContaReceber(contasreceberMODEL);
 
                 //*************PARCELA****************************
                 ParcelaModel parcelaMODEL = new ParcelaModel();
-                parcelaMODEL.Idparcela = Convert.ToInt32(Id_Parcela);
+                parcelaMODEL.Idparcela = Convert.ToInt32(txtIdParcela.Text);
 
                 ParcelaBLL parcelabll = new ParcelaBLL();
                 parcelabll.excluir_Todas_Parcelas(parcelaMODEL);
 
                 //*************ITENS VENDA************************
                 ItensVendaMODEL istensvendaMODEL = new ItensVendaMODEL();
-                istensvendaMODEL.Id_itensvenda = Convert.ToInt32(Id_Itensvenda);
+                istensvendaMODEL.Id_itensvenda = Convert.ToInt32(txtIdItensVenda.Text);
 
                 ItensVendaBLL itensvendabll = new ItensVendaBLL();
                 itensvendabll.ExcluirItensVenda(istensvendaMODEL);
 
                 //***********VENDA********************************
-                VendaMODEL fvendaMODEL = new VendaMODEL();
-                fvendaMODEL.Id_venda = Convert.ToInt32(Id_Venda);
+                VendaMODEL vendaMODEL = new VendaMODEL();
+                vendaMODEL.Id_venda = Convert.ToInt32(txtIdItensVenda.Text);
 
                 VendaBLL vendabll = new VendaBLL();
-                vendabll.ExcluirVenda(fvendaMODEL);
+                vendabll.ExcluirVenda(vendaMODEL);
 
                 MessageBox.Show("Conta a Receber Excluída com sucesso!!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 ((frmManutContasReceber)Application.OpenForms["frmManutContasReceber"]).HabilitarTimer(true);                

@@ -160,9 +160,9 @@ namespace Money
             //FrmManutContasaReceber frm = new FrmManutContasaReceber();
             //frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);            
             //AbrirFormInPanel(frm);
-            FrmVendas frm = new FrmVendas();
-            frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
-            AbrirFormInPanel(frm);
+            //FrmVendas frm = new FrmVendas();
+            //frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
+            //AbrirFormInPanel(frm);
 
         }
 

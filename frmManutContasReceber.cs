@@ -41,6 +41,11 @@ namespace Money
             try
             {
                 f3.lblCodCliente.Text = dataGridContasReceber.CurrentRow.Cells["id_cliente"].Value.ToString();
+                f3.txtCodVenda.Text = dataGridContasReceber.CurrentRow.Cells["id_venda"].Value.ToString();
+                f3.txtIdItensVenda.Text = dataGridContasReceber.CurrentRow.Cells["id_itensvenda"].Value.ToString();
+                f3.txtIdParcela.Text = dataGridContasReceber.CurrentRow.Cells["id_parcela"].Value.ToString();
+                f3.txtIdContReceber.Text = dataGridContasReceber.CurrentRow.Cells["id_contasreceber"].Value.ToString();
+
                 f3.txtNomeCliente.Text = dataGridContasReceber.CurrentRow.Cells["nome_cliente"].Value.ToString();
                 f3.lblCodProduto.Text = dataGridContasReceber.CurrentRow.Cells["id_produto"].Value.ToString();
                 f3.txtNomeProduto.Text = dataGridContasReceber.CurrentRow.Cells["nome_produto"].Value.ToString();
@@ -126,7 +131,6 @@ namespace Money
         {
             CarregaDados();
         }
-
     }
 }
 /*
