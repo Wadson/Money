@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "D:\\Money\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmbasegeral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|D:\\Money\\frmmanutcontasreceber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmmanutcontasreceber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|D:\\Money\\frmbasegeral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmbasegeral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|D:\\Money\\frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,28 +26,42 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:1792700580:0:{683b7fa4-6a84-40c1-a43b-1803dc159f14}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "frmManutContasReceber.cs [Design]",
+              "DocumentMoniker": "D:\\Money\\frmManutContasReceber.cs",
+              "RelativeDocumentMoniker": "frmManutContasReceber.cs",
+              "ToolTip": "D:\\Money\\frmManutContasReceber.cs [Design]",
+              "RelativeToolTip": "frmManutContasReceber.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T01:39:05.717Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "FrmBaseGeral.cs",
               "DocumentMoniker": "D:\\Money\\FrmBaseGeral.cs",
               "RelativeDocumentMoniker": "FrmBaseGeral.cs",
               "ToolTip": "D:\\Money\\FrmBaseGeral.cs",
               "RelativeToolTip": "FrmBaseGeral.cs",
-              "ViewState": "AgIAAHsAAAAAAAAAAAASwIQAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAHsAAAAAAAAAAAASwIcAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T01:23:31.702Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-24T01:23:31.702Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "FrmVendas.cs",
               "DocumentMoniker": "D:\\Money\\FrmVendas.cs",
               "RelativeDocumentMoniker": "FrmVendas.cs",
@@ -56,7 +74,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "FrmVendas.cs [Design]",
               "DocumentMoniker": "D:\\Money\\FrmVendas.cs",
               "RelativeDocumentMoniker": "FrmVendas.cs",

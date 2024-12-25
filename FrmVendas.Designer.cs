@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -139,9 +138,11 @@
             // 
             // btnLocalizarProduto
             // 
+            this.btnLocalizarProduto.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnLocalizarProduto.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnLocalizarProduto.FlatAppearance.BorderSize = 0;
             this.btnLocalizarProduto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.btnLocalizarProduto.ForeColor = System.Drawing.Color.White;
             this.btnLocalizarProduto.Location = new System.Drawing.Point(547, 37);
             this.btnLocalizarProduto.Name = "btnLocalizarProduto";
             this.btnLocalizarProduto.Size = new System.Drawing.Size(72, 25);
@@ -192,7 +193,7 @@
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(113, 83);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(55, 17);
@@ -232,14 +233,6 @@
             this.dt_vencimento,
             this.CódigoProdut,
             this.id_venda});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridVendas.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridVendas.EnableHeadersVisualStyles = false;
             this.dataGridVendas.GridColor = System.Drawing.Color.SteelBlue;
             this.dataGridVendas.Location = new System.Drawing.Point(6, 143);
@@ -247,17 +240,17 @@
             this.dataGridVendas.Name = "dataGridVendas";
             this.dataGridVendas.ReadOnly = true;
             this.dataGridVendas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridVendas.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridVendas.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridVendas.RowHeadersWidth = 20;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.dataGridVendas.RowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.dataGridVendas.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridVendas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridVendas.Size = new System.Drawing.Size(923, 132);
             this.dataGridVendas.TabIndex = 466;
@@ -363,7 +356,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(638, 19);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(91, 16);
@@ -374,7 +367,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(744, 19);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(80, 16);
@@ -385,7 +378,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label17.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label17.ForeColor = System.Drawing.Color.White;
             this.label17.Location = new System.Drawing.Point(89, 16);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(62, 17);
@@ -470,10 +463,12 @@
             // 
             // btnParcelar
             // 
+            this.btnParcelar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnParcelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnParcelar.Enabled = false;
             this.btnParcelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
             this.btnParcelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnParcelar.ForeColor = System.Drawing.Color.White;
             this.btnParcelar.Location = new System.Drawing.Point(66, 30);
             this.btnParcelar.Name = "btnParcelar";
             this.btnParcelar.Size = new System.Drawing.Size(100, 28);
@@ -487,7 +482,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(494, 81);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(139, 17);
@@ -510,7 +505,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(828, 81);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 17);
@@ -522,7 +517,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(690, 80);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(129, 16);
@@ -531,11 +526,13 @@
             // 
             // btnFinalizar
             // 
+            this.btnFinalizar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnFinalizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnFinalizar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnFinalizar.FlatAppearance.BorderSize = 0;
             this.btnFinalizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
             this.btnFinalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinalizar.ForeColor = System.Drawing.Color.White;
             this.btnFinalizar.Location = new System.Drawing.Point(264, 30);
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(100, 28);
@@ -561,7 +558,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(9, 81);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(82, 17);
@@ -585,6 +582,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtProduto);
             this.groupBox2.Controls.Add(this.btnLocalizarProduto);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(12, 161);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(935, 281);
@@ -597,7 +595,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(3, 16);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 17);
@@ -618,10 +616,12 @@
             // 
             // btnExcluirItemGrid
             // 
+            this.btnExcluirItemGrid.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnExcluirItemGrid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnExcluirItemGrid.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnExcluirItemGrid.FlatAppearance.BorderSize = 0;
             this.btnExcluirItemGrid.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.btnExcluirItemGrid.ForeColor = System.Drawing.Color.White;
             this.btnExcluirItemGrid.Location = new System.Drawing.Point(155, 442);
             this.btnExcluirItemGrid.Name = "btnExcluirItemGrid";
             this.btnExcluirItemGrid.Size = new System.Drawing.Size(135, 25);
@@ -634,7 +634,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.SeaGreen;
+            this.label4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F);
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(411, 7);
@@ -647,7 +647,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(4, 26);
@@ -657,10 +657,12 @@
             // 
             // btnFechar
             // 
+            this.btnFechar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnFechar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnFechar.FlatAppearance.BorderSize = 0;
             this.btnFechar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.btnFechar.ForeColor = System.Drawing.Color.White;
             this.btnFechar.Location = new System.Drawing.Point(840, 476);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(103, 28);
@@ -711,9 +713,11 @@
             // 
             // btnLocalizarCliente
             // 
+            this.btnLocalizarCliente.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnLocalizarCliente.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnLocalizarCliente.FlatAppearance.BorderSize = 0;
             this.btnLocalizarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.btnLocalizarCliente.ForeColor = System.Drawing.Color.White;
             this.btnLocalizarCliente.Location = new System.Drawing.Point(422, 102);
             this.btnLocalizarCliente.Name = "btnLocalizarCliente";
             this.btnLocalizarCliente.Size = new System.Drawing.Size(72, 25);
@@ -734,7 +738,7 @@
             // 
             // FrmVendas
             // 
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(957, 545);
             this.Controls.Add(this.txtComboBoxNeg);
             this.Controls.Add(this.btnLocalizarCliente);
