@@ -47,10 +47,11 @@ namespace Money
         //*********************************************************************************************
         public void GravaContasReceberDal(ContasReceberMODEL controle)
         {
+            contasreceberDALL = new ContasReceberDAL();
+            contasreceberDALL.salvarcontasreceber(controle);
             try
             {
-                contasreceberDALL = new ContasReceberDAL();
-                contasreceberDALL.salvarcontasreceber(controle);
+                
             }
             catch (SqlException erro)
             {
