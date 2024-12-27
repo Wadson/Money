@@ -3,24 +3,16 @@
   "WorkspaceRootPath": "D:\\Money\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\contasreceberbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:contasreceberbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\contasreceberdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:contasreceberdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|D:\\Money\\frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|D:\\Money\\frmgerarparcelas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmgerarparcelas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|D:\\Money\\contasreceberdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:contasreceberdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,21 +22,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ContasReceberBLL.cs",
-              "DocumentMoniker": "D:\\Money\\ContasReceberBLL.cs",
-              "RelativeDocumentMoniker": "ContasReceberBLL.cs",
-              "ToolTip": "D:\\Money\\ContasReceberBLL.cs",
-              "RelativeToolTip": "ContasReceberBLL.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAIA0wDIAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T02:35:46.735Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:1792700580:0:{683b7fa4-6a84-40c1-a43b-1803dc159f14}"
@@ -57,48 +36,33 @@
               "RelativeDocumentMoniker": "ContasReceberDAL.cs",
               "ToolTip": "D:\\Money\\ContasReceberDAL.cs",
               "RelativeToolTip": "ContasReceberDAL.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAjwFIAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAWwI4AAACDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T02:26:22.919Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-27T23:18:22.474Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "FrmVendas.cs",
               "DocumentMoniker": "D:\\Money\\FrmVendas.cs",
               "RelativeDocumentMoniker": "FrmVendas.cs",
               "ToolTip": "D:\\Money\\FrmVendas.cs",
               "RelativeToolTip": "FrmVendas.cs",
-              "ViewState": "AgIAAM0BAAAAAAAAAAAvwOABAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAIIBAAAAAAAAAAAjwIUBAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-26T00:46:42.812Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "FrmVendas.cs [Design]",
               "DocumentMoniker": "D:\\Money\\FrmVendas.cs",
               "RelativeDocumentMoniker": "FrmVendas.cs",
               "ToolTip": "D:\\Money\\FrmVendas.cs [Design]",
               "RelativeToolTip": "FrmVendas.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T00:46:37.569Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FrmGerarParcelas.cs",
-              "DocumentMoniker": "D:\\Money\\FrmGerarParcelas.cs",
-              "RelativeDocumentMoniker": "FrmGerarParcelas.cs",
-              "ToolTip": "D:\\Money\\FrmGerarParcelas.cs",
-              "RelativeToolTip": "FrmGerarParcelas.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAAwEEAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T22:04:05.737Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-26T00:46:37.569Z"
             }
           ]
         }

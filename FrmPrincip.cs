@@ -83,13 +83,6 @@ namespace Money
             AbrirFormInPanel(frm);
         }
 
-        private void btnFormapgto_Click(object sender, EventArgs e)
-        {
-            FrmManutFormaPgto frm = new FrmManutFormaPgto();
-            frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
-            AbrirFormInPanel(frm);
-        }
-
         private void btnEstorno_Click(object sender, EventArgs e)
         {
             SubmenuReportes.Visible = false;

@@ -70,13 +70,12 @@ namespace Money
         {
             var conn = Conexao.Conex();
 
-            SqlCommand sql = new SqlCommand("INSERT INTO contasreceber (id_contasreceber, id_parcela, valor_parcela, id_formapgto, status_conta ) " +
-                   "VALUES (@id_Contasreceber, @id_Parcela, @valor_Parcela, @id_Formapgto, @StatusConta)", conn);
+            SqlCommand sql = new SqlCommand("INSERT INTO contasreceber (id_contasreceber, id_parcela, valor_parcela, status_conta ) " +
+                   "VALUES (@id_Contasreceber, @id_Parcela, @valor_Parcela, @StatusConta)", conn);
 
             sql.Parameters.AddWithValue("@id_contasreceber", conta.Id_contasreceber);
             sql.Parameters.AddWithValue("@id_Parcela", conta.Id_parcela);
-            sql.Parameters.AddWithValue("@valor_Parcela", conta.Valor_parcela);
-            sql.Parameters.AddWithValue("@id_Formapgto", conta.Id_formapgto);
+            sql.Parameters.AddWithValue("@valor_Parcela", conta.Valor_parcela);            
             sql.Parameters.AddWithValue("@StatusConta", conta.Status_conta);
 
             conn.Open();
@@ -141,12 +140,12 @@ namespace Money
             var conn = Conexao.Conex();
             try
             {
-                SqlCommand sql = new SqlCommand("UPDATE contasreceber SET id_parcela = @id_Parcela, valor_parcela = @valor_Parcela, id_formapgto = @id_Formapgto WHERE id_parcela = @id_Parcela", conn);
+                SqlCommand sql = new SqlCommand("UPDATE contasreceber SET id_parcela = @id_Parcela, valor_parcela = @valor_Parcela WHERE id_parcela = @id_Parcela", conn);
 
                 sql.Parameters.AddWithValue("@id_contasreceber", conta.Id_contasreceber);
                 sql.Parameters.AddWithValue("@id_Parcela", conta.Id_parcela);
                 sql.Parameters.AddWithValue("@valor_Parcela", conta.Valor_parcela);
-                sql.Parameters.AddWithValue("@id_Formapgto", conta.Id_formapgto);
+                
 
                 conn.Open();
                 sql.ExecuteNonQuery();

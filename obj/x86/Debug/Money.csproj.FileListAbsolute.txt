@@ -80,11 +80,9 @@ D:\Money\obj\x86\Debug\Money.FrmPrincip.resources
 D:\Money\obj\x86\Debug\Money.UserControlData.resources
 D:\Money\obj\x86\Debug\Money.FrmBaseGeral.resources
 D:\Money\obj\x86\Debug\Money.FrmCadastro_categoria.resources
-D:\Money\obj\x86\Debug\Money.FrmCadFormaPgto.resources
 D:\Money\obj\x86\Debug\Money.FrmCadFornecedor.resources
 D:\Money\obj\x86\Debug\Money.FrmManutContasPagar.resources
 D:\Money\obj\x86\Debug\Money.FrmManutcategoria.resources
-D:\Money\obj\x86\Debug\Money.FrmManutFormaPgto.resources
 D:\Money\obj\x86\Debug\Money.FrmManutFornecedor.resources
 D:\Money\obj\x86\Debug\Money.FrmManutUsuario.resources
 D:\Money\obj\x86\Debug\Money.FrmBase_Pesquisa.resources

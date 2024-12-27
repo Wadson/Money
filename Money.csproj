@@ -346,9 +346,6 @@
     <Compile Include="UserControlData.Designer.cs">
       <DependentUpon>UserControlData.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormaPgtoBLL.cs" />
-    <Compile Include="FormaPgtoDAL.cs" />
-    <Compile Include="FormaPgtoMODEL.cs" />
     <Compile Include="FornecedorBLL.cs" />
     <Compile Include="FornecedorDAL.cs" />
     <Compile Include="FornecedorMODEL.cs" />
@@ -370,12 +367,6 @@
     <Compile Include="FrmCadCategoria.designer.cs">
       <DependentUpon>FrmCadCategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCadFormaPgto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCadFormaPgto.Designer.cs">
-      <DependentUpon>FrmCadFormaPgto.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmCadFornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -393,12 +384,6 @@
     </Compile>
     <Compile Include="FrmManutCategoria.designer.cs">
       <DependentUpon>FrmManutCategoria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmManutFormaPgto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmManutFormaPgto.Designer.cs">
-      <DependentUpon>FrmManutFormaPgto.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmManutFornecedor.cs">
       <SubType>Form</SubType>
@@ -613,9 +598,6 @@
     <EmbeddedResource Include="FrmCadCategoria.resx">
       <DependentUpon>FrmCadCategoria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCadFormaPgto.resx">
-      <DependentUpon>FrmCadFormaPgto.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmCadFornecedor.resx">
       <DependentUpon>FrmCadFornecedor.cs</DependentUpon>
     </EmbeddedResource>
@@ -625,9 +607,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmManutCategoria.resx">
       <DependentUpon>FrmManutCategoria.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmManutFormaPgto.resx">
-      <DependentUpon>FrmManutFormaPgto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmManutFornecedor.resx">
       <DependentUpon>FrmManutFornecedor.cs</DependentUpon>

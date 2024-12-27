@@ -63,7 +63,8 @@ namespace Money
         
         public string FormaPgto { get; set; }
         public double NumParcelas { get; set; }
-        
+
+        public int Num_Parcelas { get; set; }
         public SqlCommand Comm { get; set; }
 
         object reTornn;

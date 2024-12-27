@@ -46,7 +46,6 @@
             this.brnPesquisadinamica = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.btnEstorno = new System.Windows.Forms.Button();
-            this.btnFormapgto = new System.Windows.Forms.Button();
             this.btnFerramenta = new System.Windows.Forms.Button();
             this.btnSubCateg = new System.Windows.Forms.Button();
             this.btnContasReceber = new System.Windows.Forms.Button();
@@ -94,7 +93,6 @@
             this.MenuVertical.Controls.Add(this.btnCadCli);
             this.MenuVertical.Controls.Add(this.label2);
             this.MenuVertical.Controls.Add(this.SubmenuReportes);
-            this.MenuVertical.Controls.Add(this.btnFormapgto);
             this.MenuVertical.Controls.Add(this.btnFerramenta);
             this.MenuVertical.Controls.Add(this.btnSubCateg);
             this.MenuVertical.Controls.Add(this.btnContasReceber);
@@ -338,27 +336,6 @@
             this.btnEstorno.Text = "Estorno de lançamentos";
             this.btnEstorno.UseVisualStyleBackColor = false;
             this.btnEstorno.Click += new System.EventHandler(this.btnEstorno_Click);
-            // 
-            // btnFormapgto
-            // 
-            this.btnFormapgto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
-            this.btnFormapgto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFormapgto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnFormapgto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
-            this.btnFormapgto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFormapgto.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.btnFormapgto.ForeColor = System.Drawing.Color.White;
-            this.btnFormapgto.Image = global::Money.Properties.Resources.Formapgto;
-            this.btnFormapgto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFormapgto.Location = new System.Drawing.Point(4, 148);
-            this.btnFormapgto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnFormapgto.Name = "btnFormapgto";
-            this.btnFormapgto.Size = new System.Drawing.Size(243, 30);
-            this.btnFormapgto.TabIndex = 19;
-            this.btnFormapgto.Text = "     &Forma de Pagamento";
-            this.btnFormapgto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFormapgto.UseVisualStyleBackColor = false;
-            this.btnFormapgto.Click += new System.EventHandler(this.btnFormapgto_Click);
             // 
             // btnFerramenta
             // 
@@ -753,7 +730,6 @@
         private System.Windows.Forms.Button btnContasReceber;
         private System.Windows.Forms.Button btnSubCateg;
         private System.Windows.Forms.Button btnFerramenta;
-        private System.Windows.Forms.Button btnFormapgto;
         private System.Windows.Forms.Panel SubmenuReportes;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel10;
