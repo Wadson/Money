@@ -70,19 +70,19 @@ namespace Money
         {
             var conn = Conexao.Conex();
 
-            SqlCommand sql = new SqlCommand("INSERT INTO contasreceber (id_contasreceber, id_parcela, valor_parcela, status_conta ) " +
-                   "VALUES (@id_Contasreceber, @id_Parcela, @valor_Parcela, @StatusConta)", conn);
-
-            sql.Parameters.AddWithValue("@id_contasreceber", conta.Id_contasreceber);
-            sql.Parameters.AddWithValue("@id_Parcela", conta.Id_parcela);
-            sql.Parameters.AddWithValue("@valor_Parcela", conta.Valor_parcela);            
-            sql.Parameters.AddWithValue("@StatusConta", conta.Status_conta);
-
-            conn.Open();
-            sql.ExecuteNonQuery();
             try
             {
-               
+
+                SqlCommand sql = new SqlCommand("INSERT INTO contasreceber (id_contasreceber, id_parcela, valor_parcela, status_conta ) " +
+                       "VALUES (@id_Contasreceber, @id_Parcela, @valor_Parcela, @StatusConta)", conn);
+
+                sql.Parameters.AddWithValue("@id_contasreceber", conta.Id_contasreceber);
+                sql.Parameters.AddWithValue("@id_Parcela", conta.Id_parcela);
+                sql.Parameters.AddWithValue("@valor_Parcela", conta.Valor_parcela);
+                sql.Parameters.AddWithValue("@StatusConta", conta.Status_conta);
+
+                conn.Open();
+                sql.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {

@@ -50,7 +50,7 @@
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(2, 354);
+            this.panel2.Location = new System.Drawing.Point(2, 311);
             this.panel2.Size = new System.Drawing.Size(497, 2);
             // 
             // panel3
@@ -59,17 +59,17 @@
             // 
             // panel4
             // 
-            this.panel4.Size = new System.Drawing.Size(2, 356);
+            this.panel4.Size = new System.Drawing.Size(2, 313);
             // 
             // panel5
             // 
             this.panel5.Location = new System.Drawing.Point(499, 0);
-            this.panel5.Size = new System.Drawing.Size(2, 356);
+            this.panel5.Size = new System.Drawing.Size(2, 313);
             // 
             // btnExit
             // 
             this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.Location = new System.Drawing.Point(462, 3);
+            this.btnExit.Location = new System.Drawing.Point(463, 3);
             // 
             // txtProduto
             // 
@@ -129,7 +129,7 @@
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnNovo.ForeColor = System.Drawing.Color.White;
-            this.btnNovo.Location = new System.Drawing.Point(258, 303);
+            this.btnNovo.Location = new System.Drawing.Point(258, 259);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(76, 35);
             this.btnNovo.TabIndex = 7;
@@ -144,7 +144,7 @@
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(135, 303);
+            this.btnSalvar.Location = new System.Drawing.Point(135, 259);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(76, 35);
             this.btnSalvar.TabIndex = 6;
@@ -169,7 +169,7 @@
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnFechar.ForeColor = System.Drawing.Color.White;
-            this.btnFechar.Location = new System.Drawing.Point(388, 303);
+            this.btnFechar.Location = new System.Drawing.Point(388, 259);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(76, 35);
             this.btnFechar.TabIndex = 8;
@@ -260,7 +260,7 @@
             // FrmCadProduto
             // 
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(501, 356);
+            this.ClientSize = new System.Drawing.Size(501, 313);
             this.Controls.Add(this.txtPrecoVendaProduto);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtLucroProduto);

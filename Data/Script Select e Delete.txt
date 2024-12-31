@@ -1,0 +1,10 @@
+SELECT * FROM venda
+SELECT * FROM itensvenda
+SELECT * FROM  parcelas
+SELECT * FROM contasreceber
+
+
+DELETE FROM contasreceber
+DELETE FROM parcelas
+DELETE FROM itensvenda
+DELETE FROM venda

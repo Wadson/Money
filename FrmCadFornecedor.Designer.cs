@@ -44,7 +44,7 @@
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(2, 228);
+            this.panel2.Location = new System.Drawing.Point(2, 206);
             this.panel2.Size = new System.Drawing.Size(459, 2);
             // 
             // panel3
@@ -53,17 +53,17 @@
             // 
             // panel4
             // 
-            this.panel4.Size = new System.Drawing.Size(2, 230);
+            this.panel4.Size = new System.Drawing.Size(2, 208);
             // 
             // panel5
             // 
             this.panel5.Location = new System.Drawing.Point(461, 0);
-            this.panel5.Size = new System.Drawing.Size(2, 230);
+            this.panel5.Size = new System.Drawing.Size(2, 208);
             // 
             // btnExit
             // 
             this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.Location = new System.Drawing.Point(217, 3);
+            this.btnExit.Location = new System.Drawing.Point(427, 3);
             // 
             // txtFornecedor
             // 
@@ -121,7 +121,7 @@
             this.pictureBox1.Image = global::Money.Properties.Resources.Clientes;
             this.pictureBox1.Location = new System.Drawing.Point(368, 29);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(90, 193);
+            this.pictureBox1.Size = new System.Drawing.Size(90, 141);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 130;
             this.pictureBox1.TabStop = false;
@@ -133,7 +133,7 @@
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnNovo.ForeColor = System.Drawing.Color.White;
-            this.btnNovo.Location = new System.Drawing.Point(194, 169);
+            this.btnNovo.Location = new System.Drawing.Point(194, 155);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(76, 35);
             this.btnNovo.TabIndex = 3;
@@ -148,7 +148,7 @@
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(99, 169);
+            this.btnSalvar.Location = new System.Drawing.Point(99, 155);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(76, 35);
             this.btnSalvar.TabIndex = 2;
@@ -171,7 +171,7 @@
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnFechar.ForeColor = System.Drawing.Color.White;
-            this.btnFechar.Location = new System.Drawing.Point(289, 169);
+            this.btnFechar.Location = new System.Drawing.Point(289, 155);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(76, 35);
             this.btnFechar.TabIndex = 4;
@@ -181,8 +181,8 @@
             // 
             // FrmCadFornecedor
             // 
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(463, 230);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(463, 208);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.txtEndereco);
             this.Controls.Add(this.btnNovo);

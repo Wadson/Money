@@ -135,7 +135,7 @@ namespace Money
             NovoCodigo();
 
             txtIdVenda.Text = Id_Venda.ToString();
-            AcrescenteZero_a_Esquerda2(txtIdVenda);  
+            //AcrescenteZero_a_Esquerda2(txtIdVenda);  
 
 
             var nomeComputador = Environment.MachineName;
@@ -227,7 +227,7 @@ namespace Money
             ToMoney(txtTotal);
             txtQuantidade.Focus();
             CalculaPrecoTotal();
-            AcrescenteZero_a_Esquerda2(txtIdProduto);
+            //AcrescenteZero_a_Esquerda2(txtIdProduto);
         }
 
         private void txtPrecoVenda_Enter(object sender, EventArgs e)
@@ -308,8 +308,9 @@ namespace Money
             string nonaColumn = txtValorProduto.Text;
             int decimaColumn = Num_Parcelas++;            
             bool decimaPriSegColumn = false;
+            int decimaSegColumn = Id_ContasReceber++;
 
-            string[] row = { zeroColumn++.ToString(), primeiraColumn, segundaColumn, terceiraColumn, quartaColumn, quintaColumn, sextaColumn, setimaColumn, (oitavaColumn++).ToString(), nonaColumn, decimaColumn++.ToString(), decimaPriSegColumn.ToString() };
+            string[] row = { zeroColumn++.ToString(), primeiraColumn, segundaColumn, terceiraColumn, quartaColumn, quintaColumn, sextaColumn, setimaColumn, (oitavaColumn++).ToString(), nonaColumn, decimaColumn++.ToString(), decimaPriSegColumn.ToString(), decimaSegColumn++.ToString() };
             dataGridVendas.Rows.Add(row);
             foreach (DataGridViewRow Row in dataGridVendas.Rows)
             {
@@ -362,11 +363,10 @@ namespace Money
         }
         public void SalvarVenda()
         {
-            VendaMODEL objVenda = new VendaMODEL();
-
-
             if (dataGridVendas.Rows.Count != 0)
             {
+                VendaMODEL objVenda = new VendaMODEL();
+
                 objVenda.Id_venda = Convert.ToInt32(txtIdVenda.Text);
                 objVenda.Dt_venda = Convert.ToDateTime(dtDataVenda.Text);
                 objVenda.Id_cliente = Convert.ToInt32(IDCliente);
@@ -375,7 +375,7 @@ namespace Money
 
                 venda_bll.SalvarVenda(objVenda);
                 //MessageBox.Show("VENDA gravada com sucesso!", "Informação!!!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
+            }           
             //try
             //{
 
@@ -389,64 +389,68 @@ namespace Money
         
         public void SalvarItensVenda()
         {
-            Id_Venda = RetornaUltimoCodigoCadastrado(QueryVendas);
-
-            ItensVendaMODEL objItensVenda = new ItensVendaMODEL();
-
-            if (dataGridVendas.Rows.Count > 1)
+            if (dataGridVendas.Rows.Count >= 1)
             {
-                for (int i = 0; i <= dataGridVendas.Rows.Count - 1; i++)
-                {
-                    objItensVenda.Id_itensvenda = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_itensvenda"].Value);
-                    objItensVenda.Qtd_produto = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["qtd_produto"].Value);
-                    objItensVenda.Valor_produto = Convert.ToDouble(dataGridVendas.CurrentRow.Cells["valor_produto"].Value);
-                    objItensVenda.Id_produto = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_produto"].Value);
-                    objItensVenda.Id_venda = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_venda"].Value);                    
-                    objItensVenda.Num_parcela = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["num_parcela"].Value);//Convert.ToInt32(1);
+                ItensVendaMODEL objItensVenda = new ItensVendaMODEL();
+                objItensVenda.Id_itensvenda = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_itensvenda"].Value);
+                objItensVenda.Qtd_produto = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["qtd_produto"].Value);
+                objItensVenda.Valor_produto = Convert.ToDouble(dataGridVendas.CurrentRow.Cells["valor_produto"].Value);
+                objItensVenda.Id_produto = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_produto"].Value);
+                objItensVenda.Id_venda = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_venda"].Value);
+                objItensVenda.Num_parcela = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["num_parcela"].Value);//Convert.ToInt32(1);
 
-                    ItensVendaBLL Itensvenda_bll = new ItensVendaBLL();
-                    Itensvenda_bll.SalvarItensVenda(objItensVenda);
-                }
-            }
+                ItensVendaBLL Itensvenda_bll = new ItensVendaBLL();
+                Itensvenda_bll.SalvarItensVenda(objItensVenda);                
+            }            
         }
         public void SalvarParcelas()
         {
-            Id_Venda = RetornaUltimoCodigoCadastrado(QueryVendas);
-
             ParcelaModel objoParcela = new ParcelaModel();
 
-            if (dataGridVendas.Rows.Count > 1)
+            if (dataGridVendas.Rows.Count >= 1)
             {
-                for (int i = 0; i <= dataGridVendas.Rows.Count - 1; i++)
+                foreach (DataGridViewRow row in dataGridVendas.Rows) //for (int i = 0; i < dataGridVendas.Rows.Count; i++)
                 {
-                    objoParcela.Idparcela = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_parcela"].Value);
-                    objoParcela.Valor_parc = Convert.ToDecimal(dataGridVendas.CurrentRow.Cells["valor_parcela"].Value);
-                    objoParcela.Numparcela = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["num_parcela"].Value);
-                    objoParcela.Datavenc = Convert.ToDateTime(dataGridVendas.CurrentRow.Cells["dt_vcto_parcela"].Value);
-                    objoParcela.IdVenda = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_venda"].Value);
+
+                    objoParcela.Idparcela = Convert.ToInt32(row.Cells["id_parcela"].Value);
+                    objoParcela.Valor_parc = Convert.ToDecimal(row.Cells["valor_parcela"].Value);
+                    objoParcela.Numparcela = Convert.ToInt32(row.Cells["num_parcela"].Value);
+                    objoParcela.Datavenc = Convert.ToDateTime(row.Cells["dt_vcto_parcela"].Value);
+                    objoParcela.IdVenda = Convert.ToInt32(row.Cells["id_venda"].Value);
+
+
+                    //objoParcela.Idparcela = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_parcela"].Value);
+                    //objoParcela.Valor_parc = Convert.ToDecimal(dataGridVendas.CurrentRow.Cells["valor_parcela"].Value);
+                    //objoParcela.Numparcela = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["num_parcela"].Value);
+                    //objoParcela.Datavenc = Convert.ToDateTime(dataGridVendas.CurrentRow.Cells["dt_vcto_parcela"].Value);
+                    //objoParcela.IdVenda = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_venda"].Value);
 
                     ParcelaBLL parcela_bll = new ParcelaBLL();
                     parcela_bll.Salvar_Parcelas(objoParcela);
                 }
+               
             }
         }
         public void SalvarContasReceber()
         {
             ContasReceberMODEL objoContaReceber = new ContasReceberMODEL();
 
-            if (dataGridVendas.Rows.Count > 1)
+            if (dataGridVendas.Rows.Count >= 1)
             {
-                for (int i = 0; i <= dataGridVendas.Rows.Count - 1; i++)
+                foreach (DataGridViewRow row in dataGridVendas.Rows)//for (int i = 0; i <= dataGridVendas.Rows.Count - 1; i++)
                 {
-                    objoContaReceber.Id_contasreceber = Id_ContasReceber;
-                    objoContaReceber.Id_parcela = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_parcela"].Value);
-                    objoContaReceber.Valor_parcela = Convert.ToDecimal(dataGridVendas.CurrentRow.Cells["valor_parcela"].Value);                    
-                    objoContaReceber.Status_conta = Convert.ToBoolean(dataGridVendas.CurrentRow.Cells["status_conta"].Value);
+                    objoContaReceber.Id_contasreceber = Convert.ToInt32(row.Cells["id_contasreceber"].Value);
+                    objoContaReceber.Id_parcela = Convert.ToInt32(row.Cells["id_parcela"].Value);
+                    objoContaReceber.Valor_parcela = Convert.ToDecimal(row.Cells["valor_parcela"].Value);
+                    objoContaReceber.Status_conta = Convert.ToBoolean(row.Cells["status_conta"].Value);
+
+                                        //objoContaReceber.Id_contasreceber = Id_ContasReceber;
+                    //objoContaReceber.Id_parcela = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_parcela"].Value);
+                    //objoContaReceber.Valor_parcela = Convert.ToDecimal(dataGridVendas.CurrentRow.Cells["valor_parcela"].Value);
+                    //objoContaReceber.Status_conta = Convert.ToBoolean(dataGridVendas.CurrentRow.Cells["status_conta"].Value);
 
                     ContasReceberBLL parcela_bll = new ContasReceberBLL();
-                    parcela_bll.GravaContasReceberDal(objoContaReceber);
-
-                    MessageBox.Show("Vendas gravadas com sucesso!", "Informação!!!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    parcela_bll.GravaContasReceberDal(objoContaReceber);                    
                 }
             }
                    
@@ -455,6 +459,7 @@ namespace Money
             dataGridVendas.Refresh();
 
             ((frmManutContasReceber)System.Windows.Forms.Application.OpenForms["frmManutContasReceber"]).HabilitarTimer(true);
+            MessageBox.Show("Vendas gravadas com sucesso!", "Informação!!!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
         private void txtQuantidade_Enter(object sender, EventArgs e)
         {
@@ -464,16 +469,12 @@ namespace Money
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
             SalvarVenda();
-            SalvarItensVenda();  
-            SalvarParcelas();  
+            SalvarItensVenda();           
+            SalvarParcelas();
             SalvarContasReceber();
-            txtNomeCliente.Text = "";
-            txtProduto.Text = "";
-            txtQuantidade.Text = "";
-            txtValorProduto.Text = "";
-            txtTotal.Text = "";
-            txtIdProduto.Text = "";
-            txtIdVenda.Text = "";
+
+            LimpaCampo();           
+
             txtNomeCliente.Enabled = false;
             txtProduto.Enabled = false;
             btnFinalizar.Enabled = false;
@@ -640,7 +641,7 @@ namespace Money
             btnIncluir.Enabled = true;
             txtIdVenda.Text = RetornaCodigoContaMaisUm(QueryVendas).ToString();
             NovoCodigo();
-            AcrescenteZero_a_Esquerda2(txtIdVenda);
+            //AcrescenteZero_a_Esquerda2(txtIdVenda);
         }
 
         private void timer1_Tick(object sender, EventArgs e)

@@ -42,7 +42,7 @@
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(2, 224);
+            this.panel2.Location = new System.Drawing.Point(2, 196);
             this.panel2.Size = new System.Drawing.Size(459, 2);
             // 
             // panel3
@@ -51,17 +51,17 @@
             // 
             // panel4
             // 
-            this.panel4.Size = new System.Drawing.Size(2, 226);
+            this.panel4.Size = new System.Drawing.Size(2, 198);
             // 
             // panel5
             // 
             this.panel5.Location = new System.Drawing.Point(461, 0);
-            this.panel5.Size = new System.Drawing.Size(2, 226);
+            this.panel5.Size = new System.Drawing.Size(2, 198);
             // 
             // btnExit
             // 
             this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.Location = new System.Drawing.Point(357, 2);
+            this.btnExit.Location = new System.Drawing.Point(424, 3);
             // 
             // txtCodigo
             // 
@@ -99,7 +99,7 @@
             this.pictureBox1.Image = global::Money.Properties.Resources.Categoria;
             this.pictureBox1.Location = new System.Drawing.Point(362, 34);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(91, 180);
+            this.pictureBox1.Size = new System.Drawing.Size(91, 146);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 135;
             this.pictureBox1.TabStop = false;
@@ -167,7 +167,7 @@
             // 
             // FrmCadastro_categoria
             // 
-            this.ClientSize = new System.Drawing.Size(463, 226);
+            this.ClientSize = new System.Drawing.Size(463, 198);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.btnSalvar);

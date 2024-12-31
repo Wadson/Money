@@ -14,6 +14,7 @@ namespace Money
         {
             var conn = Conexao.Conex();
 
+
             try
             {
                 SqlCommand sql = new SqlCommand("INSERT INTO parcelas (id_parcela, valor_parcela, num_parcela, dt_vcto_parcela, id_venda) " +
