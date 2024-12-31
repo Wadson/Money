@@ -17,20 +17,26 @@ namespace Money
                 //NOTEOBOOK
                 var nomeComputador = Environment.MachineName;
 
-                if (nomeComputador == "NOTEBOOK-DELL")
-                {
-                    string conn = "Data Source=" + nomeComputador +"\\SQLEXPRESS;Initial Catalog=bdmoney;Integrated Security=True;";
-                    SqlConnection myConn = new SqlConnection(conn);
-                    return myConn;
-                }
-                else
-                {
-                    string conn = "Data Source=" + nomeComputador + "\\SQLEXPRESS;Initial Catalog=bdmoney;Integrated Security=True;";
-                    SqlConnection myConn = new SqlConnection(conn);
-                    return myConn;
-                }
-                
-                  
+
+                //string conec = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\Money\\Data\\bdmoney.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=True"
+                string conn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\Money\\Data\\bdmoney.mdf;Integrated Security=True;";
+                SqlConnection myConn = new SqlConnection(conn);
+                return myConn;
+                //if (nomeComputador == "NOTEBOOK-DELL")
+                //{
+                //    string conec = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\Money\\Data\\bdmoney.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=True"
+                //    string conn = "Data Source=" + nomeComputador +"\\SQLEXPRESS;Initial Catalog=bdmoney;Integrated Security=True;";
+                //    SqlConnection myConn = new SqlConnection(conn);
+                //    return myConn;
+                //}
+                //else
+                //{
+                //    string conn = "Data Source=" + nomeComputador + "\\SQLEXPRESS;Initial Catalog=bdmoney;Integrated Security=True;";
+                //    SqlConnection myConn = new SqlConnection(conn);
+                //    return myConn;
+                //}
+
+
             }
             catch (SqlException  ex) // SqlException
             {

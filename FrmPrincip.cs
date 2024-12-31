@@ -127,12 +127,16 @@ namespace Money
             //string path3 = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             //string path4 = System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath);
             //string path5 = System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.StartupPath);
-            string path6 = System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.LocalUserAppDataPath);
-            string path7 = System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.CommonAppDataPath);
-            string path8 = System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.UserAppDataPath);
+            //string path6 = System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.LocalUserAppDataPath);
+            //string path7 = System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.CommonAppDataPath);
+            //string path8 = System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.UserAppDataPath);
 
+            var nomeComputador = Environment.MachineName;
+            var informacao = Environment.UserName;
+           
             toolStripStatusExecutablePath.Text = path;
-            toolStripStatusLocation.Text = path6;
+            //toolStripStatusLocation.Text = path6;
+            toolStripStatusCommonAppDataPath.Text = nomeComputador + " | " + informacao;
 
 
         }

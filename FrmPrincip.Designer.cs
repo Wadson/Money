@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincip));
             this.MenuVertical = new System.Windows.Forms.Panel();
+            this.btnSair = new System.Windows.Forms.Button();
             this.btnContasPagar = new System.Windows.Forms.Button();
             this.btnProdutos = new System.Windows.Forms.Button();
             this.btnCadCli = new System.Windows.Forms.Button();
@@ -54,6 +55,19 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.btnEstorno = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusData = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusHora = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusExecutablePath = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLocation = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusCommonAppDataPath = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblUsuarioLogado = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,25 +87,17 @@
             this.pesquisarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.sobreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblUsuarioLogado = new System.Windows.Forms.Label();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusData = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusHora = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusExecutablePath = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLocation = new System.Windows.Forms.ToolStripStatusLabel();
             this.MenuVertical.SuspendLayout();
             this.SubmenuReportes.SuspendLayout();
             this.panelContenedor.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuVertical
             // 
+            this.MenuVertical.Controls.Add(this.btnSair);
             this.MenuVertical.Controls.Add(this.btnContasPagar);
             this.MenuVertical.Controls.Add(this.btnProdutos);
             this.MenuVertical.Controls.Add(this.btnCadCli);
@@ -107,8 +113,27 @@
             this.MenuVertical.Location = new System.Drawing.Point(0, 24);
             this.MenuVertical.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MenuVertical.Name = "MenuVertical";
-            this.MenuVertical.Size = new System.Drawing.Size(1067, 77);
+            this.MenuVertical.Size = new System.Drawing.Size(1082, 77);
             this.MenuVertical.TabIndex = 0;
+            // 
+            // btnSair
+            // 
+            this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
+            this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSair.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSair.ForeColor = System.Drawing.Color.White;
+            this.btnSair.Image = global::Money.Properties.Resources.Fechar1;
+            this.btnSair.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSair.Location = new System.Drawing.Point(991, 1);
+            this.btnSair.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(90, 70);
+            this.btnSair.TabIndex = 25;
+            this.btnSair.Text = "&Fechar";
+            this.btnSair.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSair.UseVisualStyleBackColor = false;
             // 
             // btnContasPagar
             // 
@@ -116,8 +141,10 @@
             this.btnContasPagar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnContasPagar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnContasPagar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
+            this.btnContasPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContasPagar.ForeColor = System.Drawing.Color.White;
             this.btnContasPagar.Image = global::Money.Properties.Resources.ContasPagar32;
+            this.btnContasPagar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnContasPagar.Location = new System.Drawing.Point(722, 1);
             this.btnContasPagar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnContasPagar.Name = "btnContasPagar";
@@ -135,6 +162,7 @@
             this.btnProdutos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProdutos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnProdutos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
+            this.btnProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProdutos.ForeColor = System.Drawing.Color.White;
             this.btnProdutos.Image = global::Money.Properties.Resources.Categoria42;
             this.btnProdutos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -155,6 +183,7 @@
             this.btnCadCli.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadCli.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnCadCli.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
+            this.btnCadCli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadCli.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.btnCadCli.ForeColor = System.Drawing.Color.White;
             this.btnCadCli.Image = ((System.Drawing.Image)(resources.GetObject("btnCadCli.Image")));
@@ -175,8 +204,10 @@
             this.btnFerramenta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFerramenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnFerramenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
+            this.btnFerramenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFerramenta.ForeColor = System.Drawing.Color.White;
             this.btnFerramenta.Image = global::Money.Properties.Resources.settings1;
+            this.btnFerramenta.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnFerramenta.Location = new System.Drawing.Point(902, 1);
             this.btnFerramenta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFerramenta.Name = "btnFerramenta";
@@ -193,8 +224,10 @@
             this.btnSubCateg.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSubCateg.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnSubCateg.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
+            this.btnSubCateg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubCateg.ForeColor = System.Drawing.Color.White;
             this.btnSubCateg.Image = global::Money.Properties.Resources.Subcategory;
+            this.btnSubCateg.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSubCateg.Location = new System.Drawing.Point(362, 1);
             this.btnSubCateg.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSubCateg.Name = "btnSubCateg";
@@ -212,8 +245,10 @@
             this.btnContasReceber.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnContasReceber.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnContasReceber.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
+            this.btnContasReceber.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContasReceber.ForeColor = System.Drawing.Color.White;
             this.btnContasReceber.Image = global::Money.Properties.Resources.ContasReceber32;
+            this.btnContasReceber.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnContasReceber.Location = new System.Drawing.Point(542, 1);
             this.btnContasReceber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnContasReceber.Name = "btnContasReceber";
@@ -231,8 +266,10 @@
             this.btnCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCategoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnCategoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
+            this.btnCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCategoria.ForeColor = System.Drawing.Color.White;
             this.btnCategoria.Image = global::Money.Properties.Resources.category1;
+            this.btnCategoria.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCategoria.Location = new System.Drawing.Point(272, 1);
             this.btnCategoria.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCategoria.Name = "btnCategoria";
@@ -250,8 +287,10 @@
             this.btnRELATORIOS.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRELATORIOS.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnRELATORIOS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
+            this.btnRELATORIOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRELATORIOS.ForeColor = System.Drawing.Color.White;
             this.btnRELATORIOS.Image = ((System.Drawing.Image)(resources.GetObject("btnRELATORIOS.Image")));
+            this.btnRELATORIOS.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnRELATORIOS.Location = new System.Drawing.Point(812, 1);
             this.btnRELATORIOS.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRELATORIOS.Name = "btnRELATORIOS";
@@ -269,6 +308,7 @@
             this.btnFUNCIONARIOS.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFUNCIONARIOS.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnFUNCIONARIOS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
+            this.btnFUNCIONARIOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFUNCIONARIOS.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.btnFUNCIONARIOS.ForeColor = System.Drawing.Color.White;
             this.btnFUNCIONARIOS.Image = ((System.Drawing.Image)(resources.GetObject("btnFUNCIONARIOS.Image")));
@@ -289,8 +329,10 @@
             this.btnVendas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVendas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnVendas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
+            this.btnVendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVendas.ForeColor = System.Drawing.Color.White;
             this.btnVendas.Image = global::Money.Properties.Resources.Venta2;
+            this.btnVendas.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnVendas.Location = new System.Drawing.Point(632, 1);
             this.btnVendas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnVendas.Name = "btnVendas";
@@ -308,8 +350,10 @@
             this.btnFORNECEDORES.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFORNECEDORES.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnFORNECEDORES.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
+            this.btnFORNECEDORES.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFORNECEDORES.ForeColor = System.Drawing.Color.White;
             this.btnFORNECEDORES.Image = ((System.Drawing.Image)(resources.GetObject("btnFORNECEDORES.Image")));
+            this.btnFORNECEDORES.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnFORNECEDORES.Location = new System.Drawing.Point(182, 1);
             this.btnFORNECEDORES.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFORNECEDORES.Name = "btnFORNECEDORES";
@@ -478,15 +522,107 @@
             // panelContenedor
             // 
             this.panelContenedor.Controls.Add(this.statusStrip1);
-            this.panelContenedor.Controls.Add(this.lblUsuarioLogado);
             this.panelContenedor.Controls.Add(this.SubmenuReportes);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelContenedor.Location = new System.Drawing.Point(0, 101);
             this.panelContenedor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1067, 565);
+            this.panelContenedor.Size = new System.Drawing.Size(1082, 565);
             this.panelContenedor.TabIndex = 2;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusData,
+            this.toolStripStatusLabel1,
+            this.toolStripStatusHora,
+            this.toolStripStatusLabel2,
+            this.toolStripStatusExecutablePath,
+            this.toolStripStatusLabel4,
+            this.toolStripStatusLocation,
+            this.toolStripStatusLabel3,
+            this.toolStripStatusCommonAppDataPath,
+            this.toolStripStatusLabel5,
+            this.toolStripStatusLabel6,
+            this.lblUsuarioLogado});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 543);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1082, 22);
+            this.statusStrip1.TabIndex = 22;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusData
+            // 
+            this.toolStripStatusData.Name = "toolStripStatusData";
+            this.toolStripStatusData.Size = new System.Drawing.Size(12, 17);
+            this.toolStripStatusData.Text = "-";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel1.Text = "|";
+            // 
+            // toolStripStatusHora
+            // 
+            this.toolStripStatusHora.Name = "toolStripStatusHora";
+            this.toolStripStatusHora.Size = new System.Drawing.Size(12, 17);
+            this.toolStripStatusHora.Text = "-";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel2.Text = "|";
+            // 
+            // toolStripStatusExecutablePath
+            // 
+            this.toolStripStatusExecutablePath.Name = "toolStripStatusExecutablePath";
+            this.toolStripStatusExecutablePath.Size = new System.Drawing.Size(12, 17);
+            this.toolStripStatusExecutablePath.Text = "-";
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel4.Text = "|";
+            // 
+            // toolStripStatusLocation
+            // 
+            this.toolStripStatusLocation.Name = "toolStripStatusLocation";
+            this.toolStripStatusLocation.Size = new System.Drawing.Size(12, 17);
+            this.toolStripStatusLocation.Text = "-";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel3.Text = "|";
+            // 
+            // toolStripStatusCommonAppDataPath
+            // 
+            this.toolStripStatusCommonAppDataPath.Name = "toolStripStatusCommonAppDataPath";
+            this.toolStripStatusCommonAppDataPath.Size = new System.Drawing.Size(12, 17);
+            this.toolStripStatusCommonAppDataPath.Text = "-";
+            // 
+            // toolStripStatusLabel5
+            // 
+            this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel5.Text = "|";
+            // 
+            // toolStripStatusLabel6
+            // 
+            this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
+            this.toolStripStatusLabel6.Size = new System.Drawing.Size(53, 17);
+            this.toolStripStatusLabel6.Text = "Usuário: ";
+            // 
+            // lblUsuarioLogado
+            // 
+            this.lblUsuarioLogado.Name = "lblUsuarioLogado";
+            this.lblUsuarioLogado.Size = new System.Drawing.Size(12, 17);
+            this.lblUsuarioLogado.Text = "-";
             // 
             // timer1
             // 
@@ -503,7 +639,7 @@
             this.ajudaToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1067, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1082, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -625,85 +761,17 @@
             this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(127, 22);
             this.sobreToolStripMenuItem1.Text = "&Sobre...";
             // 
-            // lblUsuarioLogado
-            // 
-            this.lblUsuarioLogado.AutoSize = true;
-            this.lblUsuarioLogado.ForeColor = System.Drawing.Color.White;
-            this.lblUsuarioLogado.Location = new System.Drawing.Point(12, 511);
-            this.lblUsuarioLogado.Name = "lblUsuarioLogado";
-            this.lblUsuarioLogado.Size = new System.Drawing.Size(11, 16);
-            this.lblUsuarioLogado.TabIndex = 1;
-            this.lblUsuarioLogado.Text = "-";
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusData,
-            this.toolStripStatusLabel1,
-            this.toolStripStatusHora,
-            this.toolStripStatusLabel2,
-            this.toolStripStatusExecutablePath,
-            this.toolStripStatusLabel4,
-            this.toolStripStatusLocation});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 543);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1067, 22);
-            this.statusStrip1.TabIndex = 22;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusData
-            // 
-            this.toolStripStatusData.Name = "toolStripStatusData";
-            this.toolStripStatusData.Size = new System.Drawing.Size(12, 17);
-            this.toolStripStatusData.Text = "-";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(10, 17);
-            this.toolStripStatusLabel1.Text = "|";
-            // 
-            // toolStripStatusHora
-            // 
-            this.toolStripStatusHora.Name = "toolStripStatusHora";
-            this.toolStripStatusHora.Size = new System.Drawing.Size(12, 17);
-            this.toolStripStatusHora.Text = "-";
-            // 
             // timer2
             // 
             this.timer2.Enabled = true;
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(10, 17);
-            this.toolStripStatusLabel2.Text = "|";
-            // 
-            // toolStripStatusExecutablePath
-            // 
-            this.toolStripStatusExecutablePath.Name = "toolStripStatusExecutablePath";
-            this.toolStripStatusExecutablePath.Size = new System.Drawing.Size(12, 17);
-            this.toolStripStatusExecutablePath.Text = "-";
-            // 
-            // toolStripStatusLabel4
-            // 
-            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            this.toolStripStatusLabel4.Size = new System.Drawing.Size(10, 17);
-            this.toolStripStatusLabel4.Text = "|";
-            // 
-            // toolStripStatusLocation
-            // 
-            this.toolStripStatusLocation.Name = "toolStripStatusLocation";
-            this.toolStripStatusLocation.Size = new System.Drawing.Size(118, 17);
-            this.toolStripStatusLocation.Text = "toolStripStatusLabel5";
-            // 
             // FrmPrincip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 666);
+            this.ClientSize = new System.Drawing.Size(1082, 666);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.MenuVertical);
             this.Controls.Add(this.menuStrip1);
@@ -720,10 +788,10 @@
             this.SubmenuReportes.ResumeLayout(false);
             this.panelContenedor.ResumeLayout(false);
             this.panelContenedor.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -774,7 +842,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pesquisaDinâmicaToolStripMenuItem;
-        private System.Windows.Forms.Label lblUsuarioLogado;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusData;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
@@ -784,5 +851,11 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusExecutablePath;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLocation;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusCommonAppDataPath;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
+        private System.Windows.Forms.ToolStripStatusLabel lblUsuarioLogado;
+        private System.Windows.Forms.Button btnSair;
     }
 }
