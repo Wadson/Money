@@ -29,17 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btn_Logar = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnSair = new System.Windows.Forms.Button();
             this.txt_SenhaLog = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.PaneLinhaSenha = new System.Windows.Forms.FlowLayoutPanel();
             this.penelLinhaUsuario = new System.Windows.Forms.FlowLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
             this.lblProvisorio = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblSenha = new System.Windows.Forms.Label();
@@ -47,14 +44,12 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.barraTitulo = new System.Windows.Forms.Panel();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.userControlData1 = new Money.UserControlData();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.lblData = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.barraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,65 +65,57 @@
             this.btn_Logar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btn_Logar.ForeColor = System.Drawing.Color.White;
             this.btn_Logar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Logar.Location = new System.Drawing.Point(32, 306);
+            this.btn_Logar.Location = new System.Drawing.Point(89, 194);
             this.btn_Logar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Logar.Name = "btn_Logar";
-            this.btn_Logar.Size = new System.Drawing.Size(278, 28);
+            this.btn_Logar.Size = new System.Drawing.Size(110, 28);
             this.btn_Logar.TabIndex = 2;
             this.btn_Logar.Text = "&Logar";
             this.toolTip1.SetToolTip(this.btn_Logar, "Logar no sistema");
             this.btn_Logar.UseVisualStyleBackColor = false;
             this.btn_Logar.Click += new System.EventHandler(this.btn_Logar_Click);
             // 
-            // pictureBox3
+            // btnSair
             // 
-            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(5, 198);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 256;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(5, 263);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 255;
-            this.pictureBox2.TabStop = false;
+            this.btnSair.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnSair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSair.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnSair.FlatAppearance.CheckedBackColor = System.Drawing.Color.Red;
+            this.btnSair.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.btnSair.ForeColor = System.Drawing.Color.White;
+            this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSair.Location = new System.Drawing.Point(218, 194);
+            this.btnSair.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(110, 28);
+            this.btnSair.TabIndex = 259;
+            this.btnSair.Text = "&Sair";
+            this.toolTip1.SetToolTip(this.btnSair, "Logar no sistema");
+            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // txt_SenhaLog
             // 
-            this.txt_SenhaLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
-            this.txt_SenhaLog.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_SenhaLog.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_SenhaLog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txt_SenhaLog.Location = new System.Drawing.Point(32, 262);
+            this.txt_SenhaLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_SenhaLog.Location = new System.Drawing.Point(89, 151);
             this.txt_SenhaLog.Margin = new System.Windows.Forms.Padding(2);
             this.txt_SenhaLog.Name = "txt_SenhaLog";
             this.txt_SenhaLog.PasswordChar = '*';
-            this.txt_SenhaLog.Size = new System.Drawing.Size(275, 16);
+            this.txt_SenhaLog.Size = new System.Drawing.Size(239, 21);
             this.txt_SenhaLog.TabIndex = 1;
             this.txt_SenhaLog.Enter += new System.EventHandler(this.txt_SenhaLog_Enter);
             this.txt_SenhaLog.Leave += new System.EventHandler(this.txt_SenhaLog_Leave);
             // 
             // txtUsuario
             // 
-            this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
-            this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUsuario.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtUsuario.Location = new System.Drawing.Point(32, 197);
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Location = new System.Drawing.Point(89, 104);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(275, 16);
+            this.txtUsuario.Size = new System.Drawing.Size(239, 21);
             this.txtUsuario.TabIndex = 0;
             this.txtUsuario.Enter += new System.EventHandler(this.txtUsuario_Enter);
             this.txtUsuario.Leave += new System.EventHandler(this.txtUsuario_Leave);
@@ -136,60 +123,50 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Italic);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(39, 247);
+            this.label2.Location = new System.Drawing.Point(34, 156);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 15);
+            this.label2.Size = new System.Drawing.Size(43, 15);
             this.label2.TabIndex = 6;
-            this.label2.Text = "PASSWORD";
+            this.label2.Text = "Senha";
             // 
             // PaneLinhaSenha
             // 
-            this.PaneLinhaSenha.BackColor = System.Drawing.Color.DimGray;
-            this.PaneLinhaSenha.Location = new System.Drawing.Point(32, 282);
+            this.PaneLinhaSenha.BackColor = System.Drawing.Color.CadetBlue;
+            this.PaneLinhaSenha.Location = new System.Drawing.Point(89, 173);
             this.PaneLinhaSenha.Margin = new System.Windows.Forms.Padding(2);
             this.PaneLinhaSenha.Name = "PaneLinhaSenha";
-            this.PaneLinhaSenha.Size = new System.Drawing.Size(275, 2);
+            this.PaneLinhaSenha.Size = new System.Drawing.Size(239, 2);
             this.PaneLinhaSenha.TabIndex = 5;
             // 
             // penelLinhaUsuario
             // 
-            this.penelLinhaUsuario.BackColor = System.Drawing.Color.DimGray;
-            this.penelLinhaUsuario.Location = new System.Drawing.Point(32, 217);
+            this.penelLinhaUsuario.BackColor = System.Drawing.Color.CadetBlue;
+            this.penelLinhaUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.penelLinhaUsuario.Location = new System.Drawing.Point(89, 126);
             this.penelLinhaUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.penelLinhaUsuario.Name = "penelLinhaUsuario";
-            this.penelLinhaUsuario.Size = new System.Drawing.Size(275, 2);
+            this.penelLinhaUsuario.Size = new System.Drawing.Size(239, 2);
             this.penelLinhaUsuario.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(133, 148);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 17);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "LOGIN";
             // 
             // lblProvisorio
             // 
             this.lblProvisorio.AutoSize = true;
+            this.lblProvisorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProvisorio.ForeColor = System.Drawing.Color.Yellow;
-            this.lblProvisorio.Location = new System.Drawing.Point(121, 244);
+            this.lblProvisorio.Location = new System.Drawing.Point(95, 133);
             this.lblProvisorio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblProvisorio.Name = "lblProvisorio";
-            this.lblProvisorio.Size = new System.Drawing.Size(0, 13);
+            this.lblProvisorio.Size = new System.Drawing.Size(0, 15);
             this.lblProvisorio.TabIndex = 8;
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.lblUsuario.Location = new System.Drawing.Point(231, 179);
+            this.lblUsuario.Location = new System.Drawing.Point(277, 86);
             this.lblUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(10, 13);
@@ -199,11 +176,12 @@
             // lblSenha
             // 
             this.lblSenha.AutoSize = true;
+            this.lblSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSenha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.lblSenha.Location = new System.Drawing.Point(231, 240);
+            this.lblSenha.Location = new System.Drawing.Point(277, 133);
             this.lblSenha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSenha.Name = "lblSenha";
-            this.lblSenha.Size = new System.Drawing.Size(10, 13);
+            this.lblSenha.Size = new System.Drawing.Size(10, 15);
             this.lblSenha.TabIndex = 9;
             this.lblSenha.Text = " ";
             // 
@@ -211,7 +189,7 @@
             // 
             this.lblEsqueciSenha.AutoSize = true;
             this.lblEsqueciSenha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.lblEsqueciSenha.Location = new System.Drawing.Point(224, 290);
+            this.lblEsqueciSenha.Location = new System.Drawing.Point(239, 178);
             this.lblEsqueciSenha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEsqueciSenha.Name = "lblEsqueciSenha";
             this.lblEsqueciSenha.Size = new System.Drawing.Size(86, 13);
@@ -226,95 +204,96 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Italic);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(43, 181);
+            this.label1.Location = new System.Drawing.Point(34, 108);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 15);
+            this.label1.Size = new System.Drawing.Size(50, 15);
             this.label1.TabIndex = 12;
-            this.label1.Text = "USUÁRIO";
+            this.label1.Text = "Usuário";
             // 
             // barraTitulo
             // 
-            this.barraTitulo.Controls.Add(this.btnExit);
             this.barraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.barraTitulo.Location = new System.Drawing.Point(0, 0);
             this.barraTitulo.Name = "barraTitulo";
-            this.barraTitulo.Size = new System.Drawing.Size(321, 23);
+            this.barraTitulo.Size = new System.Drawing.Size(482, 23);
             this.barraTitulo.TabIndex = 257;
             this.barraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barraTitulo_MouseDown_1);
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackgroundImage = global::Money.Properties.Resources.Close;
-            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Location = new System.Drawing.Point(297, 0);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(22, 20);
-            this.btnExit.TabIndex = 258;
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // userControlData1
-            // 
-            this.userControlData1.BackColor = System.Drawing.Color.Transparent;
-            this.userControlData1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
-            this.userControlData1.ForeColor = System.Drawing.Color.White;
-            this.userControlData1.Location = new System.Drawing.Point(46, 365);
-            this.userControlData1.Margin = new System.Windows.Forms.Padding(2);
-            this.userControlData1.Name = "userControlData1";
-            this.userControlData1.Size = new System.Drawing.Size(212, 15);
-            this.userControlData1.TabIndex = 3;
-            this.userControlData1.TabStop = false;
             // 
             // pictureBox4
             // 
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox4.Image = global::Money.Properties.Resources.LogWR;
-            this.pictureBox4.Location = new System.Drawing.Point(100, 26);
+            this.pictureBox4.Image = global::Money.Properties.Resources.usuario_Login1;
+            this.pictureBox4.Location = new System.Drawing.Point(335, 88);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(119, 73);
+            this.pictureBox4.Size = new System.Drawing.Size(133, 134);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 258;
             this.pictureBox4.TabStop = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Geometr212 BkCn BT", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(34, 24);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(113, 43);
+            this.label3.TabIndex = 260;
+            this.label3.Text = "Login";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.BlanchedAlmond;
-            this.label4.Location = new System.Drawing.Point(100, 101);
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(34, 67);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 33);
-            this.label4.TabIndex = 259;
-            this.label4.Text = "MONEY";
+            this.label4.Size = new System.Drawing.Size(356, 16);
+            this.label4.TabIndex = 261;
+            this.label4.Text = "Entre com seus dados corretamente para acessar o sistema.";
+            // 
+            // lblData
+            // 
+            this.lblData.AutoSize = true;
+            this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.lblData.ForeColor = System.Drawing.Color.White;
+            this.lblData.Location = new System.Drawing.Point(88, 261);
+            this.lblData.Name = "lblData";
+            this.lblData.Size = new System.Drawing.Size(13, 17);
+            this.lblData.TabIndex = 262;
+            this.lblData.Text = "-";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Firebrick;
+            this.BackColor = System.Drawing.Color.CadetBlue;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(321, 389);
+            this.ClientSize = new System.Drawing.Size(482, 247);
+            this.Controls.Add(this.lblData);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnSair);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.barraTitulo);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.txt_SenhaLog);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PaneLinhaSenha);
             this.Controls.Add(this.penelLinhaUsuario);
-            this.Controls.Add(this.userControlData1);
             this.Controls.Add(this.lblProvisorio);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.lblSenha);
@@ -332,13 +311,9 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Acesso ao Sistema";
-            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLogin_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmLogin_KeyPress);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.barraTitulo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -354,20 +329,19 @@
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label lblSenha;
         private System.Windows.Forms.Label lblProvisorio;
-        private UserControlData userControlData1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.FlowLayoutPanel PaneLinhaSenha;
         private System.Windows.Forms.FlowLayoutPanel penelLinhaUsuario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_SenhaLog;
         private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel barraTitulo;
-        private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblData;
+        private System.Windows.Forms.Timer timer1;
 
         //public System.EventHandler frmLogin_Load { get; set; }
 

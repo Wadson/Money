@@ -69,7 +69,7 @@
             // btnExit
             // 
             this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.Location = new System.Drawing.Point(463, 3);
+            this.btnExit.Location = new System.Drawing.Point(461, 3);
             // 
             // txtProduto
             // 

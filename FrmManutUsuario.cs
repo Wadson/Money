@@ -35,14 +35,14 @@ namespace Money
            
             try
             {
-                cadUsuarios.txtCodigo.Text = dataGridPesquisa2.CurrentRow.Cells[0].Value.ToString();
-                cadUsuarios.txtNome.Text = dataGridPesquisa2.CurrentRow.Cells[1].Value.ToString();
-                Nome =                     dataGridPesquisa2.CurrentRow.Cells[1].Value.ToString();
-                cadUsuarios.txtUsuario.Text = dataGridPesquisa2.CurrentRow.Cells[2].Value.ToString();
-                cadUsuarios.txtdtNascimento.Text = dataGridPesquisa2.CurrentRow.Cells[3].Value.ToString();
-                cadUsuarios.cmbNivelAcesso.Text = dataGridPesquisa2.CurrentRow.Cells[4].Value.ToString();
-                cadUsuarios.txtSenha.Text = dataGridPesquisa2.CurrentRow.Cells[5].Value.ToString();
-                cadUsuarios.txtEmail.Text = dataGridPesquisa2.CurrentRow.Cells[6].Value.ToString();
+                cadUsuarios.txtCodigo.Text = dataGridPesquisa2.CurrentRow.Cells["id_usuario"].Value.ToString();
+                cadUsuarios.txtNome.Text = dataGridPesquisa2.CurrentRow.Cells["nome"].Value.ToString();
+                Nome =                     dataGridPesquisa2.CurrentRow.Cells["nome"].Value.ToString();
+                cadUsuarios.txtUsuario.Text = dataGridPesquisa2.CurrentRow.Cells["usuario"].Value.ToString();
+                cadUsuarios.txtdtNascimento.Text = dataGridPesquisa2.CurrentRow.Cells["dt_nascimento"].Value.ToString();
+                cadUsuarios.cmbNivelAcesso.Text = dataGridPesquisa2.CurrentRow.Cells["nivelacesso"].Value.ToString();
+                cadUsuarios.txtSenha.Text = dataGridPesquisa2.CurrentRow.Cells["senha"].Value.ToString();
+                cadUsuarios.txtEmail.Text = dataGridPesquisa2.CurrentRow.Cells["email"].Value.ToString();
 
                 cadUsuarios.StatusOperacao = "ALTERAR";
                 cadUsuarios.lblTitulo.Text = "ALTERAR" +" (( "+ Nome +"))";
@@ -66,7 +66,7 @@ namespace Money
                 IdUsuario = Convert.ToInt32(dataGridPesquisa2.CurrentRow.Cells[0].Value);
                 Nome = dataGridPesquisa2.CurrentRow.Cells[1].Value.ToString();
                 
-                if (MessageBox.Show("Deseja Excluir? \n\n Código : "+ IdUsuario +" \n\n Usuário: "+Nome    +" ","Excluir",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Deseja Excluir? \n\n O Usuário: "+ Nome +" ??? ","Excluir",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     UsuarioModel usuariomodel = new UsuarioModel();
                     usuariomodel.Id_usuario = Convert.ToInt32(IdUsuario);

@@ -17,6 +17,7 @@ using Microsoft.SqlServer.Management.Smo;
 using Microsoft.SqlServer.Management.Common;
 using System.Text.RegularExpressions;
 using System.Runtime.InteropServices;
+using System.Data.SqlServerCe;
 
 namespace Money
 {
@@ -27,7 +28,7 @@ namespace Money
         public bool Conectado = false;
         //public string RetornoEvitaDuplicado { get; set; }
         public string UsuarioConectado { get; set; }
-
+        DateTime DataHora;
         public string Usuario { get; set; }
         public string Senha { get; set; }
 
@@ -72,46 +73,33 @@ namespace Money
                     conn.Close();
                 }
             }
-        }
-                 
-        private void VerificaBanco()
+        }       
+        private void btn_Logar_Click(object sender, EventArgs e)
         {
-            string path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            path = path + @"\bdfinanca.sdf";
-            try
-            {
-                string connectionString;
+            Controle controle = new Controle();
+            controle.acessar(txtUsuario.Text, txt_SenhaLog.Text);
 
-                if (File.Exists(path))
+            if (controle.mensagem.Equals(""))
+            {
+                if (controle.tem)
                 {
-                    return;
+                    MessageBox.Show("Logado com sucesso", "Entrando", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    FrmPrincip fr1 = new FrmPrincip();
+                    fr1.ShowDialog();
+                    this.Close();
                 }
                 else
                 {
-                    if (MessageBox.Show("Banco de dados não localizado! \n Deseja criar um novo?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        /*connectionString = string.Format("Data Source=DESKTOP-WR\\SQLEXPRESS;Integrated Security=True;Trust Server Certificate=True");
-                        SqlEngine SqlEng = new SqlEngine(connectionString);
-                        SqlEng.CreateDatabase();*/
-                    }
+                    MessageBox.Show("Login não encontrado, verifique login e senha", "ERRO!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(controle.mensagem);
             }
+            //ValidaUser();
         }
        
-            
-        private void btn_Logar_Click(object sender, EventArgs e)
-        {
-            ValidaUser();
-        }
-       
-       
-        private void frmLogin_Load(object sender, EventArgs e)
-        {            
-        }
         public void Inserir_usuario(int idusuario, string nome, string usuario, string senha)
         {
             try
@@ -179,19 +167,10 @@ namespace Money
                 }
             }
             Connection.Close();           
-        }
-
-        private void btnFechar_Click(object sender, EventArgs e)
-        {           
-        }
-
-        private void BarraTitulo_MouseDown(object sender, MouseEventArgs e)
-        {            
-        }
-
+        }               
         private void txtUsuario_Enter(object sender, EventArgs e)
         {
-            penelLinhaUsuario.BackColor = Color.DodgerBlue;
+            penelLinhaUsuario.BackColor = Color.Blue;
             lblUsuario.Text = "";
         }
 
@@ -203,7 +182,7 @@ namespace Money
 
         private void txt_SenhaLog_Enter(object sender, EventArgs e)
         {
-            PaneLinhaSenha.BackColor = Color.DodgerBlue;
+            PaneLinhaSenha.BackColor = Color.Blue;
             lblSenha.Text = "";
         }
 
@@ -228,13 +207,7 @@ namespace Money
                 e.SuppressKeyPress = true;
                 SelectNextControl(ActiveControl, true, true, true, true);
             }
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+        }                
         private void barraTitulo_MouseDown_1(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -243,7 +216,7 @@ namespace Money
 
 
 
-        private void ValidaUsuario()
+        public void ValidaUsuario()
         {
             string query = "SELECT nivelacesso FROM usuario WHERE usuario = @usuario and senha = @senha";
             string returnValue = "";
@@ -300,6 +273,16 @@ namespace Money
             }
         }
 
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DataHora = DateTime.Now;
+            lblData.Text = "Data: " + DataHora.ToLongDateString() + " ás:" + DataHora.ToLongTimeString();
+        }
     }
 
 }

@@ -84,10 +84,11 @@ namespace Money
 
             try
             {
-                SqlCommand sqlcomm = new SqlCommand("UPDATE subcategoria SET nome_subcategoria = @subcategoria WHERE id_subcategoria = @idsubcategoria", conn);
+                SqlCommand sqlcomm = new SqlCommand("UPDATE subcategoria SET nome_subcategoria = @subCategoria, id_categoria = @IdCategoria WHERE id_subcategoria = @idSubCategoria", conn);
 
-                sqlcomm.Parameters.AddWithValue("@subcategoria", subcategoria.Subcategoria);
-                sqlcomm.Parameters.AddWithValue("@idsubcategoria", subcategoria.Idsubcategoria);
+                sqlcomm.Parameters.AddWithValue("@subCategoria", subcategoria.Subcategoria);
+                sqlcomm.Parameters.AddWithValue("@idCategoria", subcategoria.Idcategoria);
+                sqlcomm.Parameters.AddWithValue("@idSubCategoria", subcategoria.Idsubcategoria);
                 conn.Open();
                 sqlcomm.ExecuteNonQuery();
 

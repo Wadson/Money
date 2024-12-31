@@ -190,6 +190,7 @@
     <Compile Include="CategoriaBLL.cs" />
     <Compile Include="CategoriaDAL.cs" />
     <Compile Include="CategoriaModel.cs" />
+    <Compile Include="Conexao2.cs" />
     <Compile Include="ContasReceberBLL.cs" />
     <Compile Include="ContasReceberDAL.cs" />
     <Compile Include="ContasReceberMODEL.cs" />
@@ -245,6 +246,7 @@
     <Compile Include="ItensVendaBLL.cs" />
     <Compile Include="ItensVendaDAL.cs" />
     <Compile Include="ItensVendaMODEL.cs" />
+    <Compile Include="LoginDaoComandos.cs" />
     <Compile Include="ProdutoBLL.cs" />
     <Compile Include="ClienteBLL.cs" />
     <Compile Include="ProdutosDALL.cs" />
@@ -277,12 +279,6 @@
     </Compile>
     <Compile Include="FrmCadSubCategoria.Designer.cs">
       <DependentUpon>FrmCadSubCategoria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmManutClientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmManutClientes.Designer.cs">
-      <DependentUpon>FrmManutClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLocalizaCentro.cs">
       <SubType>Form</SubType>
@@ -551,9 +547,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmManutCliente.resx">
       <DependentUpon>FrmManutCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmManutClientes.resx">
-      <DependentUpon>FrmManutClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLocalizaCentro.resx">
       <DependentUpon>FrmLocalizaCentro.cs</DependentUpon>
@@ -858,7 +851,21 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\usuario_Login1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product_searching.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Produto11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product_traceability.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

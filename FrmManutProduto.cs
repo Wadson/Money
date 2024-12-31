@@ -47,19 +47,19 @@ namespace Money
             FrmCadProduto f3 = new FrmCadProduto();
             try
             {
-                f3.IdProduto = Convert.ToInt32(dataGridPesquisa2.CurrentRow.Cells[0].Value.ToString());
-                f3.txtIdProduto.Text = dataGridPesquisa2.CurrentRow.Cells[0].Value.ToString();
-                f3.txtProduto.Text = dataGridPesquisa2.CurrentRow.Cells[1].Value.ToString();
-                NomeProduto = dataGridPesquisa2.CurrentRow.Cells[1].Value.ToString();
-                f3.txtDescricaoProduto.Text = dataGridPesquisa2.CurrentRow.Cells[2].Value.ToString();
-                f3.txtMarcaProduto.Text = dataGridPesquisa2.CurrentRow.Cells[3].Value.ToString();
-                f3.txtPrecoCustoProduto.Text = dataGridPesquisa2.CurrentRow.Cells[4].Value.ToString();
-                f3.txtLucroProduto.Text = dataGridPesquisa2.CurrentRow.Cells[5].Value.ToString();
-                f3.txtPrecoVendaProduto.Text = dataGridPesquisa2.CurrentRow.Cells[6].Value.ToString();
+                f3.IdProduto = Convert.ToInt32(dataGridPesquisa2.CurrentRow.Cells["id_produto"].Value.ToString());
+                f3.txtIdProduto.Text = dataGridPesquisa2.CurrentRow.Cells["id_produto"].Value.ToString();
+                f3.txtProduto.Text = dataGridPesquisa2.CurrentRow.Cells["nome_produto"].Value.ToString();
+                NomeProduto = dataGridPesquisa2.CurrentRow.Cells["nome_produto"].Value.ToString();
+                f3.txtDescricaoProduto.Text = dataGridPesquisa2.CurrentRow.Cells["descricao_produto"].Value.ToString();
+                f3.txtMarcaProduto.Text = dataGridPesquisa2.CurrentRow.Cells["marca_produto"].Value.ToString();
+                f3.txtPrecoCustoProduto.Text = dataGridPesquisa2.CurrentRow.Cells["precocusto_produto"].Value.ToString();
+                f3.txtLucroProduto.Text = dataGridPesquisa2.CurrentRow.Cells["lucro_produto"].Value.ToString();
+                f3.txtPrecoVendaProduto.Text = dataGridPesquisa2.CurrentRow.Cells["precovenda_produto"].Value.ToString();
 
                 f3.StatusOperacao = "ALTERAR";
                 f3.lblTitulo.Text = "Alterar"+" "+NomeProduto;
-                f3.Text = "Money - Alterar Registro" + " | " + dataGridPesquisa2.CurrentRow.Cells[1].Value.ToString();    
+                f3.Text = "Money - Alterar Registro" + " | " + dataGridPesquisa2.CurrentRow.Cells["nome_produto"].Value.ToString();    
                 f3.ShowDialog();
                 ListaProduto();               
             }

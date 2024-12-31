@@ -52,13 +52,13 @@ namespace Money
         {
             var conn = Conexao.Conex();
 
-            SqlCommand queryVerificaNome = new SqlCommand("SELECT COUNT(*) FROM usuario WHERE nome_usuario = @nomeUsuario", conn);
+            SqlCommand queryVerificaNome = new SqlCommand("SELECT COUNT(*) FROM usuario WHERE usuario = @Usuario", conn);
             string retorno;
 
             try
             {
                 SqlParameter parametro = new SqlParameter();
-                parametro.ParameterName = "@nomeUsuario";
+                parametro.ParameterName = "@Usuario";
                 parametro.Value = txtUsuario.Text;
                 queryVerificaNome.Parameters.Add(parametro);
 
@@ -86,13 +86,13 @@ namespace Money
         {
             var conn = Conexao.Conex();
 
-            SqlCommand queryVerificaNome = new SqlCommand("SELECT COUNT(*) FROM usuario WHERE nome_usuario = @nomeUsuario", conn);
+            SqlCommand queryVerificaNome = new SqlCommand("SELECT COUNT(*) FROM usuario WHERE usuario = @Usuario", conn);
             string retorno;
 
             try
             {
                 SqlParameter parametro = new SqlParameter();
-                parametro.ParameterName = "@nomeUsuario";
+                parametro.ParameterName = "@Usuario";
                 parametro.Value = txtNome.Text;
                 queryVerificaNome.Parameters.Add(parametro);
 
@@ -240,7 +240,7 @@ namespace Money
             }
             if (StatusOperacao == "NOVO")
             {
-                EvitarDuplicado("usuario", "nome_Usuario", txtNome.Text);
+                EvitarDuplicado("usuario", "usuario", txtNome.Text);
                 if (RetornoEvitaDuplicado == "0")
                 {
                     SalvarRegistro();

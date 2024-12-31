@@ -42,6 +42,8 @@ namespace Money
         public int Codigo2 { get; set; }
         public int Codigo3 { get; set; }
         public int IdProduto { get; set; }
+        public int IdSubCategoria { get; set; }
+        public int IdCategoria { get; set; }
         public string queryfor { get; set; }
         public string Nome { get; set; }
         public string categoria { get; set; }

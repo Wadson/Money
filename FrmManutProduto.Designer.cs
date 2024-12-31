@@ -29,14 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dataGridPesquisa2 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.id_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricao_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,8 +46,6 @@
             this.precocusto_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lucro_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precovenda_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPesquisa2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,14 +109,14 @@
             this.dataGridPesquisa2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridPesquisa2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridPesquisa2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(51)))), ((int)(((byte)(72)))));
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPesquisa2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(51)))), ((int)(((byte)(72)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPesquisa2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridPesquisa2.ColumnHeadersHeight = 20;
             this.dataGridPesquisa2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_produto,
@@ -126,14 +126,14 @@
             this.precocusto_produto,
             this.lucro_produto,
             this.precovenda_produto});
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(68)))), ((int)(((byte)(96)))));
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridPesquisa2.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(68)))), ((int)(((byte)(96)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridPesquisa2.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridPesquisa2.EnableHeadersVisualStyles = false;
             this.dataGridPesquisa2.GridColor = System.Drawing.Color.SteelBlue;
             this.dataGridPesquisa2.Location = new System.Drawing.Point(3, 59);
@@ -141,89 +141,20 @@
             this.dataGridPesquisa2.Name = "dataGridPesquisa2";
             this.dataGridPesquisa2.ReadOnly = true;
             this.dataGridPesquisa2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(51)))), ((int)(((byte)(72)))));
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.PaleVioletRed;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPesquisa2.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(51)))), ((int)(((byte)(72)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.PaleVioletRed;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPesquisa2.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridPesquisa2.RowHeadersVisible = false;
             this.dataGridPesquisa2.RowHeadersWidth = 20;
             this.dataGridPesquisa2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridPesquisa2.Size = new System.Drawing.Size(780, 370);
             this.dataGridPesquisa2.TabIndex = 424;
             this.dataGridPesquisa2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPesquisa2_CellDoubleClick);
-            // 
-            // id_produto
-            // 
-            this.id_produto.DataPropertyName = "id_produto";
-            this.id_produto.DividerWidth = 1;
-            this.id_produto.HeaderText = "Código";
-            this.id_produto.Name = "id_produto";
-            this.id_produto.ReadOnly = true;
-            this.id_produto.Width = 71;
-            // 
-            // nome_produto
-            // 
-            this.nome_produto.DataPropertyName = "nome_produto";
-            this.nome_produto.DividerWidth = 1;
-            this.nome_produto.HeaderText = "Produto";
-            this.nome_produto.Name = "nome_produto";
-            this.nome_produto.ReadOnly = true;
-            this.nome_produto.Width = 74;
-            // 
-            // descricao_produto
-            // 
-            this.descricao_produto.DataPropertyName = "descricao_produto";
-            this.descricao_produto.DividerWidth = 1;
-            this.descricao_produto.HeaderText = "Descrição do Produto";
-            this.descricao_produto.Name = "descricao_produto";
-            this.descricao_produto.ReadOnly = true;
-            this.descricao_produto.Width = 148;
-            // 
-            // marca_produto
-            // 
-            this.marca_produto.DataPropertyName = "marca_produto";
-            this.marca_produto.DividerWidth = 1;
-            this.marca_produto.HeaderText = "Marca";
-            this.marca_produto.Name = "marca_produto";
-            this.marca_produto.ReadOnly = true;
-            this.marca_produto.Width = 68;
-            // 
-            // precocusto_produto
-            // 
-            this.precocusto_produto.DataPropertyName = "precocusto_produto";
-            dataGridViewCellStyle32.Format = "N2";
-            this.precocusto_produto.DefaultCellStyle = dataGridViewCellStyle32;
-            this.precocusto_produto.DividerWidth = 1;
-            this.precocusto_produto.HeaderText = "Preço Custo";
-            this.precocusto_produto.Name = "precocusto_produto";
-            this.precocusto_produto.ReadOnly = true;
-            this.precocusto_produto.Width = 96;
-            // 
-            // lucro_produto
-            // 
-            this.lucro_produto.DataPropertyName = "lucro_produto";
-            dataGridViewCellStyle33.Format = "N2";
-            this.lucro_produto.DefaultCellStyle = dataGridViewCellStyle33;
-            this.lucro_produto.DividerWidth = 1;
-            this.lucro_produto.HeaderText = "Lucro (%)";
-            this.lucro_produto.Name = "lucro_produto";
-            this.lucro_produto.ReadOnly = true;
-            this.lucro_produto.Width = 80;
-            // 
-            // precovenda_produto
-            // 
-            this.precovenda_produto.DataPropertyName = "precovenda_produto";
-            dataGridViewCellStyle34.Format = "N2";
-            this.precovenda_produto.DefaultCellStyle = dataGridViewCellStyle34;
-            this.precovenda_produto.DividerWidth = 1;
-            this.precovenda_produto.HeaderText = "Preço Venda";
-            this.precovenda_produto.Name = "precovenda_produto";
-            this.precovenda_produto.ReadOnly = true;
-            this.precovenda_produto.Width = 102;
             // 
             // label1
             // 
@@ -248,6 +179,78 @@
             this.label2.TabIndex = 430;
             this.label2.Text = "-------------------------------Manutenção de Produtos----------------------------" +
     "---";
+            // 
+            // id_produto
+            // 
+            this.id_produto.DataPropertyName = "id_produto";
+            this.id_produto.DividerWidth = 1;
+            this.id_produto.HeaderText = "Código";
+            this.id_produto.Name = "id_produto";
+            this.id_produto.ReadOnly = true;
+            this.id_produto.Width = 71;
+            // 
+            // nome_produto
+            // 
+            this.nome_produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.nome_produto.DataPropertyName = "nome_produto";
+            this.nome_produto.DividerWidth = 1;
+            this.nome_produto.HeaderText = "Produto";
+            this.nome_produto.Name = "nome_produto";
+            this.nome_produto.ReadOnly = true;
+            this.nome_produto.Width = 200;
+            // 
+            // descricao_produto
+            // 
+            this.descricao_produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.descricao_produto.DataPropertyName = "descricao_produto";
+            this.descricao_produto.DividerWidth = 1;
+            this.descricao_produto.HeaderText = "Descrição do Produto";
+            this.descricao_produto.Name = "descricao_produto";
+            this.descricao_produto.ReadOnly = true;
+            this.descricao_produto.Width = 200;
+            // 
+            // marca_produto
+            // 
+            this.marca_produto.DataPropertyName = "marca_produto";
+            this.marca_produto.DividerWidth = 1;
+            this.marca_produto.HeaderText = "Marca";
+            this.marca_produto.Name = "marca_produto";
+            this.marca_produto.ReadOnly = true;
+            this.marca_produto.Width = 68;
+            // 
+            // precocusto_produto
+            // 
+            this.precocusto_produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.precocusto_produto.DataPropertyName = "precocusto_produto";
+            dataGridViewCellStyle2.Format = "N2";
+            this.precocusto_produto.DefaultCellStyle = dataGridViewCellStyle2;
+            this.precocusto_produto.DividerWidth = 1;
+            this.precocusto_produto.HeaderText = "Preço Custo";
+            this.precocusto_produto.Name = "precocusto_produto";
+            this.precocusto_produto.ReadOnly = true;
+            // 
+            // lucro_produto
+            // 
+            this.lucro_produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.lucro_produto.DataPropertyName = "lucro_produto";
+            dataGridViewCellStyle3.Format = "N2";
+            this.lucro_produto.DefaultCellStyle = dataGridViewCellStyle3;
+            this.lucro_produto.DividerWidth = 1;
+            this.lucro_produto.HeaderText = "Lucro (%)";
+            this.lucro_produto.Name = "lucro_produto";
+            this.lucro_produto.ReadOnly = true;
+            this.lucro_produto.Width = 80;
+            // 
+            // precovenda_produto
+            // 
+            this.precovenda_produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.precovenda_produto.DataPropertyName = "precovenda_produto";
+            dataGridViewCellStyle4.Format = "N2";
+            this.precovenda_produto.DefaultCellStyle = dataGridViewCellStyle4;
+            this.precovenda_produto.DividerWidth = 1;
+            this.precovenda_produto.HeaderText = "Preço Venda";
+            this.precovenda_produto.Name = "precovenda_produto";
+            this.precovenda_produto.ReadOnly = true;
             // 
             // frmManutProduto
             // 
@@ -280,6 +283,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.DataGridView dataGridPesquisa2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome_produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn descricao_produto;
@@ -287,6 +291,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn precocusto_produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn lucro_produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn precovenda_produto;
-        private System.Windows.Forms.Label label2;
     }
 }

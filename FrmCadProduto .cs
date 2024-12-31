@@ -147,6 +147,9 @@ namespace Money
             if (StatusOperacao == "ALTERAR")
             {
                 AcrescenteZero_a_Esquerda();
+                txtLucroProduto.Text = Decimal.Parse(txtLucroProduto.Text).ToString("N2");
+                txtPrecoCustoProduto.Text = Decimal.Parse(txtPrecoCustoProduto.Text).ToString("N2");
+                txtPrecoVendaProduto.Text = Decimal.Parse(txtPrecoVendaProduto.Text).ToString("N2");
             }
             if (StatusOperacao == "NOVO")
             {

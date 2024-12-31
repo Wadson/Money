@@ -48,6 +48,10 @@ namespace Money
         private void btnNovo_Click(object sender, EventArgs e)
         {
             LimpaCampo();
+            preencherComboBoxT(cmbCategoria, "SELECT id_categoria, nome_categoria FROM categoria", "id_categoria", "nome_categoria");
+            txtidCategoria.Text = cmbCategoria.SelectedValue.ToString();
+
+            AcrescenteZero_a_Esquerda2(txtCodigo);
             txtNome.Focus();
         }
 
@@ -95,8 +99,8 @@ namespace Money
                 SubCategoriaMODEL SubcategoriaMODEL = new SubCategoriaMODEL();
 
                 SubcategoriaMODEL.Subcategoria = txtNome.Text;
-                SubcategoriaMODEL.Idcategoria = Convert.ToInt32(txtCodigo.Text);
-                //SubcategoriaMODEL.Idsubcategoria = Convert.ToInt32(txtCodigo.Text);
+                SubcategoriaMODEL.Idcategoria = Convert.ToInt32(txtidCategoria.Text);
+                SubcategoriaMODEL.Idsubcategoria = Convert.ToInt32(txtCodigo.Text);
 
                 SubsubCategoriaBLL subcatBLL = new SubsubCategoriaBLL();
                 
@@ -113,10 +117,10 @@ namespace Money
 
         private void FrmCadSubCategoria_Load(object sender, EventArgs e)
         {
-
             if (StatusOperacao == "ALTERAR")
             {
                 preencherComboBoxT(cmbCategoria, "SELECT id_categoria, nome_categoria FROM categoria", "id_categoria", "nome_categoria");
+                
                 txtidCategoria.Text = cmbCategoria.SelectedValue.ToString();
 
                 AcrescenteZero_a_Esquerda2(txtCodigo);
@@ -138,14 +142,22 @@ namespace Money
         }
 
         private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            txtidCategoria.Text = cmbCategoria.SelectedValue.ToString();
-            AcrescenteZero_a_Esquerda2(txtidCategoria);
+        {           
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cmbCategoria_SelectedValueChanged(object sender, EventArgs e)
+        {
+            txtidCategoria.Text = cmbCategoria.SelectedValue.ToString();
+            //txtidCategoria.Text = cmbCategoria.SelectedValue.ToString();
+            //var nome = cmbCategoria.Text;
+            //txtidCategoria.Text = nome;
+
+            AcrescenteZero_a_Esquerda2(txtidCategoria);
         }
     }
 }

@@ -119,7 +119,6 @@ D:\Money\Money.exe
 D:\Money\Money.pdb
 D:\Money\Microsoft.SqlServer.SqlEnum.dll
 D:\Money\System.Data.DataSetExtensions.dll
-D:\Money\obj\x86\Debug\Money.FrmManutClientes.resources
 D:\Money\obj\x86\Debug\Money.FrmCadParcelar.resources
 D:\Money\obj\x86\Debug\Money.FrmCadProduto.resources
 D:\Money\obj\x86\Debug\Money.frmManutProduto.resources

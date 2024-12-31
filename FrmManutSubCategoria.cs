@@ -115,21 +115,22 @@ namespace Money
         {
             FrmCadSubCategoria cadsubcat = new FrmCadSubCategoria();
 
-            if (dataGridPesquisa2.DataSource != null)
+            if (dataGridPesquisa2.RowCount != 00)
             {
                 try
                 {
-                    Codigo = Convert.ToInt32(dataGridPesquisa2.CurrentRow.Cells[0].Value.ToString());
-                    Codigo2 = Convert.ToInt32(dataGridPesquisa2.CurrentRow.Cells[1].Value.ToString());
-                    subcategoria = dataGridPesquisa2.CurrentRow.Cells[1].Value.ToString();
-                }
-                catch
-                {
-                }               
-                    cadsubcat.Idcategoria = Codigo;
+                    IdSubCategoria = Convert.ToInt32(dataGridPesquisa2.CurrentRow.Cells["id_subcategoria"].Value.ToString());
+                    IdCategoria = Convert.ToInt32(dataGridPesquisa2.CurrentRow.Cells["id_categoria"].Value.ToString());
+                    subcategoria = dataGridPesquisa2.CurrentRow.Cells["nome_subcategoria"].Value.ToString();
+                    //id_categoria
+                    cadsubcat.Idcategoria = IdCategoria;
                     cadsubcat.txtNome.Text = subcategoria;
-                    cadsubcat.Idsubcategoria = Codigo2;
-               
+                    cadsubcat.Idsubcategoria = IdSubCategoria;
+                }
+                catch(Exception EX)
+                {
+                    MessageBox.Show("Erro: " + EX.Message);
+                }   
             }
         }
 

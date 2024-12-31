@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dataGridPesquisa2 = new System.Windows.Forms.DataGridView();
-            this.id_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dt_nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nivelacesso_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.senha_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.id_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dt_nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nivelacesso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.senha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPesquisa2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,31 +109,31 @@
             this.dataGridPesquisa2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridPesquisa2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridPesquisa2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(51)))), ((int)(((byte)(72)))));
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPesquisa2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(51)))), ((int)(((byte)(72)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPesquisa2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridPesquisa2.ColumnHeadersHeight = 20;
             this.dataGridPesquisa2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_usuario,
-            this.nome_usuario,
-            this.user_usuario,
+            this.nome,
+            this.usuario,
             this.dt_nascimento,
-            this.nivelacesso_usuario,
-            this.senha_usuario,
-            this.email_usuario});
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(68)))), ((int)(((byte)(96)))));
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridPesquisa2.DefaultCellStyle = dataGridViewCellStyle23;
+            this.nivelacesso,
+            this.senha,
+            this.email});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(68)))), ((int)(((byte)(96)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridPesquisa2.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridPesquisa2.EnableHeadersVisualStyles = false;
             this.dataGridPesquisa2.GridColor = System.Drawing.Color.SteelBlue;
             this.dataGridPesquisa2.Location = new System.Drawing.Point(2, 59);
@@ -142,100 +142,20 @@
             this.dataGridPesquisa2.Name = "dataGridPesquisa2";
             this.dataGridPesquisa2.ReadOnly = true;
             this.dataGridPesquisa2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(51)))), ((int)(((byte)(72)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.PaleVioletRed;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPesquisa2.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(51)))), ((int)(((byte)(72)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.PaleVioletRed;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPesquisa2.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridPesquisa2.RowHeadersVisible = false;
             this.dataGridPesquisa2.RowHeadersWidth = 20;
             this.dataGridPesquisa2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridPesquisa2.Size = new System.Drawing.Size(779, 370);
             this.dataGridPesquisa2.TabIndex = 424;
             this.dataGridPesquisa2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPesquisa2_CellDoubleClick);
-            // 
-            // id_usuario
-            // 
-            this.id_usuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.id_usuario.DataPropertyName = "id_usuario";
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.id_usuario.DefaultCellStyle = dataGridViewCellStyle22;
-            this.id_usuario.DividerWidth = 1;
-            this.id_usuario.HeaderText = "Código";
-            this.id_usuario.Name = "id_usuario";
-            this.id_usuario.ReadOnly = true;
-            this.id_usuario.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.id_usuario.Width = 60;
-            // 
-            // nome_usuario
-            // 
-            this.nome_usuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.nome_usuario.DataPropertyName = "nome_usuario";
-            this.nome_usuario.DividerWidth = 1;
-            this.nome_usuario.HeaderText = "Nome do Usuário";
-            this.nome_usuario.Name = "nome_usuario";
-            this.nome_usuario.ReadOnly = true;
-            this.nome_usuario.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.nome_usuario.Width = 250;
-            // 
-            // user_usuario
-            // 
-            this.user_usuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.user_usuario.DataPropertyName = "user_usuario";
-            this.user_usuario.DividerWidth = 1;
-            this.user_usuario.HeaderText = "Usuário";
-            this.user_usuario.Name = "user_usuario";
-            this.user_usuario.ReadOnly = true;
-            this.user_usuario.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.user_usuario.Width = 150;
-            // 
-            // dt_nascimento
-            // 
-            this.dt_nascimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dt_nascimento.DataPropertyName = "dt_nascimento";
-            this.dt_nascimento.DividerWidth = 1;
-            this.dt_nascimento.HeaderText = "Data Nasc";
-            this.dt_nascimento.Name = "dt_nascimento";
-            this.dt_nascimento.ReadOnly = true;
-            this.dt_nascimento.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dt_nascimento.Width = 80;
-            // 
-            // nivelacesso_usuario
-            // 
-            this.nivelacesso_usuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.nivelacesso_usuario.DataPropertyName = "nivelacesso_usuario";
-            this.nivelacesso_usuario.DividerWidth = 1;
-            this.nivelacesso_usuario.HeaderText = "Nivel de Acesso";
-            this.nivelacesso_usuario.Name = "nivelacesso_usuario";
-            this.nivelacesso_usuario.ReadOnly = true;
-            this.nivelacesso_usuario.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.nivelacesso_usuario.Width = 150;
-            // 
-            // senha_usuario
-            // 
-            this.senha_usuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.senha_usuario.DataPropertyName = "senha_usuario";
-            this.senha_usuario.DividerWidth = 1;
-            this.senha_usuario.HeaderText = "Pass";
-            this.senha_usuario.Name = "senha_usuario";
-            this.senha_usuario.ReadOnly = true;
-            this.senha_usuario.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.senha_usuario.Visible = false;
-            this.senha_usuario.Width = 54;
-            // 
-            // email_usuario
-            // 
-            this.email_usuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.email_usuario.DataPropertyName = "email_usuario";
-            this.email_usuario.DividerWidth = 1;
-            this.email_usuario.HeaderText = "Email";
-            this.email_usuario.Name = "email_usuario";
-            this.email_usuario.ReadOnly = true;
-            this.email_usuario.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.email_usuario.Width = 150;
             // 
             // label1
             // 
@@ -260,6 +180,86 @@
             this.label2.TabIndex = 430;
             this.label2.Text = "-------------------------------Manutenção de Usuários----------------------------" +
     "---";
+            // 
+            // id_usuario
+            // 
+            this.id_usuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.id_usuario.DataPropertyName = "id_usuario";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.id_usuario.DefaultCellStyle = dataGridViewCellStyle2;
+            this.id_usuario.DividerWidth = 1;
+            this.id_usuario.HeaderText = "Código";
+            this.id_usuario.Name = "id_usuario";
+            this.id_usuario.ReadOnly = true;
+            this.id_usuario.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.id_usuario.Width = 60;
+            // 
+            // nome
+            // 
+            this.nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.nome.DataPropertyName = "nome";
+            this.nome.DividerWidth = 1;
+            this.nome.HeaderText = "Nome do Usuário";
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            this.nome.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.nome.Width = 250;
+            // 
+            // usuario
+            // 
+            this.usuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.usuario.DataPropertyName = "usuario";
+            this.usuario.DividerWidth = 1;
+            this.usuario.HeaderText = "Usuário";
+            this.usuario.Name = "usuario";
+            this.usuario.ReadOnly = true;
+            this.usuario.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.usuario.Width = 150;
+            // 
+            // dt_nascimento
+            // 
+            this.dt_nascimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dt_nascimento.DataPropertyName = "dt_nascimento";
+            this.dt_nascimento.DividerWidth = 1;
+            this.dt_nascimento.HeaderText = "Data Nasc";
+            this.dt_nascimento.Name = "dt_nascimento";
+            this.dt_nascimento.ReadOnly = true;
+            this.dt_nascimento.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dt_nascimento.Width = 80;
+            // 
+            // nivelacesso
+            // 
+            this.nivelacesso.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.nivelacesso.DataPropertyName = "nivelacesso";
+            this.nivelacesso.DividerWidth = 1;
+            this.nivelacesso.HeaderText = "Nivel de Acesso";
+            this.nivelacesso.Name = "nivelacesso";
+            this.nivelacesso.ReadOnly = true;
+            this.nivelacesso.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.nivelacesso.Width = 150;
+            // 
+            // senha
+            // 
+            this.senha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.senha.DataPropertyName = "senha";
+            this.senha.DividerWidth = 1;
+            this.senha.HeaderText = "Pass";
+            this.senha.Name = "senha";
+            this.senha.ReadOnly = true;
+            this.senha.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.senha.Visible = false;
+            this.senha.Width = 54;
+            // 
+            // email
+            // 
+            this.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.email.DataPropertyName = "email";
+            this.email.DividerWidth = 1;
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            this.email.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.email.Width = 150;
             // 
             // FrmManutUsuario
             // 
@@ -291,13 +291,13 @@
         public System.Windows.Forms.Timer timer1;
         public System.Windows.Forms.DataGridView dataGridPesquisa2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nome_usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn user_usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dt_nascimento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nivelacesso_usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn senha_usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email_usuario;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dt_nascimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nivelacesso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn senha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
     }
 }

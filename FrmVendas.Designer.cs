@@ -53,6 +53,19 @@
             this.label14 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.dataGridVendas = new System.Windows.Forms.DataGridView();
+            this.id_itensvenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtd_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor_parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dt_vcto_parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_venda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.num_parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status_conta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_contasreceber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -93,19 +106,6 @@
             this.txtTotalGrid = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.id_itensvenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtd_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor_parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dt_vcto_parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_venda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.num_parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status_conta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_contasreceber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVendas)).BeginInit();
@@ -288,6 +288,155 @@
             this.dataGridVendas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridVendas.Size = new System.Drawing.Size(747, 132);
             this.dataGridVendas.TabIndex = 466;
+            // 
+            // id_itensvenda
+            // 
+            this.id_itensvenda.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.id_itensvenda.DataPropertyName = "id_itensvenda";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.id_itensvenda.DefaultCellStyle = dataGridViewCellStyle3;
+            this.id_itensvenda.DividerWidth = 1;
+            this.id_itensvenda.HeaderText = "Cód. Itens";
+            this.id_itensvenda.Name = "id_itensvenda";
+            this.id_itensvenda.ReadOnly = true;
+            // 
+            // nome_produto
+            // 
+            this.nome_produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.nome_produto.DataPropertyName = "nome_produto";
+            this.nome_produto.DividerWidth = 1;
+            this.nome_produto.HeaderText = "Descrição do Produto";
+            this.nome_produto.Name = "nome_produto";
+            this.nome_produto.ReadOnly = true;
+            this.nome_produto.Width = 300;
+            // 
+            // qtd_produto
+            // 
+            this.qtd_produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.qtd_produto.DataPropertyName = "qtd_produto";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.qtd_produto.DefaultCellStyle = dataGridViewCellStyle4;
+            this.qtd_produto.DividerWidth = 1;
+            this.qtd_produto.HeaderText = "Qtd.";
+            this.qtd_produto.Name = "qtd_produto";
+            this.qtd_produto.ReadOnly = true;
+            this.qtd_produto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.qtd_produto.Width = 50;
+            // 
+            // valor_parcela
+            // 
+            this.valor_parcela.DataPropertyName = "valor_parcela";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.valor_parcela.DefaultCellStyle = dataGridViewCellStyle5;
+            this.valor_parcela.DividerWidth = 1;
+            this.valor_parcela.HeaderText = "Valor Parcela";
+            this.valor_parcela.Name = "valor_parcela";
+            this.valor_parcela.ReadOnly = true;
+            this.valor_parcela.Width = 104;
+            // 
+            // total
+            // 
+            this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.total.DataPropertyName = "total";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.total.DefaultCellStyle = dataGridViewCellStyle6;
+            this.total.DividerWidth = 1;
+            this.total.HeaderText = "ValorTotal";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // dt_vcto_parcela
+            // 
+            this.dt_vcto_parcela.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dt_vcto_parcela.DataPropertyName = "dt_vcto_parcela";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dt_vcto_parcela.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dt_vcto_parcela.DividerWidth = 1;
+            this.dt_vcto_parcela.HeaderText = "Data Vencto";
+            this.dt_vcto_parcela.Name = "dt_vcto_parcela";
+            this.dt_vcto_parcela.ReadOnly = true;
+            // 
+            // id_produto
+            // 
+            this.id_produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.id_produto.DataPropertyName = "id_produto";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.id_produto.DefaultCellStyle = dataGridViewCellStyle8;
+            this.id_produto.DividerWidth = 1;
+            this.id_produto.HeaderText = "Código Produto";
+            this.id_produto.Name = "id_produto";
+            this.id_produto.ReadOnly = true;
+            // 
+            // id_venda
+            // 
+            this.id_venda.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.id_venda.DataPropertyName = "id_venda";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.id_venda.DefaultCellStyle = dataGridViewCellStyle9;
+            this.id_venda.DividerWidth = 1;
+            this.id_venda.HeaderText = "Cód.Venda";
+            this.id_venda.Name = "id_venda";
+            this.id_venda.ReadOnly = true;
+            this.id_venda.Width = 91;
+            // 
+            // id_parcela
+            // 
+            this.id_parcela.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.id_parcela.DataPropertyName = "id_parcela";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.id_parcela.DefaultCellStyle = dataGridViewCellStyle10;
+            this.id_parcela.DividerWidth = 1;
+            this.id_parcela.HeaderText = "Cód. Parc";
+            this.id_parcela.Name = "id_parcela";
+            this.id_parcela.ReadOnly = true;
+            this.id_parcela.Width = 84;
+            // 
+            // valor_produto
+            // 
+            this.valor_produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.valor_produto.DataPropertyName = "valor_produto";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.valor_produto.DefaultCellStyle = dataGridViewCellStyle11;
+            this.valor_produto.DividerWidth = 1;
+            this.valor_produto.HeaderText = "Valor Produto";
+            this.valor_produto.Name = "valor_produto";
+            this.valor_produto.ReadOnly = true;
+            // 
+            // num_parcela
+            // 
+            this.num_parcela.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.num_parcela.DataPropertyName = "num_parcela";
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.num_parcela.DefaultCellStyle = dataGridViewCellStyle12;
+            this.num_parcela.DividerWidth = 1;
+            this.num_parcela.HeaderText = "Núm Parc";
+            this.num_parcela.Name = "num_parcela";
+            this.num_parcela.ReadOnly = true;
+            this.num_parcela.Width = 85;
+            // 
+            // status_conta
+            // 
+            this.status_conta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.status_conta.DataPropertyName = "status_conta";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.status_conta.DefaultCellStyle = dataGridViewCellStyle13;
+            this.status_conta.DividerWidth = 1;
+            this.status_conta.HeaderText = "Status";
+            this.status_conta.Name = "status_conta";
+            this.status_conta.ReadOnly = true;
+            this.status_conta.Width = 64;
+            // 
+            // id_contasreceber
+            // 
+            this.id_contasreceber.DataPropertyName = "id_contasreceber";
+            this.id_contasreceber.HeaderText = "Cód. Cont.R";
+            this.id_contasreceber.Name = "id_contasreceber";
+            this.id_contasreceber.ReadOnly = true;
+            this.id_contasreceber.Width = 95;
             // 
             // label8
             // 
@@ -775,155 +924,6 @@
             this.groupBox3.Size = new System.Drawing.Size(764, 66);
             this.groupBox3.TabIndex = 547;
             this.groupBox3.TabStop = false;
-            // 
-            // id_itensvenda
-            // 
-            this.id_itensvenda.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.id_itensvenda.DataPropertyName = "id_itensvenda";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.id_itensvenda.DefaultCellStyle = dataGridViewCellStyle3;
-            this.id_itensvenda.DividerWidth = 1;
-            this.id_itensvenda.HeaderText = "Cód. Itens";
-            this.id_itensvenda.Name = "id_itensvenda";
-            this.id_itensvenda.ReadOnly = true;
-            // 
-            // nome_produto
-            // 
-            this.nome_produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.nome_produto.DataPropertyName = "nome_produto";
-            this.nome_produto.DividerWidth = 1;
-            this.nome_produto.HeaderText = "Descrição do Produto";
-            this.nome_produto.Name = "nome_produto";
-            this.nome_produto.ReadOnly = true;
-            this.nome_produto.Width = 300;
-            // 
-            // qtd_produto
-            // 
-            this.qtd_produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.qtd_produto.DataPropertyName = "qtd_produto";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.qtd_produto.DefaultCellStyle = dataGridViewCellStyle4;
-            this.qtd_produto.DividerWidth = 1;
-            this.qtd_produto.HeaderText = "Qtd.";
-            this.qtd_produto.Name = "qtd_produto";
-            this.qtd_produto.ReadOnly = true;
-            this.qtd_produto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.qtd_produto.Width = 50;
-            // 
-            // valor_parcela
-            // 
-            this.valor_parcela.DataPropertyName = "valor_parcela";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.valor_parcela.DefaultCellStyle = dataGridViewCellStyle5;
-            this.valor_parcela.DividerWidth = 1;
-            this.valor_parcela.HeaderText = "Valor Parcela";
-            this.valor_parcela.Name = "valor_parcela";
-            this.valor_parcela.ReadOnly = true;
-            this.valor_parcela.Width = 104;
-            // 
-            // total
-            // 
-            this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.total.DataPropertyName = "total";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.total.DefaultCellStyle = dataGridViewCellStyle6;
-            this.total.DividerWidth = 1;
-            this.total.HeaderText = "ValorTotal";
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            this.total.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // dt_vcto_parcela
-            // 
-            this.dt_vcto_parcela.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dt_vcto_parcela.DataPropertyName = "dt_vcto_parcela";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dt_vcto_parcela.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dt_vcto_parcela.DividerWidth = 1;
-            this.dt_vcto_parcela.HeaderText = "Data Vencto";
-            this.dt_vcto_parcela.Name = "dt_vcto_parcela";
-            this.dt_vcto_parcela.ReadOnly = true;
-            // 
-            // id_produto
-            // 
-            this.id_produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.id_produto.DataPropertyName = "id_produto";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.id_produto.DefaultCellStyle = dataGridViewCellStyle8;
-            this.id_produto.DividerWidth = 1;
-            this.id_produto.HeaderText = "Código Produto";
-            this.id_produto.Name = "id_produto";
-            this.id_produto.ReadOnly = true;
-            // 
-            // id_venda
-            // 
-            this.id_venda.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.id_venda.DataPropertyName = "id_venda";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.id_venda.DefaultCellStyle = dataGridViewCellStyle9;
-            this.id_venda.DividerWidth = 1;
-            this.id_venda.HeaderText = "Cód.Venda";
-            this.id_venda.Name = "id_venda";
-            this.id_venda.ReadOnly = true;
-            this.id_venda.Width = 91;
-            // 
-            // id_parcela
-            // 
-            this.id_parcela.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.id_parcela.DataPropertyName = "id_parcela";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.id_parcela.DefaultCellStyle = dataGridViewCellStyle10;
-            this.id_parcela.DividerWidth = 1;
-            this.id_parcela.HeaderText = "Cód. Parc";
-            this.id_parcela.Name = "id_parcela";
-            this.id_parcela.ReadOnly = true;
-            this.id_parcela.Width = 84;
-            // 
-            // valor_produto
-            // 
-            this.valor_produto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.valor_produto.DataPropertyName = "valor_produto";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.valor_produto.DefaultCellStyle = dataGridViewCellStyle11;
-            this.valor_produto.DividerWidth = 1;
-            this.valor_produto.HeaderText = "Valor Produto";
-            this.valor_produto.Name = "valor_produto";
-            this.valor_produto.ReadOnly = true;
-            // 
-            // num_parcela
-            // 
-            this.num_parcela.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.num_parcela.DataPropertyName = "num_parcela";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.num_parcela.DefaultCellStyle = dataGridViewCellStyle12;
-            this.num_parcela.DividerWidth = 1;
-            this.num_parcela.HeaderText = "Núm Parc";
-            this.num_parcela.Name = "num_parcela";
-            this.num_parcela.ReadOnly = true;
-            this.num_parcela.Width = 85;
-            // 
-            // status_conta
-            // 
-            this.status_conta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.status_conta.DataPropertyName = "status_conta";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.status_conta.DefaultCellStyle = dataGridViewCellStyle13;
-            this.status_conta.DividerWidth = 1;
-            this.status_conta.HeaderText = "Status";
-            this.status_conta.Name = "status_conta";
-            this.status_conta.ReadOnly = true;
-            this.status_conta.Width = 64;
-            // 
-            // id_contasreceber
-            // 
-            this.id_contasreceber.DataPropertyName = "id_contasreceber";
-            this.id_contasreceber.HeaderText = "Cód. Cont.R";
-            this.id_contasreceber.Name = "id_contasreceber";
-            this.id_contasreceber.ReadOnly = true;
-            this.id_contasreceber.Width = 95;
             // 
             // FrmVendas
             // 

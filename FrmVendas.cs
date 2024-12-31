@@ -110,7 +110,6 @@ namespace Money
             //txtValorTotal.SelectionStart = txtValorTotal.TextLength + 1;           
         }
 
-
         public void HabilitaBotesCadastro2()
         {
             if (StatusOperacao == "NOVO")

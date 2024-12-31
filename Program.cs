@@ -15,16 +15,15 @@ namespace Money
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FrmPrincip());
+            Application.Run(new FrmPrincip());
 
+            //FrmLogin frmLogin = new FrmLogin();
+            //frmLogin.ShowDialog();
 
-            FrmLogin frmLogin = new FrmLogin();
-
-            frmLogin.ShowDialog();
-            if (frmLogin.Conectado)
-            {
-                Application.Run(new FrmPrincip());               
-            }
+            //if (frmLogin.Conectado)
+            //{
+            //    Application.Run(new FrmPrincip());
+            //}
         }
     }
 }

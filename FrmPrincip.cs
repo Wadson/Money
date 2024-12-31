@@ -18,10 +18,10 @@ namespace Money
         {
             InitializeComponent();
         }
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        //[DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        //private extern static void ReleaseCapture();
+        //[DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        //private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         
         private void AbrirFormInPanel(object formHijo)
         {
@@ -35,32 +35,26 @@ namespace Money
             this.panelContenedor.Tag = fh;
             fh.Show();
         }
-        private void mostrarlogo()
-        {
-            AbrirFormInPanel(new FormLogo());
-        }
-        private void mostrarlogoAlCerrarForm(object sender, FormClosedEventArgs e)
-        {
-            mostrarlogo();
-        }
+       
+      
         private void btnFUNCIONARIOS_Click(object sender, EventArgs e)
         {
             FrmManutUsuario frm = new FrmManutUsuario();
-            frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
+            
             AbrirFormInPanel(frm);
         }
 
         private void btnFORNECEDORES_Click(object sender, EventArgs e)
         {
             FrmManutFornecedor frm = new FrmManutFornecedor();
-            frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
+            //frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
             AbrirFormInPanel(frm);
         }
 
         private void btnRELATORIOS_Click(object sender, EventArgs e)
         {
             FrmRel_Menu frm = new FrmRel_Menu();
-            frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
+            //frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
             AbrirFormInPanel(frm);
         }
 
@@ -72,14 +66,14 @@ namespace Money
         private void btnCategoria_Click(object sender, EventArgs e)
         {
             FrmManutcategoria frm = new FrmManutcategoria();
-            frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
+            //frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
             AbrirFormInPanel(frm);
         }
 
         private void btnSubCateg_Click(object sender, EventArgs e)
         {
             FrmManutSubCategoria frm = new FrmManutSubCategoria();
-            frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
+            //frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
             AbrirFormInPanel(frm);
         }
 
@@ -120,10 +114,27 @@ namespace Money
 
         private void FrmPrincip_Load(object sender, EventArgs e)
         { 
-            string currentPath = Path.GetDirectoryName(Application.ExecutablePath);           
+            string currentPath = Path.GetDirectoryName(Application.ExecutablePath);        
 
-            lblUsuarioLogado.Text = FrmLogin.usuarioConectado +"  |  Previlégio:"+ FrmLogin.NivelAcesso +"  |  Diretório:"+ currentPath + @"\Money.exe";  
-        
+            lblUsuarioLogado.Text = FrmLogin.usuarioConectado +"  |  Previlégio:"+ FrmLogin.NivelAcesso +"  |  Diretório:"+ currentPath + @"\Money.exe";
+
+            string data = DateTime.Now.ToLongDateString();
+            data = data.Substring(0, 1).ToUpper() + data.Substring(1, data.Length - 1);
+            toolStripStatusData.Text = data;
+
+            string path = System.AppDomain.CurrentDomain.BaseDirectory.ToString();
+            //string path2 = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
+            //string path3 = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            //string path4 = System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath);
+            //string path5 = System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.StartupPath);
+            string path6 = System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.LocalUserAppDataPath);
+            string path7 = System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.CommonAppDataPath);
+            string path8 = System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.UserAppDataPath);
+
+            toolStripStatusExecutablePath.Text = path;
+            toolStripStatusLocation.Text = path6;
+
+
         }
         public void HabilitarTimer(bool habilitar)
         {
@@ -137,26 +148,21 @@ namespace Money
         private void btnCadCli_Click(object sender, EventArgs e)
         {
             FrmManutCliente frm = new FrmManutCliente();
-            frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
+            //frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
             AbrirFormInPanel(frm);
         }
 
         private void btnProdutos_Click(object sender, EventArgs e)
         {
             frmManutProduto frm = new frmManutProduto();
-            frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
+            //frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
             AbrirFormInPanel(frm);            
         }
 
         private void btnVendas_Click(object sender, EventArgs e)
         {
-            //FrmManutContasaReceber frm = new FrmManutContasaReceber();
-            //frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);            
-            //AbrirFormInPanel(frm);
-            //FrmVendas frm = new FrmVendas();
-            //frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
-            //AbrirFormInPanel(frm);
-
+            FrmVendas frm = new FrmVendas();            
+            AbrirFormInPanel(frm);                    
         }
 
         private void contasAReceberToolStripMenuItem_Click(object sender, EventArgs e)
@@ -168,7 +174,7 @@ namespace Money
         private void btnContasReceber_Click(object sender, EventArgs e)
         {
             frmManutContasReceber frm = new frmManutContasReceber();
-            frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
+           // frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
             AbrirFormInPanel(frm);
         }
 
@@ -176,6 +182,17 @@ namespace Money
         {
             frmPesquiaDinamicaVendas pesquivendas = new frmPesquiaDinamicaVendas();
             pesquivendas.ShowDialog();  
+        }
+
+        private void btnContasPagar_Click(object sender, EventArgs e)
+        {
+            FrmManutContasPagar frm = new FrmManutContasPagar();
+            frm.ShowDialog();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            toolStripStatusHora.Text = DateTime.Now.ToLongTimeString();
         }
     }
 }

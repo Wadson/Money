@@ -9,35 +9,33 @@ namespace Money
 {
     internal class Controle
     {
-        public bool tem = false;
+        public bool tem;
         public String mensagem = "";
+
         SqlCommand cmd = new SqlCommand();
-        SqlDataReader dr;
+//        SqlDataReader dr;
 
         public bool acessar(string login, string senha)
         {
+            LoginDaoComandos loginDao = new LoginDaoComandos();
+            tem = loginDao.acessar(login, senha);
 
-            cmd.CommandText = "select * from usuario where user_usuario = @User_Usuario AND senha_usuario = @Senha_Usuario";
-            cmd.Parameters.AddWithValue("@User_Usuario", login);
-            cmd.Parameters.AddWithValue("@Senha_Usuario", senha);
-
-            try
+            if (!loginDao.mensagem.Equals(""))
             {
-                cmd.Connection = Conexao.Conex();
-                dr = cmd.ExecuteReader();
-
-                if (dr.HasRows)
-                {
-                    tem = true;
-                }
-
-                Conexao.Conex().Open();
-            }
-            catch (SqlException)
-            {
-                this.mensagem = "Erro com Banco de Dados!";
+                this.mensagem = loginDao.mensagem;
             }
             return tem;
+        }
+        public String cadastrar(String nome, String email, String login, String senha)
+        {
+            LoginDaoComandos loginDao = new LoginDaoComandos();
+
+            this.mensagem = loginDao.cadastrar(nome, email, login, senha);
+            if (loginDao.tem)
+            {
+                this.tem = true;
+            }
+            return mensagem;
         }
     }
 }

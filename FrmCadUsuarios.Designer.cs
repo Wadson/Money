@@ -60,33 +60,33 @@
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(2, 396);
-            this.panel2.Size = new System.Drawing.Size(449, 2);
+            this.panel2.Location = new System.Drawing.Point(2, 304);
+            this.panel2.Size = new System.Drawing.Size(459, 2);
             // 
             // panel3
             // 
-            this.panel3.Size = new System.Drawing.Size(449, 25);
+            this.panel3.Size = new System.Drawing.Size(459, 25);
             // 
             // panel4
             // 
-            this.panel4.Size = new System.Drawing.Size(2, 398);
+            this.panel4.Size = new System.Drawing.Size(2, 306);
             // 
             // panel5
             // 
-            this.panel5.Location = new System.Drawing.Point(451, 0);
-            this.panel5.Size = new System.Drawing.Size(2, 398);
+            this.panel5.Location = new System.Drawing.Point(461, 0);
+            this.panel5.Size = new System.Drawing.Size(2, 306);
             // 
             // btnExit
             // 
             this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.Location = new System.Drawing.Point(14, 2);
+            this.btnExit.Location = new System.Drawing.Point(-56, 2);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Money.Properties.Resources.icono_cliente;
             this.pictureBox1.Location = new System.Drawing.Point(363, 110);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(85, 86);
+            this.pictureBox1.Size = new System.Drawing.Size(86, 89);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 129;
             this.pictureBox1.TabStop = false;
@@ -98,7 +98,7 @@
             this.btnNovo.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.ForeColor = System.Drawing.Color.White;
-            this.btnNovo.Location = new System.Drawing.Point(196, 339);
+            this.btnNovo.Location = new System.Drawing.Point(196, 257);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(64, 35);
             this.btnNovo.TabIndex = 444;
@@ -113,7 +113,7 @@
             this.btnSalvar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(117, 339);
+            this.btnSalvar.Location = new System.Drawing.Point(117, 257);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(64, 35);
             this.btnSalvar.TabIndex = 7;
@@ -371,7 +371,7 @@
             this.btnFechar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.ForeColor = System.Drawing.Color.White;
-            this.btnFechar.Location = new System.Drawing.Point(275, 339);
+            this.btnFechar.Location = new System.Drawing.Point(275, 257);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(64, 35);
             this.btnFechar.TabIndex = 447;
@@ -382,7 +382,7 @@
             // FrmCadUsuarios
             // 
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(453, 398);
+            this.ClientSize = new System.Drawing.Size(463, 306);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label5);

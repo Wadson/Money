@@ -49,7 +49,7 @@ namespace Money
                 ClienteBLL cliente_bll = new ClienteBLL();
                 cliente_bll.Excluir(cliente_MODEL);
                 MessageBox.Show("REGISTRO EXCLUÍDO!!" + Cliente + "", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                ((FrmManutClientes)Application.OpenForms["FrmManutClientes"]).HabilitarTimer(true);
+                ((FrmManutCliente)Application.OpenForms["FrmManutCliente"]).HabilitarTimer(true);
                 ListaClientes();
             }
 
@@ -130,6 +130,11 @@ namespace Money
         {
             ListaClientes();
             timer1.Enabled = false;
+        }
+
+        private void dataGridPesquisa_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CarregaDados();
         }
     }
 }

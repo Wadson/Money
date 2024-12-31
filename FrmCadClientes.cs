@@ -35,7 +35,7 @@ namespace Money
 
                 cliente_bll.Salvar(objCliente);
                 MessageBox.Show("REGISTRO gravado com sucesso!", "Informação!!!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                FrmManutClientes Form = new FrmManutClientes();
+                FrmManutCliente Form = new FrmManutCliente();
 
                 txtCodigoCli.Text = RetornaCodigoContaMaisUm(QueryClientes).ToString();
                 LimpaCampo();
