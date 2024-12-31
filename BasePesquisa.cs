@@ -155,6 +155,7 @@ namespace Money
         public DataTable LocalizarGeral(SqlCommand comando)
         {
             var conn = Conexao.Conex();
+
             comando.Connection = conn;
             try
             {

@@ -49,11 +49,11 @@ namespace Money
             {
                 SqlCommand sqlcomm = new SqlCommand("INSERT INTO usuario (id_usuario, nome_usuario, senha_usuario, nivelacesso_usuario, user_usuario, email_usuario, dt_nascimento) VALUES " +
                     "(@idUsuario, @nomeUsuario, @senhaUsuario,@nivelAcessoUsuario,@userUsuario, @emailUsuario, @dtNascimento)", conn);
-                sqlcomm.Parameters.AddWithValue("@nomeUsuario", usuarios.Nome_usuario);
-                sqlcomm.Parameters.AddWithValue("@senhaUsuario", usuarios.Senha_usuario);
+                sqlcomm.Parameters.AddWithValue("@nomeUsuario", usuarios.Nome);
+                sqlcomm.Parameters.AddWithValue("@senhaUsuario", usuarios.Senha);
                 sqlcomm.Parameters.AddWithValue("@nivelAcessoUsuario", usuarios.Nivelacesso_usuario);
-                sqlcomm.Parameters.AddWithValue("@userUsuario", usuarios.User_usuario);
-                sqlcomm.Parameters.AddWithValue("@emailUsuario", usuarios.Email_usuario);
+                sqlcomm.Parameters.AddWithValue("@userUsuario", usuarios.Usuario);
+                sqlcomm.Parameters.AddWithValue("@emailUsuario", usuarios.Email);
                 sqlcomm.Parameters.AddWithValue("@dtNascimento", usuarios.Dt_nascimento);
                 sqlcomm.Parameters.AddWithValue("@idUsuario", usuarios.Id_usuario);
 
@@ -97,11 +97,11 @@ namespace Money
             {   
                 SqlCommand sqlcomm = new SqlCommand("UPDATE usuario SET nome_usuario = @nome_Usuario, senha_usuario = @senha_Usuario, nivelacesso_usuario = @nivelAcesso_Usuario, user_usuario = @user_Usuario, email_usuario = @email_Usuario, dt_nascimento = @dtNascimento_Usuario WHERE id_usuario = @id_Usuario", conn);
 
-                sqlcomm.Parameters.AddWithValue("@nome_Usuario", usuarios.Nome_usuario);
-                sqlcomm.Parameters.AddWithValue("@senha_Usuario", usuarios.Senha_usuario);
+                sqlcomm.Parameters.AddWithValue("@nome_Usuario", usuarios.Nome);
+                sqlcomm.Parameters.AddWithValue("@senha_Usuario", usuarios.Senha);
                 sqlcomm.Parameters.AddWithValue("@nivelAcesso_Usuario", usuarios.Nivelacesso_usuario);
-                sqlcomm.Parameters.AddWithValue("@user_Usuario", usuarios.User_usuario);
-                sqlcomm.Parameters.AddWithValue("@email_Usuario", usuarios.Email_usuario);
+                sqlcomm.Parameters.AddWithValue("@user_Usuario", usuarios.Usuario);
+                sqlcomm.Parameters.AddWithValue("@email_Usuario", usuarios.Email);
                 sqlcomm.Parameters.AddWithValue("@dtNascimento_Usuario", usuarios.Dt_nascimento);
                 sqlcomm.Parameters.AddWithValue("@id_Usuario", usuarios.Id_usuario);
                 conn.Open();
@@ -126,7 +126,7 @@ namespace Money
             {   
                 SqlCommand sqlcomm = new SqlCommand("UPDATE usuario SET senha_usuario = @senhaUsuario WHERE id_usuario = @idUsuario", conn);
 
-                sqlcomm.Parameters.AddWithValue("@senhaUsuario", usuarios.Senha_usuario);
+                sqlcomm.Parameters.AddWithValue("@senhaUsuario", usuarios.Senha);
                 sqlcomm.Parameters.AddWithValue("@idUsuario", usuarios.Id_usuario);
 
                 conn.Open();
@@ -141,8 +141,6 @@ namespace Money
             {
                 conn.Close();
             }
-
-        }
-        
+        }        
     }
 }

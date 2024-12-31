@@ -282,16 +282,15 @@ namespace Money
 
 
         private void ValidaUser()
-        {
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-WR\\SQLEXPRESS;Initial Catalog=bdmoney;Integrated Security=True;"); // Making a database connection
-            SqlDataAdapter sda = new SqlDataAdapter("SELECT COUNT(*) FROM usuario WHERE usuario='" + txtUsuario.Text + "' AND senha='" + txt_SenhaLog.Text + "'", con);
-            /* In the above line, the program is selecting the whole data from the table and matching it with the username and password provided by the user. */
-            DataTable dt = new DataTable(); // Creating a virtual table
+        {            
+           var conn = Conexao.Conex();
+
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT COUNT(*) FROM usuario WHERE usuario = '" + txtUsuario.Text + "' AND senha = '" + txt_SenhaLog.Text + "'", conn);            
+            DataTable dt = new DataTable(); 
             sda.Fill(dt);
             if (dt.Rows[0][0].ToString() == "1")
             {
-                FrmPrincip home = new FrmPrincip();
-                /* I have made a new page called the home page. If the user is successfully authenticated, then the form will be moved to the next form. */
+                FrmPrincip home = new FrmPrincip();                
                 this.Hide();
                 home.Show();
             }

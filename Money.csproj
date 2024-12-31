@@ -193,6 +193,7 @@
     <Compile Include="ContasReceberBLL.cs" />
     <Compile Include="ContasReceberDAL.cs" />
     <Compile Include="ContasReceberMODEL.cs" />
+    <Compile Include="Controle.cs" />
     <Compile Include="FrmCadProduto .cs">
       <SubType>Form</SubType>
     </Compile>

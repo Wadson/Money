@@ -94,7 +94,7 @@ namespace Money
                 {
 
                     obj_usuario.Id_usuario = Convert.ToInt32(datareader["id_usuario"]);
-                    obj_usuario.Nome_usuario = datareader["nome_usuario"].ToString();
+                    obj_usuario.Nome = datareader["nome_usuario"].ToString();
 
 
                 }

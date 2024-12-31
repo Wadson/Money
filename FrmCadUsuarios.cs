@@ -23,12 +23,12 @@ namespace Money
                 UsuarioModel objusuario = new UsuarioModel();
 
                 objusuario.Id_usuario = Convert.ToInt32(txtCodigo.Text);
-                objusuario.Nome_usuario = txtNome.Text;
-                objusuario.User_usuario = txtUsuario.Text;
-                objusuario.Senha_usuario = Convert.ToString(txtSenha.Text);
+                objusuario.Nome = txtNome.Text;
+                objusuario.Usuario = txtUsuario.Text;
+                objusuario.Senha = Convert.ToString(txtSenha.Text);
                 objusuario.Nivelacesso_usuario = cmbNivelAcesso.Text;               
                 objusuario.Dt_nascimento = Convert.ToDateTime(txtdtNascimento.Text);
-                objusuario.Email_usuario = txtEmail.Text;
+                objusuario.Email = txtEmail.Text;
                 UsuarioBLL usuariobll = new UsuarioBLL();
 
                 if (IdUsuario != 0 && txtUsuario.Text != string.Empty && cmbNivelAcesso.Text != string.Empty && txtSenha.Text == txtRepitasenha.Text)
@@ -204,12 +204,12 @@ namespace Money
             UsuarioModel objetoUsuario = new UsuarioModel();
 
             objetoUsuario.Id_usuario = Convert.ToInt32(txtCodigo.Text);
-            objetoUsuario.Nome_usuario = txtNome.Text;
-            objetoUsuario.User_usuario = txtUsuario.Text;
+            objetoUsuario.Nome = txtNome.Text;
+            objetoUsuario.Usuario = txtUsuario.Text;
             objetoUsuario.Dt_nascimento = Convert.ToDateTime(txtdtNascimento.Text);
-            objetoUsuario.Senha_usuario = txtSenha.Text;
+            objetoUsuario.Senha = txtSenha.Text;
             objetoUsuario.Nivelacesso_usuario = cmbNivelAcesso.Text;
-            objetoUsuario.Email_usuario = txtEmail.Text;
+            objetoUsuario.Email = txtEmail.Text;
 
 
             UsuarioBLL usuarioBll = new UsuarioBLL();
