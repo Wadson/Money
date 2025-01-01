@@ -32,7 +32,8 @@ namespace Money
         public string QueryClientes = "SELECT MAX(id_cliente)  FROM cliente";
 
         private int IdCliente;
-            public int IDCliente { get; set; }
+        public int IDCliente { get; set; }
+        public int IDCidade { get; set; }
         public int Id_Itensvenda { get; set; }
         public int Id_Parcela { get; set; }
         public string StatusOperacao { get; set; }

@@ -12,7 +12,7 @@ namespace Money
         SqlConnection conn = new SqlConnection();
         public Conexao2()
         {
-            conn.ConnectionString = @"Data Source=DESKTOP-WR\SQLEXPRESS;Initial Catalog=bdmoney;Integrated Security=True";
+            conn.ConnectionString = @"Data Source=DESKTOP-WR\SQLEXPRESS;Initial Catalog=bdmoney;Integrated Security=True;";
         }
         public SqlConnection Conectar()
         {

@@ -593,6 +593,16 @@ namespace Money.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap quadra {
+            get {
+                object obj = ResourceManager.GetObject("quadra", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Relatorios2 {
             get {
                 object obj = ResourceManager.GetObject("Relatorios2", resourceCulture);

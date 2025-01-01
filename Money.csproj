@@ -187,13 +187,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bdmoneyDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="CategoriaBLL.cs" />
-    <Compile Include="CategoriaDAL.cs" />
-    <Compile Include="CategoriaModel.cs" />
+    <Compile Include="BLL\CategoriaBLL.cs" />
+    <Compile Include="DAL\CategoriaDAL.cs" />
+    <Compile Include="FrmLocalizarCidade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLocalizarCidade.Designer.cs">
+      <DependentUpon>FrmLocalizarCidade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MODEL\CategoriaModel.cs" />
+    <Compile Include="BLL\cidadeBLL.cs" />
+    <Compile Include="DAL\CidadeDAL.cs" />
+    <Compile Include="MODEL\CidadeModel.cs" />
     <Compile Include="Conexao2.cs" />
-    <Compile Include="ContasReceberBLL.cs" />
-    <Compile Include="ContasReceberDAL.cs" />
-    <Compile Include="ContasReceberMODEL.cs" />
+    <Compile Include="BLL\ContasReceberBLL.cs" />
+    <Compile Include="DAL\ContasReceberDAL.cs" />
+    <Compile Include="MODEL\ContasReceberMODEL.cs" />
     <Compile Include="Controle.cs" />
     <Compile Include="FrmCadProduto .cs">
       <SubType>Form</SubType>
@@ -237,25 +246,31 @@
     <Compile Include="FrmManutProduto.Designer.cs">
       <DependentUpon>FrmManutProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmManutCidade .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManutCidade .Designer.cs">
+      <DependentUpon>FrmManutCidade .cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPesquiaDinamicaVendas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPesquiaDinamicaVendas.Designer.cs">
       <DependentUpon>frmPesquiaDinamicaVendas.cs</DependentUpon>
     </Compile>
-    <Compile Include="ItensVendaBLL.cs" />
-    <Compile Include="ItensVendaDAL.cs" />
-    <Compile Include="ItensVendaMODEL.cs" />
+    <Compile Include="BLL\ItensVendaBLL.cs" />
+    <Compile Include="DAL\ItensVendaDAL.cs" />
+    <Compile Include="MODEL\ItensVendaMODEL.cs" />
     <Compile Include="LoginDaoComandos.cs" />
-    <Compile Include="ProdutoBLL.cs" />
-    <Compile Include="ClienteBLL.cs" />
-    <Compile Include="ProdutosDALL.cs" />
-    <Compile Include="ClienteDAL.cs" />
-    <Compile Include="ClienteMODEL.cs" />
+    <Compile Include="BLL\ProdutoBLL.cs" />
+    <Compile Include="BLL\ClienteBLL.cs" />
+    <Compile Include="DAL\ProdutosDALL.cs" />
+    <Compile Include="DAL\ClienteDAL.cs" />
+    <Compile Include="MODEL\ClienteMODEL.cs" />
     <Compile Include="Conexao.cs" />
-    <Compile Include="ContasBLL.cs" />
-    <Compile Include="ContasDAL.cs" />
-    <Compile Include="ContasMODEL.cs" />
+    <Compile Include="BLL\ContasBLL.cs" />
+    <Compile Include="DAL\ContasDAL.cs" />
+    <Compile Include="MODEL\ContasMODEL.cs" />
     <Compile Include="FrmCadClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -322,30 +337,30 @@
     <Compile Include="FrmPrincip.Designer.cs">
       <DependentUpon>FrmPrincip.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProdutosMODEL.cs" />
+    <Compile Include="MODEL\ProdutosMODEL.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ReceitasBLL.cs" />
-    <Compile Include="ReceitasDAL.cs" />
-    <Compile Include="ReceitasMODEL.cs" />
-    <Compile Include="RegistroPagamentoBLL.cs" />
-    <Compile Include="RegistroPagamentoDAL.cs" />
-    <Compile Include="RegistroPagamentoModel.cs" />
-    <Compile Include="SubCategoriaBLL.cs" />
-    <Compile Include="SubCategoriaDAL.cs" />
-    <Compile Include="SubCategoriaMODEL.cs" />
+    <Compile Include="BLL\ReceitasBLL.cs" />
+    <Compile Include="DAL\ReceitasDAL.cs" />
+    <Compile Include="MODEL\ReceitasMODEL.cs" />
+    <Compile Include="BLL\RegistroPagamentoBLL.cs" />
+    <Compile Include="DAL\RegistroPagamentoDAL.cs" />
+    <Compile Include="MODEL\RegistroPagamentoModel.cs" />
+    <Compile Include="BLL\SubCategoriaBLL.cs" />
+    <Compile Include="DAL\SubCategoriaDAL.cs" />
+    <Compile Include="MODEL\SubCategoriaMODEL.cs" />
     <Compile Include="UserControlData.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControlData.Designer.cs">
       <DependentUpon>UserControlData.cs</DependentUpon>
     </Compile>
-    <Compile Include="FornecedorBLL.cs" />
-    <Compile Include="FornecedorDAL.cs" />
-    <Compile Include="FornecedorMODEL.cs" />
+    <Compile Include="BLL\FornecedorBLL.cs" />
+    <Compile Include="DAL\FornecedorDAL.cs" />
+    <Compile Include="MODEL\FornecedorMODEL.cs" />
     <Compile Include="FrmBaseGeral.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -484,9 +499,9 @@
     <Compile Include="FrmRestaura_Banco.designer.cs">
       <DependentUpon>FrmRestaura_Banco.cs</DependentUpon>
     </Compile>
-    <Compile Include="ParcelaBLL.cs" />
-    <Compile Include="ParcelaDAL.cs" />
-    <Compile Include="ParcelaModel.cs" />
+    <Compile Include="BLL\ParcelaBLL.cs" />
+    <Compile Include="DAL\ParcelaDAL.cs" />
+    <Compile Include="MODEL\ParcelaModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TexBox.cs">
@@ -507,12 +522,12 @@
     <Compile Include="UserControlHora.Designer.cs">
       <DependentUpon>UserControlHora.cs</DependentUpon>
     </Compile>
-    <Compile Include="UsuarioBLL.cs" />
-    <Compile Include="UsuarioDAL.cs" />
-    <Compile Include="UsuarioModel.cs" />
-    <Compile Include="VendaBLL.cs" />
-    <Compile Include="VendaDAL.cs" />
-    <Compile Include="VendaMODEL.cs" />
+    <Compile Include="BLL\UsuarioBLL.cs" />
+    <Compile Include="DAL\UsuarioDAL.cs" />
+    <Compile Include="MODEL\UsuarioModel.cs" />
+    <Compile Include="BLL\VendaBLL.cs" />
+    <Compile Include="DAL\VendaDAL.cs" />
+    <Compile Include="MODEL\VendaMODEL.cs" />
     <Compile Include="WordFill.cs" />
     <EmbeddedResource Include="BasePesquisa.resx">
       <DependentUpon>BasePesquisa.cs</DependentUpon>
@@ -545,6 +560,9 @@
     <EmbeddedResource Include="FrmLocalizaProduto.resx">
       <DependentUpon>FrmLocalizaProduto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmLocalizarCidade.resx">
+      <DependentUpon>FrmLocalizarCidade.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmManutCliente.resx">
       <DependentUpon>FrmManutCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -568,6 +586,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCadParcelar.resx">
       <DependentUpon>FrmCadParcelar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManutCidade .resx">
+      <DependentUpon>FrmManutCidade .cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPesquiaDinamicaVendas.resx">
       <DependentUpon>frmPesquiaDinamicaVendas.cs</DependentUpon>
@@ -871,6 +892,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Fechar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quadra.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Formularios\" />
+    <Folder Include="Relatorios\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

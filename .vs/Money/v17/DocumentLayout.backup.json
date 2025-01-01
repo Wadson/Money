@@ -3,27 +3,36 @@
   "WorkspaceRootPath": "D:\\Money\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmprincip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmprincip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmlocalizarcidade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmlocalizarcidade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Money||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmlocalizarcidade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmlocalizarcidade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\conexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:conexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmcadclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmcadclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|D:\\Money\\frmprincip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmprincip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmlocalizacliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmlocalizacliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|D:\\Money\\frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\dal\\cidadedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:dal\\cidadedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\dal\\clientedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:dal\\clientedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmcadclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmcadclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmlocalizacliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmlocalizacliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -33,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -41,64 +50,103 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Conexao.cs",
-              "DocumentMoniker": "D:\\Money\\Conexao.cs",
-              "RelativeDocumentMoniker": "Conexao.cs",
-              "ToolTip": "D:\\Money\\Conexao.cs",
-              "RelativeToolTip": "Conexao.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA7wBQAAACOAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "CidadeDAL.cs",
+              "DocumentMoniker": "D:\\Money\\DAL\\CidadeDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\CidadeDAL.cs",
+              "ToolTip": "D:\\Money\\DAL\\CidadeDAL.cs",
+              "RelativeToolTip": "DAL\\CidadeDAL.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAAC9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T20:25:22.562Z",
+              "WhenOpened": "2025-01-01T04:33:54.066Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FrmVendas.cs [Design]",
-              "DocumentMoniker": "D:\\Money\\FrmVendas.cs",
-              "RelativeDocumentMoniker": "FrmVendas.cs",
-              "ToolTip": "D:\\Money\\FrmVendas.cs [Design]",
-              "RelativeToolTip": "FrmVendas.cs [Design]",
+              "DocumentIndex": 5,
+              "Title": "ClienteDAL.cs",
+              "DocumentMoniker": "D:\\Money\\DAL\\ClienteDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\ClienteDAL.cs",
+              "ToolTip": "D:\\Money\\DAL\\ClienteDAL.cs",
+              "RelativeToolTip": "DAL\\ClienteDAL.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T19:15:04.817Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-01-01T04:33:17.325Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FrmCadClientes.cs",
+              "DocumentMoniker": "D:\\Money\\FrmCadClientes.cs",
+              "RelativeDocumentMoniker": "FrmCadClientes.cs",
+              "ToolTip": "D:\\Money\\FrmCadClientes.cs",
+              "RelativeToolTip": "FrmCadClientes.cs",
+              "ViewState": "AgIAAKsAAAAAAAAAAAAywLYAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T04:32:09.784Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Money",
-              "DocumentMoniker": "D:\\Money\\Money.csproj",
-              "RelativeDocumentMoniker": "Money.csproj",
-              "ToolTip": "D:\\Money\\Money.csproj",
-              "RelativeToolTip": "Money.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-12-31T19:01:49.668Z",
+              "Title": "FrmLocalizarCidade.cs",
+              "DocumentMoniker": "D:\\Money\\FrmLocalizarCidade.cs",
+              "RelativeDocumentMoniker": "FrmLocalizarCidade.cs",
+              "ToolTip": "D:\\Money\\FrmLocalizarCidade.cs",
+              "RelativeToolTip": "FrmLocalizarCidade.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAcwDcAAADcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T03:59:01.042Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "FrmPrincip.cs",
-              "DocumentMoniker": "D:\\Money\\FrmPrincip.cs",
-              "RelativeDocumentMoniker": "FrmPrincip.cs",
-              "ToolTip": "D:\\Money\\FrmPrincip.cs",
-              "RelativeToolTip": "FrmPrincip.cs",
-              "ViewState": "AgIAAGsAAAAAAAAAAAA2wHYAAAAcAAAAAAAAAA==",
+              "Title": "FrmLocalizaCliente.cs",
+              "DocumentMoniker": "D:\\Money\\FrmLocalizaCliente.cs",
+              "RelativeDocumentMoniker": "FrmLocalizaCliente.cs",
+              "ToolTip": "D:\\Money\\FrmLocalizaCliente.cs",
+              "RelativeToolTip": "FrmLocalizaCliente.cs",
+              "ViewState": "AgIAAIcAAAAAAAAAAAA/wJEAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T18:50:28.425Z",
+              "WhenOpened": "2025-01-01T03:58:44.187Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FrmPrincip.cs [Design]",
-              "DocumentMoniker": "D:\\Money\\FrmPrincip.cs",
-              "RelativeDocumentMoniker": "FrmPrincip.cs",
-              "ToolTip": "D:\\Money\\FrmPrincip.cs [Design]",
-              "RelativeToolTip": "FrmPrincip.cs [Design]",
+              "Title": "FrmLocalizarCidade.cs [Design]",
+              "DocumentMoniker": "D:\\Money\\FrmLocalizarCidade.cs",
+              "RelativeDocumentMoniker": "FrmLocalizarCidade.cs",
+              "ToolTip": "D:\\Money\\FrmLocalizarCidade.cs [Design]",
+              "RelativeToolTip": "FrmLocalizarCidade.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T18:50:23.647Z",
+              "WhenOpened": "2025-01-01T03:54:15.33Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FrmLocalizaCliente.cs [Design]",
+              "DocumentMoniker": "D:\\Money\\FrmLocalizaCliente.cs",
+              "RelativeDocumentMoniker": "FrmLocalizaCliente.cs",
+              "ToolTip": "D:\\Money\\FrmLocalizaCliente.cs [Design]",
+              "RelativeToolTip": "FrmLocalizaCliente.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T03:53:36.132Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FrmCadClientes.cs [Design]",
+              "DocumentMoniker": "D:\\Money\\FrmCadClientes.cs",
+              "RelativeDocumentMoniker": "FrmCadClientes.cs",
+              "ToolTip": "D:\\Money\\FrmCadClientes.cs [Design]",
+              "RelativeToolTip": "FrmCadClientes.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T03:46:54.505Z",
               "EditorCaption": " [Design]"
             }
           ]

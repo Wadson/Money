@@ -130,3 +130,6 @@ D:\Money\obj\x86\Debug\Money.FrmGerarParcelas.resources
 D:\Money\obj\x86\Debug\Money.frmManutContasReceber.resources
 D:\Money\obj\x86\Debug\Money.frmPesquiaDinamicaVendas.resources
 D:\Money\obj\x86\Debug\Money.FrmDetalheVenda.resources
+D:\Money\Microsoft.ReportViewer.Common.dll
+D:\Money\obj\x86\Debug\Money.FrmManutCidade.resources
+D:\Money\obj\x86\Debug\Money.FrmLocalizarCidade.resources

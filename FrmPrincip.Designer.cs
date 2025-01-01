@@ -76,6 +76,7 @@
             this.contasAReceberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.manutençãoDeCadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cidadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ferramentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pesquisaDinâmicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -129,11 +130,12 @@
             this.btnSair.Location = new System.Drawing.Point(991, 1);
             this.btnSair.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(90, 70);
+            this.btnSair.Size = new System.Drawing.Size(90, 68);
             this.btnSair.TabIndex = 25;
             this.btnSair.Text = "&Fechar";
             this.btnSair.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnContasPagar
             // 
@@ -148,7 +150,7 @@
             this.btnContasPagar.Location = new System.Drawing.Point(722, 1);
             this.btnContasPagar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnContasPagar.Name = "btnContasPagar";
-            this.btnContasPagar.Size = new System.Drawing.Size(90, 70);
+            this.btnContasPagar.Size = new System.Drawing.Size(90, 68);
             this.btnContasPagar.TabIndex = 24;
             this.btnContasPagar.Text = "&Pagar";
             this.btnContasPagar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -169,7 +171,7 @@
             this.btnProdutos.Location = new System.Drawing.Point(452, 1);
             this.btnProdutos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnProdutos.Name = "btnProdutos";
-            this.btnProdutos.Size = new System.Drawing.Size(90, 70);
+            this.btnProdutos.Size = new System.Drawing.Size(90, 68);
             this.btnProdutos.TabIndex = 23;
             this.btnProdutos.Text = " &Produtos";
             this.btnProdutos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -187,10 +189,11 @@
             this.btnCadCli.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.btnCadCli.ForeColor = System.Drawing.Color.White;
             this.btnCadCli.Image = ((System.Drawing.Image)(resources.GetObject("btnCadCli.Image")));
+            this.btnCadCli.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCadCli.Location = new System.Drawing.Point(92, 1);
             this.btnCadCli.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCadCli.Name = "btnCadCli";
-            this.btnCadCli.Size = new System.Drawing.Size(90, 70);
+            this.btnCadCli.Size = new System.Drawing.Size(90, 68);
             this.btnCadCli.TabIndex = 22;
             this.btnCadCli.Text = "&Clientes";
             this.btnCadCli.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -211,7 +214,7 @@
             this.btnFerramenta.Location = new System.Drawing.Point(902, 1);
             this.btnFerramenta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFerramenta.Name = "btnFerramenta";
-            this.btnFerramenta.Size = new System.Drawing.Size(90, 70);
+            this.btnFerramenta.Size = new System.Drawing.Size(90, 68);
             this.btnFerramenta.TabIndex = 18;
             this.btnFerramenta.Text = "Fe&rramentas";
             this.btnFerramenta.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -231,7 +234,7 @@
             this.btnSubCateg.Location = new System.Drawing.Point(362, 1);
             this.btnSubCateg.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSubCateg.Name = "btnSubCateg";
-            this.btnSubCateg.Size = new System.Drawing.Size(90, 70);
+            this.btnSubCateg.Size = new System.Drawing.Size(90, 68);
             this.btnSubCateg.TabIndex = 17;
             this.btnSubCateg.Text = "&Sub Categoria";
             this.btnSubCateg.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -252,7 +255,7 @@
             this.btnContasReceber.Location = new System.Drawing.Point(542, 1);
             this.btnContasReceber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnContasReceber.Name = "btnContasReceber";
-            this.btnContasReceber.Size = new System.Drawing.Size(90, 70);
+            this.btnContasReceber.Size = new System.Drawing.Size(90, 68);
             this.btnContasReceber.TabIndex = 16;
             this.btnContasReceber.Text = "&Receber";
             this.btnContasReceber.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -273,7 +276,7 @@
             this.btnCategoria.Location = new System.Drawing.Point(272, 1);
             this.btnCategoria.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCategoria.Name = "btnCategoria";
-            this.btnCategoria.Size = new System.Drawing.Size(90, 70);
+            this.btnCategoria.Size = new System.Drawing.Size(90, 68);
             this.btnCategoria.TabIndex = 14;
             this.btnCategoria.Text = "&Categ";
             this.btnCategoria.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -294,7 +297,7 @@
             this.btnRELATORIOS.Location = new System.Drawing.Point(812, 1);
             this.btnRELATORIOS.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRELATORIOS.Name = "btnRELATORIOS";
-            this.btnRELATORIOS.Size = new System.Drawing.Size(90, 70);
+            this.btnRELATORIOS.Size = new System.Drawing.Size(90, 68);
             this.btnRELATORIOS.TabIndex = 13;
             this.btnRELATORIOS.Text = " &Relatórios";
             this.btnRELATORIOS.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -312,10 +315,11 @@
             this.btnFUNCIONARIOS.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.btnFUNCIONARIOS.ForeColor = System.Drawing.Color.White;
             this.btnFUNCIONARIOS.Image = ((System.Drawing.Image)(resources.GetObject("btnFUNCIONARIOS.Image")));
+            this.btnFUNCIONARIOS.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnFUNCIONARIOS.Location = new System.Drawing.Point(2, 1);
             this.btnFUNCIONARIOS.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFUNCIONARIOS.Name = "btnFUNCIONARIOS";
-            this.btnFUNCIONARIOS.Size = new System.Drawing.Size(90, 70);
+            this.btnFUNCIONARIOS.Size = new System.Drawing.Size(90, 68);
             this.btnFUNCIONARIOS.TabIndex = 12;
             this.btnFUNCIONARIOS.Text = "&Usuário";
             this.btnFUNCIONARIOS.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -336,7 +340,7 @@
             this.btnVendas.Location = new System.Drawing.Point(632, 1);
             this.btnVendas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnVendas.Name = "btnVendas";
-            this.btnVendas.Size = new System.Drawing.Size(90, 70);
+            this.btnVendas.Size = new System.Drawing.Size(90, 68);
             this.btnVendas.TabIndex = 11;
             this.btnVendas.Text = "&Vendas";
             this.btnVendas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -357,7 +361,7 @@
             this.btnFORNECEDORES.Location = new System.Drawing.Point(182, 1);
             this.btnFORNECEDORES.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFORNECEDORES.Name = "btnFORNECEDORES";
-            this.btnFORNECEDORES.Size = new System.Drawing.Size(90, 70);
+            this.btnFORNECEDORES.Size = new System.Drawing.Size(90, 68);
             this.btnFORNECEDORES.TabIndex = 10;
             this.btnFORNECEDORES.Text = "&Fornecedor";
             this.btnFORNECEDORES.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -681,9 +685,18 @@
             // 
             // manutençãoDeCadastrosToolStripMenuItem
             // 
+            this.manutençãoDeCadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cidadeToolStripMenuItem});
             this.manutençãoDeCadastrosToolStripMenuItem.Name = "manutençãoDeCadastrosToolStripMenuItem";
             this.manutençãoDeCadastrosToolStripMenuItem.Size = new System.Drawing.Size(157, 20);
             this.manutençãoDeCadastrosToolStripMenuItem.Text = "&Manutenção de Cadastros";
+            // 
+            // cidadeToolStripMenuItem
+            // 
+            this.cidadeToolStripMenuItem.Name = "cidadeToolStripMenuItem";
+            this.cidadeToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.cidadeToolStripMenuItem.Text = "&Cidade";
+            this.cidadeToolStripMenuItem.Click += new System.EventHandler(this.cidadeToolStripMenuItem_Click);
             // 
             // relatóriosToolStripMenuItem
             // 
@@ -857,5 +870,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
         private System.Windows.Forms.ToolStripStatusLabel lblUsuarioLogado;
         private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.ToolStripMenuItem cidadeToolStripMenuItem;
     }
 }

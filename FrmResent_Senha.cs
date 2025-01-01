@@ -18,7 +18,6 @@ namespace Money
             InitializeComponent();
         }
 
-
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -32,13 +31,9 @@ namespace Money
             {
                 SqlCommand sqlcomm = new SqlCommand("SELECT usuario FROM usuario WHERE nome = @nome ", conn);
                 sqlcomm.Parameters.AddWithValue("@nome", txtNome.Text);
-               
 
-
-                SqlCommand sqlcom2 = new SqlCommand("SELECT   senha FROM usuario WHERE nome = @nome ", conn);
+                SqlCommand sqlcom2 = new SqlCommand("SELECT senha FROM usuario WHERE nome = @nome ", conn);
                 sqlcom2.Parameters.AddWithValue("@nome", txtNome.Text);
-              
-
 
                 conn.Open();
 

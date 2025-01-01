@@ -5,6 +5,8 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 using System.IO;
+using System.Runtime.Remoting.Contexts;
+using Microsoft.SqlServer.Management.Smo;
 
 namespace Money
 {
@@ -14,29 +16,15 @@ namespace Money
         {            
             try
             {
-                //NOTEOBOOK
-                var nomeComputador = Environment.MachineName;
+                //DESKTOP 
+                
+                string conn = "Data Source=DESKTOP-WR\\SQLEXPRESS;Initial Catalog=bdmoney;Integrated Security=True;";
+                //NOTEBOOK
+                //string conn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\Money\\Data\\bdmoney.mdf;Integrated Security=True;";
 
-
-                //string conec = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\Money\\Data\\bdmoney.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=True"
-                string conn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\Money\\Data\\bdmoney.mdf;Integrated Security=True;";
+                
                 SqlConnection myConn = new SqlConnection(conn);
                 return myConn;
-                //if (nomeComputador == "NOTEBOOK-DELL")
-                //{
-                //    string conec = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\Money\\Data\\bdmoney.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=True"
-                //    string conn = "Data Source=" + nomeComputador +"\\SQLEXPRESS;Initial Catalog=bdmoney;Integrated Security=True;";
-                //    SqlConnection myConn = new SqlConnection(conn);
-                //    return myConn;
-                //}
-                //else
-                //{
-                //    string conn = "Data Source=" + nomeComputador + "\\SQLEXPRESS;Initial Catalog=bdmoney;Integrated Security=True;";
-                //    SqlConnection myConn = new SqlConnection(conn);
-                //    return myConn;
-                //}
-
-
             }
             catch (SqlException  ex) // SqlException
             {
@@ -54,14 +42,12 @@ namespace Money
             comando.Connection = conexao;
 
             SqlDataReader reader = comando.ExecuteReader();
-
             return reader;
         }
 
         public static DataTable SQL_data_adapter(string query_String)
         {
             DataTable DataTableC = new DataTable();
-
             var conexao = Conexao.Conex();
 
             try

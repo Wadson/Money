@@ -198,5 +198,17 @@ namespace Money
         {
             toolStripStatusHora.Text = DateTime.Now.ToLongTimeString();
         }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void cidadeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmManutCidade frm = new FrmManutCidade();
+            //frm.FormClosed += new FormClosedEventHandler(mostrarlogoAlCerrarForm);
+            AbrirFormInPanel(frm);
+        }
     }
 }
