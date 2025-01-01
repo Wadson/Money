@@ -39,7 +39,8 @@ namespace Money
                     //((FrmVendas)Application.OpenForms["FrmVendas"]).txtIdCliente.Text = dataGridPesquisa[0, linhaAtual].Value.ToString();
                     ((FrmCadClientes)Application.OpenForms["FrmCadClientes"]).IDCidade = int.Parse(dataGridPesquisa2[0, linhaAtual].Value.ToString());
                     ((FrmCadClientes)Application.OpenForms["FrmCadClientes"]).txtCidadeCliente.Text = dataGridPesquisa2[1, linhaAtual].Value.ToString();
-                    //((FrmCadClientes)Application.OpenForms["FrmCadClientes"]).txtProduto.Focus();
+                    ((FrmCadClientes)Application.OpenForms["FrmCadClientes"]).txtIdCidade.Text = dataGridPesquisa2[0, linhaAtual].Value.ToString();
+                    ((FrmCadClientes)Application.OpenForms["FrmCadClientes"]).txtEstadoCliente.Text = dataGridPesquisa2[2, linhaAtual].Value.ToString();
 
                 }
             }

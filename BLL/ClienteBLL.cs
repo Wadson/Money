@@ -76,8 +76,6 @@ namespace Money
                 SqlDataReader datareader;
                 ClienteMODEL obj_cliente = new ClienteMODEL();
 
-
-
                 datareader = sql.ExecuteReader(CommandBehavior.CloseConnection);
                 while (datareader.Read())
                 {
@@ -87,9 +85,7 @@ namespace Money
                     obj_cliente.Fone_cliente = datareader["fone_cliente"].ToString();
                     obj_cliente.Endereco_cliente = datareader["endereco_cliente"].ToString();
                     obj_cliente.Bairro_cliente = datareader["bairro_cliente"].ToString();
-                    obj_cliente.Cidade_cliente = datareader["cidade_cliente"].ToString();
-                    obj_cliente.Estado_cliente = datareader["estado_cliente"].ToString();                
-
+                    obj_cliente.Id_cidade = Convert.ToInt32(datareader["id_cidade"]);
                 }
                 return obj_cliente;
             }

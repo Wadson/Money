@@ -3,36 +3,28 @@
   "WorkspaceRootPath": "D:\\Money\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmlocalizarcidade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmlocalizarcidade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmlocalizarcidade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmlocalizarcidade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmcadclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmcadclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmlocalizacliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmlocalizacliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\dal\\cidadedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:dal\\cidadedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmmanutcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmmanutcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\dal\\clientedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:dal\\clientedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmcadclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmcadclientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\bll\\clientebll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:bll\\clientebll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmlocalizacliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmlocalizacliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmmanutcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmmanutcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\bdfinancadataset.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
+      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:bdfinancadataset.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\bdmoneydataset.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
+      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:bdmoneydataset.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,104 +42,78 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CidadeDAL.cs",
-              "DocumentMoniker": "D:\\Money\\DAL\\CidadeDAL.cs",
-              "RelativeDocumentMoniker": "DAL\\CidadeDAL.cs",
-              "ToolTip": "D:\\Money\\DAL\\CidadeDAL.cs",
-              "RelativeToolTip": "DAL\\CidadeDAL.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAAC9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-01T04:33:54.066Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "ClienteDAL.cs",
               "DocumentMoniker": "D:\\Money\\DAL\\ClienteDAL.cs",
               "RelativeDocumentMoniker": "DAL\\ClienteDAL.cs",
               "ToolTip": "D:\\Money\\DAL\\ClienteDAL.cs",
               "RelativeToolTip": "DAL\\ClienteDAL.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAxwBAAAABlAQAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-01T04:33:17.325Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FrmCadClientes.cs",
-              "DocumentMoniker": "D:\\Money\\FrmCadClientes.cs",
-              "RelativeDocumentMoniker": "FrmCadClientes.cs",
-              "ToolTip": "D:\\Money\\FrmCadClientes.cs",
-              "RelativeToolTip": "FrmCadClientes.cs",
-              "ViewState": "AgIAAKsAAAAAAAAAAAAywLYAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-01T04:32:09.784Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FrmLocalizarCidade.cs",
-              "DocumentMoniker": "D:\\Money\\FrmLocalizarCidade.cs",
-              "RelativeDocumentMoniker": "FrmLocalizarCidade.cs",
-              "ToolTip": "D:\\Money\\FrmLocalizarCidade.cs",
-              "RelativeToolTip": "FrmLocalizarCidade.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAcwDcAAADcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-01T03:59:01.042Z",
+              "WhenOpened": "2025-01-01T05:15:32.621Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "FrmLocalizaCliente.cs",
-              "DocumentMoniker": "D:\\Money\\FrmLocalizaCliente.cs",
-              "RelativeDocumentMoniker": "FrmLocalizaCliente.cs",
-              "ToolTip": "D:\\Money\\FrmLocalizaCliente.cs",
-              "RelativeToolTip": "FrmLocalizaCliente.cs",
-              "ViewState": "AgIAAIcAAAAAAAAAAAA/wJEAAAAUAAAAAAAAAA==",
+              "Title": "FrmManutCliente.cs",
+              "DocumentMoniker": "D:\\Money\\FrmManutCliente.cs",
+              "RelativeDocumentMoniker": "FrmManutCliente.cs",
+              "ToolTip": "D:\\Money\\FrmManutCliente.cs",
+              "RelativeToolTip": "FrmManutCliente.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAA1wCIAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-01T03:58:44.187Z",
+              "WhenOpened": "2025-01-01T05:07:41.26Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FrmLocalizarCidade.cs [Design]",
-              "DocumentMoniker": "D:\\Money\\FrmLocalizarCidade.cs",
-              "RelativeDocumentMoniker": "FrmLocalizarCidade.cs",
-              "ToolTip": "D:\\Money\\FrmLocalizarCidade.cs [Design]",
-              "RelativeToolTip": "FrmLocalizarCidade.cs [Design]",
+              "Title": "FrmManutCliente.cs [Design]",
+              "DocumentMoniker": "D:\\Money\\FrmManutCliente.cs",
+              "RelativeDocumentMoniker": "FrmManutCliente.cs",
+              "ToolTip": "D:\\Money\\FrmManutCliente.cs [Design]",
+              "RelativeToolTip": "FrmManutCliente.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-01T03:54:15.33Z",
+              "WhenOpened": "2025-01-01T05:15:21.651Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "FrmLocalizaCliente.cs [Design]",
-              "DocumentMoniker": "D:\\Money\\FrmLocalizaCliente.cs",
-              "RelativeDocumentMoniker": "FrmLocalizaCliente.cs",
-              "ToolTip": "D:\\Money\\FrmLocalizaCliente.cs [Design]",
-              "RelativeToolTip": "FrmLocalizaCliente.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-01T03:53:36.132Z",
-              "EditorCaption": " [Design]"
+              "DocumentIndex": 5,
+              "Title": "bdmoneyDataSet.xsd",
+              "DocumentMoniker": "D:\\Money\\bdmoneyDataSet.xsd",
+              "RelativeDocumentMoniker": "bdmoneyDataSet.xsd",
+              "ToolTip": "D:\\Money\\bdmoneyDataSet.xsd",
+              "RelativeToolTip": "bdmoneyDataSet.xsd",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
+              "WhenOpened": "2025-01-01T05:09:48.324Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FrmCadClientes.cs [Design]",
-              "DocumentMoniker": "D:\\Money\\FrmCadClientes.cs",
-              "RelativeDocumentMoniker": "FrmCadClientes.cs",
-              "ToolTip": "D:\\Money\\FrmCadClientes.cs [Design]",
-              "RelativeToolTip": "FrmCadClientes.cs [Design]",
+              "DocumentIndex": 4,
+              "Title": "bdfinancaDataSet.xsd",
+              "DocumentMoniker": "D:\\Money\\bdfinancaDataSet.xsd",
+              "RelativeDocumentMoniker": "bdfinancaDataSet.xsd",
+              "ToolTip": "D:\\Money\\bdfinancaDataSet.xsd",
+              "RelativeToolTip": "bdfinancaDataSet.xsd",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
+              "WhenOpened": "2025-01-01T05:09:14.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ClienteBLL.cs",
+              "DocumentMoniker": "D:\\Money\\BLL\\ClienteBLL.cs",
+              "RelativeDocumentMoniker": "BLL\\ClienteBLL.cs",
+              "ToolTip": "D:\\Money\\BLL\\ClienteBLL.cs",
+              "RelativeToolTip": "BLL\\ClienteBLL.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAzwBQAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-01T03:46:54.505Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-01-01T05:04:28.106Z",
+              "EditorCaption": ""
             }
           ]
         }

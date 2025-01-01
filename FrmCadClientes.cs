@@ -28,8 +28,8 @@ namespace Money
                 objCliente.Fone_cliente = txtTelefoneCli.Text;
                 objCliente.Endereco_cliente = txtTelefoneCli.Text;
                 objCliente.Bairro_cliente = txtBairroCliente.Text;
-                objCliente.Cidade_cliente = txtCidadeCliente.Text;
-                objCliente.Estado_cliente = txtEstadoCliente.Text;
+                objCliente.Id_cidade = Convert.ToInt32(txtIdCidade.Text);
+                
 
                 ClienteBLL cliente_bll = new ClienteBLL();
 
@@ -55,8 +55,8 @@ namespace Money
             obj_cliente.Fone_cliente = txtTelefoneCli.Text;
             obj_cliente.Endereco_cliente = txtEnderecoCliente.Text;
             obj_cliente.Bairro_cliente = txtBairroCliente.Text;
-            obj_cliente.Cidade_cliente = txtCidadeCliente.Text;
-            obj_cliente.Estado_cliente = txtEstadoCliente.Text;
+            obj_cliente.Id_cidade = Convert.ToInt32(txtIdCidade.Text);
+
             obj_cliente.Id_cliente = Convert.ToInt32(txtCodigoCli.Text);
 
             ClienteBLL clinte_bll = new ClienteBLL();

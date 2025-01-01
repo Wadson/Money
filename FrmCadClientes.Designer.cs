@@ -49,7 +49,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnFechar = new System.Windows.Forms.Button();
             this.txtTelefoneCli = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.txtIdCidade = new System.Windows.Forms.MaskedTextBox();
             this.btnLocalizar = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -76,7 +76,7 @@
             // btnExit
             // 
             this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.Location = new System.Drawing.Point(1555, 3);
+            this.btnExit.Location = new System.Drawing.Point(1969, 3);
             // 
             // btnNovo
             // 
@@ -102,7 +102,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(110, 314);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(120, 35);
-            this.btnSalvar.TabIndex = 132;
+            this.btnSalvar.TabIndex = 6;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -228,6 +228,7 @@
             this.txtCidadeCliente.Name = "txtCidadeCliente";
             this.txtCidadeCliente.Size = new System.Drawing.Size(324, 21);
             this.txtCidadeCliente.TabIndex = 5;
+            this.txtCidadeCliente.TabStop = false;
             // 
             // label6
             // 
@@ -244,8 +245,10 @@
             this.txtEstadoCliente.Location = new System.Drawing.Point(115, 278);
             this.txtEstadoCliente.MaxLength = 100;
             this.txtEstadoCliente.Name = "txtEstadoCliente";
+            this.txtEstadoCliente.ReadOnly = true;
             this.txtEstadoCliente.Size = new System.Drawing.Size(439, 21);
             this.txtEstadoCliente.TabIndex = 6;
+            this.txtEstadoCliente.TabStop = false;
             // 
             // label7
             // 
@@ -289,17 +292,17 @@
             this.txtTelefoneCli.Mask = "(99) 0 0000-0000";
             this.txtTelefoneCli.Name = "txtTelefoneCli";
             this.txtTelefoneCli.Size = new System.Drawing.Size(143, 21);
-            this.txtTelefoneCli.TabIndex = 152;
+            this.txtTelefoneCli.TabIndex = 2;
             // 
-            // maskedTextBox1
+            // txtIdCidade
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(115, 251);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.ReadOnly = true;
-            this.maskedTextBox1.Size = new System.Drawing.Size(48, 21);
-            this.maskedTextBox1.TabIndex = 153;
-            this.maskedTextBox1.TabStop = false;
-            this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtIdCidade.Location = new System.Drawing.Point(115, 251);
+            this.txtIdCidade.Name = "txtIdCidade";
+            this.txtIdCidade.ReadOnly = true;
+            this.txtIdCidade.Size = new System.Drawing.Size(48, 21);
+            this.txtIdCidade.TabIndex = 153;
+            this.txtIdCidade.TabStop = false;
+            this.txtIdCidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnLocalizar
             // 
@@ -311,7 +314,7 @@
             this.btnLocalizar.Location = new System.Drawing.Point(487, 250);
             this.btnLocalizar.Name = "btnLocalizar";
             this.btnLocalizar.Size = new System.Drawing.Size(67, 23);
-            this.btnLocalizar.TabIndex = 154;
+            this.btnLocalizar.TabIndex = 5;
             this.btnLocalizar.Text = "&Localizar";
             this.btnLocalizar.UseVisualStyleBackColor = false;
             this.btnLocalizar.Click += new System.EventHandler(this.btnLocalizar_Click);
@@ -322,7 +325,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(671, 364);
             this.Controls.Add(this.btnLocalizar);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.txtIdCidade);
             this.Controls.Add(this.txtTelefoneCli);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.label8);
@@ -372,7 +375,7 @@
             this.Controls.SetChildIndex(this.label8, 0);
             this.Controls.SetChildIndex(this.btnFechar, 0);
             this.Controls.SetChildIndex(this.txtTelefoneCli, 0);
-            this.Controls.SetChildIndex(this.maskedTextBox1, 0);
+            this.Controls.SetChildIndex(this.txtIdCidade, 0);
             this.Controls.SetChildIndex(this.btnLocalizar, 0);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -404,7 +407,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnFechar;
-        public System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        public System.Windows.Forms.MaskedTextBox txtIdCidade;
         private System.Windows.Forms.Button btnLocalizar;
         public System.Windows.Forms.MaskedTextBox txtTelefoneCli;
     }
