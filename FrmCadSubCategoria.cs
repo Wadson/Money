@@ -129,7 +129,16 @@ namespace Money
             if (StatusOperacao == "NOVO")
             {
                 preencherComboBoxT(cmbCategoria,"SELECT id_categoria, nome_categoria FROM categoria","id_categoria","nome_categoria");
-                txtidCategoria.Text = cmbCategoria.SelectedValue.ToString();
+
+                if (cmbCategoria.SelectedValue == null)
+                {
+                    return;
+                }
+                else
+                {
+                    txtidCategoria.Text = cmbCategoria.SelectedValue.ToString();
+                }
+                
 
 
                 AcrescenteZero_a_Esquerda2(txtidCategoria);
@@ -152,12 +161,21 @@ namespace Money
 
         private void cmbCategoria_SelectedValueChanged(object sender, EventArgs e)
         {
+            if (cmbCategoria.SelectedValue == null)
+            {
+                return;
+            }
             txtidCategoria.Text = cmbCategoria.SelectedValue.ToString();
-            //txtidCategoria.Text = cmbCategoria.SelectedValue.ToString();
+            
             //var nome = cmbCategoria.Text;
             //txtidCategoria.Text = nome;
 
             AcrescenteZero_a_Esquerda2(txtidCategoria);
+        }
+
+        private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            MaiusculaUpper(txtNome);
         }
     }
 }

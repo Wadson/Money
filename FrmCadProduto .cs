@@ -264,13 +264,28 @@ namespace Money
         private void txtPrecoVendaProduto_Leave(object sender, EventArgs e)
         {
             txtPrecoVendaProduto.BackColor = Color.White;
-            CalculaPrecoCusto();
             ToMoney(txtPrecoVendaProduto);
+            CalculaPrecoVenda();
         }
 
         private void txtPrecoVendaProduto_Enter(object sender, EventArgs e)
         {
             txtPrecoVendaProduto.BackColor = Color.Yellow;
+        }
+
+        private void txtProduto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            MaiusculaUpper(txtProduto);
+        }
+
+        private void txtDescricaoProduto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            MaiusculaUpper(txtDescricaoProduto);
+        }
+
+        private void txtMarcaProduto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            MaiusculaUpper(txtMarcaProduto);
         }
     }
 }

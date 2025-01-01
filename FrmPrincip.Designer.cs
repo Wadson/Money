@@ -89,15 +89,26 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.sobreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.statusStrip2 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel7 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel8 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblEstação = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel9 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel10 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblData = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel11 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblHoraAtual = new System.Windows.Forms.ToolStripStatusLabel();
             this.MenuVertical.SuspendLayout();
             this.SubmenuReportes.SuspendLayout();
             this.panelContenedor.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuVertical
             // 
+            this.MenuVertical.BackColor = System.Drawing.Color.White;
             this.MenuVertical.Controls.Add(this.btnSair);
             this.MenuVertical.Controls.Add(this.btnContasPagar);
             this.MenuVertical.Controls.Add(this.btnProdutos);
@@ -119,33 +130,34 @@
             // 
             // btnSair
             // 
-            this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
+            this.btnSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSair.BackColor = System.Drawing.SystemColors.Control;
             this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSair.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSair.ForeColor = System.Drawing.Color.White;
-            this.btnSair.Image = global::Money.Properties.Resources.Fechar1;
+            this.btnSair.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnSair.Image = global::Money.Properties.Resources.sair;
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSair.Location = new System.Drawing.Point(991, 1);
             this.btnSair.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(90, 68);
             this.btnSair.TabIndex = 25;
-            this.btnSair.Text = "&Fechar";
+            this.btnSair.Text = "&Sair";
             this.btnSair.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnContasPagar
             // 
-            this.btnContasPagar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
+            this.btnContasPagar.BackColor = System.Drawing.SystemColors.Control;
             this.btnContasPagar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnContasPagar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnContasPagar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
             this.btnContasPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnContasPagar.ForeColor = System.Drawing.Color.White;
-            this.btnContasPagar.Image = global::Money.Properties.Resources.ContasPagar32;
+            this.btnContasPagar.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnContasPagar.Image = global::Money.Properties.Resources.Contas_a_Pagar;
             this.btnContasPagar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnContasPagar.Location = new System.Drawing.Point(722, 1);
             this.btnContasPagar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -160,13 +172,13 @@
             // 
             // btnProdutos
             // 
-            this.btnProdutos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
+            this.btnProdutos.BackColor = System.Drawing.SystemColors.Control;
             this.btnProdutos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProdutos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnProdutos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
             this.btnProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdutos.ForeColor = System.Drawing.Color.White;
-            this.btnProdutos.Image = global::Money.Properties.Resources.Categoria42;
+            this.btnProdutos.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnProdutos.Image = global::Money.Properties.Resources.Produtos;
             this.btnProdutos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnProdutos.Location = new System.Drawing.Point(452, 1);
             this.btnProdutos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -181,14 +193,14 @@
             // 
             // btnCadCli
             // 
-            this.btnCadCli.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
+            this.btnCadCli.BackColor = System.Drawing.SystemColors.Control;
             this.btnCadCli.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadCli.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnCadCli.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
             this.btnCadCli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadCli.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.btnCadCli.ForeColor = System.Drawing.Color.White;
-            this.btnCadCli.Image = ((System.Drawing.Image)(resources.GetObject("btnCadCli.Image")));
+            this.btnCadCli.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnCadCli.Image = global::Money.Properties.Resources.Cliente;
             this.btnCadCli.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCadCli.Location = new System.Drawing.Point(92, 1);
             this.btnCadCli.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -203,13 +215,13 @@
             // 
             // btnFerramenta
             // 
-            this.btnFerramenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
+            this.btnFerramenta.BackColor = System.Drawing.SystemColors.Control;
             this.btnFerramenta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFerramenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnFerramenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
             this.btnFerramenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFerramenta.ForeColor = System.Drawing.Color.White;
-            this.btnFerramenta.Image = global::Money.Properties.Resources.settings1;
+            this.btnFerramenta.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnFerramenta.Image = global::Money.Properties.Resources.Ferramentas;
             this.btnFerramenta.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnFerramenta.Location = new System.Drawing.Point(902, 1);
             this.btnFerramenta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -223,20 +235,20 @@
             // 
             // btnSubCateg
             // 
-            this.btnSubCateg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
+            this.btnSubCateg.BackColor = System.Drawing.SystemColors.Control;
             this.btnSubCateg.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSubCateg.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnSubCateg.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
             this.btnSubCateg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubCateg.ForeColor = System.Drawing.Color.White;
-            this.btnSubCateg.Image = global::Money.Properties.Resources.Subcategory;
+            this.btnSubCateg.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnSubCateg.Image = ((System.Drawing.Image)(resources.GetObject("btnSubCateg.Image")));
             this.btnSubCateg.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSubCateg.Location = new System.Drawing.Point(362, 1);
             this.btnSubCateg.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSubCateg.Name = "btnSubCateg";
             this.btnSubCateg.Size = new System.Drawing.Size(90, 68);
             this.btnSubCateg.TabIndex = 17;
-            this.btnSubCateg.Text = "&Sub Categoria";
+            this.btnSubCateg.Text = "&Sub Categ";
             this.btnSubCateg.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSubCateg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSubCateg.UseVisualStyleBackColor = false;
@@ -244,13 +256,13 @@
             // 
             // btnContasReceber
             // 
-            this.btnContasReceber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
+            this.btnContasReceber.BackColor = System.Drawing.SystemColors.Control;
             this.btnContasReceber.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnContasReceber.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnContasReceber.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
             this.btnContasReceber.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnContasReceber.ForeColor = System.Drawing.Color.White;
-            this.btnContasReceber.Image = global::Money.Properties.Resources.ContasReceber32;
+            this.btnContasReceber.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnContasReceber.Image = global::Money.Properties.Resources.Contas_a_Receber;
             this.btnContasReceber.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnContasReceber.Location = new System.Drawing.Point(542, 1);
             this.btnContasReceber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -265,13 +277,13 @@
             // 
             // btnCategoria
             // 
-            this.btnCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
+            this.btnCategoria.BackColor = System.Drawing.SystemColors.Control;
             this.btnCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCategoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnCategoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
             this.btnCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCategoria.ForeColor = System.Drawing.Color.White;
-            this.btnCategoria.Image = global::Money.Properties.Resources.category1;
+            this.btnCategoria.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnCategoria.Image = global::Money.Properties.Resources.Categorias;
             this.btnCategoria.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCategoria.Location = new System.Drawing.Point(272, 1);
             this.btnCategoria.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -286,13 +298,13 @@
             // 
             // btnRELATORIOS
             // 
-            this.btnRELATORIOS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
+            this.btnRELATORIOS.BackColor = System.Drawing.SystemColors.Control;
             this.btnRELATORIOS.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRELATORIOS.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnRELATORIOS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
             this.btnRELATORIOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRELATORIOS.ForeColor = System.Drawing.Color.White;
-            this.btnRELATORIOS.Image = ((System.Drawing.Image)(resources.GetObject("btnRELATORIOS.Image")));
+            this.btnRELATORIOS.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnRELATORIOS.Image = global::Money.Properties.Resources.Relatório;
             this.btnRELATORIOS.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnRELATORIOS.Location = new System.Drawing.Point(812, 1);
             this.btnRELATORIOS.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -307,14 +319,14 @@
             // 
             // btnFUNCIONARIOS
             // 
-            this.btnFUNCIONARIOS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
+            this.btnFUNCIONARIOS.BackColor = System.Drawing.SystemColors.Control;
             this.btnFUNCIONARIOS.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFUNCIONARIOS.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnFUNCIONARIOS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
             this.btnFUNCIONARIOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFUNCIONARIOS.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.btnFUNCIONARIOS.ForeColor = System.Drawing.Color.White;
-            this.btnFUNCIONARIOS.Image = ((System.Drawing.Image)(resources.GetObject("btnFUNCIONARIOS.Image")));
+            this.btnFUNCIONARIOS.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnFUNCIONARIOS.Image = global::Money.Properties.Resources.Usuario;
             this.btnFUNCIONARIOS.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnFUNCIONARIOS.Location = new System.Drawing.Point(2, 1);
             this.btnFUNCIONARIOS.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -329,13 +341,13 @@
             // 
             // btnVendas
             // 
-            this.btnVendas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
+            this.btnVendas.BackColor = System.Drawing.SystemColors.Control;
             this.btnVendas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVendas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnVendas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
             this.btnVendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVendas.ForeColor = System.Drawing.Color.White;
-            this.btnVendas.Image = global::Money.Properties.Resources.Venta2;
+            this.btnVendas.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnVendas.Image = ((System.Drawing.Image)(resources.GetObject("btnVendas.Image")));
             this.btnVendas.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnVendas.Location = new System.Drawing.Point(632, 1);
             this.btnVendas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -350,13 +362,13 @@
             // 
             // btnFORNECEDORES
             // 
-            this.btnFORNECEDORES.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
+            this.btnFORNECEDORES.BackColor = System.Drawing.SystemColors.Control;
             this.btnFORNECEDORES.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFORNECEDORES.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnFORNECEDORES.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
             this.btnFORNECEDORES.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFORNECEDORES.ForeColor = System.Drawing.Color.White;
-            this.btnFORNECEDORES.Image = ((System.Drawing.Image)(resources.GetObject("btnFORNECEDORES.Image")));
+            this.btnFORNECEDORES.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnFORNECEDORES.Image = global::Money.Properties.Resources.Fornecedor;
             this.btnFORNECEDORES.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnFORNECEDORES.Location = new System.Drawing.Point(182, 1);
             this.btnFORNECEDORES.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -525,6 +537,7 @@
             // 
             // panelContenedor
             // 
+            this.panelContenedor.BackColor = System.Drawing.Color.White;
             this.panelContenedor.Controls.Add(this.statusStrip1);
             this.panelContenedor.Controls.Add(this.SubmenuReportes);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -634,6 +647,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.White;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrosToolStripMenuItem,
             this.manutençãoDeCadastrosToolStripMenuItem,
@@ -780,11 +794,85 @@
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // statusStrip2
+            // 
+            this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel7,
+            this.toolStripStatusLabel8,
+            this.lblEstação,
+            this.toolStripStatusLabel9,
+            this.toolStripStatusLabel10,
+            this.lblData,
+            this.toolStripStatusLabel11,
+            this.lblHoraAtual});
+            this.statusStrip2.Location = new System.Drawing.Point(0, 644);
+            this.statusStrip2.Name = "statusStrip2";
+            this.statusStrip2.Size = new System.Drawing.Size(1082, 22);
+            this.statusStrip2.TabIndex = 547;
+            this.statusStrip2.Text = "statusStrip2";
+            // 
+            // toolStripStatusLabel7
+            // 
+            this.toolStripStatusLabel7.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripStatusLabel7.Name = "toolStripStatusLabel7";
+            this.toolStripStatusLabel7.Size = new System.Drawing.Size(88, 17);
+            this.toolStripStatusLabel7.Text = "Nome do Host:";
+            // 
+            // toolStripStatusLabel8
+            // 
+            this.toolStripStatusLabel8.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripStatusLabel8.Name = "toolStripStatusLabel8";
+            this.toolStripStatusLabel8.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel8.Text = ":";
+            // 
+            // lblEstação
+            // 
+            this.lblEstação.BackColor = System.Drawing.SystemColors.Control;
+            this.lblEstação.Name = "lblEstação";
+            this.lblEstação.Size = new System.Drawing.Size(12, 17);
+            this.lblEstação.Text = "-";
+            // 
+            // toolStripStatusLabel9
+            // 
+            this.toolStripStatusLabel9.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripStatusLabel9.Name = "toolStripStatusLabel9";
+            this.toolStripStatusLabel9.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel9.Text = "|";
+            // 
+            // toolStripStatusLabel10
+            // 
+            this.toolStripStatusLabel10.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripStatusLabel10.Name = "toolStripStatusLabel10";
+            this.toolStripStatusLabel10.Size = new System.Drawing.Size(34, 17);
+            this.toolStripStatusLabel10.Text = "Data:";
+            // 
+            // lblData
+            // 
+            this.lblData.BackColor = System.Drawing.SystemColors.Control;
+            this.lblData.Name = "lblData";
+            this.lblData.Size = new System.Drawing.Size(12, 17);
+            this.lblData.Text = "-";
+            // 
+            // toolStripStatusLabel11
+            // 
+            this.toolStripStatusLabel11.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripStatusLabel11.Name = "toolStripStatusLabel11";
+            this.toolStripStatusLabel11.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel11.Text = "|";
+            // 
+            // lblHoraAtual
+            // 
+            this.lblHoraAtual.BackColor = System.Drawing.SystemColors.Control;
+            this.lblHoraAtual.Name = "lblHoraAtual";
+            this.lblHoraAtual.Size = new System.Drawing.Size(12, 17);
+            this.lblHoraAtual.Text = "-";
+            // 
             // FrmPrincip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1082, 666);
+            this.Controls.Add(this.statusStrip2);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.MenuVertical);
             this.Controls.Add(this.menuStrip1);
@@ -805,6 +893,8 @@
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip2.ResumeLayout(false);
+            this.statusStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -871,5 +961,14 @@
         private System.Windows.Forms.ToolStripStatusLabel lblUsuarioLogado;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.ToolStripMenuItem cidadeToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel7;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel8;
+        private System.Windows.Forms.ToolStripStatusLabel lblEstação;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel9;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel10;
+        private System.Windows.Forms.ToolStripStatusLabel lblData;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel11;
+        private System.Windows.Forms.ToolStripStatusLabel lblHoraAtual;
     }
 }

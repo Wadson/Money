@@ -44,15 +44,15 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.barraTitulo = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.lblData = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.barraTitulo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Logar
@@ -66,11 +66,12 @@
             this.btn_Logar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Logar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btn_Logar.ForeColor = System.Drawing.Color.White;
-            this.btn_Logar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_Logar.Image = global::Money.Properties.Resources.OKp;
+            this.btn_Logar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Logar.Location = new System.Drawing.Point(136, 153);
             this.btn_Logar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Logar.Name = "btn_Logar";
-            this.btn_Logar.Size = new System.Drawing.Size(110, 28);
+            this.btn_Logar.Size = new System.Drawing.Size(110, 35);
             this.btn_Logar.TabIndex = 2;
             this.btn_Logar.Text = "&Logar";
             this.toolTip1.SetToolTip(this.btn_Logar, "Logar no sistema");
@@ -88,11 +89,12 @@
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnSair.ForeColor = System.Drawing.Color.White;
-            this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSair.Image = global::Money.Properties.Resources.sair;
+            this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSair.Location = new System.Drawing.Point(265, 153);
             this.btnSair.Margin = new System.Windows.Forms.Padding(2);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(110, 28);
+            this.btnSair.Size = new System.Drawing.Size(110, 35);
             this.btnSair.TabIndex = 259;
             this.btnSair.Text = "&Sair";
             this.toolTip1.SetToolTip(this.btnSair, "Logar no sistema");
@@ -225,16 +227,17 @@
             this.barraTitulo.TabIndex = 257;
             this.barraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barraTitulo_MouseDown_1);
             // 
-            // pictureBox4
+            // label4
             // 
-            this.pictureBox4.Image = global::Money.Properties.Resources.usuario_Login1;
-            this.pictureBox4.Location = new System.Drawing.Point(382, 76);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(89, 89);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 258;
-            this.pictureBox4.TabStop = false;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(4, 3);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(164, 16);
+            this.label4.TabIndex = 264;
+            this.label4.Text = "Login do Sistema Money...";
             // 
             // lblData
             // 
@@ -255,26 +258,23 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Money.Properties.Resources.quadra;
-            this.pictureBox1.Location = new System.Drawing.Point(11, 57);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Image = global::Money.Properties.Resources.login_da_conta;
+            this.pictureBox1.Location = new System.Drawing.Point(380, 71);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(121, 126);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.Size = new System.Drawing.Size(93, 81);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 263;
             this.pictureBox1.TabStop = false;
             // 
-            // label4
+            // pictureBox2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(4, 3);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(164, 16);
-            this.label4.TabIndex = 264;
-            this.label4.Text = "Login do Sistema Money...";
+            this.pictureBox2.Image = global::Money.Properties.Resources.Logomarca;
+            this.pictureBox2.Location = new System.Drawing.Point(7, 50);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(123, 131);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 264;
+            this.pictureBox2.TabStop = false;
             // 
             // FrmLogin
             // 
@@ -283,10 +283,10 @@
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(482, 213);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblData);
             this.Controls.Add(this.btnSair);
-            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.barraTitulo);
             this.Controls.Add(this.txt_SenhaLog);
             this.Controls.Add(this.txtUsuario);
@@ -316,8 +316,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.barraTitulo.ResumeLayout(false);
             this.barraTitulo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,12 +339,12 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel barraTitulo;
-        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Label lblData;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
 
         //public System.EventHandler frmLogin_Load { get; set; }
 

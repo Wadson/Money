@@ -64,7 +64,7 @@ namespace Money
             objeto_itensvenda.Id_itensvenda = Convert.ToInt32(Id_Itensvenda);
             objeto_itensvenda.Id_produto = Convert.ToInt32(IdProduto);
             objeto_itensvenda.Qtd_produto = Convert.ToInt32(txtQuantidade.Text);
-            objeto_itensvenda.Valor_produto = Convert.ToDouble(txtValorProduto.Text);
+            objeto_itensvenda.Valor_produto = Convert.ToDecimal(txtValorProduto.Text);
             //objeto_venda.Status_venda = Convert.ToDateTime(dtVencimento.Text);
 
             ItensVendaBLL itensvendabll = new ItensVendaBLL();
@@ -87,7 +87,7 @@ namespace Money
             objeto_itensvenda.Id_itensvenda = Convert.ToInt32(Id_Itensvenda);
             objeto_itensvenda.Id_produto = Convert.ToInt32(IdProduto);
             objeto_itensvenda.Qtd_produto = Convert.ToInt32(txtQuantidade.Text);
-            objeto_itensvenda.Valor_produto = Convert.ToDouble(txtValorProduto.Text);
+            objeto_itensvenda.Valor_produto = Convert.ToDecimal(txtValorProduto.Text);
             //objeto_venda.Status_venda = Convert.ToDateTime(dtVencimento.Text);
 
             ItensVendaBLL itensvendabll = new ItensVendaBLL();
@@ -132,17 +132,8 @@ namespace Money
         private void FrmCadastroContas_Load(object sender, EventArgs e)
         {
             NovoCodigo();
-
             txtIdVenda.Text = Id_Venda.ToString();
-            //AcrescenteZero_a_Esquerda2(txtIdVenda);  
-
-
-            var nomeComputador = Environment.MachineName;
-            lblEstação.Text = nomeComputador;
-            lblData.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            lblHoraAtual.Text = DateTime.Now.ToString("HH:mm:ss");
-            //lblHoraAtual.Text = DateTime.UtcNow.ToString("HH:mm:ss");
-
+            
             //preencherComboBoxT(cmbForma_Pgto, "SELECT * FROM formapgto", "id_formapgto", "formapgto");            
         }
 
@@ -161,8 +152,7 @@ namespace Money
                 else if (txtTotal.Text.IndexOf(',') > 0)
                     e.Handled = true;
             }
-        }
-      
+        }      
         private void txtPrecoVenda_Validating(object sender, CancelEventArgs e)
         {
             if (txtValorProduto.Text.Length == 0)
@@ -301,7 +291,7 @@ namespace Money
             string terceiraColumn = txtValorProduto.Text;
             string quartaColumn = txtTotal.Text;
             string quintaColumn = dtpVencimento.Text;
-            string sextaColumn = txtIdProduto.Text;
+            string sextaColumn = IdProduto.ToString();
             string setimaColumn = txtIdVenda.Text;
             int oitavaColumn =    Id_Parcela++;
             string nonaColumn = txtValorProduto.Text;
@@ -326,15 +316,9 @@ namespace Money
                 }
             }
 
-            //somar datagrid
-            
-            // fim
             ValorParc = Convert.ToDecimal(txtValorProduto.Text);
-
            
-            txtProduto.Focus();
-
-            txtIdProduto.Text = "";
+            txtProduto.Focus();           
             txtProduto.Text = "";
             txtQuantidade.Text = "";
             txtValorProduto.Text = "";
@@ -393,7 +377,7 @@ namespace Money
                 ItensVendaMODEL objItensVenda = new ItensVendaMODEL();
                 objItensVenda.Id_itensvenda = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_itensvenda"].Value);
                 objItensVenda.Qtd_produto = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["qtd_produto"].Value);
-                objItensVenda.Valor_produto = Convert.ToDouble(dataGridVendas.CurrentRow.Cells["valor_produto"].Value);
+                objItensVenda.Valor_produto = Convert.ToDecimal(dataGridVendas.CurrentRow.Cells["valor_produto"].Value);
                 objItensVenda.Id_produto = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_produto"].Value);
                 objItensVenda.Id_venda = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_venda"].Value);
                 objItensVenda.Num_parcela = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["num_parcela"].Value);//Convert.ToInt32(1);
@@ -623,13 +607,7 @@ namespace Money
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            txtNomeCliente.Text = "";
-            txtProduto.Text = "";
-            txtQuantidade.Text = "";
-            txtValorProduto.Text = "";
-            txtTotal.Text = "";
-            txtIdProduto.Text = "";
-            txtIdVenda.Text = "";
+            LimpaCampo();
 
             txtNomeCliente.Enabled = true;
             txtProduto.Enabled = true;
@@ -644,8 +622,7 @@ namespace Money
         }
 
         private void timer1_Tick(object sender, EventArgs e)
-        {
-            lblHoraAtual.Text = DateTime.Now.ToString("HH:mm:ss");
+        {            
         }
     }
     public static class TextFormadoDinheiro

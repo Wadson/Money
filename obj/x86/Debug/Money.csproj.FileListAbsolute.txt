@@ -67,10 +67,8 @@ C:\Money\System.Data.SqlServerCe.Entity.resources.dll
 C:\Money\obj\x86\Debug\Money.FrmCadClientes.resources
 C:\Money\obj\x86\Debug\Money.FrmClientes.resources
 D:\Money\obj\x86\Debug\Money.csproj.AssemblyReference.cache
-D:\Money\obj\x86\Debug\Money.BasePesquisa.resources
 D:\Money\obj\x86\Debug\Money.FrmCadClientes.resources
 D:\Money\obj\x86\Debug\Money.FormLogo.resources
-D:\Money\obj\x86\Debug\Money.FormFornecedor.resources
 D:\Money\obj\x86\Debug\Money.FrmCadSubCategoria.resources
 D:\Money\obj\x86\Debug\Money.FrmLocalizaCentro.resources
 D:\Money\obj\x86\Debug\Money.FrmLocalizarFormaPgto.resources
@@ -85,7 +83,6 @@ D:\Money\obj\x86\Debug\Money.FrmManutContasPagar.resources
 D:\Money\obj\x86\Debug\Money.FrmManutcategoria.resources
 D:\Money\obj\x86\Debug\Money.FrmManutFornecedor.resources
 D:\Money\obj\x86\Debug\Money.FrmManutUsuario.resources
-D:\Money\obj\x86\Debug\Money.FrmBase_Pesquisa.resources
 D:\Money\obj\x86\Debug\Money.FrmLocalizaFornecedor.resources
 D:\Money\obj\x86\Debug\Money.FrmQuitar.resources
 D:\Money\obj\x86\Debug\Money.FrmRel_Menu.resources
@@ -133,3 +130,7 @@ D:\Money\obj\x86\Debug\Money.FrmDetalheVenda.resources
 D:\Money\Microsoft.ReportViewer.Common.dll
 D:\Money\obj\x86\Debug\Money.FrmManutCidade.resources
 D:\Money\obj\x86\Debug\Money.FrmLocalizarCidade.resources
+D:\Money\obj\x86\Debug\Money.FrmBaseManutencao.resources
+D:\Money\obj\x86\Debug\Money.FrmBasePesquisa.resources
+D:\Money\obj\x86\Debug\Money.FrmPedidoDeVendas.resources
+D:\Money\obj\x86\Debug\Money.FrmLocalizarProduto.resources

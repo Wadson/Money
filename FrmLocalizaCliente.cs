@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Money
 {
-    public partial class FrmLocalizaCliente : FrmBase_Pesquisa
+    public partial class FrmLocalizaCliente : FrmBasePesquisa
     {
         public FrmLocalizaCliente()
         {
@@ -54,9 +54,12 @@ namespace Money
                 if (dataGridPesquisa.DataSource != null)
                 {
                     linhaAtual = dataGridPesquisa.CurrentRow.Index;
-
-                    ((FrmVendas)Application.OpenForms["FrmCadConta"]).txtNomeCliente.Text = dataGridPesquisa[1, linhaAtual].Value.ToString();
-                    ((FrmVendas)Application.OpenForms["FrmCadConta"]).IDCliente = Convert.ToInt32(dataGridPesquisa[0, linhaAtual].Value);
+                    
+                    ((FrmPedidoDeVendas)Application.OpenForms["FrmPedidoDeVendas"]).txtNomeCliente.Text = dataGridPesquisa[1, linhaAtual].Value.ToString();
+                    ((FrmPedidoDeVendas)Application.OpenForms["FrmPedidoDeVendas"]).IDCliente = Convert.ToInt32(dataGridPesquisa[0, linhaAtual].Value);
+                    
+                    //((FrmVendas)Application.OpenForms["FrmCadConta"]).txtNomeCliente.Text = dataGridPesquisa[1, linhaAtual].Value.ToString();
+                    //((FrmVendas)Application.OpenForms["FrmCadConta"]).IDCliente = Convert.ToInt32(dataGridPesquisa[0, linhaAtual].Value);
                 }
             }
             if (TipoCadastro == "CREDITO")
@@ -85,8 +88,11 @@ namespace Money
                     {
                         //((FrmManutContasPagar)Application.OpenForms["FrmManutContasPagar"]).txtPesquisa.Text = Fornecedor;
 
-                        ((FrmVendas)Application.OpenForms["FrmCadConta)"]).IDCliente = Convert.ToInt32(dataGridPesquisa[0, linhaAtual]);
-                        ((FrmVendas)Application.OpenForms["FrmCadConta)"]).txtNomeCliente.Text = dataGridPesquisa[1, linhaAtual].Value.ToString();
+                        ((FrmPedidoDeVendas)Application.OpenForms["FrmPedidoDeVendas"]).txtNomeCliente.Text = dataGridPesquisa[1, linhaAtual].Value.ToString();
+                        ((FrmPedidoDeVendas)Application.OpenForms["FrmPedidoDeVendas"]).IDCliente = Convert.ToInt32(dataGridPesquisa[0, linhaAtual].Value);
+
+                        //((FrmVendas)Application.OpenForms["FrmCadConta)"]).IDCliente = Convert.ToInt32(dataGridPesquisa[0, linhaAtual]);
+                        //((FrmVendas)Application.OpenForms["FrmCadConta)"]).txtNomeCliente.Text = dataGridPesquisa[1, linhaAtual].Value.ToString();
                     }
                     catch (Exception Ex)
                     {
@@ -141,12 +147,9 @@ namespace Money
             {
                 if (dataGridPesquisa.DataSource != null)
                 {
-                    linhaAtual = dataGridPesquisa.CurrentRow.Index;
-                    //((FrmVendas)Application.OpenForms["FrmVendas"]).txtIdCliente.Text = dataGridPesquisa[0, linhaAtual].Value.ToString();
-                    ((FrmVendas)Application.OpenForms["FrmVendas"]).IDCliente = int.Parse(dataGridPesquisa[0, linhaAtual].Value.ToString());
-                    ((FrmVendas)Application.OpenForms["FrmVendas"]).txtNomeCliente.Text = dataGridPesquisa[1, linhaAtual].Value.ToString();
-                    ((FrmVendas)Application.OpenForms["FrmVendas"]).txtProduto.Focus();
-
+                    linhaAtual = dataGridPesquisa.CurrentRow.Index;                    
+                    ((FrmPedidoDeVendas)Application.OpenForms["FrmPedidoDeVendas"]).IDCliente = int.Parse(dataGridPesquisa[0, linhaAtual].Value.ToString());                    
+                    ((FrmPedidoDeVendas)Application.OpenForms["FrmPedidoDeVendas"]).txtNomeCliente.Text = dataGridPesquisa[1, linhaAtual].Value.ToString();                   
                 }
             }
 

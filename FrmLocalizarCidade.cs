@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Money
 {
-    public partial class FrmLocalizarCidade : Money.FrmBase_Pesquisa
+    public partial class FrmLocalizarCidade : Money.FrmBasePesquisa
     {
         public FrmLocalizarCidade()
         {

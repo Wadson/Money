@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices;
 using System.IO;
+using System.Windows.Controls;
 
 namespace Money
 {
@@ -116,7 +117,7 @@ namespace Money
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         
-        public virtual void preencherComboBoxT(ComboBox combo, string querY, string id, string nome)
+        public virtual void preencherComboBoxT(System.Windows.Forms.ComboBox combo, string querY, string id, string nome)
         {
             var conn = Conexao.Conex();
             try
@@ -149,6 +150,10 @@ namespace Money
             valorsemformato = txtValor.Text;
             valorsemformato = valorsemformato.Replace("R$", "").Replace(" ", "");
             txtValor.Text = valorsemformato;
+        }
+        public void MaiusculaUpper(System.Windows.Forms.TextBox txt)
+        {
+            txt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
         }
 
         public void carregaGrid2Localizar(string comando, DataGridView DatagridParametro)
@@ -214,7 +219,7 @@ namespace Money
 
 
        
-        public void HabilitaBotes(Button btnalterar, Button btnexcluir, Button btnpagar, DataGridView datagridi_pesquisa)
+        public void HabilitaBotes(System.Windows.Forms.Button btnalterar, System.Windows.Forms.Button btnexcluir, System.Windows.Forms.Button btnpagar, DataGridView datagridi_pesquisa)
         {
             if (datagridi_pesquisa.DataSource != null)
             {
@@ -229,7 +234,7 @@ namespace Money
                 btnpagar.Enabled = false;
             }
         }
-        public void HabilitaBotes2(ToolStripButton btnalterar, ToolStripButton btnexcluir, ToolStripButton btnpagar, DataGridView datagridi_pesquisa, RadioButton rbQuitadas)
+        public void HabilitaBotes2(ToolStripButton btnalterar, ToolStripButton btnexcluir, ToolStripButton btnpagar, DataGridView datagridi_pesquisa, System.Windows.Forms.RadioButton rbQuitadas)
         {
             if (datagridi_pesquisa.DataSource != null & rbQuitadas.Checked == false)
             {
@@ -251,7 +256,7 @@ namespace Money
             }
         }
       
-        public void PesquisarDinamicoDataGrid(string Sql1, string Sql2, DataGridView DataGridPesquisa, Label Mensagemm)
+        public void PesquisarDinamicoDataGrid(string Sql1, string Sql2, DataGridView DataGridPesquisa, System.Windows.Forms.Label Mensagemm)
         {
             var conn = Conexao.Conex();
 
@@ -293,7 +298,7 @@ namespace Money
             finally { conn.Close(); }
         }
 
-        public string ReplaceValores(TextBox TxTValor)
+        public string ReplaceValores(System.Windows.Forms.TextBox TxTValor)
         {            
             string valorsemformato = TxTValor.Text;
             valorsemformato = valorsemformato.ToString().Replace("R$", "").Replace(" ", "");           
@@ -402,7 +407,7 @@ namespace Money
         }
 
 
-        public void somarGeral(string sql, string parametro1, string parametro2, Label resultado)
+        public void somarGeral(string sql, string parametro1, string parametro2, System.Windows.Forms.Label resultado)
         {
             try
             {
@@ -503,48 +508,51 @@ namespace Money
        
         public virtual void LimpaCampo()
         {
-            foreach (Control c in Controls)
+            foreach (System.Windows.Forms.Control c in Controls)
             {
-                if (c is TextBox)
+                if (c is System.Windows.Forms.TextBox)
                 {
-                    (c as TextBox).Text = "";
+                    (c as System.Windows.Forms.TextBox).Text = "";
                 }
-               
+                if (c is MaskedTextBox)
+                {
+                    (c as MaskedTextBox).Text = "";
+                }
                 if (c is DateTimePicker) c.Text = null;
 
-                if (c is Panel)
+                if (c is System.Windows.Forms.Panel)
                 {
                     for (int i = 0; i < c.Controls.Count; i++)
                     {
-                        if (c.Controls[i] is TextBox)
+                        if (c.Controls[i] is System.Windows.Forms.TextBox)
                         {
-                            (c.Controls[i] as TextBox).Text = "";
+                            (c.Controls[i] as System.Windows.Forms.TextBox).Text = "";
                         }
-                        if (c.Controls[i] is ComboBox)
+                        if (c.Controls[i] is System.Windows.Forms.ComboBox)
                         {
-                            (c.Controls[i] as ComboBox).SelectedIndex = -1;
+                            (c.Controls[i] as System.Windows.Forms.ComboBox).SelectedIndex = -1;
                         }
                     }
                 }
-                if (c is ComboBox)
+                if (c is System.Windows.Forms.ComboBox)
                 {
-                    (c as ComboBox).SelectedIndex = -1;
+                    (c as System.Windows.Forms.ComboBox).SelectedIndex = -1;
                 }
-                if (c is GroupBox)
+                if (c is System.Windows.Forms.GroupBox)
                 {
                     for (int i = 0; i < c.Controls.Count; i++)
                     {
-                        if (c.Controls[i] is TextBox)
+                        if (c.Controls[i] is System.Windows.Forms.TextBox)
                         {
-                            (c.Controls[i] as TextBox).Text = "";
+                            (c.Controls[i] as System.Windows.Forms.TextBox).Text = "";
                         }  
                         if (c.Controls[i] is DateTimePicker)
                         {
                             (c.Controls[i] as DateTimePicker).Text = null;
                         }
-                        if (c.Controls[i] is ComboBox)
+                        if (c.Controls[i] is System.Windows.Forms.ComboBox)
                         {
-                            (c.Controls[i] as ComboBox).SelectedIndex = -1;
+                            (c.Controls[i] as System.Windows.Forms.ComboBox).SelectedIndex = -1;
                         }
                     }
                 }               
@@ -552,7 +560,7 @@ namespace Money
 
         }
 
-        public void AcrescenteZero_a_Esquerda2(TextBox TxtResultado)
+        public void AcrescenteZero_a_Esquerda2(System.Windows.Forms.TextBox TxtResultado)
         {
             string texto;
             string textofinal;
@@ -570,11 +578,10 @@ namespace Money
                 TxtResultado.Text = (textofinal + TxtResultado.Text);
             }
 
-            if ((TxtResultado.Text == "000000"))
+            if ((TxtResultado.Text == ""))
             {
-                //MessageBox.Show("DEVE SER DIGITADO ALGUM VALOR NO CAMPO CÓDIGO.","INFORMAÇÃO !", MessageBoxButtons.OK,MessageBoxIcon.Information);
-                //txtCodForn.Text = "";
-                //txtCodForn.Focus();
+                MessageBox.Show("DEVE SER DIGITADO ALGUM VALOR NO CAMPO CÓDIGO.", "INFORMAÇÃO !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                TxtResultado.Text = "000000";                
             }            
         }
        

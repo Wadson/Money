@@ -12,9 +12,9 @@ using System.IO;
 
 namespace Money
 {
-    public partial class FrmBase_Pesquisa : Form
+    public partial class FrmBasePesquisa : Form
     {
-        public FrmBase_Pesquisa()
+        public FrmBasePesquisa()
         {
             InitializeComponent();
         }

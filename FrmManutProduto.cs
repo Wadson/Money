@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace Money
 {
-    public partial class frmManutProduto : BasePesquisa
+    public partial class frmManutProduto : FrmBaseManutencao
     {
         public frmManutProduto()
         {
@@ -102,7 +102,7 @@ namespace Money
             FrmCadProduto childForm = new FrmCadProduto();
 
             childForm.StatusOperacao = "NOVO";
-            childForm.lblTitulo.Text = "Inclusão de Produtos - Cadastro";
+            childForm.lblTitulo.Text = "CADASTRO DE PRODUTOS";
             
             childForm.ShowDialog();
         }

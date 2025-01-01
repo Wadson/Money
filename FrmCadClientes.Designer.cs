@@ -33,10 +33,8 @@
             this.txtDTCadastroCli = new System.Windows.Forms.DateTimePicker();
             this.txtNomeCliente = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtCodigoCli = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtEnderecoCliente = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,34 +47,34 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnFechar = new System.Windows.Forms.Button();
             this.txtTelefoneCli = new System.Windows.Forms.MaskedTextBox();
-            this.txtIdCidade = new System.Windows.Forms.MaskedTextBox();
             this.btnLocalizar = new System.Windows.Forms.Button();
+            this.txtIdCidade = new System.Windows.Forms.TextBox();
+            this.txtCodigoCli = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(2, 362);
-            this.panel2.Size = new System.Drawing.Size(667, 2);
+            this.panel2.Location = new System.Drawing.Point(2, 374);
+            this.panel2.Size = new System.Drawing.Size(591, 2);
             // 
             // panel3
             // 
-            this.panel3.Size = new System.Drawing.Size(667, 25);
+            this.panel3.Size = new System.Drawing.Size(591, 25);
             // 
             // panel4
             // 
-            this.panel4.Size = new System.Drawing.Size(2, 364);
+            this.panel4.Size = new System.Drawing.Size(2, 376);
             // 
             // panel5
             // 
-            this.panel5.Location = new System.Drawing.Point(669, 0);
-            this.panel5.Size = new System.Drawing.Size(2, 364);
+            this.panel5.Location = new System.Drawing.Point(593, 0);
+            this.panel5.Size = new System.Drawing.Size(2, 376);
             // 
             // btnExit
             // 
             this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.Location = new System.Drawing.Point(1969, 3);
+            this.btnExit.Location = new System.Drawing.Point(2445, 3);
             // 
             // btnNovo
             // 
@@ -85,12 +83,15 @@
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnNovo.ForeColor = System.Drawing.Color.White;
-            this.btnNovo.Location = new System.Drawing.Point(250, 314);
+            this.btnNovo.Image = global::Money.Properties.Resources.Novo;
+            this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNovo.Location = new System.Drawing.Point(271, 314);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(120, 35);
             this.btnNovo.TabIndex = 133;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnSalvar
             // 
@@ -99,6 +100,8 @@
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
+            this.btnSalvar.Image = global::Money.Properties.Resources.salve_;
+            this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalvar.Location = new System.Drawing.Point(110, 314);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(120, 35);
@@ -123,6 +126,7 @@
             this.txtNomeCliente.Name = "txtNomeCliente";
             this.txtNomeCliente.Size = new System.Drawing.Size(439, 21);
             this.txtNomeCliente.TabIndex = 1;
+            this.txtNomeCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomeCliente_KeyPress);
             // 
             // label16
             // 
@@ -134,16 +138,6 @@
             this.label16.Size = new System.Drawing.Size(57, 16);
             this.label16.TabIndex = 137;
             this.label16.Text = "Código";
-            // 
-            // txtCodigoCli
-            // 
-            this.txtCodigoCli.Location = new System.Drawing.Point(115, 85);
-            this.txtCodigoCli.Name = "txtCodigoCli";
-            this.txtCodigoCli.ReadOnly = true;
-            this.txtCodigoCli.Size = new System.Drawing.Size(48, 21);
-            this.txtCodigoCli.TabIndex = 136;
-            this.txtCodigoCli.TabStop = false;
-            this.txtCodigoCli.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -165,16 +159,6 @@
             this.label1.TabIndex = 134;
             this.label1.Text = "Data Cadastro";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Money.Properties.Resources.Clientes;
-            this.pictureBox1.Location = new System.Drawing.Point(569, 106);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(90, 193);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 139;
-            this.pictureBox1.TabStop = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -192,6 +176,7 @@
             this.txtEnderecoCliente.Name = "txtEnderecoCliente";
             this.txtEnderecoCliente.Size = new System.Drawing.Size(439, 21);
             this.txtEnderecoCliente.TabIndex = 3;
+            this.txtEnderecoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEnderecoCliente_KeyPress);
             // 
             // label4
             // 
@@ -210,6 +195,7 @@
             this.txtBairroCliente.Name = "txtBairroCliente";
             this.txtBairroCliente.Size = new System.Drawing.Size(439, 21);
             this.txtBairroCliente.TabIndex = 4;
+            this.txtBairroCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBairroCliente_KeyPress);
             // 
             // label5
             // 
@@ -223,12 +209,13 @@
             // 
             // txtCidadeCliente
             // 
-            this.txtCidadeCliente.Location = new System.Drawing.Point(164, 251);
+            this.txtCidadeCliente.Location = new System.Drawing.Point(205, 250);
             this.txtCidadeCliente.MaxLength = 100;
             this.txtCidadeCliente.Name = "txtCidadeCliente";
-            this.txtCidadeCliente.Size = new System.Drawing.Size(324, 21);
+            this.txtCidadeCliente.Size = new System.Drawing.Size(280, 21);
             this.txtCidadeCliente.TabIndex = 5;
             this.txtCidadeCliente.TabStop = false;
+            this.txtCidadeCliente.TextChanged += new System.EventHandler(this.txtCidadeCliente_TextChanged);
             // 
             // label6
             // 
@@ -249,6 +236,7 @@
             this.txtEstadoCliente.Size = new System.Drawing.Size(439, 21);
             this.txtEstadoCliente.TabIndex = 6;
             this.txtEstadoCliente.TabStop = false;
+            this.txtEstadoCliente.TextChanged += new System.EventHandler(this.txtEstadoCliente_TextChanged);
             // 
             // label7
             // 
@@ -265,7 +253,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 14.25F);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
-            this.label8.Location = new System.Drawing.Point(217, 45);
+            this.label8.Location = new System.Drawing.Point(177, 38);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(202, 22);
             this.label8.TabIndex = 150;
@@ -278,7 +266,9 @@
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnFechar.ForeColor = System.Drawing.Color.White;
-            this.btnFechar.Location = new System.Drawing.Point(398, 314);
+            this.btnFechar.Image = global::Money.Properties.Resources.sair;
+            this.btnFechar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFechar.Location = new System.Drawing.Point(434, 314);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(120, 35);
             this.btnFechar.TabIndex = 151;
@@ -293,16 +283,6 @@
             this.txtTelefoneCli.Name = "txtTelefoneCli";
             this.txtTelefoneCli.Size = new System.Drawing.Size(143, 21);
             this.txtTelefoneCli.TabIndex = 2;
-            // 
-            // txtIdCidade
-            // 
-            this.txtIdCidade.Location = new System.Drawing.Point(115, 251);
-            this.txtIdCidade.Name = "txtIdCidade";
-            this.txtIdCidade.ReadOnly = true;
-            this.txtIdCidade.Size = new System.Drawing.Size(48, 21);
-            this.txtIdCidade.TabIndex = 153;
-            this.txtIdCidade.TabStop = false;
-            this.txtIdCidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnLocalizar
             // 
@@ -319,13 +299,30 @@
             this.btnLocalizar.UseVisualStyleBackColor = false;
             this.btnLocalizar.Click += new System.EventHandler(this.btnLocalizar_Click);
             // 
+            // txtIdCidade
+            // 
+            this.txtIdCidade.Location = new System.Drawing.Point(115, 250);
+            this.txtIdCidade.Name = "txtIdCidade";
+            this.txtIdCidade.ReadOnly = true;
+            this.txtIdCidade.Size = new System.Drawing.Size(87, 21);
+            this.txtIdCidade.TabIndex = 152;
+            // 
+            // txtCodigoCli
+            // 
+            this.txtCodigoCli.Location = new System.Drawing.Point(115, 87);
+            this.txtCodigoCli.Name = "txtCodigoCli";
+            this.txtCodigoCli.ReadOnly = true;
+            this.txtCodigoCli.Size = new System.Drawing.Size(87, 21);
+            this.txtCodigoCli.TabIndex = 153;
+            // 
             // FrmCadClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 364);
-            this.Controls.Add(this.btnLocalizar);
+            this.ClientSize = new System.Drawing.Size(595, 376);
+            this.Controls.Add(this.txtCodigoCli);
             this.Controls.Add(this.txtIdCidade);
+            this.Controls.Add(this.btnLocalizar);
             this.Controls.Add(this.txtTelefoneCli);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.label8);
@@ -343,10 +340,8 @@
             this.Controls.Add(this.txtDTCadastroCli);
             this.Controls.Add(this.txtNomeCliente);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.txtCodigoCli);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
             this.Name = "FrmCadClientes";
             this.Text = "FrmCadClientes";
             this.Load += new System.EventHandler(this.FrmCadClientes_Load);
@@ -354,10 +349,8 @@
             this.Controls.SetChildIndex(this.panel4, 0);
             this.Controls.SetChildIndex(this.panel3, 0);
             this.Controls.SetChildIndex(this.panel2, 0);
-            this.Controls.SetChildIndex(this.pictureBox1, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
-            this.Controls.SetChildIndex(this.txtCodigoCli, 0);
             this.Controls.SetChildIndex(this.label16, 0);
             this.Controls.SetChildIndex(this.txtNomeCliente, 0);
             this.Controls.SetChildIndex(this.txtDTCadastroCli, 0);
@@ -375,11 +368,11 @@
             this.Controls.SetChildIndex(this.label8, 0);
             this.Controls.SetChildIndex(this.btnFechar, 0);
             this.Controls.SetChildIndex(this.txtTelefoneCli, 0);
-            this.Controls.SetChildIndex(this.txtIdCidade, 0);
             this.Controls.SetChildIndex(this.btnLocalizar, 0);
+            this.Controls.SetChildIndex(this.txtIdCidade, 0);
+            this.Controls.SetChildIndex(this.txtCodigoCli, 0);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -392,10 +385,8 @@
         public System.Windows.Forms.DateTimePicker txtDTCadastroCli;
         public System.Windows.Forms.TextBox txtNomeCliente;
         private System.Windows.Forms.Label label16;
-        public System.Windows.Forms.MaskedTextBox txtCodigoCli;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox txtEnderecoCliente;
         private System.Windows.Forms.Label label4;
@@ -407,8 +398,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnFechar;
-        public System.Windows.Forms.MaskedTextBox txtIdCidade;
         private System.Windows.Forms.Button btnLocalizar;
         public System.Windows.Forms.MaskedTextBox txtTelefoneCli;
+        public System.Windows.Forms.TextBox txtIdCidade;
+        public System.Windows.Forms.TextBox txtCodigoCli;
     }
 }

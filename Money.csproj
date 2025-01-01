@@ -168,11 +168,11 @@
     <Compile Include="AutoResizeDataGridTableStyle.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="BasePesquisa.cs">
+    <Compile Include="FrmBaseManutencao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BasePesquisa.Designer.cs">
-      <DependentUpon>BasePesquisa.cs</DependentUpon>
+    <Compile Include="FrmBaseManutencao.Designer.cs">
+      <DependentUpon>FrmBaseManutencao.cs</DependentUpon>
     </Compile>
     <Compile Include="bdfinancaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -194,6 +194,18 @@
     </Compile>
     <Compile Include="FrmLocalizarCidade.Designer.cs">
       <DependentUpon>FrmLocalizarCidade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLocalizarProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLocalizarProduto.Designer.cs">
+      <DependentUpon>FrmLocalizarProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPedidoDeVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPedidoDeVendas.Designer.cs">
+      <DependentUpon>FrmPedidoDeVendas.cs</DependentUpon>
     </Compile>
     <Compile Include="MODEL\CategoriaModel.cs" />
     <Compile Include="BLL\cidadeBLL.cs" />
@@ -282,12 +294,6 @@
     </Compile>
     <Compile Include="FormLogo.designer.cs">
       <DependentUpon>FormLogo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormFornecedor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormFornecedor.designer.cs">
-      <DependentUpon>FormFornecedor.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCadSubCategoria.cs">
       <SubType>Form</SubType>
@@ -409,11 +415,11 @@
     <Compile Include="FrmManutUsuario.Designer.cs">
       <DependentUpon>FrmManutUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmBase_Pesquisa.cs">
+    <Compile Include="FrmBasePesquisa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmBase_Pesquisa.Designer.cs">
-      <DependentUpon>FrmBase_Pesquisa.cs</DependentUpon>
+    <Compile Include="FrmBasePesquisa.Designer.cs">
+      <DependentUpon>FrmBasePesquisa.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLocalizaFornecedor.cs">
       <SubType>Form</SubType>
@@ -529,8 +535,8 @@
     <Compile Include="DAL\VendaDAL.cs" />
     <Compile Include="MODEL\VendaMODEL.cs" />
     <Compile Include="WordFill.cs" />
-    <EmbeddedResource Include="BasePesquisa.resx">
-      <DependentUpon>BasePesquisa.cs</DependentUpon>
+    <EmbeddedResource Include="FrmBaseManutencao.resx">
+      <DependentUpon>FrmBaseManutencao.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCadClientes.resx">
@@ -538,9 +544,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogo.resx">
       <DependentUpon>FormLogo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormFornecedor.resx">
-      <DependentUpon>FormFornecedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCadProduto .resx">
       <DependentUpon>FrmCadProduto .cs</DependentUpon>
@@ -562,6 +565,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLocalizarCidade.resx">
       <DependentUpon>FrmLocalizarCidade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLocalizarProduto.resx">
+      <DependentUpon>FrmLocalizarProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmManutCliente.resx">
       <DependentUpon>FrmManutCliente.cs</DependentUpon>
@@ -589,6 +595,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmManutCidade .resx">
       <DependentUpon>FrmManutCidade .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPedidoDeVendas.resx">
+      <DependentUpon>FrmPedidoDeVendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPesquiaDinamicaVendas.resx">
       <DependentUpon>frmPesquiaDinamicaVendas.cs</DependentUpon>
@@ -629,8 +638,8 @@
     <EmbeddedResource Include="FrmManutUsuario.resx">
       <DependentUpon>FrmManutUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmBase_Pesquisa.resx">
-      <DependentUpon>FrmBase_Pesquisa.cs</DependentUpon>
+    <EmbeddedResource Include="FrmBasePesquisa.resx">
+      <DependentUpon>FrmBasePesquisa.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLocalizaFornecedor.resx">
@@ -755,7 +764,6 @@
     <None Include="Resources\reloj.png" />
     <None Include="Resources\Restaurar.png" />
     <None Include="Resources\Restaurar2.png" />
-    <None Include="Resources\Vendas.png" />
     <None Include="Resources\Venta2.png" />
     <None Include="Resources\icono-cliente.png" />
     <None Include="Resources\logoUI3.png" />
@@ -771,7 +779,6 @@
     <None Include="Resources\Ferramentas32.png" />
     <None Include="Resources\debit-card.png" />
     <None Include="Resources\contract.png" />
-    <None Include="Resources\SubCategoria.png" />
     <None Include="Resources\Categoria.png" />
     <None Include="Resources\category1.png" />
     <None Include="Resources\Subcategory.png" />
@@ -899,6 +906,75 @@
   <ItemGroup>
     <Folder Include="Formularios\" />
     <Folder Include="Relatorios\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Carrinho.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Excluir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sair.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salve-.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Imprimir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Novo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ferramentas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Relatório.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vendas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Contas_a_Receber.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Produtos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SubCategoria.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Categorias.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cliente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fornecedor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Alterar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Contas_a_Pagar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logomarca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login-da-conta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OKp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Incluir.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

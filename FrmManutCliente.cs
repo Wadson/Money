@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Money
 {
-    public partial class FrmManutCliente : Money.BasePesquisa
+    public partial class FrmManutCliente : Money.FrmBaseManutencao
     {
         public FrmManutCliente()
         {
@@ -112,7 +112,7 @@ namespace Money
         {
             FrmCadClientes cadcli = new FrmCadClientes();
             cadcli.StatusOperacao = "NOVO";
-            cadcli.lblTitulo.Text = "NOVO CADASTRO";
+            cadcli.lblTitulo.Text = "CADASTRO DE CLIENTES";
             cadcli.ShowDialog();
         }
 

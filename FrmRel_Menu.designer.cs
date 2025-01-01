@@ -31,7 +31,6 @@
             this.rbFornecedor = new System.Windows.Forms.RadioButton();
             this.rb_Fornecedor_Situacao = new System.Windows.Forms.RadioButton();
             this.btn_emitir = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.rb_Periodo_e_Situacao = new System.Windows.Forms.RadioButton();
             this.rbFornAgrupado = new System.Windows.Forms.RadioButton();
             this.rbAgrupadocategoria = new System.Windows.Forms.RadioButton();
@@ -40,7 +39,6 @@
             this.rbAgrupadoPerSit = new System.Windows.Forms.RadioButton();
             this.rbAgrupadoFormaPgtoSit = new System.Windows.Forms.RadioButton();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -65,7 +63,7 @@
             // btnExit
             // 
             this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.Location = new System.Drawing.Point(441, 3);
+            this.btnExit.Location = new System.Drawing.Point(371, 3);
             // 
             // rbFornecedor
             // 
@@ -73,7 +71,7 @@
             this.rbFornecedor.ForeColor = System.Drawing.Color.Black;
             this.rbFornecedor.Location = new System.Drawing.Point(44, 36);
             this.rbFornecedor.Name = "rbFornecedor";
-            this.rbFornecedor.Size = new System.Drawing.Size(87, 20);
+            this.rbFornecedor.Size = new System.Drawing.Size(86, 20);
             this.rbFornecedor.TabIndex = 0;
             this.rbFornecedor.TabStop = true;
             this.rbFornecedor.Text = "Fornecedor";
@@ -85,7 +83,7 @@
             this.rb_Fornecedor_Situacao.ForeColor = System.Drawing.Color.Black;
             this.rb_Fornecedor_Situacao.Location = new System.Drawing.Point(44, 116);
             this.rb_Fornecedor_Situacao.Name = "rb_Fornecedor_Situacao";
-            this.rb_Fornecedor_Situacao.Size = new System.Drawing.Size(147, 20);
+            this.rb_Fornecedor_Situacao.Size = new System.Drawing.Size(146, 20);
             this.rb_Fornecedor_Situacao.TabIndex = 3;
             this.rb_Fornecedor_Situacao.TabStop = true;
             this.rb_Fornecedor_Situacao.Text = "Fornecedor e situação";
@@ -111,25 +109,13 @@
             this.btn_emitir.UseVisualStyleBackColor = false;
             this.btn_emitir.Click += new System.EventHandler(this.btn_emitir_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Image = global::Money.Properties.Resources.report;
-            this.pictureBox1.Location = new System.Drawing.Point(299, 35);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(152, 162);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 274;
-            this.pictureBox1.TabStop = false;
-            // 
             // rb_Periodo_e_Situacao
             // 
             this.rb_Periodo_e_Situacao.AutoSize = true;
             this.rb_Periodo_e_Situacao.ForeColor = System.Drawing.Color.Black;
             this.rb_Periodo_e_Situacao.Location = new System.Drawing.Point(44, 56);
             this.rb_Periodo_e_Situacao.Name = "rb_Periodo_e_Situacao";
-            this.rb_Periodo_e_Situacao.Size = new System.Drawing.Size(127, 20);
+            this.rb_Periodo_e_Situacao.Size = new System.Drawing.Size(126, 20);
             this.rb_Periodo_e_Situacao.TabIndex = 275;
             this.rb_Periodo_e_Situacao.TabStop = true;
             this.rb_Periodo_e_Situacao.Text = "Periodo e situação";
@@ -141,7 +127,7 @@
             this.rbFornAgrupado.ForeColor = System.Drawing.Color.Black;
             this.rbFornAgrupado.Location = new System.Drawing.Point(44, 136);
             this.rbFornAgrupado.Name = "rbFornAgrupado";
-            this.rbFornAgrupado.Size = new System.Drawing.Size(146, 20);
+            this.rbFornAgrupado.Size = new System.Drawing.Size(145, 20);
             this.rbFornAgrupado.TabIndex = 278;
             this.rbFornAgrupado.TabStop = true;
             this.rbFornAgrupado.Text = "Fornecedor agrupado";
@@ -153,7 +139,7 @@
             this.rbAgrupadocategoria.ForeColor = System.Drawing.Color.Black;
             this.rbAgrupadocategoria.Location = new System.Drawing.Point(44, 156);
             this.rbAgrupadocategoria.Name = "rbAgrupadocategoria";
-            this.rbAgrupadocategoria.Size = new System.Drawing.Size(81, 20);
+            this.rbAgrupadocategoria.Size = new System.Drawing.Size(80, 20);
             this.rbAgrupadocategoria.TabIndex = 279;
             this.rbAgrupadocategoria.TabStop = true;
             this.rbAgrupadocategoria.Text = "Categoria";
@@ -185,7 +171,7 @@
             this.rbSubCategoria.ForeColor = System.Drawing.Color.Black;
             this.rbSubCategoria.Location = new System.Drawing.Point(44, 176);
             this.rbSubCategoria.Name = "rbSubCategoria";
-            this.rbSubCategoria.Size = new System.Drawing.Size(105, 20);
+            this.rbSubCategoria.Size = new System.Drawing.Size(104, 20);
             this.rbSubCategoria.TabIndex = 281;
             this.rbSubCategoria.TabStop = true;
             this.rbSubCategoria.Text = "Sub Categoria";
@@ -197,7 +183,7 @@
             this.rbAgrupadoPerSit.ForeColor = System.Drawing.Color.Black;
             this.rbAgrupadoPerSit.Location = new System.Drawing.Point(44, 76);
             this.rbAgrupadoPerSit.Name = "rbAgrupadoPerSit";
-            this.rbAgrupadoPerSit.Size = new System.Drawing.Size(187, 20);
+            this.rbAgrupadoPerSit.Size = new System.Drawing.Size(186, 20);
             this.rbAgrupadoPerSit.TabIndex = 282;
             this.rbAgrupadoPerSit.TabStop = true;
             this.rbAgrupadoPerSit.Text = "Agrupado Período e Situação";
@@ -209,7 +195,7 @@
             this.rbAgrupadoFormaPgtoSit.ForeColor = System.Drawing.Color.Black;
             this.rbAgrupadoFormaPgtoSit.Location = new System.Drawing.Point(44, 96);
             this.rbAgrupadoFormaPgtoSit.Name = "rbAgrupadoFormaPgtoSit";
-            this.rbAgrupadoFormaPgtoSit.Size = new System.Drawing.Size(251, 20);
+            this.rbAgrupadoFormaPgtoSit.Size = new System.Drawing.Size(250, 20);
             this.rbAgrupadoFormaPgtoSit.TabIndex = 283;
             this.rbAgrupadoFormaPgtoSit.TabStop = true;
             this.rbAgrupadoFormaPgtoSit.Text = "Agrupado Forma Pgto Período e Situação";
@@ -229,7 +215,6 @@
             this.Controls.Add(this.rb_Fornecedor_Situacao);
             this.Controls.Add(this.rbFornecedor);
             this.Controls.Add(this.btn_emitir);
-            this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmRel_Menu";
@@ -237,7 +222,6 @@
             this.ShowInTaskbar = false;
             this.Text = "Menu de relatórios";
             this.Load += new System.EventHandler(this.FrmRel_Menu_Load);
-            this.Controls.SetChildIndex(this.pictureBox1, 0);
             this.Controls.SetChildIndex(this.btn_emitir, 0);
             this.Controls.SetChildIndex(this.rbFornecedor, 0);
             this.Controls.SetChildIndex(this.rb_Fornecedor_Situacao, 0);
@@ -254,7 +238,6 @@
             this.Controls.SetChildIndex(this.rbAgrupadoFormaPgtoSit, 0);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,7 +248,6 @@
         private System.Windows.Forms.RadioButton rbFornecedor;
         private System.Windows.Forms.RadioButton rb_Fornecedor_Situacao;
         public System.Windows.Forms.Button btn_emitir;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RadioButton rb_Periodo_e_Situacao;
         private System.Windows.Forms.RadioButton rbFornAgrupado;
         private System.Windows.Forms.RadioButton rbAgrupadocategoria;

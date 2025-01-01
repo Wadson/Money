@@ -45,12 +45,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtPrecoVendaProduto = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(2, 311);
+            this.panel2.Location = new System.Drawing.Point(2, 319);
             this.panel2.Size = new System.Drawing.Size(497, 2);
             // 
             // panel3
@@ -59,17 +60,17 @@
             // 
             // panel4
             // 
-            this.panel4.Size = new System.Drawing.Size(2, 313);
+            this.panel4.Size = new System.Drawing.Size(2, 321);
             // 
             // panel5
             // 
             this.panel5.Location = new System.Drawing.Point(499, 0);
-            this.panel5.Size = new System.Drawing.Size(2, 313);
+            this.panel5.Size = new System.Drawing.Size(2, 321);
             // 
             // btnExit
             // 
             this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.Location = new System.Drawing.Point(461, 3);
+            this.btnExit.Location = new System.Drawing.Point(427, 3);
             // 
             // txtProduto
             // 
@@ -79,6 +80,7 @@
             this.txtProduto.Size = new System.Drawing.Size(329, 21);
             this.txtProduto.TabIndex = 0;
             this.txtProduto.Enter += new System.EventHandler(this.txtProduto_Enter);
+            this.txtProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProduto_KeyPress);
             this.txtProduto.Leave += new System.EventHandler(this.txtProduto_Leave);
             // 
             // label16
@@ -129,9 +131,11 @@
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnNovo.ForeColor = System.Drawing.Color.White;
-            this.btnNovo.Location = new System.Drawing.Point(258, 259);
+            this.btnNovo.Image = global::Money.Properties.Resources.Novo;
+            this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNovo.Location = new System.Drawing.Point(249, 266);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(76, 35);
+            this.btnNovo.Size = new System.Drawing.Size(100, 35);
             this.btnNovo.TabIndex = 7;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
@@ -144,11 +148,13 @@
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(135, 259);
+            this.btnSalvar.Image = global::Money.Properties.Resources.salve_;
+            this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalvar.Location = new System.Drawing.Point(134, 266);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(76, 35);
+            this.btnSalvar.Size = new System.Drawing.Size(100, 35);
             this.btnSalvar.TabIndex = 6;
-            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.Text = "      &Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
@@ -160,6 +166,7 @@
             this.txtDescricaoProduto.Size = new System.Drawing.Size(329, 21);
             this.txtDescricaoProduto.TabIndex = 1;
             this.txtDescricaoProduto.Enter += new System.EventHandler(this.txtDescricaoProduto_Enter);
+            this.txtDescricaoProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescricaoProduto_KeyPress);
             this.txtDescricaoProduto.Leave += new System.EventHandler(this.txtDescricaoProduto_Leave);
             // 
             // btnFechar
@@ -169,11 +176,13 @@
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnFechar.ForeColor = System.Drawing.Color.White;
-            this.btnFechar.Location = new System.Drawing.Point(388, 259);
+            this.btnFechar.Image = global::Money.Properties.Resources.sair;
+            this.btnFechar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFechar.Location = new System.Drawing.Point(364, 266);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(76, 35);
+            this.btnFechar.Size = new System.Drawing.Size(100, 35);
             this.btnFechar.TabIndex = 8;
-            this.btnFechar.Text = "&Fechar";
+            this.btnFechar.Text = "&Sair";
             this.btnFechar.UseVisualStyleBackColor = false;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
@@ -185,6 +194,7 @@
             this.txtMarcaProduto.Size = new System.Drawing.Size(329, 21);
             this.txtMarcaProduto.TabIndex = 2;
             this.txtMarcaProduto.Enter += new System.EventHandler(this.txtMarcaProduto_Enter);
+            this.txtMarcaProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMarcaProduto_KeyPress);
             this.txtMarcaProduto.Leave += new System.EventHandler(this.txtMarcaProduto_Leave);
             // 
             // label3
@@ -257,10 +267,22 @@
             this.label6.TabIndex = 114;
             this.label6.Text = "Preço de Venda:";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 14.25F);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
+            this.label8.Location = new System.Drawing.Point(134, 34);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(211, 22);
+            this.label8.TabIndex = 151;
+            this.label8.Text = "Cadastro de Produtos";
+            // 
             // FrmCadProduto
             // 
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(501, 313);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(501, 321);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.txtPrecoVendaProduto);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtLucroProduto);
@@ -302,6 +324,7 @@
             this.Controls.SetChildIndex(this.txtLucroProduto, 0);
             this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.txtPrecoVendaProduto, 0);
+            this.Controls.SetChildIndex(this.label8, 0);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -328,5 +351,6 @@
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.TextBox txtPrecoVendaProduto;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
     }
 }

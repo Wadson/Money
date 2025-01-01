@@ -10,9 +10,9 @@ using System.Data.SqlClient;
 
 namespace Money
 {
-    public partial class BasePesquisa : Form
+    public partial class FrmBaseManutencao : Form
     {
-        public BasePesquisa()
+        public FrmBaseManutencao()
         {
             InitializeComponent();           
         }

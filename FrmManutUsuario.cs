@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace Money
 {
-    public partial class FrmManutUsuario : BasePesquisa
+    public partial class FrmManutUsuario : FrmBaseManutencao
     {
         public FrmManutUsuario()
         {
@@ -102,7 +102,7 @@ namespace Money
         private void btnNovo_Click(object sender, EventArgs e)
         {
             FrmCadUsuarios childForm = new FrmCadUsuarios();
-            childForm.lblTitulo.Text = "NOVO CADASTRO";
+            childForm.lblTitulo.Text = "CADASTRO DE USUÁRIO";
                 childForm.StatusOperacao = "NOVO";
                 childForm.ShowDialog();
             ((FrmManutUsuario)Application.OpenForms["FrmManutUsuario"]).HabilitarTimer(true);

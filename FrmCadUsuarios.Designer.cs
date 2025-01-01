@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,17 +54,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnFechar = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.Location = new System.Drawing.Point(2, 304);
-            this.panel2.Size = new System.Drawing.Size(459, 2);
+            this.panel2.Size = new System.Drawing.Size(517, 2);
             // 
             // panel3
             // 
-            this.panel3.Size = new System.Drawing.Size(459, 25);
+            this.panel3.Size = new System.Drawing.Size(517, 25);
             // 
             // panel4
             // 
@@ -73,23 +71,13 @@
             // 
             // panel5
             // 
-            this.panel5.Location = new System.Drawing.Point(461, 0);
+            this.panel5.Location = new System.Drawing.Point(519, 0);
             this.panel5.Size = new System.Drawing.Size(2, 306);
             // 
             // btnExit
             // 
             this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.Location = new System.Drawing.Point(-56, 2);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Money.Properties.Resources.icono_cliente;
-            this.pictureBox1.Location = new System.Drawing.Point(363, 110);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(86, 89);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 129;
-            this.pictureBox1.TabStop = false;
+            this.btnExit.Location = new System.Drawing.Point(-208, 2);
             // 
             // btnNovo
             // 
@@ -98,11 +86,13 @@
             this.btnNovo.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.ForeColor = System.Drawing.Color.White;
-            this.btnNovo.Location = new System.Drawing.Point(196, 257);
+            this.btnNovo.Image = global::Money.Properties.Resources.Novo;
+            this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNovo.Location = new System.Drawing.Point(243, 257);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(64, 35);
+            this.btnNovo.Size = new System.Drawing.Size(100, 35);
             this.btnNovo.TabIndex = 444;
-            this.btnNovo.Text = "Novo";
+            this.btnNovo.Text = "    &Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
@@ -113,11 +103,13 @@
             this.btnSalvar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(117, 257);
+            this.btnSalvar.Image = global::Money.Properties.Resources.salve_;
+            this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalvar.Location = new System.Drawing.Point(134, 257);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(64, 35);
+            this.btnSalvar.Size = new System.Drawing.Size(100, 35);
             this.btnSalvar.TabIndex = 7;
-            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.Text = "      &Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
@@ -136,9 +128,10 @@
             this.txtUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtUsuario.Location = new System.Drawing.Point(133, 123);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(207, 21);
+            this.txtUsuario.Size = new System.Drawing.Size(319, 21);
             this.txtUsuario.TabIndex = 2;
             this.txtUsuario.Enter += new System.EventHandler(this.txtUsuario_Enter);
+            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             this.txtUsuario.Leave += new System.EventHandler(this.txtUsuario_Leave);
             // 
             // label3
@@ -156,7 +149,7 @@
             this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.txtSenha.Location = new System.Drawing.Point(133, 149);
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(207, 21);
+            this.txtSenha.Size = new System.Drawing.Size(319, 21);
             this.txtSenha.TabIndex = 3;
             this.txtSenha.UseSystemPasswordChar = true;
             this.txtSenha.Enter += new System.EventHandler(this.txtSenha_Enter);
@@ -167,7 +160,7 @@
             this.txtRepitasenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.txtRepitasenha.Location = new System.Drawing.Point(133, 175);
             this.txtRepitasenha.Name = "txtRepitasenha";
-            this.txtRepitasenha.Size = new System.Drawing.Size(207, 21);
+            this.txtRepitasenha.Size = new System.Drawing.Size(319, 21);
             this.txtRepitasenha.TabIndex = 4;
             this.txtRepitasenha.UseSystemPasswordChar = true;
             this.txtRepitasenha.Enter += new System.EventHandler(this.txtRepitasenha_Enter);
@@ -184,7 +177,7 @@
             "Operador"});
             this.cmbNivelAcesso.Location = new System.Drawing.Point(133, 201);
             this.cmbNivelAcesso.Name = "cmbNivelAcesso";
-            this.cmbNivelAcesso.Size = new System.Drawing.Size(207, 24);
+            this.cmbNivelAcesso.Size = new System.Drawing.Size(319, 24);
             this.cmbNivelAcesso.TabIndex = 5;
             this.cmbNivelAcesso.Enter += new System.EventHandler(this.cmbNivelAcesso_Enter);
             this.cmbNivelAcesso.Leave += new System.EventHandler(this.cmbNivelAcesso_Leave);
@@ -205,7 +198,7 @@
             this.lblData.AutoSize = true;
             this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.lblData.ForeColor = System.Drawing.Color.Red;
-            this.lblData.Location = new System.Drawing.Point(341, 96);
+            this.lblData.Location = new System.Drawing.Point(458, 96);
             this.lblData.Name = "lblData";
             this.lblData.Size = new System.Drawing.Size(17, 24);
             this.lblData.TabIndex = 35;
@@ -218,7 +211,7 @@
             this.lblConfSenha.BackColor = System.Drawing.Color.Transparent;
             this.lblConfSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfSenha.ForeColor = System.Drawing.Color.Red;
-            this.lblConfSenha.Location = new System.Drawing.Point(342, 175);
+            this.lblConfSenha.Location = new System.Drawing.Point(459, 175);
             this.lblConfSenha.Name = "lblConfSenha";
             this.lblConfSenha.Size = new System.Drawing.Size(17, 24);
             this.lblConfSenha.TabIndex = 36;
@@ -231,7 +224,7 @@
             this.lblNivel.BackColor = System.Drawing.Color.Transparent;
             this.lblNivel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNivel.ForeColor = System.Drawing.Color.Red;
-            this.lblNivel.Location = new System.Drawing.Point(342, 200);
+            this.lblNivel.Location = new System.Drawing.Point(459, 200);
             this.lblNivel.Name = "lblNivel";
             this.lblNivel.Size = new System.Drawing.Size(17, 24);
             this.lblNivel.TabIndex = 37;
@@ -253,9 +246,10 @@
             this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Location = new System.Drawing.Point(133, 71);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(207, 21);
+            this.txtNome.Size = new System.Drawing.Size(319, 21);
             this.txtNome.TabIndex = 0;
             this.txtNome.Enter += new System.EventHandler(this.txtNome_Enter);
+            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             this.txtNome.Leave += new System.EventHandler(this.txtNome_Leave);
             // 
             // lblNome
@@ -264,7 +258,7 @@
             this.lblNome.BackColor = System.Drawing.Color.Transparent;
             this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome.ForeColor = System.Drawing.Color.Red;
-            this.lblNome.Location = new System.Drawing.Point(341, 69);
+            this.lblNome.Location = new System.Drawing.Point(458, 69);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(17, 24);
             this.lblNome.TabIndex = 40;
@@ -287,7 +281,7 @@
             this.lblUsuario.BackColor = System.Drawing.Color.Transparent;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.Red;
-            this.lblUsuario.Location = new System.Drawing.Point(342, 120);
+            this.lblUsuario.Location = new System.Drawing.Point(459, 120);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(17, 24);
             this.lblUsuario.TabIndex = 45;
@@ -300,7 +294,7 @@
             this.lblSenha.BackColor = System.Drawing.Color.Transparent;
             this.lblSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSenha.ForeColor = System.Drawing.Color.Red;
-            this.lblSenha.Location = new System.Drawing.Point(342, 148);
+            this.lblSenha.Location = new System.Drawing.Point(459, 148);
             this.lblSenha.Name = "lblSenha";
             this.lblSenha.Size = new System.Drawing.Size(17, 24);
             this.lblSenha.TabIndex = 46;
@@ -323,7 +317,7 @@
             this.txtCodigo.Location = new System.Drawing.Point(133, 45);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.ReadOnly = true;
-            this.txtCodigo.Size = new System.Drawing.Size(207, 21);
+            this.txtCodigo.Size = new System.Drawing.Size(319, 21);
             this.txtCodigo.TabIndex = 127;
             this.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -332,7 +326,7 @@
             this.txtdtNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtdtNascimento.Location = new System.Drawing.Point(133, 97);
             this.txtdtNascimento.Name = "txtdtNascimento";
-            this.txtdtNascimento.Size = new System.Drawing.Size(207, 21);
+            this.txtdtNascimento.Size = new System.Drawing.Size(319, 21);
             this.txtdtNascimento.TabIndex = 1;
             // 
             // label2
@@ -350,7 +344,7 @@
             this.txtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEmail.Location = new System.Drawing.Point(133, 230);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(207, 21);
+            this.txtEmail.Size = new System.Drawing.Size(319, 21);
             this.txtEmail.TabIndex = 6;
             // 
             // label5
@@ -371,18 +365,20 @@
             this.btnFechar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.ForeColor = System.Drawing.Color.White;
-            this.btnFechar.Location = new System.Drawing.Point(275, 257);
+            this.btnFechar.Image = global::Money.Properties.Resources.sair;
+            this.btnFechar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFechar.Location = new System.Drawing.Point(352, 257);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(64, 35);
+            this.btnFechar.Size = new System.Drawing.Size(100, 35);
             this.btnFechar.TabIndex = 447;
-            this.btnFechar.Text = "&Fechar";
+            this.btnFechar.Text = "    &Sair";
             this.btnFechar.UseVisualStyleBackColor = false;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // FrmCadUsuarios
             // 
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(463, 306);
+            this.ClientSize = new System.Drawing.Size(521, 306);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label5);
@@ -408,14 +404,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
             this.Name = "FrmCadUsuarios";
             this.Load += new System.EventHandler(this.Frm_Cad_Usuario_Load);
             this.Controls.SetChildIndex(this.panel5, 0);
             this.Controls.SetChildIndex(this.panel4, 0);
             this.Controls.SetChildIndex(this.panel3, 0);
             this.Controls.SetChildIndex(this.panel2, 0);
-            this.Controls.SetChildIndex(this.pictureBox1, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.txtUsuario, 0);
             this.Controls.SetChildIndex(this.label3, 0);
@@ -443,15 +437,12 @@
             this.Controls.SetChildIndex(this.btnFechar, 0);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label label1;

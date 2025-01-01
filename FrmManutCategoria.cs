@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace Money
 {
-    public partial class FrmManutcategoria : BasePesquisa
+    public partial class FrmManutcategoria : FrmBaseManutencao
     {
         public FrmManutcategoria()
         {

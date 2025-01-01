@@ -37,8 +37,11 @@ namespace Money
                 MessageBox.Show("REGISTRO gravado com sucesso!", "Informação!!!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 FrmManutCliente Form = new FrmManutCliente();
 
-                txtCodigoCli.Text = RetornaCodigoContaMaisUm(QueryClientes).ToString();
                 LimpaCampo();
+                txtCodigoCli.Text = RetornaCodigoContaMaisUm(QueryClientes).ToString();
+                IDCliente = RetornaCodigoContaMaisUm(QueryClientes);
+                AcrescenteZero_a_Esquerda2(txtCodigoCli);
+                
                 txtNomeCliente.Select();
             }
             catch (Exception erro)
@@ -127,7 +130,7 @@ namespace Money
             if (StatusOperacao == "NOVO")
             {
                 IDCliente = RetornaCodigoContaMaisUm(QueryClientes);
-                txtCodigoCli.Text = RetornaCodigoContaMaisUm(QueryClientes).ToString();
+                txtCodigoCli.Text = IDCliente.ToString();
                 AcrescenteZero_a_Esquerda();
                 txtNomeCliente.Focus();
                 txtDTCadastroCli.Text = DateTime.Now.ToShortDateString();
@@ -180,7 +183,46 @@ namespace Money
         private void btnLocalizar_Click(object sender, EventArgs e)
         {
             FrmLocalizarCidade frmLocalizarCidade = new FrmLocalizarCidade();
+            frmLocalizarCidade.lblTitulo.Text = "Localizar Cidade";
             frmLocalizarCidade.ShowDialog();
+            AcrescenteZero_a_Esquerda2(txtIdCidade);
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            IDCliente = RetornaCodigoContaMaisUm(QueryClientes);
+            txtCodigoCli.Text = IDCliente.ToString();
+            AcrescenteZero_a_Esquerda();
+            txtNomeCliente.Focus();
+            txtDTCadastroCli.Text = DateTime.Now.ToShortDateString();
+        }
+
+        private void txtNomeCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+                e.KeyChar = Convert.ToChar(e.KeyChar.ToString().ToUpper());
+        }
+
+        private void txtEnderecoCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+                e.KeyChar = Convert.ToChar(e.KeyChar.ToString().ToUpper());
+        }
+
+        private void txtBairroCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+                e.KeyChar = Convert.ToChar(e.KeyChar.ToString().ToUpper());
+        }
+
+        private void txtCidadeCliente_TextChanged(object sender, EventArgs e)
+        {
+            txtCidadeCliente.Text = txtCidadeCliente.Text.ToUpper();
+        }
+
+        private void txtEstadoCliente_TextChanged(object sender, EventArgs e)
+        {
+            txtEstadoCliente.Text = txtEstadoCliente.Text.ToUpper();
         }
     }
 }

@@ -33,9 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_origem = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -61,7 +59,7 @@
             // btnExit
             // 
             this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.Location = new System.Drawing.Point(425, 2);
+            this.btnExit.Location = new System.Drawing.Point(355, 2);
             // 
             // btn_caminho_origem
             // 
@@ -104,7 +102,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
             this.label2.Location = new System.Drawing.Point(6, 67);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 17);
+            this.label2.Size = new System.Drawing.Size(49, 16);
             this.label2.TabIndex = 20;
             this.label2.Text = "Origem:";
             // 
@@ -117,20 +115,9 @@
             this.txt_origem.Size = new System.Drawing.Size(232, 41);
             this.txt_origem.TabIndex = 18;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Money.Properties.Resources.backupR;
-            this.pictureBox1.Location = new System.Drawing.Point(346, 48);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(109, 136);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 28;
-            this.pictureBox1.TabStop = false;
-            // 
             // FrmRestaura_Banco
             // 
             this.ClientSize = new System.Drawing.Size(463, 207);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_caminho_origem);
             this.Controls.Add(this.btn_inicia_copia);
             this.Controls.Add(this.label2);
@@ -144,14 +131,12 @@
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.btn_inicia_copia, 0);
             this.Controls.SetChildIndex(this.btn_caminho_origem, 0);
-            this.Controls.SetChildIndex(this.pictureBox1, 0);
             this.Controls.SetChildIndex(this.panel5, 0);
             this.Controls.SetChildIndex(this.panel4, 0);
             this.Controls.SetChildIndex(this.panel3, 0);
             this.Controls.SetChildIndex(this.panel2, 0);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,6 +149,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_origem;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -37,10 +37,8 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.dtNascimento = new System.Windows.Forms.DateTimePicker();
             this.btnLocalizarFornecedor = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.penelLinhaUsuario = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -69,7 +67,7 @@
             // btnExit
             // 
             this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.Location = new System.Drawing.Point(73, 2);
+            this.btnExit.Location = new System.Drawing.Point(-139, 2);
             // 
             // lblTitulo2
             // 
@@ -81,7 +79,7 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(12, 208);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 16);
+            this.label9.Size = new System.Drawing.Size(70, 16);
             this.label9.TabIndex = 47;
             this.label9.Text = "Dt.Nascmto";
             // 
@@ -105,7 +103,7 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(12, 160);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(97, 16);
+            this.label8.Size = new System.Drawing.Size(96, 16);
             this.label8.TabIndex = 48;
             this.label8.Text = "Nome Completo";
             // 
@@ -126,7 +124,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(12, 284);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 16);
+            this.label2.Size = new System.Drawing.Size(45, 16);
             this.label2.TabIndex = 50;
             this.label2.Text = "Senha:";
             // 
@@ -136,7 +134,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 261);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 16);
+            this.label1.Size = new System.Drawing.Size(49, 16);
             this.label1.TabIndex = 55;
             this.label1.Text = "Usuário:";
             // 
@@ -178,16 +176,6 @@
             this.btnLocalizarFornecedor.UseVisualStyleBackColor = false;
             this.btnLocalizarFornecedor.Click += new System.EventHandler(this.btnLocalizarFornecedor_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Money.Properties.Resources.ResetSenha;
-            this.pictureBox1.Location = new System.Drawing.Point(94, 31);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(131, 117);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 58;
-            this.pictureBox1.TabStop = false;
-            // 
             // penelLinhaUsuario
             // 
             this.penelLinhaUsuario.BackColor = System.Drawing.Color.DimGray;
@@ -203,7 +191,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
             this.ClientSize = new System.Drawing.Size(321, 389);
             this.Controls.Add(this.penelLinhaUsuario);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLocalizarFornecedor);
             this.Controls.Add(this.dtNascimento);
             this.Controls.Add(this.label1);
@@ -229,7 +216,6 @@
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.dtNascimento, 0);
             this.Controls.SetChildIndex(this.btnLocalizarFornecedor, 0);
-            this.Controls.SetChildIndex(this.pictureBox1, 0);
             this.Controls.SetChildIndex(this.penelLinhaUsuario, 0);
             this.Controls.SetChildIndex(this.panel5, 0);
             this.Controls.SetChildIndex(this.panel4, 0);
@@ -237,7 +223,6 @@
             this.Controls.SetChildIndex(this.panel2, 0);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,7 +238,6 @@
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.DateTimePicker dtNascimento;
         private System.Windows.Forms.Button btnLocalizarFornecedor;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.FlowLayoutPanel penelLinhaUsuario;
     }
 }

@@ -44,22 +44,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.dataGridPesquisa = new System.Windows.Forms.DataGridView();
-            this.txtPesquisa = new System.Windows.Forms.TextBox();
-            this.btnNovo = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnLocalizar = new System.Windows.Forms.Button();
-            this.btnPagar = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblTotalPesquisa = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblContaRegistros = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblTotalSelecionado = new System.Windows.Forms.Label();
-            this.lblMensagem = new System.Windows.Forms.Label();
-            this.rbFornecedor = new System.Windows.Forms.RadioButton();
-            this.rbFormapgto = new System.Windows.Forms.RadioButton();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,6 +61,22 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
+            this.btnNovo = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnLocalizar = new System.Windows.Forms.Button();
+            this.btnPagar = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblTotalPesquisa = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblContaRegistros = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblTotalSelecionado = new System.Windows.Forms.Label();
+            this.lblMensagem = new System.Windows.Forms.Label();
+            this.rbFornecedor = new System.Windows.Forms.RadioButton();
+            this.rbFormapgto = new System.Windows.Forms.RadioButton();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPesquisa)).BeginInit();
             this.panel1.SuspendLayout();
@@ -108,12 +108,11 @@
             // btnExit
             // 
             this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.Location = new System.Drawing.Point(675, 3);
+            this.btnExit.Location = new System.Drawing.Point(744, 3);
             // 
             // timer1
             // 
             this.timer1.Interval = 1000;
-            
             // 
             // timerAtualizaMetodo
             // 
@@ -143,7 +142,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
             this.label1.Location = new System.Drawing.Point(14, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 16);
+            this.label1.Size = new System.Drawing.Size(110, 16);
             this.label1.TabIndex = 448;
             this.label1.Text = "Contas a pagar";
             // 
@@ -185,7 +184,7 @@
             this.dataGridPesquisa.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridPesquisa.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(51)))), ((int)(((byte)(72)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 8.25F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -241,6 +240,163 @@
             this.dataGridPesquisa.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPesquisa_CellDoubleClick);
             this.dataGridPesquisa.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridPesquisa_CellFormatting);
             this.dataGridPesquisa.SelectionChanged += new System.EventHandler(this.dataGridPesquisa_SelectionChanged);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "idconta";
+            dataGridViewCellStyle2.Format = "00";
+            this.ID.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ID.HeaderText = "ID CONTA";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            this.ID.Width = 85;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "idparcela";
+            dataGridViewCellStyle3.Format = "00";
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column9.HeaderText = "ID PARC";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Visible = false;
+            this.Column9.Width = 76;
+            // 
+            // Column13
+            // 
+            this.Column13.DataPropertyName = "idfornecedor";
+            this.Column13.HeaderText = "IDFORNECEDOR";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Visible = false;
+            this.Column13.Width = 119;
+            // 
+            // Column14
+            // 
+            this.Column14.DataPropertyName = "idcategoria";
+            this.Column14.HeaderText = "ID CATEGORIA";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Visible = false;
+            this.Column14.Width = 110;
+            // 
+            // Column15
+            // 
+            this.Column15.DataPropertyName = "idsubcategoria";
+            this.Column15.HeaderText = "ID SUB CAT";
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            this.Column15.Visible = false;
+            this.Column15.Width = 90;
+            // 
+            // Column12
+            // 
+            this.Column12.DataPropertyName = "idformapgto";
+            this.Column12.HeaderText = "ID FORM PGTO";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Visible = false;
+            this.Column12.Width = 114;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column5.DataPropertyName = "fornecedor";
+            this.Column5.HeaderText = "FORNECEDOR";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "categoria";
+            this.Column10.HeaderText = "CATEGORIA";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Visible = false;
+            this.Column10.Width = 96;
+            // 
+            // Column16
+            // 
+            this.Column16.DataPropertyName = "subcategoria";
+            this.Column16.HeaderText = "SUB CATEGORIA";
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            this.Column16.Visible = false;
+            this.Column16.Width = 119;
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "formapgto";
+            this.Column11.HeaderText = "FORMAPGTO";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Width = 102;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "num_parcela";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "00";
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column2.HeaderText = "PARCELA";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 78;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "valor_parc";
+            dataGridViewCellStyle5.Format = "N";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column3.HeaderText = "VALOR";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 66;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "datapgto";
+            this.Column8.HeaderText = "DATA PGTO";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Visible = false;
+            this.Column8.Width = 94;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "valorpago";
+            this.Column7.HeaderText = "V.PAGO";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Visible = false;
+            this.Column7.Width = 76;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.DataPropertyName = "datacadastro";
+            this.Column1.HeaderText = "CADASTRO";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "descricao";
+            this.Column6.HeaderText = "DESCRIÇÃO";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Visible = false;
+            this.Column6.Width = 97;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "datavenc";
+            this.Column4.HeaderText = "VENCTO";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 75;
             // 
             // txtPesquisa
             // 
@@ -325,7 +481,7 @@
             // 
             this.btnLocalizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLocalizar.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnLocalizar.BackgroundImage = global::Money.Properties.Resources.loupe;
+            
             this.btnLocalizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnLocalizar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnLocalizar.FlatAppearance.BorderSize = 0;
@@ -499,163 +655,6 @@
             this.rbFormapgto.Text = "Forma pgto";
             this.rbFormapgto.UseVisualStyleBackColor = true;
             this.rbFormapgto.CheckedChanged += new System.EventHandler(this.rbFormapgto_CheckedChanged);
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "idconta";
-            dataGridViewCellStyle2.Format = "00";
-            this.ID.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ID.HeaderText = "ID CONTA";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            this.ID.Width = 84;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "idparcela";
-            dataGridViewCellStyle3.Format = "00";
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column9.HeaderText = "ID PARC";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Visible = false;
-            this.Column9.Width = 75;
-            // 
-            // Column13
-            // 
-            this.Column13.DataPropertyName = "idfornecedor";
-            this.Column13.HeaderText = "IDFORNECEDOR";
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.Visible = false;
-            this.Column13.Width = 118;
-            // 
-            // Column14
-            // 
-            this.Column14.DataPropertyName = "idcategoria";
-            this.Column14.HeaderText = "ID CATEGORIA";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.Visible = false;
-            this.Column14.Width = 109;
-            // 
-            // Column15
-            // 
-            this.Column15.DataPropertyName = "idsubcategoria";
-            this.Column15.HeaderText = "ID SUB CAT";
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            this.Column15.Visible = false;
-            this.Column15.Width = 89;
-            // 
-            // Column12
-            // 
-            this.Column12.DataPropertyName = "idformapgto";
-            this.Column12.HeaderText = "ID FORM PGTO";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.Visible = false;
-            this.Column12.Width = 113;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.DataPropertyName = "fornecedor";
-            this.Column5.HeaderText = "FORNECEDOR";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "categoria";
-            this.Column10.HeaderText = "CATEGORIA";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Visible = false;
-            this.Column10.Width = 95;
-            // 
-            // Column16
-            // 
-            this.Column16.DataPropertyName = "subcategoria";
-            this.Column16.HeaderText = "SUB CATEGORIA";
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
-            this.Column16.Visible = false;
-            this.Column16.Width = 118;
-            // 
-            // Column11
-            // 
-            this.Column11.DataPropertyName = "formapgto";
-            this.Column11.HeaderText = "FORMAPGTO";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Width = 103;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "num_parcela";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Format = "00";
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column2.HeaderText = "PARCELA";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 79;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "valor_parc";
-            dataGridViewCellStyle5.Format = "N";
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Column3.HeaderText = "VALOR";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 67;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "datapgto";
-            this.Column8.HeaderText = "DATA PGTO";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Visible = false;
-            this.Column8.Width = 93;
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "valorpago";
-            this.Column7.HeaderText = "V.PAGO";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Visible = false;
-            this.Column7.Width = 75;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.DataPropertyName = "datacadastro";
-            this.Column1.HeaderText = "CADASTRO";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "descricao";
-            this.Column6.HeaderText = "DESCRIÇÃO";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Visible = false;
-            this.Column6.Width = 96;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "datavenc";
-            this.Column4.HeaderText = "VENCTO";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 76;
             // 
             // FrmManutContasPagar
             // 

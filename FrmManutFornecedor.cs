@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace Money
 {
-    public partial class FrmManutFornecedor : BasePesquisa
+    public partial class FrmManutFornecedor : FrmBaseManutencao
     {
         public FrmManutFornecedor()
         {
@@ -107,7 +107,7 @@ namespace Money
             FrmCadFornecedor childForm = new FrmCadFornecedor();
 
                 childForm.StatusOperacao = "NOVO";
-            childForm.lblTitulo.Text = "NOVO CADASTRO";
+            childForm.lblTitulo.Text = "CADASTRO DE FORNECEDORES";
                 childForm.ShowDialog();
         }
 

@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace Money
 {
-    public partial class FrmLocalizaSubCategoria : FrmBase_Pesquisa
+    public partial class FrmLocalizaSubCategoria : FrmBasePesquisa
     {
         public FrmLocalizaSubCategoria()
         {

@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace Money
 {
-    public partial class FrmLocalizarFormaPgto : FrmBase_Pesquisa
+    public partial class FrmLocalizarFormaPgto : FrmBasePesquisa
     {
         public FrmLocalizarFormaPgto()
         {
@@ -75,7 +75,7 @@ namespace Money
 
                     try
                     {
-                        ((FrmVendas)Application.OpenForms["FrmCadReceitas"]).txtIdProduto.Text = dataGridPesquisa[1, linhaAtual].Value.ToString();
+                        ((FrmVendas)Application.OpenForms["FrmCadReceitas"]).IdProduto = Convert.ToInt32(dataGridPesquisa[1, linhaAtual].Value);
                         ((FrmVendas)Application.OpenForms["FrmCadReceitas"]).IdFornecedor = Convert.ToInt32(dataGridPesquisa[0, linhaAtual].Value);
                     }
                     catch (Exception Ex)

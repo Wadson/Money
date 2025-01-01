@@ -1,6 +1,6 @@
 ﻿namespace Money
 {
-    partial class FrmBase_Pesquisa
+    partial class FrmBasePesquisa
     {
         /// <summary>
         /// Required designer variable.
@@ -182,7 +182,7 @@
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.BackgroundImage = global::Money.Properties.Resources.Close1;
+            
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

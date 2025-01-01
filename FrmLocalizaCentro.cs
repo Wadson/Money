@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace Money
 {
-    public partial class FrmLocalizaCentro : FrmBase_Pesquisa
+    public partial class FrmLocalizaCentro : FrmBasePesquisa
     {
         public int Qtd_caractere { get; set; }
         public FrmLocalizaCentro()

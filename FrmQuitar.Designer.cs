@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -47,7 +46,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btn_OK = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox7.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
@@ -73,18 +71,7 @@
             // btnExit
             // 
             this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.Location = new System.Drawing.Point(368, 1);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox1.Image = global::Money.Properties.Resources.payment;
-            this.pictureBox1.Location = new System.Drawing.Point(299, 29);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(99, 232);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 363;
-            this.pictureBox1.TabStop = false;
+            this.btnExit.Location = new System.Drawing.Point(239, 1);
             // 
             // groupBox7
             // 
@@ -112,7 +99,7 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
             this.label5.Location = new System.Drawing.Point(37, 49);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 16);
+            this.label5.Size = new System.Drawing.Size(34, 16);
             this.label5.TabIndex = 362;
             this.label5.Text = "Valor";
             // 
@@ -148,7 +135,7 @@
             this.rbJuros.ForeColor = System.Drawing.Color.Red;
             this.rbJuros.Location = new System.Drawing.Point(18, 31);
             this.rbJuros.Name = "rbJuros";
-            this.rbJuros.Size = new System.Drawing.Size(52, 20);
+            this.rbJuros.Size = new System.Drawing.Size(51, 20);
             this.rbJuros.TabIndex = 362;
             this.rbJuros.Text = "Juros";
             this.rbJuros.UseVisualStyleBackColor = true;
@@ -183,7 +170,7 @@
             this.rbDesconto.ForeColor = System.Drawing.Color.Blue;
             this.rbDesconto.Location = new System.Drawing.Point(18, 11);
             this.rbDesconto.Name = "rbDesconto";
-            this.rbDesconto.Size = new System.Drawing.Size(77, 20);
+            this.rbDesconto.Size = new System.Drawing.Size(76, 20);
             this.rbDesconto.TabIndex = 363;
             this.rbDesconto.TabStop = true;
             this.rbDesconto.Text = "Desconto";
@@ -221,7 +208,7 @@
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
             this.label21.Location = new System.Drawing.Point(37, 155);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(67, 16);
+            this.label21.Size = new System.Drawing.Size(66, 16);
             this.label21.TabIndex = 285;
             this.label21.Text = "Valor Pago";
             // 
@@ -231,7 +218,7 @@
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
             this.label19.Location = new System.Drawing.Point(37, 74);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(65, 16);
+            this.label19.Size = new System.Drawing.Size(64, 16);
             this.label19.TabIndex = 359;
             this.label19.Text = "Data pgto";
             // 
@@ -251,7 +238,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
             this.label3.Location = new System.Drawing.Point(37, 25);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 16);
+            this.label3.Size = new System.Drawing.Size(72, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "Vencimento";
             // 
@@ -301,7 +288,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(404, 261);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.btn_OK);
             this.MaximizeBox = false;
@@ -311,14 +297,12 @@
             this.Load += new System.EventHandler(this.Frm_Quitar_Load);
             this.Controls.SetChildIndex(this.btn_OK, 0);
             this.Controls.SetChildIndex(this.groupBox7, 0);
-            this.Controls.SetChildIndex(this.pictureBox1, 0);
             this.Controls.SetChildIndex(this.panel5, 0);
             this.Controls.SetChildIndex(this.panel4, 0);
             this.Controls.SetChildIndex(this.panel3, 0);
             this.Controls.SetChildIndex(this.panel2, 0);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -345,7 +329,6 @@
         private System.Windows.Forms.RadioButton rbDesconto;
         private System.Windows.Forms.RadioButton rbJuros;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
     }
 }

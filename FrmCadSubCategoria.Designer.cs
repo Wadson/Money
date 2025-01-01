@@ -37,20 +37,18 @@
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtidCategoria = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnFechar = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.Location = new System.Drawing.Point(2, 236);
-            this.panel2.Size = new System.Drawing.Size(533, 2);
+            this.panel2.Size = new System.Drawing.Size(463, 2);
             // 
             // panel3
             // 
-            this.panel3.Size = new System.Drawing.Size(533, 25);
+            this.panel3.Size = new System.Drawing.Size(463, 25);
             // 
             // panel4
             // 
@@ -58,13 +56,13 @@
             // 
             // panel5
             // 
-            this.panel5.Location = new System.Drawing.Point(535, 0);
+            this.panel5.Location = new System.Drawing.Point(465, 0);
             this.panel5.Size = new System.Drawing.Size(2, 238);
             // 
             // btnExit
             // 
             this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.Location = new System.Drawing.Point(499, 4);
+            this.btnExit.Location = new System.Drawing.Point(441, 4);
             // 
             // btnNovo
             // 
@@ -74,11 +72,13 @@
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnNovo.ForeColor = System.Drawing.Color.White;
+            this.btnNovo.Image = global::Money.Properties.Resources.Novo;
+            this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNovo.Location = new System.Drawing.Point(223, 174);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(90, 35);
+            this.btnNovo.Size = new System.Drawing.Size(100, 35);
             this.btnNovo.TabIndex = 3;
-            this.btnNovo.Text = "&Novo";
+            this.btnNovo.Text = "  &Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
@@ -90,11 +90,13 @@
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
+            this.btnSalvar.Image = global::Money.Properties.Resources.salve_;
+            this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalvar.Location = new System.Drawing.Point(109, 174);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(90, 35);
+            this.btnSalvar.Size = new System.Drawing.Size(100, 35);
             this.btnSalvar.TabIndex = 2;
-            this.btnSalvar.Text = "&Salvar";
+            this.btnSalvar.Text = "     &Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
@@ -104,7 +106,7 @@
             this.txtCodigo.Location = new System.Drawing.Point(109, 64);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.ReadOnly = true;
-            this.txtCodigo.Size = new System.Drawing.Size(321, 21);
+            this.txtCodigo.Size = new System.Drawing.Size(328, 21);
             this.txtCodigo.TabIndex = 444;
             // 
             // label1
@@ -132,9 +134,10 @@
             this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Location = new System.Drawing.Point(109, 125);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(321, 21);
+            this.txtNome.Size = new System.Drawing.Size(328, 21);
             this.txtNome.TabIndex = 1;
             this.txtNome.Enter += new System.EventHandler(this.txtNome_Enter);
+            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             this.txtNome.Leave += new System.EventHandler(this.txtNome_Leave);
             // 
             // cmbCategoria
@@ -144,7 +147,7 @@
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Location = new System.Drawing.Point(170, 93);
             this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(260, 24);
+            this.cmbCategoria.Size = new System.Drawing.Size(267, 24);
             this.cmbCategoria.TabIndex = 0;
             this.cmbCategoria.SelectedIndexChanged += new System.EventHandler(this.cmbCategoria_SelectedIndexChanged);
             this.cmbCategoria.SelectedValueChanged += new System.EventHandler(this.cmbCategoria_SelectedValueChanged);
@@ -169,16 +172,6 @@
             this.txtidCategoria.Size = new System.Drawing.Size(60, 21);
             this.txtidCategoria.TabIndex = 452;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Money.Properties.Resources.SubCategoria;
-            this.pictureBox1.Location = new System.Drawing.Point(436, 53);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(89, 146);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 453;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnFechar
             // 
             this.btnFechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
@@ -187,19 +180,20 @@
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnFechar.ForeColor = System.Drawing.Color.White;
+            this.btnFechar.Image = global::Money.Properties.Resources.sair;
+            this.btnFechar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFechar.Location = new System.Drawing.Point(337, 174);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(90, 35);
+            this.btnFechar.Size = new System.Drawing.Size(100, 35);
             this.btnFechar.TabIndex = 454;
-            this.btnFechar.Text = "&Fechar";
+            this.btnFechar.Text = "     &Fechar";
             this.btnFechar.UseVisualStyleBackColor = false;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // FrmCadSubCategoria
             // 
-            this.ClientSize = new System.Drawing.Size(537, 238);
+            this.ClientSize = new System.Drawing.Size(467, 238);
             this.Controls.Add(this.btnFechar);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtidCategoria);
             this.Controls.Add(this.cmbCategoria);
             this.Controls.Add(this.label2);
@@ -225,11 +219,9 @@
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.cmbCategoria, 0);
             this.Controls.SetChildIndex(this.txtidCategoria, 0);
-            this.Controls.SetChildIndex(this.pictureBox1, 0);
             this.Controls.SetChildIndex(this.btnFechar, 0);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,7 +236,6 @@
         private System.Windows.Forms.Label label16;
         public System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnFechar;
         public System.Windows.Forms.ComboBox cmbCategoria;
         public System.Windows.Forms.TextBox txtidCategoria;

@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace Money
 {
-    public partial class FrmManutSubCategoria : Money.BasePesquisa
+    public partial class FrmManutSubCategoria : Money.FrmBaseManutencao
     {
         public FrmManutSubCategoria()
         {
@@ -24,7 +24,7 @@ namespace Money
         {
             FrmCadSubCategoria childForm = new FrmCadSubCategoria();
             childForm.StatusOperacao = "NOVO";
-            childForm.lblTitulo.Text = "NOVO CADASTRO";
+            childForm.lblTitulo.Text = "CADASTRO DE SUBCATEGORIA";
             childForm.ShowDialog();
             ((FrmManutSubCategoria)Application.OpenForms["FrmManutSubCategoria"]).HabilitarTimer(true);
         }

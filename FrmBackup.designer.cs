@@ -40,9 +40,7 @@
             this.btn_caminho_destino = new System.Windows.Forms.Button();
             this.btn_caminho_origem = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -66,7 +64,7 @@
             // btnExit
             // 
             this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.Location = new System.Drawing.Point(425, 3);
+            this.btnExit.Location = new System.Drawing.Point(355, 3);
             // 
             // saveFileDialog1
             // 
@@ -103,7 +101,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
             this.label1.Location = new System.Drawing.Point(6, 79);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 16);
+            this.label1.Size = new System.Drawing.Size(49, 16);
             this.label1.TabIndex = 6;
             this.label1.Text = "Destino:";
             // 
@@ -113,7 +111,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
             this.label2.Location = new System.Drawing.Point(6, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 16);
+            this.label2.Size = new System.Drawing.Size(49, 16);
             this.label2.TabIndex = 7;
             this.label2.Text = "Origem:";
             // 
@@ -184,16 +182,6 @@
             this.btn_caminho_origem.UseVisualStyleBackColor = false;
             this.btn_caminho_origem.Click += new System.EventHandler(this.btn_caminho_origem_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Money.Properties.Resources.backup;
-            this.pictureBox1.Location = new System.Drawing.Point(307, 27);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(144, 168);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
-            // 
             // FrmBackup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -206,14 +194,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_origem);
             this.Controls.Add(this.txt_destino);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_ver_pastas);
             this.MaximizeBox = false;
             this.Name = "FrmBackup";
             this.Text = "Gerar Backup";
             this.Load += new System.EventHandler(this.Frm_Backup_Load);
             this.Controls.SetChildIndex(this.btn_ver_pastas, 0);
-            this.Controls.SetChildIndex(this.pictureBox1, 0);
             this.Controls.SetChildIndex(this.txt_destino, 0);
             this.Controls.SetChildIndex(this.txt_origem, 0);
             this.Controls.SetChildIndex(this.label1, 0);
@@ -227,7 +213,6 @@
             this.Controls.SetChildIndex(this.panel2, 0);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,6 +231,5 @@
         public System.Windows.Forms.Button btn_caminho_destino;
         public System.Windows.Forms.Button btn_caminho_origem;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -130,13 +130,18 @@ namespace Money
             //string path6 = System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.LocalUserAppDataPath);
             //string path7 = System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.CommonAppDataPath);
             //string path8 = System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.UserAppDataPath);
-
-            var nomeComputador = Environment.MachineName;
+                        
             var informacao = Environment.UserName;
-           
+            var nomeComputador = Environment.MachineName;
+
             toolStripStatusExecutablePath.Text = path;
             //toolStripStatusLocation.Text = path6;
             toolStripStatusCommonAppDataPath.Text = nomeComputador + " | " + informacao;
+            
+            lblEstação.Text = nomeComputador;
+            lblData.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            lblHoraAtual.Text = DateTime.Now.ToString("HH:mm:ss");
+            //lblHoraAtual.Text = DateTime.UtcNow.ToString("HH:mm:ss");
 
 
         }
@@ -165,7 +170,8 @@ namespace Money
 
         private void btnVendas_Click(object sender, EventArgs e)
         {
-            FrmVendas frm = new FrmVendas();            
+            FrmPedidoDeVendas frm = new FrmPedidoDeVendas();  
+            frm.lblTitulo.Text = "PEDIDO DE VENDAS";
             AbrirFormInPanel(frm);                    
         }
 
@@ -197,6 +203,7 @@ namespace Money
         private void timer2_Tick(object sender, EventArgs e)
         {
             toolStripStatusHora.Text = DateTime.Now.ToLongTimeString();
+            lblHoraAtual.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
         private void btnSair_Click(object sender, EventArgs e)

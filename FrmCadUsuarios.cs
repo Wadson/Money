@@ -270,5 +270,17 @@ namespace Money
         {
             this.Close();
         }
+
+        private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+                e.KeyChar = Convert.ToChar(e.KeyChar.ToString().ToUpper());
+        }
+        
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+                e.KeyChar = Convert.ToChar(e.KeyChar.ToString().ToUpper());
+        }
     }
 }

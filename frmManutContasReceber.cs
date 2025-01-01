@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Money
 {
-    public partial class frmManutContasReceber : BasePesquisa
+    public partial class frmManutContasReceber : FrmBaseManutencao
     {
         private bool StatusConta;
         public frmManutContasReceber()
@@ -25,7 +25,7 @@ namespace Money
         private void btnNovo_Click(object sender, EventArgs e)
         {
             FrmVendas childForm = new FrmVendas();
-            childForm.lblTitulo.Text = "Cadastro de Contas a Receber";
+            childForm.lblTitulo.Text = "CADASTRO DE CONTAS A RECEBER";
                 childForm.StatusOperacao = "NOVO";
                 childForm.ShowDialog();                  
         }
@@ -109,6 +109,7 @@ namespace Money
         {
             FrmDetalheVenda f3 = new FrmDetalheVenda();
             f3.StatusOperacao = "ALTERAR";
+            f3.lblTitulo.Text = "ALTERAR CONTAS A RECEBER";
             CarregaDados();
         }      
 
