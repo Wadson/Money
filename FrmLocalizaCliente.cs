@@ -148,8 +148,8 @@ namespace Money
                 if (dataGridPesquisa.DataSource != null)
                 {
                     linhaAtual = dataGridPesquisa.CurrentRow.Index;                    
-                    ((FrmPedidoDeVendas)Application.OpenForms["FrmPedidoDeVendas"]).IDCliente = int.Parse(dataGridPesquisa[0, linhaAtual].Value.ToString());                    
-                    ((FrmPedidoDeVendas)Application.OpenForms["FrmPedidoDeVendas"]).txtNomeCliente.Text = dataGridPesquisa[1, linhaAtual].Value.ToString();                   
+                    ((FrmVendas)Application.OpenForms["FrmVendas"]).IDCliente = int.Parse(dataGridPesquisa[0, linhaAtual].Value.ToString());                    
+                    ((FrmVendas)Application.OpenForms["FrmVendas"]).txtNomeCliente.Text = dataGridPesquisa[1, linhaAtual].Value.ToString();                   
                 }
             }
 

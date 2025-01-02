@@ -97,5 +97,36 @@ namespace Money
             FrmLocalizaCliente frmlocalizacliente = new FrmLocalizaCliente();
             frmlocalizacliente.ShowDialog();
         }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnIncluirProduto_Click(object sender, EventArgs e)
+        {
+            frmManutProduto frmManutProduto = new frmManutProduto();
+            frmManutProduto.ShowDialog();
+        }
+
+        private void btnAlterarProduto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExcluirProduto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnImprimirPedido_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

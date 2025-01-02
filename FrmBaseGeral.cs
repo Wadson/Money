@@ -32,7 +32,6 @@ namespace Money
         public string QuerySubCat = "SELECT MAX(id_subcategoria) FROM subcategoria";
         public string QueryClientes = "SELECT MAX(id_cliente)  FROM cliente";
 
-        private int IdCliente;
         public int IDCliente { get; set; }
         public int IDCidade { get; set; }
         public int Id_Itensvenda { get; set; }
@@ -44,7 +43,8 @@ namespace Money
         public string QueryFor { get; set; }          
      
         public string EventoBotao { get; set; }
-        public string Descricaoo { get; set; }
+        public string Descricao { get; set; }
+        public string NomeProduto { get; set; }
         public int Parcela { get; set; }
 
         public string Forma_Pgtoo { get; set; }

@@ -78,12 +78,12 @@ namespace Money
                     {
                         //dt.Rows.Add(IdParcela++, IdConta, (i + 1 + " / " + Parcelas), Fornecedor, Descricaoo, Vencimento.AddMonths(i), ValorParc, categoria, FormaPgto, IdFormaPgto);
                         //dt.Rows.Add(IdParcela++, IdConta, (i + 1), Fornecedor, Descricaoo, Vencimento.AddMonths(i), ValorParc, categoria, FormaPgto, IdFormaPgto);
-                        dt.Rows.Add(Id_Parcela++, Id_Venda, (i + 1 + " / " + Parcelas), Fornecedor, Descricaoo, Dt_Vcto_Parc.AddMonths(i), ValorParc, categoria, FormaPgto, IdFormaPgto);
+                        dt.Rows.Add(Id_Parcela++, Id_Venda, (i + 1 + " / " + Parcelas), Fornecedor, Descricao, Dt_Vcto_Parc.AddMonths(i), ValorParc, categoria, FormaPgto, IdFormaPgto);
                     }
                     if (checkBoxIntervaloEntreParc.Checked == true)
                     {
                         //dt.Rows.Add(IdParcela++, IdConta, (i + 1 + " / " + Parcelas), Fornecedor, Descricaoo, Vencimento.AddDays((i) * dias), ValorParc, categoria, FormaPgto,IdFormaPgto);
-                        dt.Rows.Add(Id_Parcela++, Id_Venda, (i + 1 + " / " + Parcelas), Fornecedor, Descricaoo, Dt_Vcto_Parc.AddDays((i) * dias), ValorParc, categoria, FormaPgto, IdFormaPgto);
+                        dt.Rows.Add(Id_Parcela++, Id_Venda, (i + 1 + " / " + Parcelas), Fornecedor, Descricao, Dt_Vcto_Parc.AddDays((i) * dias), ValorParc, categoria, FormaPgto, IdFormaPgto);
                         //dt.Rows.Add(IdParcela++, IdConta, (i + 1), Fornecedor, Descricaoo, Vencimento.AddDays((i) * dias), ValorParc, categoria, FormaPgto, IdFormaPgto);
                     }
                 }
@@ -161,7 +161,7 @@ namespace Money
                 objetocontas.IDConta = Convert.ToInt32(Id_Venda);
                 objetocontas.Datacadastro = Convert.ToDateTime(DataP);
                 objetocontas.IDFornecedor = IdFornecedor;
-                objetocontas.Descricao = Descricaoo;
+                objetocontas.Descricao = Descricao;
                 objetocontas.Idcategoria = Idcategoria;
                 objetocontas.Idsubcategoria = Idsubcategoria;
                 objetocontas.Idformapgto = IdFormaPgto;

@@ -59,6 +59,7 @@ namespace Money
         public string sqlString { get; set; }
         public string sqlString1 { get; set; }
         public string sqlString2 { get; set; }
+        public int linhaAtual { get; set; }
         public double Valor { get; set; }
         public DateTime Cadastro { get; set; }
         public DateTime Vencimento { get; set; }

@@ -128,24 +128,18 @@ namespace Money
 
         private void FrmPesquisaCadastroFornecedor_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //FrmCadConta cadtcontas = new FrmCadConta();
-            //try
-            //{
-            //    if (dataGridPesquisa2.DataSource != null)
-            //    {
-            //        try
-            //        {
-            //            IdProduto = Convert.ToInt32(dataGridPesquisa2.CurrentRow.Cells[0].Value);
-            //            NomeProduto = dataGridPesquisa2.CurrentRow.Cells[1].Value.ToString();
-            //        }
-            //        catch
-            //        {
-            //        }
-            //        cadtcontas.IdFornecedor = IdFornecedor;
-            //        cadtcontas.txtFornecedor.Text = Fornecedor;
-            //    }
-            //}
-            //finally { }
+            FrmVendas cadcontas = new FrmVendas();
+
+            if (dataGridPesquisa2.DataSource != null)
+            {
+                linhaAtual = dataGridPesquisa2.CurrentRow.Index;
+                
+                
+                ((FrmPedidoDeVendas)Application.OpenForms["FrmPedidoDeVendas"]).IdProduto = Convert.ToInt32(dataGridPesquisa2["id_produto", linhaAtual].Value);
+                ((FrmPedidoDeVendas)Application.OpenForms["FrmPedidoDeVendas"]).NomeProduto = dataGridPesquisa2["nome_produto", linhaAtual].Value.ToString();
+                ((FrmPedidoDeVendas)Application.OpenForms["FrmPedidoDeVendas"]).ValorProduto = Convert.ToDecimal(dataGridPesquisa2["precovenda_produto", linhaAtual].Value);
+                //((FrmPedidoDeVendas)Application.OpenForms["FrmPedidoDeVendas"]).QtdProduto.Focus();
+            }
         }
 
         private void dataGridPesquisa2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

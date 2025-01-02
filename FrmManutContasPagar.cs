@@ -344,7 +344,7 @@ namespace Money
                         f3.Parcela = Convert.ToInt32(dataGridPesquisa[10, linhaAtual].Value);
                         f3.ValorParc = Convert.ToDecimal(dataGridPesquisa[11, linhaAtual].Value.ToString());
                         f3.Cadastro = Convert.ToDateTime(dataGridPesquisa[14, linhaAtual].Value.ToString());
-                        f3.Descricaoo = dataGridPesquisa[15, linhaAtual].Value.ToString();
+                        f3.Descricao = dataGridPesquisa[15, linhaAtual].Value.ToString();
                         f3.Dt_Vcto_Parc = Convert.ToDateTime(dataGridPesquisa[16, linhaAtual].Value.ToString());
 
                         f3.Show();

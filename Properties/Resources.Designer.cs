@@ -183,6 +183,16 @@ namespace Money.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Localizar {
+            get {
+                object obj = ResourceManager.GetObject("Localizar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap login_da_conta {
             get {
                 object obj = ResourceManager.GetObject("login_da_conta", resourceCulture);
@@ -226,6 +236,16 @@ namespace Money.Properties {
         internal static System.Drawing.Bitmap OKp {
             get {
                 object obj = ResourceManager.GetObject("OKp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Parcel {
+            get {
+                object obj = ResourceManager.GetObject("Parcel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

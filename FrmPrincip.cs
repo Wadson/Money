@@ -170,7 +170,7 @@ namespace Money
 
         private void btnVendas_Click(object sender, EventArgs e)
         {
-            FrmPedidoDeVendas frm = new FrmPedidoDeVendas();  
+            FrmVendas frm = new FrmVendas();  
             frm.lblTitulo.Text = "PEDIDO DE VENDAS";
             AbrirFormInPanel(frm);                    
         }
