@@ -2,7 +2,7 @@
 
 git init 
 git add . 
-git commit -m "primeiro commit"
+git commit -m "Iconografia 01/01/2025 as 22:16"
 git branch -M main 
 git remote add origin https://github.com/Wadson/Money.git 
 git push -u origin main

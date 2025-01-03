@@ -3,31 +3,20 @@
   "WorkspaceRootPath": "D:\\Money\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmlocalizacliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmlocalizacliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmlocalizacliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmlocalizacliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmprincip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmprincip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmprincip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmprincip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Money||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmvendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
-      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmgerarparcelas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmgerarparcelas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|d:\\money\\frmgerarparcelas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3E523BAC-190B-438C-BDC6-311AF1D27EAC}|Money.csproj|solutionrelative:frmgerarparcelas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -37,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -45,76 +34,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FrmLocalizaCliente.cs",
-              "DocumentMoniker": "D:\\Money\\FrmLocalizaCliente.cs",
-              "RelativeDocumentMoniker": "FrmLocalizaCliente.cs",
-              "ToolTip": "D:\\Money\\FrmLocalizaCliente.cs",
-              "RelativeToolTip": "FrmLocalizaCliente.cs",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAvwJcAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T01:13:50.017Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FrmLocalizaCliente.cs [Design]",
-              "DocumentMoniker": "D:\\Money\\FrmLocalizaCliente.cs",
-              "RelativeDocumentMoniker": "FrmLocalizaCliente.cs",
-              "ToolTip": "D:\\Money\\FrmLocalizaCliente.cs [Design]",
-              "RelativeToolTip": "FrmLocalizaCliente.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T01:14:54.245Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "FrmPrincip.cs",
-              "DocumentMoniker": "D:\\Money\\FrmPrincip.cs",
-              "RelativeDocumentMoniker": "FrmPrincip.cs",
-              "ToolTip": "D:\\Money\\FrmPrincip.cs",
-              "RelativeToolTip": "FrmPrincip.cs",
-              "ViewState": "AgIAAKAAAAAAAAAAAAAvwKwAAAAjAAAAAAAAAA==",
+              "Title": "FrmGerarParcelas.cs",
+              "DocumentMoniker": "D:\\Money\\FrmGerarParcelas.cs",
+              "RelativeDocumentMoniker": "FrmGerarParcelas.cs",
+              "ToolTip": "D:\\Money\\FrmGerarParcelas.cs",
+              "RelativeToolTip": "FrmGerarParcelas.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAcwFMAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T01:13:12.325Z",
+              "WhenOpened": "2025-01-03T00:48:21.449Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "FrmPrincip.cs [Design]",
-              "DocumentMoniker": "D:\\Money\\FrmPrincip.cs",
-              "RelativeDocumentMoniker": "FrmPrincip.cs",
-              "ToolTip": "D:\\Money\\FrmPrincip.cs [Design]",
-              "RelativeToolTip": "FrmPrincip.cs [Design]",
+              "Title": "FrmGerarParcelas.cs [Design]",
+              "DocumentMoniker": "D:\\Money\\FrmGerarParcelas.cs",
+              "RelativeDocumentMoniker": "FrmGerarParcelas.cs",
+              "ToolTip": "D:\\Money\\FrmGerarParcelas.cs [Design]",
+              "RelativeToolTip": "FrmGerarParcelas.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T01:13:06.111Z",
+              "WhenOpened": "2025-01-03T00:47:58.306Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Money",
-              "DocumentMoniker": "D:\\Money\\Money.csproj",
-              "RelativeDocumentMoniker": "Money.csproj",
-              "ToolTip": "D:\\Money\\Money.csproj",
-              "RelativeToolTip": "Money.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-01-02T01:11:31.637Z",
+              "DocumentIndex": 1,
+              "Title": "FrmVendas.cs",
+              "DocumentMoniker": "D:\\Money\\FrmVendas.cs",
+              "RelativeDocumentMoniker": "FrmVendas.cs",
+              "ToolTip": "D:\\Money\\FrmVendas.cs",
+              "RelativeToolTip": "FrmVendas.cs",
+              "ViewState": "AgIAAIwBAAAAAAAAAAASwJgBAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-03T00:39:49.534Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "FrmVendas.cs [Design]",
               "DocumentMoniker": "D:\\Money\\FrmVendas.cs",
               "RelativeDocumentMoniker": "FrmVendas.cs",
               "ToolTip": "D:\\Money\\FrmVendas.cs [Design]",
               "RelativeToolTip": "FrmVendas.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T00:55:28.026Z",
+              "WhenOpened": "2025-01-03T00:39:43.874Z",
               "EditorCaption": " [Design]"
             }
           ]

@@ -84,9 +84,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btnExcluirItemGrid = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
-            this.radioButtonSim = new System.Windows.Forms.RadioButton();
-            this.radioButtonNao = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnLocalizarCliente = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -96,10 +93,10 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.checkBoxGerarParcela = new System.Windows.Forms.CheckBox();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVendas)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
@@ -285,7 +282,7 @@
             dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridVendas.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridVendas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridVendas.Size = new System.Drawing.Size(920, 184);
+            this.dataGridVendas.Size = new System.Drawing.Size(920, 157);
             this.dataGridVendas.TabIndex = 466;
             // 
             // id_itensvenda
@@ -576,9 +573,9 @@
             this.btnParcelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnParcelar.Image = global::Money.Properties.Resources.Parcel;
             this.btnParcelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnParcelar.Location = new System.Drawing.Point(137, 16);
+            this.btnParcelar.Location = new System.Drawing.Point(47, 493);
             this.btnParcelar.Name = "btnParcelar";
-            this.btnParcelar.Size = new System.Drawing.Size(100, 37);
+            this.btnParcelar.Size = new System.Drawing.Size(130, 37);
             this.btnParcelar.TabIndex = 465;
             this.btnParcelar.Text = "&Parcelar";
             this.btnParcelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -621,11 +618,11 @@
             this.btnFinalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFinalizar.Image = ((System.Drawing.Image)(resources.GetObject("btnFinalizar.Image")));
             this.btnFinalizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFinalizar.Location = new System.Drawing.Point(302, 16);
+            this.btnFinalizar.Location = new System.Drawing.Point(283, 493);
             this.btnFinalizar.Name = "btnFinalizar";
-            this.btnFinalizar.Size = new System.Drawing.Size(100, 37);
+            this.btnFinalizar.Size = new System.Drawing.Size(130, 37);
             this.btnFinalizar.TabIndex = 474;
-            this.btnFinalizar.Text = "Finali&zar";
+            this.btnFinalizar.Text = "Finali&zar Venda";
             this.btnFinalizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFinalizar.UseVisualStyleBackColor = false;
             this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
@@ -657,16 +654,19 @@
             // btnExcluirItemGrid
             // 
             this.btnExcluirItemGrid.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnExcluirItemGrid.BackColor = System.Drawing.Color.AntiqueWhite;
             this.btnExcluirItemGrid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnExcluirItemGrid.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
             this.btnExcluirItemGrid.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnExcluirItemGrid.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
             this.btnExcluirItemGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluirItemGrid.Location = new System.Drawing.Point(16, 407);
+            this.btnExcluirItemGrid.Image = global::Money.Properties.Resources.Excluir;
+            this.btnExcluirItemGrid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExcluirItemGrid.Location = new System.Drawing.Point(785, 380);
             this.btnExcluirItemGrid.Name = "btnExcluirItemGrid";
-            this.btnExcluirItemGrid.Size = new System.Drawing.Size(591, 25);
+            this.btnExcluirItemGrid.Size = new System.Drawing.Size(149, 37);
             this.btnExcluirItemGrid.TabIndex = 540;
-            this.btnExcluirItemGrid.Text = "E&xcluir Item do datagrid";
+            this.btnExcluirItemGrid.Text = "E&xcluir Item";
             this.btnExcluirItemGrid.UseVisualStyleBackColor = false;
             this.btnExcluirItemGrid.Click += new System.EventHandler(this.btnExcluirItemGrid_Click);
             // 
@@ -677,59 +677,17 @@
             this.btnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnFechar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
             this.btnFechar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Moccasin;
-            this.btnFechar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.btnFechar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.Image = global::Money.Properties.Resources.sair;
             this.btnFechar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFechar.Location = new System.Drawing.Point(837, 464);
+            this.btnFechar.Location = new System.Drawing.Point(807, 493);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(100, 37);
+            this.btnFechar.Size = new System.Drawing.Size(130, 37);
             this.btnFechar.TabIndex = 536;
             this.btnFechar.Text = "&Fechar";
-            this.btnFechar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFechar.UseVisualStyleBackColor = false;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click_1);
-            // 
-            // radioButtonSim
-            // 
-            this.radioButtonSim.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.radioButtonSim.AutoSize = true;
-            this.radioButtonSim.Location = new System.Drawing.Point(90, 32);
-            this.radioButtonSim.Name = "radioButtonSim";
-            this.radioButtonSim.Size = new System.Drawing.Size(47, 19);
-            this.radioButtonSim.TabIndex = 537;
-            this.radioButtonSim.Text = "SIM";
-            this.radioButtonSim.UseVisualStyleBackColor = true;
-            this.radioButtonSim.CheckedChanged += new System.EventHandler(this.radioButtonSim_CheckedChanged);
-            // 
-            // radioButtonNao
-            // 
-            this.radioButtonNao.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.radioButtonNao.AutoSize = true;
-            this.radioButtonNao.Checked = true;
-            this.radioButtonNao.ForeColor = System.Drawing.Color.Black;
-            this.radioButtonNao.Location = new System.Drawing.Point(251, 32);
-            this.radioButtonNao.Name = "radioButtonNao";
-            this.radioButtonNao.Size = new System.Drawing.Size(50, 19);
-            this.radioButtonNao.TabIndex = 538;
-            this.radioButtonNao.TabStop = true;
-            this.radioButtonNao.Text = "NÃO";
-            this.radioButtonNao.UseVisualStyleBackColor = true;
-            this.radioButtonNao.CheckedChanged += new System.EventHandler(this.radioButtonNao_CheckedChanged);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.groupBox1.Controls.Add(this.radioButtonNao);
-            this.groupBox1.Controls.Add(this.radioButtonSim);
-            this.groupBox1.Controls.Add(this.btnParcelar);
-            this.groupBox1.Controls.Add(this.btnFinalizar);
-            this.groupBox1.Location = new System.Drawing.Point(16, 450);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(475, 62);
-            this.groupBox1.TabIndex = 539;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Parcelar?";
             // 
             // btnLocalizarCliente
             // 
@@ -758,16 +716,15 @@
             this.btnNovo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnNovo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
             this.btnNovo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Moccasin;
-            this.btnNovo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.btnNovo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.Image = global::Money.Properties.Resources.Novo;
             this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovo.Location = new System.Drawing.Point(519, 464);
+            this.btnNovo.Location = new System.Drawing.Point(414, 493);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(100, 37);
+            this.btnNovo.Size = new System.Drawing.Size(130, 37);
             this.btnNovo.TabIndex = 545;
             this.btnNovo.Text = "&Novo";
-            this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
@@ -783,7 +740,7 @@
             this.txtTotalGrid.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtTotalGrid.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
             this.txtTotalGrid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.txtTotalGrid.Location = new System.Drawing.Point(807, 407);
+            this.txtTotalGrid.Location = new System.Drawing.Point(807, 438);
             this.txtTotalGrid.Name = "txtTotalGrid";
             this.txtTotalGrid.ReadOnly = true;
             this.txtTotalGrid.Size = new System.Drawing.Size(129, 38);
@@ -811,16 +768,15 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Moccasin;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = global::Money.Properties.Resources.Alterar;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(625, 464);
+            this.button1.Location = new System.Drawing.Point(545, 493);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 37);
+            this.button1.Size = new System.Drawing.Size(130, 37);
             this.button1.TabIndex = 548;
             this.button1.Text = "&Alterar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
             // 
             // btnExcluir
@@ -830,16 +786,15 @@
             this.btnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnExcluir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
             this.btnExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Moccasin;
-            this.btnExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.btnExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluir.Image = global::Money.Properties.Resources.Excluir;
             this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcluir.Location = new System.Drawing.Point(731, 464);
+            this.btnExcluir.Location = new System.Drawing.Point(676, 493);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(100, 37);
+            this.btnExcluir.Size = new System.Drawing.Size(130, 37);
             this.btnExcluir.TabIndex = 549;
             this.btnExcluir.Text = "&Excluir";
-            this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExcluir.UseVisualStyleBackColor = false;
             // 
             // groupBox4
@@ -863,17 +818,32 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label11.Location = new System.Drawing.Point(699, 410);
+            this.label11.Location = new System.Drawing.Point(699, 441);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(102, 31);
             this.label11.TabIndex = 554;
             this.label11.Text = "TOTAL";
             // 
+            // checkBoxGerarParcela
+            // 
+            this.checkBoxGerarParcela.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.checkBoxGerarParcela.AutoSize = true;
+            this.checkBoxGerarParcela.Location = new System.Drawing.Point(49, 468);
+            this.checkBoxGerarParcela.Name = "checkBoxGerarParcela";
+            this.checkBoxGerarParcela.Size = new System.Drawing.Size(102, 19);
+            this.checkBoxGerarParcela.TabIndex = 555;
+            this.checkBoxGerarParcela.Text = "Gerar Parcela";
+            this.checkBoxGerarParcela.UseVisualStyleBackColor = true;
+            this.checkBoxGerarParcela.CheckedChanged += new System.EventHandler(this.checkBoxGerarParcela_CheckedChanged);
+            // 
             // FrmVendas
             // 
             this.ClientSize = new System.Drawing.Size(954, 545);
+            this.Controls.Add(this.checkBoxGerarParcela);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnExcluirItemGrid);
+            this.Controls.Add(this.btnParcelar);
+            this.Controls.Add(this.btnFinalizar);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnIncluir);
@@ -888,7 +858,6 @@
             this.Controls.Add(this.txtValorProduto);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.btnNovo);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.label3);
@@ -903,7 +872,6 @@
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.btnFechar, 0);
             this.Controls.SetChildIndex(this.label7, 0);
-            this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.btnNovo, 0);
             this.Controls.SetChildIndex(this.txtTotal, 0);
             this.Controls.SetChildIndex(this.txtValorProduto, 0);
@@ -918,14 +886,15 @@
             this.Controls.SetChildIndex(this.btnIncluir, 0);
             this.Controls.SetChildIndex(this.btnExcluir, 0);
             this.Controls.SetChildIndex(this.groupBox4, 0);
+            this.Controls.SetChildIndex(this.btnFinalizar, 0);
+            this.Controls.SetChildIndex(this.btnParcelar, 0);
             this.Controls.SetChildIndex(this.btnExcluirItemGrid, 0);
             this.Controls.SetChildIndex(this.label11, 0);
+            this.Controls.SetChildIndex(this.checkBoxGerarParcela, 0);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVendas)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -961,9 +930,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnFechar;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButtonNao;
-        private System.Windows.Forms.RadioButton radioButtonSim;
         private System.Windows.Forms.Button btnExcluirItemGrid;
         private System.Windows.Forms.Button btnLocalizarCliente;
         private System.Windows.Forms.Button btnNovo;
@@ -987,5 +953,6 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.CheckBox checkBoxGerarParcela;
     }
 }

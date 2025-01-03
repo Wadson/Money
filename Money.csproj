@@ -201,6 +201,12 @@
     <Compile Include="FrmLocalizarProduto.Designer.cs">
       <DependentUpon>FrmLocalizarProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmParcelamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmParcelamento.Designer.cs">
+      <DependentUpon>FrmParcelamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPedidoDeVendas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -595,6 +601,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmManutCidade .resx">
       <DependentUpon>FrmManutCidade .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmParcelamento.resx">
+      <DependentUpon>FrmParcelamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPedidoDeVendas.resx">
       <DependentUpon>FrmPedidoDeVendas.cs</DependentUpon>

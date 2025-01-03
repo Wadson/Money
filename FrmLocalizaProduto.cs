@@ -68,5 +68,10 @@ namespace Money
         {
             LocalizaProduto();
         }
+
+        private void dataGridPesquisa_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

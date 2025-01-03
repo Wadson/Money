@@ -103,14 +103,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Money.exe" size="1732096">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Money.exe" size="1741824">
       <assemblyIdentity name="Money" version="4.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>IbfTXlmsJLWKBcnrc1xN1UWXul45trhugNZeYyUPngY=</dsig:DigestValue>
+        <dsig:DigestValue>n8ZsjNzJZL4wClNwAwS9Ot7Dww2hk3OAamNuQaQfLaA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

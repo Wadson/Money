@@ -208,15 +208,22 @@ namespace Money
         }
         private void btnLocalizarProduto_Click(object sender, EventArgs e)
         {
-            FrmLocalizaProduto localizaProduto = new FrmLocalizaProduto();
-            localizaProduto.lblTitulo.Text = "Localizar Produtos";
-            localizaProduto.ShowDialog();
+            if (txtIdVenda.Text != "" && txtNomeCliente.Text != "")
+            {               
+                FrmLocalizaProduto localizaProduto = new FrmLocalizaProduto();
+                localizaProduto.lblTitulo.Text = "Localizar Produtos";
+                localizaProduto.ShowDialog();
 
-            ToMoney(txtValorProduto);
-            ToMoney(txtTotal);
-            txtQuantidade.Focus();
-            CalculaPrecoTotal();
-            //AcrescenteZero_a_Esquerda2(txtIdProduto);
+                ToMoney(txtValorProduto);
+                ToMoney(txtTotal);
+                txtQuantidade.Focus();
+                CalculaPrecoTotal();
+            }
+            else
+            {
+                MessageBox.Show("Antes de localizar um produto, é necessário escolher um cliente!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return;
+            }
         }
 
         private void txtPrecoVenda_Enter(object sender, EventArgs e)
@@ -280,51 +287,53 @@ namespace Money
         }
         private void IncluirItensNaGrid()
         {
-            DataTable dt = new DataTable();
-            dt = (DataTable)dataGridVendas.DataSource;            
-
-            Num_Parcelas = 1;
-
-            int zeroColumn = Id_Itensvenda++;
-            string primeiraColumn = txtProduto.Text;
-            string segundaColumn = txtQuantidade.Text;
-            string terceiraColumn = txtValorProduto.Text;
-            string quartaColumn = txtTotal.Text;
-            string quintaColumn = dtpVencimento.Text;
-            string sextaColumn = IdProduto.ToString();
-            string setimaColumn = txtIdVenda.Text;
-            int oitavaColumn =    Id_Parcela++;
-            string nonaColumn = txtValorProduto.Text;
-            int decimaColumn = Num_Parcelas++;            
-            bool decimaPriSegColumn = false;
-            int decimaSegColumn = Id_ContasReceber++;
-
-            string[] row = { zeroColumn++.ToString(), primeiraColumn, segundaColumn, terceiraColumn, quartaColumn, quintaColumn, sextaColumn, setimaColumn, (oitavaColumn++).ToString(), nonaColumn, decimaColumn++.ToString(), decimaPriSegColumn.ToString(), decimaSegColumn++.ToString() };
-            dataGridVendas.Rows.Add(row);
-            foreach (DataGridViewRow Row in dataGridVendas.Rows)
+            if (txtIdVenda.Text != "" && txtNomeCliente.Text != "" && txtValorProduto.Text != "")
             {
-                foreach (DataGridViewCell cell in Row.Cells)
+                DataTable dt = new DataTable();
+                dt = (DataTable)dataGridVendas.DataSource;
+
+                Num_Parcelas = 1;
+                int zeroColumn = Id_Itensvenda++;
+                string primeiraColumn = txtProduto.Text;
+                string segundaColumn = txtQuantidade.Text;
+                string terceiraColumn = txtValorProduto.Text;
+                string quartaColumn = txtTotal.Text;
+                string quintaColumn = dtpVencimento.Text;
+                string sextaColumn = IdProduto.ToString();
+                string setimaColumn = txtIdVenda.Text;
+                int oitavaColumn = Id_Parcela++;
+                string nonaColumn = txtValorProduto.Text;
+                int decimaColumn = Num_Parcelas++;
+                bool decimaPriSegColumn = false;
+                int decimaSegColumn = Id_ContasReceber++;
+
+                string[] row = { zeroColumn++.ToString(), primeiraColumn, segundaColumn, terceiraColumn, quartaColumn, quintaColumn, sextaColumn, setimaColumn, (oitavaColumn++).ToString(), nonaColumn, decimaColumn++.ToString(), decimaPriSegColumn.ToString(), decimaSegColumn++.ToString() };
+                dataGridVendas.Rows.Add(row);
+                foreach (DataGridViewRow Row in dataGridVendas.Rows)
                 {
-                    if (cell.ColumnIndex == dataGridVendas.Columns["valor_produto"].Index)
+                    foreach (DataGridViewCell cell in Row.Cells)
                     {
-                        cell.Style.Format = "N";
-                    }
-                    if (cell.ColumnIndex == dataGridVendas.Columns["total"].Index)
-                    {
-                        cell.Style.Format = "N";
+                        if (cell.ColumnIndex == dataGridVendas.Columns["valor_produto"].Index)
+                        {
+                            cell.Style.Format = "N";
+                        }
+                        if (cell.ColumnIndex == dataGridVendas.Columns["total"].Index)
+                        {
+                            cell.Style.Format = "N";
+                        }
                     }
                 }
-            }
 
-            ValorParc = Convert.ToDecimal(txtValorProduto.Text);
-           
-            txtProduto.Focus();           
-            txtProduto.Text = "";
-            txtQuantidade.Text = "";
-            txtValorProduto.Text = "";
-            txtTotal.Text = "";
-            txtProduto.Focus();
-            SomarGrid();    
+                ValorParc = Convert.ToDecimal(txtValorProduto.Text);
+
+                txtProduto.Focus();
+                txtProduto.Text = "";
+                txtQuantidade.Text = "";
+                txtValorProduto.Text = "";
+                txtTotal.Text = "";
+                txtProduto.Focus();
+                SomarGrid();
+            }            
         }
         public void SomarGrid()
         {            
@@ -339,7 +348,7 @@ namespace Money
         }
         private void btnIncluir_Click(object sender, EventArgs e)
         {
-            if (Id_Venda != 0 && Id_Itensvenda != 0)
+            if (Id_Venda != 0 && Id_Itensvenda != 0 && txtQuantidade.Text != "" )
             {
                 IncluirItensNaGrid();               
             }
@@ -374,16 +383,20 @@ namespace Money
         {
             if (dataGridVendas.Rows.Count >= 1)
             {
-                ItensVendaMODEL objItensVenda = new ItensVendaMODEL();
-                objItensVenda.Id_itensvenda = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_itensvenda"].Value);
-                objItensVenda.Qtd_produto = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["qtd_produto"].Value);
-                objItensVenda.Valor_produto = Convert.ToDecimal(dataGridVendas.CurrentRow.Cells["valor_produto"].Value);
-                objItensVenda.Id_produto = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_produto"].Value);
-                objItensVenda.Id_venda = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["id_venda"].Value);
-                objItensVenda.Num_parcela = Convert.ToInt32(dataGridVendas.CurrentRow.Cells["num_parcela"].Value);//Convert.ToInt32(1);
+                for (int i = 0; i < dataGridVendas.Rows.Count; i++)
+                {
+                    ItensVendaMODEL objItensVenda = new ItensVendaMODEL();
 
-                ItensVendaBLL Itensvenda_bll = new ItensVendaBLL();
-                Itensvenda_bll.SalvarItensVenda(objItensVenda);                
+                    objItensVenda.Id_itensvenda = Convert.ToInt32(dataGridVendas.Rows[i].Cells["id_itensvenda"].Value);
+                    objItensVenda.Qtd_produto = Convert.ToInt32(dataGridVendas.Rows[i].Cells["qtd_produto"].Value);
+                    objItensVenda.Valor_produto = Convert.ToDecimal(dataGridVendas.Rows[i].Cells["valor_produto"].Value);
+                    objItensVenda.Id_produto = Convert.ToInt32(dataGridVendas.Rows[i].Cells["id_produto"].Value);
+                    objItensVenda.Id_venda = Convert.ToInt32(dataGridVendas.Rows[i].Cells["id_venda"].Value);
+                    objItensVenda.Num_parcela = Convert.ToInt32(dataGridVendas.Rows[i].Cells["num_parcela"].Value);//Convert.ToInt32(1);
+                    
+                    ItensVendaBLL Itensvenda_bll = new ItensVendaBLL();
+                    Itensvenda_bll.SalvarItensVenda(objItensVenda);
+                }                             
             }            
         }
         public void SalvarParcelas()
@@ -394,7 +407,6 @@ namespace Money
             {
                 foreach (DataGridViewRow row in dataGridVendas.Rows) //for (int i = 0; i < dataGridVendas.Rows.Count; i++)
                 {
-
                     objoParcela.Idparcela = Convert.ToInt32(row.Cells["id_parcela"].Value);
                     objoParcela.Valor_parc = Convert.ToDecimal(row.Cells["valor_parcela"].Value);
                     objoParcela.Numparcela = Convert.ToInt32(row.Cells["num_parcela"].Value);
@@ -441,7 +453,7 @@ namespace Money
             dataGridVendas.Rows.Clear();
             dataGridVendas.Refresh();
 
-            ((frmManutContasReceber)System.Windows.Forms.Application.OpenForms["frmManutContasReceber"]).HabilitarTimer(true);
+            //((FrmVendas)System.Windows.Forms.Application.OpenForms["FrmVendas"]).HabilitarTimer(true);
             MessageBox.Show("Vendas gravadas com sucesso!", "Informação!!!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
         private void txtQuantidade_Enter(object sender, EventArgs e)
@@ -451,23 +463,24 @@ namespace Money
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
-            SalvarVenda();
-            SalvarItensVenda();           
-            SalvarParcelas();
-            SalvarContasReceber();
+            if(dataGridVendas.Rows.Count < 1)
+            {
+                MessageBox.Show("Não há ítens no datagrid para ser salvo!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return;
+            }
+            else
+            {
+                SalvarVenda();
+                SalvarItensVenda();
+                SalvarParcelas();
+                SalvarContasReceber();
 
-            LimpaCampo();           
-
-            txtNomeCliente.Enabled = false;
-            txtProduto.Enabled = false;
-            btnFinalizar.Enabled = false;
-
-            btnLocalizarCliente.Enabled = false;
-            btnLocalizarProduto.Enabled = false;
-            btnIncluir.Enabled = false;
+                LimpaCampo();
+                NovoCodigo();
+                txtNomeCliente.Focus();
+                txtIdVenda.Text = RetornaCodigoContaMaisUm(QueryVendas).ToString();
+            }
         }
-
-       
         private void txtNomeCliente_Enter(object sender, EventArgs e)
         {
             txtNomeCliente.BackColor = Color.Yellow;
@@ -536,6 +549,8 @@ namespace Money
         private void btnParcelar_Click(object sender, EventArgs e)
         {
             FrmGerarParcelas gerarparc = new FrmGerarParcelas();
+            
+            gerarparc.IDCliente = IDCliente;
             SalvarVenda();
             SalvarItensVenda();
             
@@ -563,15 +578,11 @@ namespace Money
         }
 
         private void radioButtonNao_CheckedChanged(object sender, EventArgs e)
-        {
-            btnFinalizar.Enabled = true;
-            btnParcelar.Enabled = false;
+        {            
         }
 
         private void radioButtonSim_CheckedChanged(object sender, EventArgs e)
-        {
-            btnFinalizar.Enabled = false;
-            btnParcelar.Enabled = true;
+        {            
         }
         private void btnExcluirItemGrid_Click(object sender, EventArgs e)
         {
@@ -623,6 +634,18 @@ namespace Money
 
         private void timer1_Tick(object sender, EventArgs e)
         {            
+        }
+
+        private void checkBoxGerarParcela_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxGerarParcela.Checked == true)
+            {
+                btnParcelar.Enabled = true;
+            }
+            else
+            {
+                btnParcelar.Enabled = false;
+            }            
         }
     }
     public static class TextFormadoDinheiro

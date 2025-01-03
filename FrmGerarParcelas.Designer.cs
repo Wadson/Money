@@ -31,12 +31,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGerarParcelas));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label5 = new System.Windows.Forms.Label();
             this.txtDias = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
-            this.checkBoxIntervaloEntreParc = new System.Windows.Forms.CheckBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.txtQtdParcelas = new System.Windows.Forms.NumericUpDown();
             this.dtPrimeiraParc = new System.Windows.Forms.DateTimePicker();
@@ -44,12 +43,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnSalvar = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txtIdVenda = new System.Windows.Forms.TextBox();
             this.txtNomeCliente = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnFechar = new System.Windows.Forms.Button();
+            this.btnFinalizar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.id_parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.num_parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valor_parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,12 +59,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQtdParcelas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_Parcelas)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(2, 449);
+            this.panel2.Location = new System.Drawing.Point(2, 470);
             this.panel2.Size = new System.Drawing.Size(601, 2);
             // 
             // panel3
@@ -73,35 +72,21 @@
             // 
             // panel4
             // 
-            this.panel4.Size = new System.Drawing.Size(2, 451);
+            this.panel4.Size = new System.Drawing.Size(2, 472);
             // 
             // panel5
             // 
             this.panel5.Location = new System.Drawing.Point(603, 0);
-            this.panel5.Size = new System.Drawing.Size(2, 451);
+            this.panel5.Size = new System.Drawing.Size(2, 472);
             // 
             // btnExit
             // 
             this.btnExit.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.Location = new System.Drawing.Point(1177, 3);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(15, 286);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 17);
-            this.label5.TabIndex = 518;
-            this.label5.Text = "Qtd. Dia";
+            this.btnExit.Location = new System.Drawing.Point(1465, 3);
             // 
             // txtDias
             // 
-            this.txtDias.Enabled = false;
             this.txtDias.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.75F);
             this.txtDias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
             this.txtDias.Location = new System.Drawing.Point(15, 286);
@@ -117,7 +102,7 @@
             this.txtDias.TabStop = false;
             this.txtDias.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtDias.Value = new decimal(new int[] {
-            1,
+            30,
             0,
             0,
             0});
@@ -125,30 +110,14 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
+            this.label16.BackColor = System.Drawing.Color.AntiqueWhite;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
             this.label16.Location = new System.Drawing.Point(15, 194);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(182, 16);
             this.label16.TabIndex = 514;
             this.label16.Text = "Data 1º Parcela                           ";
-            // 
-            // checkBoxIntervaloEntreParc
-            // 
-            this.checkBoxIntervaloEntreParc.AutoSize = true;
-            this.checkBoxIntervaloEntreParc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
-            this.checkBoxIntervaloEntreParc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxIntervaloEntreParc.ForeColor = System.Drawing.Color.White;
-            this.checkBoxIntervaloEntreParc.Location = new System.Drawing.Point(15, 265);
-            this.checkBoxIntervaloEntreParc.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxIntervaloEntreParc.Name = "checkBoxIntervaloEntreParc";
-            this.checkBoxIntervaloEntreParc.Size = new System.Drawing.Size(184, 20);
-            this.checkBoxIntervaloEntreParc.TabIndex = 517;
-            this.checkBoxIntervaloEntreParc.Text = "Intervalo entre parcelas      ";
-            this.checkBoxIntervaloEntreParc.UseVisualStyleBackColor = false;
-            this.checkBoxIntervaloEntreParc.CheckedChanged += new System.EventHandler(this.checkBoxIntervaloEntreParc_CheckedChanged);
             // 
             // txtTotal
             // 
@@ -263,8 +232,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.75F);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(169, 0);
+            this.label2.Location = new System.Drawing.Point(203, 28);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(182, 29);
@@ -274,9 +242,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
+            this.label1.BackColor = System.Drawing.Color.AntiqueWhite;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
-            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(16, 130);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -287,9 +254,8 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
+            this.label4.BackColor = System.Drawing.Color.AntiqueWhite;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
-            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(15, 336);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
@@ -297,26 +263,12 @@
             this.label4.TabIndex = 526;
             this.label4.Text = "Nº Parcela                          ";
             // 
-            // btnSalvar
-            // 
-            this.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSalvar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
-            this.btnSalvar.Location = new System.Drawing.Point(207, 398);
-            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(390, 34);
-            this.btnSalvar.TabIndex = 529;
-            this.btnSalvar.Text = "&Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = false;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
+            this.label9.BackColor = System.Drawing.Color.AntiqueWhite;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(12, 64);
+            this.label9.Location = new System.Drawing.Point(12, 62);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(101, 17);
             this.label9.TabIndex = 533;
@@ -326,7 +278,7 @@
             // 
             this.txtIdVenda.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtIdVenda.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.txtIdVenda.Location = new System.Drawing.Point(15, 85);
+            this.txtIdVenda.Location = new System.Drawing.Point(15, 83);
             this.txtIdVenda.Name = "txtIdVenda";
             this.txtIdVenda.ReadOnly = true;
             this.txtIdVenda.Size = new System.Drawing.Size(98, 24);
@@ -338,36 +290,75 @@
             // 
             this.txtNomeCliente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNomeCliente.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.txtNomeCliente.Location = new System.Drawing.Point(120, 85);
+            this.txtNomeCliente.Location = new System.Drawing.Point(120, 83);
             this.txtNomeCliente.Name = "txtNomeCliente";
             this.txtNomeCliente.ReadOnly = true;
-            this.txtNomeCliente.Size = new System.Drawing.Size(372, 24);
+            this.txtNomeCliente.Size = new System.Drawing.Size(473, 24);
             this.txtNomeCliente.TabIndex = 530;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
+            this.label14.BackColor = System.Drawing.Color.AntiqueWhite;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(119, 63);
+            this.label14.Location = new System.Drawing.Point(119, 61);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(55, 17);
             this.label14.TabIndex = 531;
             this.label14.Text = "Cliente:";
             // 
-            // panel1
+            // btnFechar
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(2, 25);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(603, 35);
-            this.panel1.TabIndex = 534;
+            this.btnFechar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnFechar.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.btnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnFechar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
+            this.btnFechar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Moccasin;
+            this.btnFechar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFechar.Image = global::Money.Properties.Resources.sair;
+            this.btnFechar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFechar.Location = new System.Drawing.Point(493, 410);
+            this.btnFechar.Name = "btnFechar";
+            this.btnFechar.Size = new System.Drawing.Size(100, 37);
+            this.btnFechar.TabIndex = 537;
+            this.btnFechar.Text = "&Fechar";
+            this.btnFechar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFechar.UseVisualStyleBackColor = false;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
+            // 
+            // btnFinalizar
+            // 
+            this.btnFinalizar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnFinalizar.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.btnFinalizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnFinalizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
+            this.btnFinalizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnFinalizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.btnFinalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinalizar.Image = ((System.Drawing.Image)(resources.GetObject("btnFinalizar.Image")));
+            this.btnFinalizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFinalizar.Location = new System.Drawing.Point(387, 409);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(100, 37);
+            this.btnFinalizar.TabIndex = 538;
+            this.btnFinalizar.Text = "&Salvar";
+            this.btnFinalizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFinalizar.UseVisualStyleBackColor = false;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
+            this.label3.Location = new System.Drawing.Point(15, 264);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(160, 18);
+            this.label3.TabIndex = 539;
+            this.label3.Text = "Intervalo entre parcelas";
             // 
             // id_parcela
             // 
@@ -375,7 +366,6 @@
             this.id_parcela.DividerWidth = 1;
             this.id_parcela.HeaderText = "Cód. Parc";
             this.id_parcela.Name = "id_parcela";
-            this.id_parcela.Visible = false;
             this.id_parcela.Width = 90;
             // 
             // num_parcela
@@ -421,21 +411,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 451);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(605, 472);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnFinalizar);
+            this.Controls.Add(this.btnFechar);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtIdVenda);
             this.Controls.Add(this.txtNomeCliente);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtQtdParcelas);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGrid_Parcelas);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtDias);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.checkBoxIntervaloEntreParc);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.dtPrimeiraParc);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -444,15 +434,12 @@
             this.Load += new System.EventHandler(this.FrmGerarParcelas_Load);
             this.Controls.SetChildIndex(this.dtPrimeiraParc, 0);
             this.Controls.SetChildIndex(this.txtTotal, 0);
-            this.Controls.SetChildIndex(this.checkBoxIntervaloEntreParc, 0);
             this.Controls.SetChildIndex(this.label16, 0);
             this.Controls.SetChildIndex(this.txtDias, 0);
-            this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.dataGrid_Parcelas, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.txtQtdParcelas, 0);
             this.Controls.SetChildIndex(this.label4, 0);
-            this.Controls.SetChildIndex(this.btnSalvar, 0);
             this.Controls.SetChildIndex(this.label14, 0);
             this.Controls.SetChildIndex(this.txtNomeCliente, 0);
             this.Controls.SetChildIndex(this.txtIdVenda, 0);
@@ -461,24 +448,22 @@
             this.Controls.SetChildIndex(this.panel4, 0);
             this.Controls.SetChildIndex(this.panel3, 0);
             this.Controls.SetChildIndex(this.panel2, 0);
-            this.Controls.SetChildIndex(this.panel1, 0);
+            this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.btnFechar, 0);
+            this.Controls.SetChildIndex(this.btnFinalizar, 0);
+            this.Controls.SetChildIndex(this.label3, 0);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQtdParcelas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_Parcelas)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.CheckBox checkBoxIntervaloEntreParc;
         public System.Windows.Forms.TextBox txtTotal;
         public System.Windows.Forms.NumericUpDown txtQtdParcelas;
         public System.Windows.Forms.DateTimePicker dtPrimeiraParc;
@@ -486,13 +471,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.TextBox txtIdVenda;
         public System.Windows.Forms.TextBox txtNomeCliente;
         private System.Windows.Forms.Label label14;
         public System.Windows.Forms.NumericUpDown txtDias;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnFechar;
+        private System.Windows.Forms.Button btnFinalizar;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_parcela;
         private System.Windows.Forms.DataGridViewTextBoxColumn num_parcela;
         private System.Windows.Forms.DataGridViewTextBoxColumn valor_parcela;

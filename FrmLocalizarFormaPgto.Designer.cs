@@ -102,6 +102,7 @@
             this.dataGridPesquisa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridPesquisa.Size = new System.Drawing.Size(509, 206);
             this.dataGridPesquisa.TabIndex = 449;
+            this.dataGridPesquisa.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPesquisa_CellContentDoubleClick);
             // 
             // ID
             // 
@@ -110,7 +111,7 @@
             this.ID.DefaultCellStyle = dataGridViewCellStyle2;
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
-            this.ID.Width = 42;
+            this.ID.Width = 41;
             // 
             // Column10
             // 

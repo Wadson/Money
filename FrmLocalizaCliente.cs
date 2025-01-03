@@ -158,5 +158,10 @@ namespace Money
                 MessageBox.Show("Atenção", "Erro" + Ex, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void dataGridPesquisa_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

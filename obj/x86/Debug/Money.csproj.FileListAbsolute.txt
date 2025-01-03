@@ -134,3 +134,4 @@ D:\Money\obj\x86\Debug\Money.FrmBaseManutencao.resources
 D:\Money\obj\x86\Debug\Money.FrmBasePesquisa.resources
 D:\Money\obj\x86\Debug\Money.FrmPedidoDeVendas.resources
 D:\Money\obj\x86\Debug\Money.FrmLocalizarProduto.resources
+D:\Money\obj\x86\Debug\Money.FrmParcelamento.resources

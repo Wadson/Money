@@ -94,6 +94,7 @@
             this.dataGridPesquisa2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridPesquisa2.Size = new System.Drawing.Size(504, 203);
             this.dataGridPesquisa2.TabIndex = 425;
+            this.dataGridPesquisa2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPesquisa2_CellDoubleClick);
             // 
             // id
             // 
