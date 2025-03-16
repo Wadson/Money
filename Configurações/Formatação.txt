@@ -1,0 +1,22 @@
+FormStyles
+  >FormMain
+    >StateCommon
+       >>Back (>Color 1 e 2 250;252;252 )
+       >>Border (GaphiscsHint = Nome | Rounding = 12)
+
+HeaderStyles
+ >HeaderForm
+   >StateCommon
+     >Back (Color 1 e 2 = 250;252;252)
+     >ButtonEdgeInsert = 10
+     >Content
+       >Padding = 10,-1,-1,-1
+
+
+ButtonSpacs
+  >FormClose
+    >
+
+
+
+  
