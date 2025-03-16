@@ -281,12 +281,6 @@
     <Compile Include="FormGerarParcelas.Designer.cs">
       <DependentUpon>FormGerarParcelas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormBaixaDeDespesa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormBaixaDeDespesa.Designer.cs">
-      <DependentUpon>FormBaixaDeDespesa.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormBase .cs">
       <SubType>Form</SubType>
     </Compile>
@@ -352,9 +346,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormGerarParcelas.resx">
       <DependentUpon>FormGerarParcelas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormBaixaDeDespesa.resx">
-      <DependentUpon>FormBaixaDeDespesa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBase .resx">
       <DependentUpon>FormBase .cs</DependentUpon>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.pnlContainer = new MetroFramework.Controls.MetroPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -38,18 +39,18 @@
             this.meiosDePagamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeReceitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manutençãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ferramentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cópiaDeSegurançaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gerarCópiaDeSegurançaBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restaurarCópiaDeSegurançaBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btnCategoria = new System.Windows.Forms.Button();
             this.btnUsuario = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnReceitas = new System.Windows.Forms.Button();
-            this.btnPagamento = new System.Windows.Forms.Button();
             this.btnDespesas = new System.Windows.Forms.Button();
             this.btnRelatorio = new System.Windows.Forms.Button();
-            this.ferramentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cópiaDeSegurançaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gerarCópiaDeSegurançaBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.restaurarCópiaDeSegurançaBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.metroContextMenu1 = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
@@ -146,13 +147,43 @@
             this.manutençãoToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
             this.manutençãoToolStripMenuItem.Text = "Manutenção";
             // 
+            // ferramentasToolStripMenuItem
+            // 
+            this.ferramentasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cópiaDeSegurançaToolStripMenuItem});
+            this.ferramentasToolStripMenuItem.Name = "ferramentasToolStripMenuItem";
+            this.ferramentasToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.ferramentasToolStripMenuItem.Text = "Ferramentas";
+            // 
+            // cópiaDeSegurançaToolStripMenuItem
+            // 
+            this.cópiaDeSegurançaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gerarCópiaDeSegurançaBackupToolStripMenuItem,
+            this.restaurarCópiaDeSegurançaBackupToolStripMenuItem});
+            this.cópiaDeSegurançaToolStripMenuItem.Name = "cópiaDeSegurançaToolStripMenuItem";
+            this.cópiaDeSegurançaToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.cópiaDeSegurançaToolStripMenuItem.Text = "Cópia de Segurança";
+            // 
+            // gerarCópiaDeSegurançaBackupToolStripMenuItem
+            // 
+            this.gerarCópiaDeSegurançaBackupToolStripMenuItem.Name = "gerarCópiaDeSegurançaBackupToolStripMenuItem";
+            this.gerarCópiaDeSegurançaBackupToolStripMenuItem.Size = new System.Drawing.Size(281, 22);
+            this.gerarCópiaDeSegurançaBackupToolStripMenuItem.Text = "Gerar Cópia de Segurança (Backup)";
+            this.gerarCópiaDeSegurançaBackupToolStripMenuItem.Click += new System.EventHandler(this.gerarCópiaDeSegurançaBackupToolStripMenuItem_Click);
+            // 
+            // restaurarCópiaDeSegurançaBackupToolStripMenuItem
+            // 
+            this.restaurarCópiaDeSegurançaBackupToolStripMenuItem.Name = "restaurarCópiaDeSegurançaBackupToolStripMenuItem";
+            this.restaurarCópiaDeSegurançaBackupToolStripMenuItem.Size = new System.Drawing.Size(281, 22);
+            this.restaurarCópiaDeSegurançaBackupToolStripMenuItem.Text = "Restaurar Cópia de Segurança (Backup)";
+            this.restaurarCópiaDeSegurançaBackupToolStripMenuItem.Click += new System.EventHandler(this.restaurarCópiaDeSegurançaBackupToolStripMenuItem_Click);
+            // 
             // kryptonPanel1
             // 
             this.kryptonPanel1.Controls.Add(this.btnCategoria);
             this.kryptonPanel1.Controls.Add(this.btnUsuario);
             this.kryptonPanel1.Controls.Add(this.btnSair);
             this.kryptonPanel1.Controls.Add(this.btnReceitas);
-            this.kryptonPanel1.Controls.Add(this.btnPagamento);
             this.kryptonPanel1.Controls.Add(this.btnDespesas);
             this.kryptonPanel1.Controls.Add(this.btnRelatorio);
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -227,22 +258,6 @@
             this.btnReceitas.UseVisualStyleBackColor = false;
             this.btnReceitas.Click += new System.EventHandler(this.btnReceitas_Click);
             // 
-            // btnPagamento
-            // 
-            this.btnPagamento.BackColor = System.Drawing.Color.Transparent;
-            this.btnPagamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPagamento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnPagamento.Image = global::Money.Properties.Resources.pagamentos64;
-            this.btnPagamento.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnPagamento.Location = new System.Drawing.Point(346, 3);
-            this.btnPagamento.Name = "btnPagamento";
-            this.btnPagamento.Size = new System.Drawing.Size(70, 88);
-            this.btnPagamento.TabIndex = 24;
-            this.btnPagamento.Text = "Pgto";
-            this.btnPagamento.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnPagamento.UseVisualStyleBackColor = false;
-            this.btnPagamento.Click += new System.EventHandler(this.btnPagamento_Click);
-            // 
             // btnDespesas
             // 
             this.btnDespesas.BackColor = System.Drawing.Color.Transparent;
@@ -275,36 +290,11 @@
             this.btnRelatorio.UseVisualStyleBackColor = false;
             this.btnRelatorio.Click += new System.EventHandler(this.btnRelatorio_Click);
             // 
-            // ferramentasToolStripMenuItem
+            // metroContextMenu1
             // 
-            this.ferramentasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cópiaDeSegurançaToolStripMenuItem});
-            this.ferramentasToolStripMenuItem.Name = "ferramentasToolStripMenuItem";
-            this.ferramentasToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
-            this.ferramentasToolStripMenuItem.Text = "Ferramentas";
-            // 
-            // cópiaDeSegurançaToolStripMenuItem
-            // 
-            this.cópiaDeSegurançaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gerarCópiaDeSegurançaBackupToolStripMenuItem,
-            this.restaurarCópiaDeSegurançaBackupToolStripMenuItem});
-            this.cópiaDeSegurançaToolStripMenuItem.Name = "cópiaDeSegurançaToolStripMenuItem";
-            this.cópiaDeSegurançaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cópiaDeSegurançaToolStripMenuItem.Text = "Cópia de Segurança";
-            // 
-            // gerarCópiaDeSegurançaBackupToolStripMenuItem
-            // 
-            this.gerarCópiaDeSegurançaBackupToolStripMenuItem.Name = "gerarCópiaDeSegurançaBackupToolStripMenuItem";
-            this.gerarCópiaDeSegurançaBackupToolStripMenuItem.Size = new System.Drawing.Size(281, 22);
-            this.gerarCópiaDeSegurançaBackupToolStripMenuItem.Text = "Gerar Cópia de Segurança (Backup)";
-            this.gerarCópiaDeSegurançaBackupToolStripMenuItem.Click += new System.EventHandler(this.gerarCópiaDeSegurançaBackupToolStripMenuItem_Click);
-            // 
-            // restaurarCópiaDeSegurançaBackupToolStripMenuItem
-            // 
-            this.restaurarCópiaDeSegurançaBackupToolStripMenuItem.Name = "restaurarCópiaDeSegurançaBackupToolStripMenuItem";
-            this.restaurarCópiaDeSegurançaBackupToolStripMenuItem.Size = new System.Drawing.Size(281, 22);
-            this.restaurarCópiaDeSegurançaBackupToolStripMenuItem.Text = "Restaurar Cópia de Segurança (Backup)";
-            this.restaurarCópiaDeSegurançaBackupToolStripMenuItem.Click += new System.EventHandler(this.restaurarCópiaDeSegurançaBackupToolStripMenuItem_Click);
+            this.metroContextMenu1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.metroContextMenu1.Name = "metroContextMenu1";
+            this.metroContextMenu1.Size = new System.Drawing.Size(61, 4);
             // 
             // FormPrincipal
             // 
@@ -345,12 +335,12 @@
         private System.Windows.Forms.Button btnUsuario;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnReceitas;
-        private System.Windows.Forms.Button btnPagamento;
         private System.Windows.Forms.Button btnDespesas;
         private System.Windows.Forms.Button btnRelatorio;
         private System.Windows.Forms.ToolStripMenuItem ferramentasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cópiaDeSegurançaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gerarCópiaDeSegurançaBackupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restaurarCópiaDeSegurançaBackupToolStripMenuItem;
+        private MetroFramework.Controls.MetroContextMenu metroContextMenu1;
     }
 }

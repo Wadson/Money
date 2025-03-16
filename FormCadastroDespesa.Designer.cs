@@ -44,10 +44,6 @@
             this.txtValorParcela = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radiobtnNao = new System.Windows.Forms.RadioButton();
-            this.radiobtnSim = new System.Windows.Forms.RadioButton();
-            this.btnGerarParcelas = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.dtpDataVencimento = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.kryptonLabel9 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cmbStatus = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
@@ -61,7 +57,8 @@
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblDataCadastro_e_Pagamento = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.btnParcelar = new System.Windows.Forms.Button();
+            this.radiobtnParcelar = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.cmbStatus)).BeginInit();
             this.panelTitulo.SuspendLayout();
             this.SuspendLayout();
@@ -292,105 +289,6 @@
             this.kryptonLabel5.TabIndex = 262;
             this.kryptonLabel5.Values.Text = "Meio de Pagamento";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.radiobtnNao);
-            this.groupBox1.Controls.Add(this.radiobtnSim);
-            this.groupBox1.Controls.Add(this.btnGerarParcelas);
-            this.groupBox1.Location = new System.Drawing.Point(487, 233);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(250, 57);
-            this.groupBox1.TabIndex = 263;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Parcelar?";
-            // 
-            // radiobtnNao
-            // 
-            this.radiobtnNao.AutoSize = true;
-            this.radiobtnNao.Checked = true;
-            this.radiobtnNao.Location = new System.Drawing.Point(54, 24);
-            this.radiobtnNao.Name = "radiobtnNao";
-            this.radiobtnNao.Size = new System.Drawing.Size(45, 17);
-            this.radiobtnNao.TabIndex = 267;
-            this.radiobtnNao.TabStop = true;
-            this.radiobtnNao.Text = "Não";
-            this.radiobtnNao.UseVisualStyleBackColor = true;
-            this.radiobtnNao.CheckedChanged += new System.EventHandler(this.radiobtnNao_CheckedChanged);
-            // 
-            // radiobtnSim
-            // 
-            this.radiobtnSim.AutoSize = true;
-            this.radiobtnSim.Location = new System.Drawing.Point(6, 24);
-            this.radiobtnSim.Name = "radiobtnSim";
-            this.radiobtnSim.Size = new System.Drawing.Size(42, 17);
-            this.radiobtnSim.TabIndex = 266;
-            this.radiobtnSim.TabStop = true;
-            this.radiobtnSim.Text = "Sim";
-            this.radiobtnSim.UseVisualStyleBackColor = true;
-            this.radiobtnSim.CheckedChanged += new System.EventHandler(this.radiobtnSim_CheckedChanged);
-            // 
-            // btnGerarParcelas
-            // 
-            this.btnGerarParcelas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnGerarParcelas.Location = new System.Drawing.Point(114, 9);
-            this.btnGerarParcelas.Name = "btnGerarParcelas";
-            this.btnGerarParcelas.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.btnGerarParcelas.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.btnGerarParcelas.OverrideDefault.Back.ColorAngle = 45F;
-            this.btnGerarParcelas.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnGerarParcelas.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnGerarParcelas.OverrideDefault.Border.ColorAngle = 45F;
-            this.btnGerarParcelas.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnGerarParcelas.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnGerarParcelas.OverrideDefault.Border.Rounding = 20;
-            this.btnGerarParcelas.OverrideDefault.Border.Width = 1;
-            this.btnGerarParcelas.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnGerarParcelas.Size = new System.Drawing.Size(131, 39);
-            this.btnGerarParcelas.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.btnGerarParcelas.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.btnGerarParcelas.StateCommon.Back.ColorAngle = 45F;
-            this.btnGerarParcelas.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnGerarParcelas.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnGerarParcelas.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnGerarParcelas.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnGerarParcelas.StateCommon.Border.Rounding = 20;
-            this.btnGerarParcelas.StateCommon.Border.Width = 1;
-            this.btnGerarParcelas.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnGerarParcelas.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnGerarParcelas.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGerarParcelas.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(145)))), ((int)(((byte)(198)))));
-            this.btnGerarParcelas.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(121)))), ((int)(((byte)(206)))));
-            this.btnGerarParcelas.StatePressed.Back.ColorAngle = 135F;
-            this.btnGerarParcelas.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(145)))), ((int)(((byte)(198)))));
-            this.btnGerarParcelas.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(121)))), ((int)(((byte)(206)))));
-            this.btnGerarParcelas.StatePressed.Border.ColorAngle = 135F;
-            this.btnGerarParcelas.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnGerarParcelas.StatePressed.Border.Rounding = 20;
-            this.btnGerarParcelas.StatePressed.Border.Width = 1;
-            this.btnGerarParcelas.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnGerarParcelas.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnGerarParcelas.StateTracking.Back.ColorAngle = 45F;
-            this.btnGerarParcelas.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnGerarParcelas.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnGerarParcelas.StateTracking.Border.ColorAngle = 45F;
-            this.btnGerarParcelas.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnGerarParcelas.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnGerarParcelas.StateTracking.Border.Rounding = 20;
-            this.btnGerarParcelas.StateTracking.Border.Width = 1;
-            this.btnGerarParcelas.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnGerarParcelas.TabIndex = 265;
-            this.btnGerarParcelas.TabStop = false;
-            this.btnGerarParcelas.Values.Text = "Parcelamento";
-            this.btnGerarParcelas.Click += new System.EventHandler(this.btnGerarParcelas_Click);
-            // 
             // dtpDataVencimento
             // 
             this.dtpDataVencimento.CalendarDayStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Gallery;
@@ -492,7 +390,6 @@
             // 
             // txtMetodoPgto
             // 
-            this.txtMetodoPgto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMetodoPgto.Location = new System.Drawing.Point(5, 255);
             this.txtMetodoPgto.Name = "txtMetodoPgto";
             this.txtMetodoPgto.Size = new System.Drawing.Size(436, 35);
@@ -596,12 +493,43 @@
             this.lblDataCadastro_e_Pagamento.TabIndex = 265;
             this.lblDataCadastro_e_Pagamento.Text = "Data de Cadastro";
             // 
+            // btnParcelar
+            // 
+            this.btnParcelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnParcelar.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnParcelar.FlatAppearance.BorderSize = 0;
+            this.btnParcelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.btnParcelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnParcelar.ForeColor = System.Drawing.Color.White;
+            this.btnParcelar.Location = new System.Drawing.Point(609, 255);
+            this.btnParcelar.Name = "btnParcelar";
+            this.btnParcelar.Size = new System.Drawing.Size(110, 36);
+            this.btnParcelar.TabIndex = 304;
+            this.btnParcelar.Text = "Parcelar";
+            this.btnParcelar.UseVisualStyleBackColor = false;
+            this.btnParcelar.Visible = false;
+            this.btnParcelar.Click += new System.EventHandler(this.btnParcelar_Click);
+            // 
+            // radiobtnParcelar
+            // 
+            this.radiobtnParcelar.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.radiobtnParcelar.Location = new System.Drawing.Point(520, 263);
+            this.radiobtnParcelar.Name = "radiobtnParcelar";
+            this.radiobtnParcelar.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.radiobtnParcelar.Size = new System.Drawing.Size(76, 21);
+            this.radiobtnParcelar.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radiobtnParcelar.TabIndex = 305;
+            this.radiobtnParcelar.Values.Text = "Parcelar";
+            this.radiobtnParcelar.CheckedChanged += new System.EventHandler(this.radiobtnParcelar_CheckedChanged);
+            // 
             // FormCadastroDespesa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.ClientSize = new System.Drawing.Size(737, 436);
+            this.Controls.Add(this.radiobtnParcelar);
+            this.Controls.Add(this.btnParcelar);
             this.Controls.Add(this.panelTitulo);
             this.Controls.Add(this.btnLocalizarCategoria);
             this.Controls.Add(this.txtCategoria);
@@ -613,7 +541,6 @@
             this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.kryptonLabel9);
             this.Controls.Add(this.dtpDataVencimento);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.kryptonLabel5);
             this.Controls.Add(this.txtValorParcela);
             this.Controls.Add(this.kryptonLabel1);
@@ -636,8 +563,6 @@
             this.Text = "Cadastro de Despesas";
             this.Load += new System.EventHandler(this.FormCadastroTipoReceita_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormCadastroCategorias_KeyDown);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbStatus)).EndInit();
             this.panelTitulo.ResumeLayout(false);
             this.panelTitulo.PerformLayout();
@@ -662,14 +587,10 @@
         public ComponentFactory.Krypton.Toolkit.KryptonTextBox txtValorParcela;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel5;
-        private System.Windows.Forms.GroupBox groupBox1;
         public ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpDataVencimento;
         public ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpDataCadastro;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel9;
-        public ComponentFactory.Krypton.Toolkit.KryptonButton btnGerarParcelas;
         public ComponentFactory.Krypton.Toolkit.KryptonComboBox cmbStatus;
-        private System.Windows.Forms.RadioButton radiobtnNao;
-        private System.Windows.Forms.RadioButton radiobtnSim;
         public System.Windows.Forms.Button btnSalvar;
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnNovo;
@@ -680,6 +601,8 @@
         public System.Windows.Forms.Panel panelTitulo;
         public System.Windows.Forms.Label lblTitulo;
         public System.Windows.Forms.Label lblDataCadastro_e_Pagamento;
+        public System.Windows.Forms.Button btnParcelar;
+        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox radiobtnParcelar;
     }
 }
 

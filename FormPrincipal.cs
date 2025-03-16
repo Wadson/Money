@@ -61,11 +61,6 @@ namespace Money
             OpenFormInContainer(new FormManutencaoDespesas());            
         }
 
-        private void btnPagamento_Click(object sender, EventArgs e)
-        {
-            OpenFormInContainer(new FormBaixaDeDespesa());           
-        }
-
         private void btnSair_Click(object sender, EventArgs e)
         {
             Application.Exit();

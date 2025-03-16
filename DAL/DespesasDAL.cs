@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 namespace Money.DAL
 {
     internal class DespesasDAL
-    {       
+    {
         public void Salvar(DespesasModel despesa)
         {
             using (var conn = Conexao.Conex())
             {
                 conn.Open();
                 string sql = "INSERT INTO Despesas (Descricao, Valor, DataVencimento, Status, NumeroParcelas, " +
-                             "ValorParcela, CategoriaID, MetodoPgtoID, Pago, DataCriacao) " +
+                             "ValorParcela, CategoriaID, MetodoPgtoID, Pago, DataCriacao, DataPgto) " +
                              "VALUES (@Descricao, @Valor, @DataVencimento, @Status, @NumeroParcelas, " +
-                             "@ValorParcela, @CategoriaID, @MetodoPgtoID, @Pago, @DataCriacao)";
+                             "@ValorParcela, @CategoriaID, @MetodoPgtoID, @Pago, @DataCriacao, @DataPgto)";
                 using (var cmd = new SqlCeCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@Descricao", despesa.Descricao);
@@ -31,11 +31,17 @@ namespace Money.DAL
                     cmd.Parameters.AddWithValue("@MetodoPgtoID", (object)despesa.MetodoPgtoID ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@Pago", despesa.Pago);
                     cmd.Parameters.AddWithValue("@DataCriacao", despesa.DataCriacao);
+                    // Tratar DataPgto explicitamente
+                    if (despesa.DataPgto.HasValue)
+                        cmd.Parameters.AddWithValue("@DataPgto", despesa.DataPgto.Value);
+                    else
+                        cmd.Parameters.AddWithValue("@DataPgto", DBNull.Value);
+
+                    Console.WriteLine($"DAL - Pago: {despesa.Pago}, DataPgto: {despesa.DataPgto}");
                     cmd.ExecuteNonQuery();
                 }
             }
         }
-
         public void Atualizar(DespesasModel despesa)
         {
             using (var conn = Conexao.Conex())
@@ -48,7 +54,7 @@ namespace Money.DAL
                              "WHERE DespesaID = @DespesaID";
                 using (var cmd = new SqlCeCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@DespesaID", despesa.DespesaID);
+                    
                     cmd.Parameters.AddWithValue("@Descricao", despesa.Descricao);
                     cmd.Parameters.AddWithValue("@Valor", despesa.Valor);
                     cmd.Parameters.AddWithValue("@DataVencimento", despesa.DataVencimento);
@@ -58,7 +64,8 @@ namespace Money.DAL
                     cmd.Parameters.AddWithValue("@CategoriaID", (object)despesa.CategoriaID ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@MetodoPgtoID", (object)despesa.MetodoPgtoID ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@Pago", despesa.Pago);
-                    cmd.Parameters.AddWithValue("@DataCriacao", despesa.DataCriacao);                    
+                    cmd.Parameters.AddWithValue("@DataCriacao", despesa.DataCriacao);
+                    cmd.Parameters.AddWithValue("@DespesaID", despesa.DespesaID);
                     int rowsAffected = cmd.ExecuteNonQuery();
                     if (rowsAffected == 0)
                         throw new Exception("Nenhum registro foi atualizado. Verifique se o DespesaID existe.");
@@ -105,13 +112,15 @@ namespace Money.DAL
             using (var conn = Conexao.Conex())
             {
                 conn.Open();
-                string sql = "SELECT * FROM Despesas";
+                string sql = "SELECT * FROM Despesas WHERE Pago = 0"; // Sempre filtrar por Pago = 0
                 if (!string.IsNullOrEmpty(descricao))
-                    sql += " WHERE Descricao LIKE @Descricao AND Pago = 0";
+                    sql += " AND Descricao LIKE @Descricao"; // Adicionar filtro de descrição se aplicável
+
                 using (var cmd = new SqlCeCommand(sql, conn))
                 {
                     if (!string.IsNullOrEmpty(descricao))
                         cmd.Parameters.AddWithValue("@Descricao", "%" + descricao + "%");
+
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())

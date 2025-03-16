@@ -30,6 +30,7 @@ namespace Money
 
         private bool bloqueiaPesquisa = false;
         public bool bloqueiaEventosTextChanged = false;
+        private DateTime DataPgto { get; set; }
         public FormCadastroDespesa(string statusOperacao, FormManutencaoDespesas formPai)
         {
             InitializeComponent();
@@ -69,32 +70,17 @@ namespace Money
             {
                 bloqueiaEventosTextChanged = true; // Desabilita eventos nos modos ALTERAR, EXCLUSÃO e PAGAR
             }
-            btnGerarParcelas.Visible = radiobtnSim.Checked;
+            btnParcelar.Visible = false;
         }
         private void FormCadastroTipoReceita_Load(object sender, EventArgs e)
         {
-            if (radiobtnNao.Checked == true)
-            {
-                btnGerarParcelas.Visible = false;
-            }
-            else
-            {
-                btnGerarParcelas.Visible = true;
-            }
-
             if (StatusOperacao == "NOVO")
             {
                 int codigo = Utilitario.GerarProximoCodigo(QueryDespesa);
                 txtDespesaID.Text = Utilitario.AcrescentarZerosEsquerda(codigo, 5);
                 btnLocalizarCategoria.Enabled = false;
                 btnLocalizarMetodoPagamento.Enabled = false;
-            }
-            if (StatusOperacao == "PAGAR")
-            {               
-                btnLocalizarCategoria.Enabled = false;
-                btnLocalizarMetodoPagamento.Enabled = false;   
-                btnNovo.Enabled = false;
-            }
+            }           
         }
 
         private void FormCadastroCategorias_KeyDown(object sender, KeyEventArgs e)
@@ -144,8 +130,7 @@ namespace Money
             }
 
         }
-
-        private void btnGerarParcelas_Click(object sender, EventArgs e)
+        private void Parcelamento()
         {
             try
             {
@@ -185,6 +170,9 @@ namespace Money
                 MessageBox.Show($"Erro ao gerar parcelas: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void btnGerarParcelas_Click(object sender, EventArgs e)
+        {            
+        }
 
         private void txtValorParcela_Leave(object sender, EventArgs e)
         {
@@ -209,12 +197,12 @@ namespace Money
 
         private void radiobtnSim_CheckedChanged(object sender, EventArgs e)
         {
-            btnGerarParcelas.Visible = true;
+           
         }
 
         private void radiobtnNao_CheckedChanged(object sender, EventArgs e)
         {
-            btnGerarParcelas.Visible = false;
+           
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -228,9 +216,28 @@ namespace Money
             int NovoCodigo = Utilitario.GerarProximoCodigo(QueryDespesa);
             txtDespesaID.Text = Utilitario.AcrescentarZerosEsquerda(NovoCodigo, 5);
         }
-
-        private void btnSalvar_Click(object sender, EventArgs e)
+        private void Salvar()
         {
+            string[] metodosPagos = new string[]
+            {
+                "Dinheiro",
+                "Cartão de Débito",
+                "PIX",
+                "Transferência Bancária",
+                "Vale-Alimentação",
+                "Débito Automático"
+            };
+
+            bool pago = metodosPagos.Contains(txtMetodoPgto.Text?.Trim(), StringComparer.OrdinalIgnoreCase);
+            DateTime? dataPgto;
+            if (pago)
+            {
+                dataPgto = dtpDataVencimento.Value;
+            }
+            else
+            {
+                dataPgto = null;
+            }
             try
             {
                 // Validações existentes
@@ -285,6 +292,7 @@ namespace Money
                     switch (StatusOperacao)
                     {
                         case "NOVO":
+
                             // Código existente para NOVO
                             var novoTipo = new DespesasModel
                             {
@@ -297,14 +305,18 @@ namespace Money
                                 ValorParcela = valorParcela,
                                 CategoriaID = CategoriaID,
                                 MetodoPgtoID = MetodoPgtoID,
-                                Pago = false,
-                                DataCriacao = dtpDataCadastro.Value
+                                Pago = pago,
+                                DataCriacao = dtpDataCadastro.Value,
+                                DataPgto = dataPgto  // Usar a variável ajustada
                             };
+
                             objetoBll.Salvar(novoTipo);
                             MessageBox.Show("Despesa salva com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             Salvou = true;
                             _formPai.AtualizarDataGrid();
                             Utilitario.LimpaCampoKrypton(this);
+
+                            // Gerar próximo código para nova despesa
                             int codigoNovo = Utilitario.GerarProximoCodigo(QueryDespesa);
                             txtDespesaID.Text = Utilitario.AcrescentarZerosEsquerda(codigoNovo, 5);
                             txtDescricao.Focus();
@@ -316,7 +328,7 @@ namespace Money
                             {
                                 DespesaID = int.Parse(txtDespesaID.Text),
                                 Descricao = txtDescricao.Text,
-                                Valor = valor,
+                                Valor = decimal.Parse(txtValorTotal.Text),
                                 DataVencimento = dtpDataVencimento.Value,
                                 Status = cmbStatus.SelectedItem.ToString(),
                                 NumeroParcelas = numeroParcelas,
@@ -333,7 +345,7 @@ namespace Money
                             this.Close();
                             break;
 
-                        case "PAGAR":                            
+                        case "PAGAR":
                             if (MessageBox.Show("Deseja realmente pagar esta conta?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             {
                                 var pagarTipo = new DespesasModel
@@ -344,7 +356,7 @@ namespace Money
                                     DataPgto = dtpDataCadastro.Value
                                 };
                                 objetoBll.AlterarStatus(pagarTipo); // Atualiza no banco de dados o Status = "Pago" e Pago = true
-                         
+
                                 MessageBox.Show("Conta paga com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 Salvou = true;
                                 _formPai.AtualizarDataGrid();
@@ -374,6 +386,10 @@ namespace Money
             {
                 MessageBox.Show($"Erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            Salvar();
         }
 
         private void btnLocalizarCategoria_Click(object sender, EventArgs e)
@@ -456,6 +472,16 @@ namespace Money
             {
                 Invoke(new Action(() => bloqueiaPesquisa = false));
             });
+        }
+
+        private void radiobtnParcelar_CheckedChanged(object sender, EventArgs e)
+        {
+            btnParcelar.Visible = true;
+        }
+
+        private void btnParcelar_Click(object sender, EventArgs e)
+        {
+            Parcelamento();
         }
     }
 }

@@ -196,12 +196,13 @@ namespace Money
                         form.btnSalvar.ForeColor = Color.White;
                         form.lblTitulo.Text = "Alterar Despesa";
                         form.panelTitulo.BackColor = Color.OrangeRed;
+                        form.btnNovo.Visible = false;
                         form.ShowDialog();
                         break;
 
                     case "PAGAR":
                         PreencherCampos(form);
-                        ConfigurarFormulario(form, "PAGAR", true, "Pagar", true);
+                        ConfigurarFormulario(form, "PAGAR", true, "Confirmar Pgto", true);
                         DesabilitarCampos(form);
                         form.btnSalvar.BackColor = Color.RoyalBlue;
                         form.panelTitulo.BackColor = Color.RoyalBlue;
@@ -281,7 +282,9 @@ namespace Money
             form.txtValorParcela.Enabled = false;
             form.txtCategoria.Enabled = false;
             form.txtMetodoPgto.Enabled = false;            
-            btnNovo.Enabled = false;
+            form.btnNovo.Visible = false;
+            form.btnLocalizarCategoria.Enabled = false;
+            form.btnLocalizarMetodoPagamento.Enabled = false;
         }
 
 

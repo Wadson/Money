@@ -214,6 +214,7 @@
             this.Palette = this.kryptonPalette1;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gerar Backup";
             this.Load += new System.EventHandler(this.FormGerarBackup_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormGerarBackup_KeyDown);

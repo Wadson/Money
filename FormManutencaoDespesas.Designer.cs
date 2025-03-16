@@ -32,7 +32,6 @@
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.dgvDespesas = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.txtQtdItens = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -46,6 +45,7 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.txtPesquisa = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.btnPagarConta = new System.Windows.Forms.Button();
+            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.metroPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDespesas)).BeginInit();
             this.metroPanel1.SuspendLayout();
@@ -89,15 +89,15 @@
             // 
             // metroPanel2
             // 
-            this.metroPanel2.BackColor = System.Drawing.Color.DarkRed;
-            this.metroPanel2.Controls.Add(this.metroLabel1);
+            this.metroPanel2.BackColor = System.Drawing.Color.Red;
+            this.metroPanel2.Controls.Add(this.kryptonLabel2);
             this.metroPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.metroPanel2.HorizontalScrollbarBarColor = true;
             this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel2.HorizontalScrollbarSize = 10;
             this.metroPanel2.Location = new System.Drawing.Point(0, 0);
             this.metroPanel2.Name = "metroPanel2";
-            this.metroPanel2.Size = new System.Drawing.Size(800, 37);
+            this.metroPanel2.Size = new System.Drawing.Size(800, 25);
             this.metroPanel2.Style = MetroFramework.MetroColorStyle.Green;
             this.metroPanel2.TabIndex = 214;
             this.metroPanel2.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -108,21 +108,6 @@
             this.metroPanel2.VerticalScrollbarBarColor = true;
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel2.VerticalScrollbarSize = 10;
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel1.ForeColor = System.Drawing.Color.White;
-            this.metroLabel1.Location = new System.Drawing.Point(287, 5);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(206, 25);
-            this.metroLabel1.TabIndex = 2;
-            this.metroLabel1.Text = "Manutenção de Despesas";
-            this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroLabel1.UseCustomBackColor = true;
-            this.metroLabel1.UseCustomForeColor = true;
             // 
             // dgvDespesas
             // 
@@ -136,14 +121,14 @@
             this.dgvDespesas.Name = "dgvDespesas";
             this.dgvDespesas.ReadOnly = true;
             this.dgvDespesas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDespesas.Size = new System.Drawing.Size(657, 279);
+            this.dgvDespesas.Size = new System.Drawing.Size(657, 304);
             this.dgvDespesas.TabIndex = 212;
             this.dgvDespesas.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDespesas_CellValueChanged);
             this.dgvDespesas.SelectionChanged += new System.EventHandler(this.dgvTiposReceita_SelectionChanged);
             // 
             // txtQtdItens
             // 
-            this.txtQtdItens.Location = new System.Drawing.Point(15, 29);
+            this.txtQtdItens.Location = new System.Drawing.Point(89, 2);
             this.txtQtdItens.Name = "txtQtdItens";
             this.txtQtdItens.ReadOnly = true;
             this.txtQtdItens.Size = new System.Drawing.Size(84, 35);
@@ -163,7 +148,7 @@
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(18, 5);
+            this.kryptonLabel1.Location = new System.Drawing.Point(3, 9);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(81, 20);
             this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -172,7 +157,7 @@
             // 
             // txtValorTotalAberto
             // 
-            this.txtValorTotalAberto.Location = new System.Drawing.Point(105, 29);
+            this.txtValorTotalAberto.Location = new System.Drawing.Point(321, 2);
             this.txtValorTotalAberto.Name = "txtValorTotalAberto";
             this.txtValorTotalAberto.ReadOnly = true;
             this.txtValorTotalAberto.Size = new System.Drawing.Size(131, 35);
@@ -190,7 +175,7 @@
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(128, 5);
+            this.kryptonLabel3.Location = new System.Drawing.Point(245, 9);
             this.kryptonLabel3.Name = "kryptonLabel3";
             this.kryptonLabel3.Size = new System.Drawing.Size(70, 20);
             this.kryptonLabel3.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -201,7 +186,7 @@
             // 
             this.metroPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroPanel1.BackColor = System.Drawing.Color.DarkRed;
+            this.metroPanel1.BackColor = System.Drawing.Color.Red;
             this.metroPanel1.Controls.Add(this.kryptonLabel1);
             this.metroPanel1.Controls.Add(this.txtQtdItens);
             this.metroPanel1.Controls.Add(this.btnSair);
@@ -210,9 +195,9 @@
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(12, 384);
+            this.metroPanel1.Location = new System.Drawing.Point(12, 411);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(788, 69);
+            this.metroPanel1.Size = new System.Drawing.Size(788, 42);
             this.metroPanel1.Style = MetroFramework.MetroColorStyle.Green;
             this.metroPanel1.TabIndex = 262;
             this.metroPanel1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -227,10 +212,12 @@
             // btnSair
             // 
             this.btnSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSair.BackColor = System.Drawing.Color.White;
+            this.btnSair.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSair.FlatAppearance.BorderColor = System.Drawing.Color.LightGreen;
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSair.Location = new System.Drawing.Point(666, 18);
+            this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.btnSair.ForeColor = System.Drawing.Color.White;
+            this.btnSair.Location = new System.Drawing.Point(666, 1);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(110, 36);
             this.btnSair.TabIndex = 267;
@@ -245,6 +232,7 @@
             this.btnExcel.FlatAppearance.BorderSize = 0;
             this.btnExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnExcel.ForeColor = System.Drawing.Color.White;
             this.btnExcel.Location = new System.Drawing.Point(675, 257);
             this.btnExcel.Name = "btnExcel";
@@ -261,6 +249,7 @@
             this.btnNovo.FlatAppearance.BorderSize = 0;
             this.btnNovo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnNovo.ForeColor = System.Drawing.Color.White;
             this.btnNovo.Location = new System.Drawing.Point(675, 89);
             this.btnNovo.Name = "btnNovo";
@@ -277,6 +266,7 @@
             this.btnAlterar.FlatAppearance.BorderSize = 0;
             this.btnAlterar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnAlterar.ForeColor = System.Drawing.Color.White;
             this.btnAlterar.Location = new System.Drawing.Point(675, 131);
             this.btnAlterar.Name = "btnAlterar";
@@ -293,6 +283,7 @@
             this.btnExcluir.FlatAppearance.BorderSize = 0;
             this.btnExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnExcluir.ForeColor = System.Drawing.Color.White;
             this.btnExcluir.Location = new System.Drawing.Point(675, 215);
             this.btnExcluir.Name = "btnExcluir";
@@ -329,6 +320,7 @@
             this.btnPagarConta.FlatAppearance.BorderSize = 0;
             this.btnPagarConta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.btnPagarConta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagarConta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnPagarConta.ForeColor = System.Drawing.Color.White;
             this.btnPagarConta.Location = new System.Drawing.Point(675, 173);
             this.btnPagarConta.Name = "btnPagarConta";
@@ -337,6 +329,17 @@
             this.btnPagarConta.Text = "Pagar Conta";
             this.btnPagarConta.UseVisualStyleBackColor = false;
             this.btnPagarConta.Click += new System.EventHandler(this.btnPagarConta_Click);
+            // 
+            // kryptonLabel2
+            // 
+            this.kryptonLabel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.kryptonLabel2.Location = new System.Drawing.Point(277, -1);
+            this.kryptonLabel2.Name = "kryptonLabel2";
+            this.kryptonLabel2.Size = new System.Drawing.Size(240, 26);
+            this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel2.TabIndex = 268;
+            this.kryptonLabel2.Values.Text = "Manutenção de Despesas";
             // 
             // FormManutencaoDespesas
             // 
@@ -374,7 +377,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel5;
         private MetroFramework.Controls.MetroPanel metroPanel2;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvDespesas;
         public ComponentFactory.Krypton.Toolkit.KryptonTextBox txtQtdItens;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
@@ -388,6 +390,7 @@
         public System.Windows.Forms.Button btnExcluir;
         public ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPesquisa;
         public System.Windows.Forms.Button btnPagarConta;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
     }
 }
 

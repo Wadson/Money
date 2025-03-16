@@ -92,7 +92,6 @@ D:\Money\obj\Debug\Money.FrmBase.resources
 D:\Money\bin\Debug\EntityFramework.SqlServer.dll
 D:\Money\bin\Debug\EntityFramework.SqlServer.xml
 D:\Money\obj\Debug\Money.FormGerarParcelas.resources
-D:\Money\obj\Debug\Money.FormBaixaDeDespesa.resources
 D:\Money\obj\Debug\Money.FormManutencaoDespesas.resources
 D:\Money\bin\Debug\System.Data.SqlServerCe.dll
 D:\Money\bin\Debug\PT\System.Data.SqlServerCe.resources.dll

@@ -32,13 +32,13 @@
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
+            this.label1 = new System.Windows.Forms.Label();
             this.dgvReceitas = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.txtPesquisar = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.metroPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReceitas)).BeginInit();
             this.SuspendLayout();
@@ -100,6 +100,18 @@
             this.metroPanel2.VerticalScrollbarBarColor = true;
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel2.VerticalScrollbarSize = 10;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(283, 1);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(227, 25);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Manutenção de Receitas";
             // 
             // dgvReceitas
             // 
@@ -198,17 +210,6 @@
             this.btnSair.TabIndex = 272;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(283, 1);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(227, 25);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Manutenção de Receitas";
             // 
             // FormManutencaoReceitas
             // 
