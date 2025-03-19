@@ -117,7 +117,7 @@ namespace Money
                     // Definir o foco no próximo campo usando BeginInvoke para evitar conflitos
                     frmControleDeEntregas.BeginInvoke((Action)(() =>
                     {
-                        frmControleDeEntregas.txtNumeroParcelas.Focus();
+                        frmControleDeEntregas.txtMetodoPgto.Focus();
                     }));
                 }
                 // Fecha o formulário FrmLocalizarProduto

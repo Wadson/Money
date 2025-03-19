@@ -121,7 +121,7 @@ namespace Money
 
                     frmCadastroDespesa.BeginInvoke((Action)(() =>
                     {
-                        frmCadastroDespesa.txtNumeroParcelas.Focus();
+                        frmCadastroDespesa.btnSalvar.Focus();
                     }));
                 }
 

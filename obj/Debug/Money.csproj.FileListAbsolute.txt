@@ -134,3 +134,4 @@ D:\Money\obj\Debug\Money.FormLocalizarMetodoPagamento.resources
 D:\Money\obj\Debug\Money.FormLocalizarCategoria.resources
 D:\Money\obj\Debug\Money.FormGerarBackup.resources
 D:\Money\obj\Debug\Money.FormRestaurarBackup.resources
+D:\Money\obj\Debug\Money.FormFluxoFinanceiro.resources

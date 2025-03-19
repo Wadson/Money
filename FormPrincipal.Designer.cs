@@ -51,6 +51,8 @@
             this.btnDespesas = new System.Windows.Forms.Button();
             this.btnRelatorio = new System.Windows.Forms.Button();
             this.metroContextMenu1 = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.financeiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirFuxoFinanceiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
@@ -91,7 +93,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastroToolStripMenuItem,
             this.manutençãoToolStripMenuItem,
-            this.ferramentasToolStripMenuItem});
+            this.ferramentasToolStripMenuItem,
+            this.financeiroToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(20, 60);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1069, 24);
@@ -296,6 +299,21 @@
             this.metroContextMenu1.Name = "metroContextMenu1";
             this.metroContextMenu1.Size = new System.Drawing.Size(61, 4);
             // 
+            // financeiroToolStripMenuItem
+            // 
+            this.financeiroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.abrirFuxoFinanceiroToolStripMenuItem});
+            this.financeiroToolStripMenuItem.Name = "financeiroToolStripMenuItem";
+            this.financeiroToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.financeiroToolStripMenuItem.Text = "Financeiro";
+            // 
+            // abrirFuxoFinanceiroToolStripMenuItem
+            // 
+            this.abrirFuxoFinanceiroToolStripMenuItem.Name = "abrirFuxoFinanceiroToolStripMenuItem";
+            this.abrirFuxoFinanceiroToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.abrirFuxoFinanceiroToolStripMenuItem.Text = "Abrir Fuxo Financeiro";
+            this.abrirFuxoFinanceiroToolStripMenuItem.Click += new System.EventHandler(this.abrirFuxoFinanceiroToolStripMenuItem_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -342,5 +360,7 @@
         private System.Windows.Forms.ToolStripMenuItem gerarCópiaDeSegurançaBackupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restaurarCópiaDeSegurançaBackupToolStripMenuItem;
         private MetroFramework.Controls.MetroContextMenu metroContextMenu1;
+        private System.Windows.Forms.ToolStripMenuItem financeiroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem abrirFuxoFinanceiroToolStripMenuItem;
     }
 }

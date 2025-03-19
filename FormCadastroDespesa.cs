@@ -58,6 +58,20 @@ namespace Money
             }
             base.OnFormClosing(e);
         }
+        private void CalcularValorParcela()
+        {
+            if (decimal.TryParse(txtValorTotal.Text, out decimal valorTotal) &&
+                int.TryParse(txtNumeroParcelas.Text, out int numeroParcelas) &&
+                numeroParcelas > 0)
+            {
+                decimal valorParcela = valorTotal / numeroParcelas;
+                txtValorParcela.Text = valorParcela.ToString("F2"); // Formato com 2 casas decimais
+            }
+            else
+            {
+                txtValorParcela.Text = txtValorTotal.Text; // Se falhar, assume o valor total (compra à vista)
+            }
+        }
         private void ConfigurarFormularioInicial()
         {
             if (StatusOperacao == "NOVO")
@@ -213,42 +227,36 @@ namespace Money
         private void btnNovo_Click(object sender, EventArgs e)
         {
             Utilitario.LimpaCampoKrypton(this);
+            txtNumeroParcelas.Text = "1";
             int NovoCodigo = Utilitario.GerarProximoCodigo(QueryDespesa);
             txtDespesaID.Text = Utilitario.AcrescentarZerosEsquerda(NovoCodigo, 5);
         }
         private void Salvar()
         {
             string[] metodosPagos = new string[]
-            {
-                "Dinheiro",
-                "Cartão de Débito",
-                "PIX",
-                "Transferência Bancária",
-                "Vale-Alimentação",
-                "Débito Automático"
+                        {
+                    "Dinheiro",
+                    "Cartão de Débito",
+                    "PIX",
+                    "Transferência Bancária",
+                    "Vale-Alimentação",
+                    "Débito Automático"
             };
 
             bool pago = metodosPagos.Contains(txtMetodoPgto.Text?.Trim(), StringComparer.OrdinalIgnoreCase);
-            DateTime? dataPgto;
-            if (pago)
-            {
-                dataPgto = dtpDataVencimento.Value;
-            }
-            else
-            {
-                dataPgto = null;
-            }
+            DateTime? dataPgto = pago ? (DateTime?)dtpDataVencimento.Value : null;
+
             try
             {
-                // Validações existentes
+                // Validações
                 if (string.IsNullOrWhiteSpace(txtDescricao.Text))
                     throw new Exception("A descrição é obrigatória.");
-                if (!decimal.TryParse(txtValorTotal.Text, out decimal valor))
-                    throw new Exception("O valor deve ser um número válido.");
+                if (!decimal.TryParse(txtValorTotal.Text, out decimal valorTotal))
+                    throw new Exception("O valor total deve ser um número válido.");
                 if (!int.TryParse(txtNumeroParcelas.Text, out int numeroParcelas))
                     throw new Exception("O número de parcelas deve ser um número inteiro.");
                 if (!decimal.TryParse(txtValorParcela.Text, out decimal valorParcela))
-                    throw new Exception("O valor da parcela deve ser um número válido.");
+                    throw new Exception("O valor da parcela deve ser um número válido."); // Sempre validar txtValorParcela
                 if (cmbStatus.SelectedIndex == -1)
                     throw new Exception("Selecione um status.");
                 if (string.IsNullOrWhiteSpace(txtMetodoPgto.Text))
@@ -256,24 +264,28 @@ namespace Money
                 if (string.IsNullOrWhiteSpace(txtCategoria.Text))
                     throw new Exception("Selecione uma categoria.");
                 if (CategoriaID <= 0)
-                {
                     throw new Exception("O Código CategoriaID está vazio ou não é válido.");
-                }
                 if (MetodoPgtoID <= 0)
-                {
                     throw new Exception("O Código MetodoPgtoID está vazio ou não é válido.");
-                }
 
                 if (ParcelasGeradas.Count > 0)
                 {
-                    // Lógica existente para parcelas geradas
+                    // Lógica para parcelas geradas
                     foreach (var parcela in ParcelasGeradas)
                     {
                         parcela.DespesaID = Utilitario.GerarProximoCodigo(QueryDespesa);
-                        parcela.MetodoPgtoID = MetodoPgtoID;
+                        parcela.Descricao = txtDescricao.Text;
+                        parcela.Valor = valorTotal; // Valor total da compra
+                        parcela.DataVencimento = parcela.DataVencimento; // Já definido na geração
+                        parcela.Status = "Pendente";
+                        parcela.NumeroParcelas = numeroParcelas;
+                        parcela.ValorParcela = valorParcela; // Sempre usa o valor calculado de txtValorParcela
                         parcela.CategoriaID = CategoriaID;
+                        parcela.MetodoPgtoID = MetodoPgtoID;
                         parcela.Pago = false;
                         parcela.DataCriacao = dtpDataCadastro.Value;
+                        parcela.DataPgto = null;
+
                         objetoBll.Salvar(parcela);
                         QueryDespesa = "SELECT MAX(DespesaID) FROM Despesas";
                     }
@@ -283,8 +295,9 @@ namespace Money
                     Utilitario.LimpaCampoKrypton(this);
                     int codigo = Utilitario.GerarProximoCodigo(QueryDespesa);
                     txtDespesaID.Text = Utilitario.AcrescentarZerosEsquerda(codigo, 5);
-                    txtValorTotal.Focus();
+                    cmbStatus.Focus();
                     cmbStatus.SelectedItem = "Pendente";
+                    txtNumeroParcelas.Text = "1";
                     ParcelasGeradas.Clear();
                 }
                 else
@@ -292,22 +305,20 @@ namespace Money
                     switch (StatusOperacao)
                     {
                         case "NOVO":
-
-                            // Código existente para NOVO
                             var novoTipo = new DespesasModel
                             {
                                 DespesaID = int.Parse(txtDespesaID.Text),
                                 Descricao = txtDescricao.Text,
-                                Valor = valor,
+                                Valor = valorTotal, // Valor total da compra
                                 DataVencimento = dtpDataVencimento.Value,
                                 Status = cmbStatus.SelectedItem.ToString(),
                                 NumeroParcelas = numeroParcelas,
-                                ValorParcela = valorParcela,
+                                ValorParcela = valorParcela, // Sempre grava o valor de txtValorParcela
                                 CategoriaID = CategoriaID,
                                 MetodoPgtoID = MetodoPgtoID,
                                 Pago = pago,
                                 DataCriacao = dtpDataCadastro.Value,
-                                DataPgto = dataPgto  // Usar a variável ajustada
+                                DataPgto = dataPgto
                             };
 
                             objetoBll.Salvar(novoTipo);
@@ -315,28 +326,27 @@ namespace Money
                             Salvou = true;
                             _formPai.AtualizarDataGrid();
                             Utilitario.LimpaCampoKrypton(this);
-
-                            // Gerar próximo código para nova despesa
+                            txtNumeroParcelas.Text = "1";
                             int codigoNovo = Utilitario.GerarProximoCodigo(QueryDespesa);
                             txtDespesaID.Text = Utilitario.AcrescentarZerosEsquerda(codigoNovo, 5);
-                            txtDescricao.Focus();
+                           cmbStatus.Focus();
                             break;
 
                         case "ALTERAR":
-                            // Código existente para ALTERAR
                             var alterarTipo = new DespesasModel
                             {
                                 DespesaID = int.Parse(txtDespesaID.Text),
                                 Descricao = txtDescricao.Text,
-                                Valor = decimal.Parse(txtValorTotal.Text),
+                                Valor = valorTotal, // Valor total da compra
                                 DataVencimento = dtpDataVencimento.Value,
                                 Status = cmbStatus.SelectedItem.ToString(),
                                 NumeroParcelas = numeroParcelas,
-                                ValorParcela = valorParcela,
+                                ValorParcela = valorParcela, // Sempre grava o valor de txtValorParcela
                                 CategoriaID = CategoriaID,
                                 MetodoPgtoID = MetodoPgtoID,
-                                Pago = false,
-                                DataCriacao = dtpDataCadastro.Value
+                                Pago = pago,
+                                DataCriacao = dtpDataCadastro.Value,
+                                DataPgto = dataPgto
                             };
                             objetoBll.Alterar(alterarTipo);
                             MessageBox.Show("Despesa alterada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -355,17 +365,15 @@ namespace Money
                                     Pago = true,
                                     DataPgto = dtpDataCadastro.Value
                                 };
-                                objetoBll.AlterarStatus(pagarTipo); // Atualiza no banco de dados o Status = "Pago" e Pago = true
-
+                                objetoBll.AlterarStatus(pagarTipo);
                                 MessageBox.Show("Conta paga com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 Salvou = true;
                                 _formPai.AtualizarDataGrid();
-                                this.Close(); // Fecha o formulário após pagar
+                                this.Close();
                             }
                             break;
 
                         case "EXCLUSÃO":
-                            // Código existente para EXCLUSÃO
                             if (MessageBox.Show("Deseja realmente excluir esta despesa?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             {
                                 int despesaId = int.Parse(txtDespesaID.Text);
@@ -482,6 +490,16 @@ namespace Money
         private void btnParcelar_Click(object sender, EventArgs e)
         {
             Parcelamento();
+        }
+
+        private void txtValorTotal_TextChanged(object sender, EventArgs e)
+        {
+            CalcularValorParcela();
+        }
+
+        private void txtNumeroParcelas_TextChanged(object sender, EventArgs e)
+        {
+            CalcularValorParcela();
         }
     }
 }

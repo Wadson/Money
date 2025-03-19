@@ -32,6 +32,7 @@
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
+            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dgvDespesas = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.txtQtdItens = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -45,10 +46,13 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.txtPesquisa = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.btnPagarConta = new System.Windows.Forms.Button();
-            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioPendentes = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
+            this.radioPagas = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.metroPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDespesas)).BeginInit();
             this.metroPanel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -109,6 +113,17 @@
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel2.VerticalScrollbarSize = 10;
             // 
+            // kryptonLabel2
+            // 
+            this.kryptonLabel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.kryptonLabel2.Location = new System.Drawing.Point(277, -1);
+            this.kryptonLabel2.Name = "kryptonLabel2";
+            this.kryptonLabel2.Size = new System.Drawing.Size(240, 26);
+            this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel2.TabIndex = 268;
+            this.kryptonLabel2.Values.Text = "Manutenção de Despesas";
+            // 
             // dgvDespesas
             // 
             this.dgvDespesas.AllowUserToAddRows = false;
@@ -123,7 +138,7 @@
             this.dgvDespesas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDespesas.Size = new System.Drawing.Size(657, 304);
             this.dgvDespesas.TabIndex = 212;
-            this.dgvDespesas.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDespesas_CellValueChanged);
+            this.dgvDespesas.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvDespesas_CellFormatting);
             this.dgvDespesas.SelectionChanged += new System.EventHandler(this.dgvTiposReceita_SelectionChanged);
             // 
             // txtQtdItens
@@ -299,7 +314,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPesquisa.Location = new System.Drawing.Point(80, 45);
             this.txtPesquisa.Name = "txtPesquisa";
-            this.txtPesquisa.Size = new System.Drawing.Size(589, 35);
+            this.txtPesquisa.Size = new System.Drawing.Size(551, 35);
             this.txtPesquisa.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.txtPesquisa.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
             this.txtPesquisa.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
@@ -330,16 +345,44 @@
             this.btnPagarConta.UseVisualStyleBackColor = false;
             this.btnPagarConta.Click += new System.EventHandler(this.btnPagarConta_Click);
             // 
-            // kryptonLabel2
+            // groupBox1
             // 
-            this.kryptonLabel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.kryptonLabel2.Location = new System.Drawing.Point(277, -1);
-            this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(240, 26);
-            this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel2.TabIndex = 268;
-            this.kryptonLabel2.Values.Text = "Manutenção de Despesas";
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Menu;
+            this.groupBox1.Controls.Add(this.radioPendentes);
+            this.groupBox1.Controls.Add(this.radioPagas);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(637, 31);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(148, 49);
+            this.groupBox1.TabIndex = 273;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Status";
+            // 
+            // radioPendentes
+            // 
+            this.radioPendentes.Checked = true;
+            this.radioPendentes.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.radioPendentes.Location = new System.Drawing.Point(11, 19);
+            this.radioPendentes.Name = "radioPendentes";
+            this.radioPendentes.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.radioPendentes.Size = new System.Drawing.Size(79, 22);
+            this.radioPendentes.StateCommon.ShortText.Color1 = System.Drawing.Color.Orange;
+            this.radioPendentes.TabIndex = 1;
+            this.radioPendentes.Values.Text = "Pendente";
+            this.radioPendentes.CheckedChanged += new System.EventHandler(this.radioPendentes_CheckedChanged);
+            // 
+            // radioPagas
+            // 
+            this.radioPagas.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.radioPagas.Location = new System.Drawing.Point(90, 19);
+            this.radioPagas.Name = "radioPagas";
+            this.radioPagas.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.radioPagas.Size = new System.Drawing.Size(53, 22);
+            this.radioPagas.StateCommon.ShortText.Color1 = System.Drawing.Color.RoyalBlue;
+            this.radioPagas.TabIndex = 0;
+            this.radioPagas.Values.Text = "Pago";
+            this.radioPagas.CheckedChanged += new System.EventHandler(this.radioPagas_CheckedChanged);
             // 
             // FormManutencaoDespesas
             // 
@@ -347,6 +390,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnPagarConta);
             this.Controls.Add(this.txtPesquisa);
             this.Controls.Add(this.btnExcluir);
@@ -367,6 +411,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDespesas)).EndInit();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -391,6 +437,9 @@
         public ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPesquisa;
         public System.Windows.Forms.Button btnPagarConta;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton radioPendentes;
+        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton radioPagas;
     }
 }
 

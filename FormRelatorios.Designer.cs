@@ -44,9 +44,6 @@
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.lblStatus = new System.Windows.Forms.Label();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.lblSaldo = new System.Windows.Forms.Label();
-            this.lblTotalReceitas = new System.Windows.Forms.Label();
-            this.lblTotalDespesas = new System.Windows.Forms.Label();
             this.btnExcel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.lblTotalPago = new System.Windows.Forms.Label();
             this.lblTotalAberto = new System.Windows.Forms.Label();
@@ -143,7 +140,6 @@
             // dtpMesAno
             // 
             this.dtpMesAno.CalendarDayStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Gallery;
-            this.dtpMesAno.CalendarDimensions = new System.Drawing.Size(2, 2);
             this.dtpMesAno.CalendarHeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Form;
             this.dtpMesAno.CalendarTodayDate = new System.DateTime(2025, 3, 13, 0, 0, 0, 0);
             this.dtpMesAno.CustomFormat = "MM/yyyy";
@@ -325,9 +321,6 @@
             // 
             // kryptonPanel2
             // 
-            this.kryptonPanel2.Controls.Add(this.lblSaldo);
-            this.kryptonPanel2.Controls.Add(this.lblTotalReceitas);
-            this.kryptonPanel2.Controls.Add(this.lblTotalDespesas);
             this.kryptonPanel2.Controls.Add(this.btnExcel);
             this.kryptonPanel2.Controls.Add(this.lblTotalPago);
             this.kryptonPanel2.Controls.Add(this.lblTotalAberto);
@@ -338,45 +331,6 @@
             this.kryptonPanel2.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.SeparatorHighProfile;
             this.kryptonPanel2.Size = new System.Drawing.Size(832, 88);
             this.kryptonPanel2.TabIndex = 315;
-            // 
-            // lblSaldo
-            // 
-            this.lblSaldo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblSaldo.AutoSize = true;
-            this.lblSaldo.BackColor = System.Drawing.Color.Transparent;
-            this.lblSaldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.lblSaldo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
-            this.lblSaldo.Location = new System.Drawing.Point(246, 56);
-            this.lblSaldo.Name = "lblSaldo";
-            this.lblSaldo.Size = new System.Drawing.Size(51, 20);
-            this.lblSaldo.TabIndex = 319;
-            this.lblSaldo.Text = "Saldo";
-            // 
-            // lblTotalReceitas
-            // 
-            this.lblTotalReceitas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTotalReceitas.AutoSize = true;
-            this.lblTotalReceitas.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalReceitas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.lblTotalReceitas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
-            this.lblTotalReceitas.Location = new System.Drawing.Point(243, 6);
-            this.lblTotalReceitas.Name = "lblTotalReceitas";
-            this.lblTotalReceitas.Size = new System.Drawing.Size(117, 20);
-            this.lblTotalReceitas.TabIndex = 318;
-            this.lblTotalReceitas.Text = "Total Receitas";
-            // 
-            // lblTotalDespesas
-            // 
-            this.lblTotalDespesas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTotalDespesas.AutoSize = true;
-            this.lblTotalDespesas.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalDespesas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.lblTotalDespesas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
-            this.lblTotalDespesas.Location = new System.Drawing.Point(243, 31);
-            this.lblTotalDespesas.Name = "lblTotalDespesas";
-            this.lblTotalDespesas.Size = new System.Drawing.Size(127, 20);
-            this.lblTotalDespesas.TabIndex = 317;
-            this.lblTotalDespesas.Text = "Total Despesas";
             // 
             // btnExcel
             // 
@@ -530,9 +484,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel5;
         public ComponentFactory.Krypton.Toolkit.KryptonButton btnExcel;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel3;
-        public System.Windows.Forms.Label lblSaldo;
-        public System.Windows.Forms.Label lblTotalReceitas;
-        public System.Windows.Forms.Label lblTotalDespesas;
     }
 }
 

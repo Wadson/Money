@@ -11,15 +11,15 @@ namespace Money.MODEL
         public int DespesaID { get; set; }
         public string Descricao { get; set; }
         public decimal Valor { get; set; }
-        public DateTime DataVencimento { get; set; } // Não nullable
+        public DateTime DataVencimento { get; set; }
         public string Status { get; set; }
         public int? NumeroParcelas { get; set; }
         public decimal? ValorParcela { get; set; }
         public int? CategoriaID { get; set; }
+        public string NomeCategoria { get; set; } // Adicionada propriedade para o nome da categoria
         public int? MetodoPgtoID { get; set; }
         public bool Pago { get; set; }
         public DateTime DataCriacao { get; set; }
-        public string NomeCategoria { get; set; }
         public DateTime? DataPgto { get; set; }
     }
 }

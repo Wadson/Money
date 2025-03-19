@@ -92,5 +92,11 @@ namespace Money
             FormRestaurarBackup form = new FormRestaurarBackup();
             form.ShowDialog();
         }
+
+        private void abrirFuxoFinanceiroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormFluxoFinanceiro formFluxo = new FormFluxoFinanceiro();
+            formFluxo.ShowDialog();
+        }
     }
 }

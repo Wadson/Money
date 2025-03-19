@@ -28,6 +28,8 @@ namespace Money
             InicializarControles();
 
             dgvRelatorio.DataError += dgvRelatorio_DataError; // Adicione este manipulador
+                                                              // Adicionar o evento ValueChanged ao dtpMesAno
+            
         }
         private void InicializarControles()
         {           
@@ -225,7 +227,7 @@ namespace Money
                 MessageBox.Show($"Nenhum MetodoPgtoID encontrado para '{nomeMetodoPgto}'", "Debug");
             return metodoPgtoID;
         }
-        private void btnGerarRelatorio_Click(object sender, EventArgs e)
+        private void GerarRelatorio()
         {
             try
             {
@@ -234,11 +236,28 @@ namespace Money
                 DateTime mesAno = dtpMesAno.Value;
                 string status = cmbStatus.SelectedItem.ToString();
 
-                // Buscar despesas
+                // Definir o último dia do mês anterior
+                DateTime inicioMesAtual = new DateTime(mesAno.Year, mesAno.Month, 1);
+                DateTime fimMesAnterior = inicioMesAtual.AddDays(-1);
+
+                // Passo 1: Calcular o saldo acumulado até o mês anterior
+                var receitasTotais = receitasBLL.Pesquisar();
+                var despesasTotais = despesasBLL.PesquisarRelatorio();
+
+                decimal totalReceitasAnteriores = receitasTotais
+                    .Where(r => r.Data <= fimMesAnterior)
+                    .Sum(r => r.Valor);
+
+                decimal totalDespesasAnteriores = despesasTotais
+                    .Where(d => d.DataVencimento <= fimMesAnterior)
+                    .Sum(d => d.Valor);
+
+                decimal saldoAcumulado = totalReceitasAnteriores - totalDespesasAnteriores;
+
+                // Passo 2: Buscar e filtrar despesas do mês atual
                 var despesas = despesasBLL.PesquisarRelatorio();
                 var despesasFiltradas = despesas.AsEnumerable();
 
-                // Filtro por Categoria
                 if (categoria != "Todos")
                 {
                     int categoriaId = GetCategoriaId();
@@ -248,7 +267,6 @@ namespace Money
                     }
                 }
 
-                // Filtro por Método de Pagamento
                 if (metodoPagamento != "Todos")
                 {
                     int metodoPgtoId = GetMetodoPgtoId();
@@ -258,10 +276,8 @@ namespace Money
                     }
                 }
 
-                // Filtro por Mês/Ano
                 despesasFiltradas = despesasFiltradas.Where(d => d.DataVencimento.Month == mesAno.Month && d.DataVencimento.Year == mesAno.Year);
 
-                // Filtro por Status
                 if (status != "Todos")
                 {
                     if (status == "Atrasado")
@@ -285,17 +301,15 @@ namespace Money
                 }
                 else
                 {
-                    // Calcular totais para as colunas monetárias
                     decimal totalValor = listaFiltrada.Sum(d => d.Valor);
                     decimal? totalValorParcela = listaFiltrada.Where(d => d.ValorParcela.HasValue).Sum(d => d.ValorParcela);
 
-                    // Criar uma linha de totais apenas com valores monetários
                     var linhaTotal = new DespesasModel
                     {
                         Descricao = "Total",
                         Valor = totalValor,
                         ValorParcela = totalValorParcela,
-                        DataVencimento = DateTime.MinValue, // Valor padrão, será ignorado visualmente
+                        DataVencimento = DateTime.MinValue,
                         DataPgto = null,
                         Status = "",
                         NumeroParcelas = null,
@@ -304,7 +318,6 @@ namespace Money
                     };
                     listaFiltrada.Add(linhaTotal);
 
-                    // Vincular ao DataGridView
                     dgvRelatorio.DataSource = null;
                     dgvRelatorio.DataSource = listaFiltrada;
                     PersonalizarDataGridView(dgvRelatorio);
@@ -315,25 +328,28 @@ namespace Money
                     lblTotalPago.Text = $"Total Pago: {totalPago:C2}";
                 }
 
-                // Calcular o dashboard (receitas e despesas do mês)
-                var receitas = receitasBLL.Pesquisar();
-                var receitasMes = receitas.Where(r => r.Data.Month == mesAno.Month && r.Data.Year == mesAno.Year);
-                var despesasMes = despesas.Where(d => d.DataVencimento.Month == mesAno.Month && d.DataVencimento.Year == mesAno.Year);
+                // Passo 3: Calcular receitas e despesas do mês atual
+                var receitasMes = receitasTotais.Where(r => r.Data.Month == mesAno.Month && r.Data.Year == mesAno.Year);
+                decimal totalReceitasMes = receitasMes.Sum(r => r.Valor);
 
-                decimal totalReceitas = receitasMes.Sum(r => r.Valor);
-                decimal totalDespesas = despesasMes.Sum(d => d.Valor);
-                decimal saldo = totalReceitas - totalDespesas;
+                // Incluir despesas acumuladas não pagas de meses anteriores + despesas do mês atual
+                decimal totalDespesasAcumuladas = despesasTotais
+                    .Where(d => !d.Pago && d.DataVencimento <= fimMesAnterior)
+                    .Sum(d => d.Valor);
 
-                // Atualizar o dashboard
-                lblTotalReceitas.Text = $"Receitas: {totalReceitas:C2}";
-                lblTotalDespesas.Text = $"Despesas: {totalDespesas:C2}";
-                lblSaldo.Text = $"Saldo: {saldo:C2}";
-                lblSaldo.ForeColor = saldo >= 0 ? Color.Green : Color.Red;
+                decimal totalDespesasMes = listaFiltrada.Where(d => d.Descricao != "Total").Sum(d => d.Valor);
+
+                // Passo 4: Calcular o saldo final
+                decimal saldoFinal = saldoAcumulado + totalReceitasMes - (totalDespesasAcumuladas + totalDespesasMes);               
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Erro ao gerar relatório: {ex.Message}\nStackTrace: {ex.StackTrace}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void btnGerarRelatorio_Click(object sender, EventArgs e)
+        {
+           GerarRelatorio();
         }
 
         private void FormRelatorios_Load(object sender, EventArgs e)

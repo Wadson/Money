@@ -202,6 +202,7 @@
             this.txtValorTotal.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
             this.txtValorTotal.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.txtValorTotal.TabIndex = 0;
+            this.txtValorTotal.TextChanged += new System.EventHandler(this.txtValorTotal_TextChanged);
             this.txtValorTotal.Leave += new System.EventHandler(this.txtValor_Leave);
             // 
             // kryptonLabel6
@@ -237,9 +238,11 @@
             this.txtNumeroParcelas.StateCommon.Border.Width = 1;
             this.txtNumeroParcelas.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
             this.txtNumeroParcelas.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.txtNumeroParcelas.TabIndex = 5;
+            this.txtNumeroParcelas.TabIndex = 41;
+            this.txtNumeroParcelas.TabStop = false;
             this.txtNumeroParcelas.Text = "1";
             this.txtNumeroParcelas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNumeroParcelas.TextChanged += new System.EventHandler(this.txtNumeroParcelas_TextChanged);
             this.txtNumeroParcelas.Leave += new System.EventHandler(this.txtNumeroParcelas_Leave);
             // 
             // kryptonLabel8
@@ -349,7 +352,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(12, 381);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(110, 36);
-            this.btnSalvar.TabIndex = 8;
+            this.btnSalvar.TabIndex = 5;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -367,6 +370,7 @@
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(110, 36);
             this.btnSair.TabIndex = 301;
+            this.btnSair.TabStop = false;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -403,7 +407,7 @@
             this.txtMetodoPgto.StateCommon.Border.Width = 1;
             this.txtMetodoPgto.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
             this.txtMetodoPgto.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.txtMetodoPgto.TabIndex = 6;
+            this.txtMetodoPgto.TabIndex = 4;
             this.txtMetodoPgto.TextChanged += new System.EventHandler(this.txtMetodoPgto_TextChanged);
             // 
             // btnLocalizarMetodoPagamento
@@ -418,7 +422,8 @@
             this.btnLocalizarMetodoPagamento.Location = new System.Drawing.Point(441, 254);
             this.btnLocalizarMetodoPagamento.Name = "btnLocalizarMetodoPagamento";
             this.btnLocalizarMetodoPagamento.Size = new System.Drawing.Size(36, 36);
-            this.btnLocalizarMetodoPagamento.TabIndex = 7;
+            this.btnLocalizarMetodoPagamento.TabIndex = 70;
+            this.btnLocalizarMetodoPagamento.TabStop = false;
             this.btnLocalizarMetodoPagamento.UseVisualStyleBackColor = false;
             this.btnLocalizarMetodoPagamento.Click += new System.EventHandler(this.btnLocalizarMetodoPagamento_Click);
             // 
@@ -453,7 +458,8 @@
             this.btnLocalizarCategoria.Location = new System.Drawing.Point(441, 195);
             this.btnLocalizarCategoria.Name = "btnLocalizarCategoria";
             this.btnLocalizarCategoria.Size = new System.Drawing.Size(37, 36);
-            this.btnLocalizarCategoria.TabIndex = 4;
+            this.btnLocalizarCategoria.TabIndex = 40;
+            this.btnLocalizarCategoria.TabStop = false;
             this.btnLocalizarCategoria.UseVisualStyleBackColor = false;
             this.btnLocalizarCategoria.Click += new System.EventHandler(this.btnLocalizarCategoria_Click);
             // 
@@ -505,6 +511,7 @@
             this.btnParcelar.Name = "btnParcelar";
             this.btnParcelar.Size = new System.Drawing.Size(110, 36);
             this.btnParcelar.TabIndex = 304;
+            this.btnParcelar.TabStop = false;
             this.btnParcelar.Text = "Parcelar";
             this.btnParcelar.UseVisualStyleBackColor = false;
             this.btnParcelar.Visible = false;
@@ -519,6 +526,7 @@
             this.radiobtnParcelar.Size = new System.Drawing.Size(76, 21);
             this.radiobtnParcelar.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radiobtnParcelar.TabIndex = 305;
+            this.radiobtnParcelar.TabStop = false;
             this.radiobtnParcelar.Values.Text = "Parcelar";
             this.radiobtnParcelar.CheckedChanged += new System.EventHandler(this.radiobtnParcelar_CheckedChanged);
             // 
@@ -602,7 +610,7 @@
         public System.Windows.Forms.Label lblTitulo;
         public System.Windows.Forms.Label lblDataCadastro_e_Pagamento;
         public System.Windows.Forms.Button btnParcelar;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox radiobtnParcelar;
+        public ComponentFactory.Krypton.Toolkit.KryptonCheckBox radiobtnParcelar;
     }
 }
 

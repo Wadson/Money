@@ -185,6 +185,12 @@
     <Compile Include="DAL\ParcelasDAL.cs" />
     <Compile Include="DAL\ReceitasDAL.cs" />
     <Compile Include="DAL\TiposReceitaDAL.cs" />
+    <Compile Include="FormFluxoFinanceiro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFluxoFinanceiro.Designer.cs">
+      <DependentUpon>FormFluxoFinanceiro.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRestaurarBackup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -299,6 +305,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MODEL\ReceitasModel.cs" />
     <Compile Include="Utilitario.cs" />
+    <EmbeddedResource Include="FormFluxoFinanceiro.resx">
+      <DependentUpon>FormFluxoFinanceiro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormRestaurarBackup.resx">
       <DependentUpon>FormRestaurarBackup.cs</DependentUpon>
     </EmbeddedResource>

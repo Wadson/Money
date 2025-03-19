@@ -69,9 +69,9 @@ namespace Money.BLL
             _dal.Excluir(despesaID);
         }
 
-        public List<DespesasModel> Pesquisar(string descricao = null)
+        public List<DespesasModel> Pesquisar(string descricao = null, bool? pago = null)
         {
-            return _dal.Pesquisar(descricao);
+            return _dal.Pesquisar(descricao, pago);
         }
 
         public List<DespesasModel> PesquisarRelatorio(string descricao = null)
