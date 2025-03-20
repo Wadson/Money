@@ -296,7 +296,7 @@ namespace Money
         public decimal Valor { get; set; }
         public DateTime DataVencimento { get; set; }
         public bool Pago { get; set; }
-        public int? NumeroParcelas { get; set; }
+        public string NumeroParcelas { get; set; }
         public decimal? ValorParcela { get; set; }
         public string NomeCategoria { get; set; }
         public bool Selecionado { get; set; }

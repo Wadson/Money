@@ -25,13 +25,12 @@ namespace Money.DAL
                     cmd.Parameters.AddWithValue("@Valor", despesa.Valor);
                     cmd.Parameters.AddWithValue("@DataVencimento", despesa.DataVencimento);
                     cmd.Parameters.AddWithValue("@Status", despesa.Status);
-                    cmd.Parameters.AddWithValue("@NumeroParcelas", (object)despesa.NumeroParcelas ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@NumeroParcelas", string.IsNullOrEmpty(despesa.NumeroParcelas) ? (object)DBNull.Value : despesa.NumeroParcelas);
                     cmd.Parameters.AddWithValue("@ValorParcela", (object)despesa.ValorParcela ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@CategoriaID", (object)despesa.CategoriaID ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@MetodoPgtoID", (object)despesa.MetodoPgtoID ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@Pago", despesa.Pago);
                     cmd.Parameters.AddWithValue("@DataCriacao", despesa.DataCriacao);
-                    // Tratar DataPgto explicitamente
                     if (despesa.DataPgto.HasValue)
                         cmd.Parameters.AddWithValue("@DataPgto", despesa.DataPgto.Value);
                     else
@@ -57,8 +56,8 @@ namespace Money.DAL
                     cmd.Parameters.AddWithValue("@Descricao", despesa.Descricao);
                     cmd.Parameters.AddWithValue("@Valor", despesa.Valor);
                     cmd.Parameters.AddWithValue("@DataVencimento", despesa.DataVencimento);
-                    cmd.Parameters.AddWithValue("@Status", despesa.Status);
-                    cmd.Parameters.AddWithValue("@NumeroParcelas", (object)despesa.NumeroParcelas ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Status", despesa.Status);                    
+                    cmd.Parameters.AddWithValue("@NumeroParcelas", string.IsNullOrEmpty(despesa.NumeroParcelas) ? (object)DBNull.Value : despesa.NumeroParcelas);
                     cmd.Parameters.AddWithValue("@ValorParcela", (object)despesa.ValorParcela ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@CategoriaID", (object)despesa.CategoriaID ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@MetodoPgtoID", (object)despesa.MetodoPgtoID ?? DBNull.Value);
@@ -168,8 +167,8 @@ namespace Money.DAL
                                 Descricao = reader.GetString(1),
                                 Valor = reader.GetDecimal(2),
                                 DataVencimento = reader.GetDateTime(3),
-                                Status = reader.GetString(4),
-                                NumeroParcelas = reader.IsDBNull(5) ? null : (int?)reader.GetInt32(5),
+                                Status = reader.GetString(4),                                
+                                NumeroParcelas = reader.IsDBNull(5) ? null : reader.GetValue(5).ToString(),
                                 ValorParcela = reader.IsDBNull(6) ? null : (decimal?)reader.GetDecimal(6),
                                 CategoriaID = reader.IsDBNull(7) ? null : (int?)reader.GetInt32(7),
                                 NomeCategoria = reader.IsDBNull(8) ? null : reader.GetString(8),
@@ -208,8 +207,9 @@ namespace Money.DAL
                                 Descricao = reader.GetString(1),
                                 Valor = reader.GetDecimal(2),
                                 DataVencimento = (DateTime)(reader.IsDBNull(3) ? null : (DateTime?)reader.GetDateTime(3)), // Nullable                                
-                                Status = reader.GetString(4),
-                                NumeroParcelas = reader.IsDBNull(5) ? null : (int?)reader.GetInt32(5),
+                                Status = reader.GetString(4),                                
+                                
+                                NumeroParcelas = reader.IsDBNull(5) ? null : reader.GetValue(5).ToString(),
                                 ValorParcela = reader.IsDBNull(6) ? null : (decimal?)reader.GetDecimal(6),
                                 CategoriaID = reader.IsDBNull(7) ? null : (int?)reader.GetInt32(7),
                                 MetodoPgtoID = reader.IsDBNull(8) ? null : (int?)reader.GetInt32(8),

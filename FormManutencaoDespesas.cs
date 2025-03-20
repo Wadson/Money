@@ -26,131 +26,114 @@ namespace Money
             InitializeComponent();
             StatusOperacao = statusOperacao;
             AtualizarDataGrid(); // Carrega os dados e totais ao abrir o formulário
-            dgvDespesas.SelectionChanged += dgvTiposReceita_SelectionChanged; // Associe o evento aqui
+            dgvDespesa.SelectionChanged += dgvDespesa_SelectionChanged; // Associe o evento aqui
 
             radioPagas.CheckedChanged += radioPagas_CheckedChanged;
             radioPendentes.CheckedChanged += radioPendentes_CheckedChanged;
+
+            Utilitario.AdicionarEfeitoFocoEmTodos(this);
         }
 
 
-        public void PersonalizarDataGridView(KryptonDataGridView dgvDespesas)
+        public void PersonalizarDataGridView(DataGridView dgvDespesa)
         {
-            dgvDespesas.AutoGenerateColumns = false; // Se estiver usando colunas personalizadas
-            if (!dgvDespesas.Columns.Contains("DataPgto"))
+            dgvDespesa.AutoGenerateColumns = false;
+            dgvDespesa.EnableHeadersVisualStyles = false; // Permite personalizar o cabeçalho
+
+            // Alternância de cores das linhas
+            dgvDespesa.RowsDefaultCellStyle.BackColor = System.Drawing.Color.WhiteSmoke;
+            dgvDespesa.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+
+            // Personalização do cabeçalho
+            dgvDespesa.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.DarkBlue;
+            dgvDespesa.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            dgvDespesa.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            dgvDespesa.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            // Centralizar colunas específicas
+            string[] colunasCentralizadas = { "DespesaID", "CategoriaID", "MetodoPgtoID", "NumeroParcelas" };
+            foreach (var coluna in colunasCentralizadas)
             {
-                dgvDespesas.Columns.Add(new DataGridViewTextBoxColumn
+                if (dgvDespesa.Columns.Contains(coluna))
                 {
-                    Name = "DataPgto",
-                    HeaderText = "Data de Pagamento",
-                    DataPropertyName = "DataPgto"
-                });
-            }
-            if (!dgvDespesas.Columns.Contains("NomeCategoria"))
-            {
-                dgvDespesas.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "NomeCategoria",
-                    HeaderText = "Nome da Categoria",
-                    DataPropertyName = "NomeCategoria",
-                    Width = 150 // Ajuste a largura conforme necessário
-                });
-            }
-            if (dgvDespesas.Columns.Count == 0)
-            {
-                MessageBox.Show("Nenhuma coluna disponível no DataGridView de despesas.");
-                return;
+                    dgvDespesa.Columns[coluna].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
             }
 
-            dgvDespesas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            // Ajuste do AutoSizeMode para evitar que a tabela fique muito apertada
+            dgvDespesa.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
 
-            if (dgvDespesas.Columns.Contains("DespesaID"))
+            // Definições das colunas
+            if (dgvDespesa.Columns.Contains("DespesaID"))
             {
-                dgvDespesas.Columns["DespesaID"].HeaderText = "Código";
-                dgvDespesas.Columns["DespesaID"].Width = 100;
-                dgvDespesas.Columns["DespesaID"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dgvDespesas.Columns["DespesaID"].DefaultCellStyle.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Italic);
-                dgvDespesas.Columns["DespesaID"].DefaultCellStyle.ForeColor = System.Drawing.Color.DarkGreen;
-                dgvDespesas.Columns["DespesaID"].DefaultCellStyle.BackColor = System.Drawing.Color.LightBlue;
+                dgvDespesa.Columns["DespesaID"].Visible = false; // Oculta a coluna
             }
 
-            if (dgvDespesas.Columns.Contains("Descricao"))
+            if (dgvDespesa.Columns.Contains("Descricao"))
             {
-                dgvDespesas.Columns["Descricao"].HeaderText = "Descrição";
-                dgvDespesas.Columns["Descricao"].Width = 400;
+                dgvDespesa.Columns["Descricao"].HeaderText = "Descrição";
+                dgvDespesa.Columns["Descricao"].Width = 350;
             }
 
-            if (dgvDespesas.Columns.Contains("Valor"))
+            if (dgvDespesa.Columns.Contains("Valor"))
             {
-                dgvDespesas.Columns["Valor"].HeaderText = "Valor";
-                dgvDespesas.Columns["Valor"].Width = 120;
-                dgvDespesas.Columns["Valor"].DefaultCellStyle.Format = "C2";
+                dgvDespesa.Columns["Valor"].HeaderText = "Valor";
+                dgvDespesa.Columns["Valor"].Width = 80;
+                dgvDespesa.Columns["Valor"].DefaultCellStyle.Format = "C2";
+                dgvDespesa.Columns["Valor"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvDespesa.Columns["Valor"].DefaultCellStyle.ForeColor = System.Drawing.Color.DarkRed;
             }
 
-            if (dgvDespesas.Columns.Contains("DataVencimento"))
+            if (dgvDespesa.Columns.Contains("DataVencimento"))
             {
-                dgvDespesas.Columns["DataVencimento"].HeaderText = "Data Vencimento";
-                dgvDespesas.Columns["DataVencimento"].Width = 120;
-                dgvDespesas.Columns["DataVencimento"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgvDespesa.Columns["DataVencimento"].HeaderText = " Data\nVencto";
+                dgvDespesa.Columns["DataVencimento"].Width = 80;
+                dgvDespesa.Columns["DataVencimento"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            }
+            if (dgvDespesa.Columns.Contains("Status"))
+            {
+                dgvDespesa.Columns["Status"].HeaderText = "Status";
+                dgvDespesa.Columns["Status"].Width = 60;                
+            }
+            if (dgvDespesa.Columns.Contains("NumeroParcelas"))
+            {
+                dgvDespesa.Columns["NumeroParcelas"].HeaderText = "  Nº\nParc.";
+                dgvDespesa.Columns["NumeroParcelas"].Width = 60;
+            }
+            if (dgvDespesa.Columns.Contains("ValorParcela"))
+            {
+                dgvDespesa.Columns["ValorParcela"].HeaderText = "  Valor \nParcela";
+                dgvDespesa.Columns["ValorParcela"].Width = 80;
+                dgvDespesa.Columns["ValorParcela"].DefaultCellStyle.Format = "C2";
+                dgvDespesa.Columns["ValorParcela"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvDespesa.Columns["ValorParcela"].DefaultCellStyle.ForeColor = System.Drawing.Color.DarkRed;
+            }
+            if (dgvDespesa.Columns.Contains("NomeCategoria"))
+            {
+                dgvDespesa.Columns["NomeCategoria"].HeaderText = "Categoria";
+                dgvDespesa.Columns["NomeCategoria"].Width = 100;
+            }
+            if (dgvDespesa.Columns.Contains("CategoriaID"))
+            {
+                dgvDespesa.Columns["CategoriaID"].Visible = false; // Oculta a coluna
             }
 
-            if (dgvDespesas.Columns.Contains("Status"))
+            if (dgvDespesa.Columns.Contains("MetodoPgtoID"))
             {
-                dgvDespesas.Columns["Status"].HeaderText = "Status";
-                dgvDespesas.Columns["Status"].Width = 100;
+                dgvDespesa.Columns["MetodoPgtoID"].Visible = false; // Oculta a coluna
+            }
+            if (dgvDespesa.Columns.Contains("DataCriacao"))
+            {
+                dgvDespesa.Columns["DataCriacao"].Visible = false; // Oculta a coluna
+            }
+            if (dgvDespesa.Columns.Contains("DataPgto"))
+            {
+                dgvDespesa.Columns["DataPgto"].HeaderText = " Data\nPagamento";
+                dgvDespesa.Columns["DataPgto"].Width = 100;
+                dgvDespesa.Columns["DataPgto"].DefaultCellStyle.Format = "dd/MM/yyyy";
             }
 
-            if (dgvDespesas.Columns.Contains("NumeroParcelas"))
-            {
-                dgvDespesas.Columns["NumeroParcelas"].HeaderText = "Nº Parcelas";
-                dgvDespesas.Columns["NumeroParcelas"].Width = 100;
-            }
-
-            if (dgvDespesas.Columns.Contains("ValorParcela"))
-            {
-                dgvDespesas.Columns["ValorParcela"].HeaderText = "Valor Parcela";
-                dgvDespesas.Columns["ValorParcela"].Width = 120;
-                dgvDespesas.Columns["ValorParcela"].DefaultCellStyle.Format = "C2";
-            }
-
-            if (dgvDespesas.Columns.Contains("CategoriaID"))
-            {
-                dgvDespesas.Columns["CategoriaID"].HeaderText = "Categoria ID";
-                dgvDespesas.Columns["CategoriaID"].Width = 100;
-            }
-
-            if (dgvDespesas.Columns.Contains("NomeCategoria"))
-            {
-                dgvDespesas.Columns["NomeCategoria"].HeaderText = "Nome da Categoria";
-                dgvDespesas.Columns["NomeCategoria"].Width = 150; // Ajuste conforme necessário
-            }
-
-            if (dgvDespesas.Columns.Contains("MetodoPgtoID"))
-            {
-                dgvDespesas.Columns["MetodoPgtoID"].HeaderText = "Método Pgto ID";
-                dgvDespesas.Columns["MetodoPgtoID"].Width = 100;
-            }
-
-            if (dgvDespesas.Columns.Contains("Pago"))
-            {
-                dgvDespesas.Columns["Pago"].HeaderText = "Pago";
-                dgvDespesas.Columns["Pago"].Width = 80;
-            }
-
-            if (dgvDespesas.Columns.Contains("DataCriacao"))
-            {
-                dgvDespesas.Columns["DataCriacao"].HeaderText = "Data Criação";
-                dgvDespesas.Columns["DataCriacao"].Width = 120;
-                dgvDespesas.Columns["DataCriacao"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            }
-
-            if (dgvDespesas.Columns.Contains("DataPgto"))
-            {
-                dgvDespesas.Columns["DataPgto"].HeaderText = "Data Pagamento";
-                dgvDespesas.Columns["DataPgto"].Width = 120;
-                dgvDespesas.Columns["DataPgto"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            }
-
-            dgvDespesas.ReadOnly = true;
+            dgvDespesa.ReadOnly = true;
         }
 
         private void CarregarDados(string nomeTipo = null, bool? pago = null)
@@ -158,9 +141,9 @@ namespace Money
             try
             {
                 var tipos = despesasBLL.Pesquisar(nomeTipo, pago); // Passar o filtro de pagamento
-                dgvDespesas.DataSource = null;
-                dgvDespesas.DataSource = tipos;
-                PersonalizarDataGridView(dgvDespesas);
+                dgvDespesa.DataSource = null;
+                dgvDespesa.DataSource = tipos;
+                PersonalizarDataGridView(dgvDespesa);
                 AtualizarTotais();
             }
             catch (Exception ex)
@@ -186,7 +169,7 @@ namespace Money
         {
             try
             {
-                var despesas = dgvDespesas.DataSource as List<DespesasModel>;
+                var despesas = dgvDespesa.DataSource as List<DespesasModel>;
                 if (despesas != null)
                 {
                     var despesasAbertas = despesas.Where(d => !d.Pago);
@@ -232,7 +215,8 @@ namespace Money
                         form.btnSalvar.ForeColor = System.Drawing.Color.White;
                         form.lblTitulo.Text = "Alterar Despesa";
                         form.panelTitulo.BackColor = System.Drawing.Color.OrangeRed;
-                        form.btnNovo.Visible = false;
+                        form.btnNovo.Visible = false;                                                
+                        form.dtpDataCadastro.Enabled = false;
                         form.ShowDialog();
                         break;
 
@@ -321,7 +305,7 @@ namespace Money
             form.btnNovo.Visible = false;
             form.btnLocalizarCategoria.Enabled = false;
             form.btnLocalizarMetodoPagamento.Enabled = false;
-            form.radiobtnParcelar.Enabled = false;
+            form.groupBoxParcelar.Enabled = false;
         }
 
 
@@ -329,22 +313,6 @@ namespace Money
         {
             radioPendentes.Checked = true; // Define Pendentes como padrão
             CarregarDados(); // Carrega os dados iniciais
-        }
-
-        private void dgvTiposReceita_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvDespesas.SelectedRows.Count > 0)
-            {
-                TipoAtual = dgvDespesas.SelectedRows[0].DataBoundItem as DespesasModel;
-                btnAlterar.Enabled = true;
-                btnExcluir.Enabled = true;                
-            }
-            else
-            {
-                TipoAtual = null;
-                btnAlterar.Enabled = false;
-                btnExcluir.Enabled = false;
-            }
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -375,7 +343,7 @@ namespace Money
             using (var workbook = new ClosedXML.Excel.XLWorkbook())
             {
                 var worksheet = workbook.Worksheets.Add("Relatório Despesas");
-                var data = dgvDespesas.DataSource as List<DespesasModel>;
+                var data = dgvDespesa.DataSource as List<DespesasModel>;
                 if (data != null)
                 {
                     worksheet.Cell(1, 1).InsertTable(data);
@@ -388,13 +356,57 @@ namespace Money
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (TipoAtual == null)
+            // Verifica se há pelo menos uma linha selecionada
+            if (dgvDespesa.SelectedRows.Count == 0) // Substitua "dataGridView1" pelo nome real do seu DataGridView
             {
-                MessageBox.Show("Selecione um tipo para excluir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione pelo menos um registro para excluir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            StatusOperacao = "EXCLUSÃO";
-            AbrirFormularioCadastro(); // Chama diretamente o formulário sem recarregar dados
+
+            // Se apenas uma linha estiver selecionada ou se o usuário escolher excluir apenas uma
+            if (dgvDespesa.SelectedRows.Count == 1 ||
+                MessageBox.Show("Deseja excluir apenas o registro atual?",
+                                "Excluir Despesas",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question,
+                                MessageBoxDefaultButton.Button1,
+                                0,
+                                "Único",
+                                "Todos") == DialogResult.Yes)
+            {
+                if (TipoAtual == null)
+                {
+                    MessageBox.Show("Selecione um tipo para excluir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                StatusOperacao = "EXCLUSÃO";
+                AbrirFormularioCadastro(); // Mantém o fluxo atual para excluir um único registro
+            }
+            else // Excluir todos os selecionados
+            {
+                int numeroSelecionados = dgvDespesa.SelectedRows.Count;
+                if (MessageBox.Show($"Deseja realmente excluir todos os {numeroSelecionados} registros selecionados?",
+                                    "Confirmação de Exclusão",
+                                    MessageBoxButtons.YesNo,
+                                    MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        DespesasBLL objetoBll = new DespesasBLL(); // Instancie sua BLL aqui
+                        foreach (DataGridViewRow row in dgvDespesa.SelectedRows)
+                        {
+                            int despesaId = Convert.ToInt32(row.Cells["DespesaID"].Value); // Substitua "DespesaID" pelo nome real da coluna
+                            objetoBll.Excluir(despesaId);
+                        }
+                        MessageBox.Show($"{numeroSelecionados} despesas excluídas com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        AtualizarDataGrid(); // Atualiza o DataGrid após a exclusão
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao excluir os registros: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
@@ -438,9 +450,9 @@ namespace Money
             }
         }
 
-        private void dgvDespesas_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void dgvDespesa_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dgvDespesas.Columns[e.ColumnIndex].Name == "DataVencimento")
+            if (dgvDespesa.Columns[e.ColumnIndex].Name == "DataVencimento")
             {
                 if (e.Value != null && DateTime.TryParse(e.Value.ToString(), out DateTime dataVencimento))
                 {
@@ -448,20 +460,40 @@ namespace Money
 
                     if (dataVencimento < hoje) // Vencidas
                     {
-                        e.CellStyle.BackColor = System.Drawing.Color.Red;     // Fundo vermelho
-                        e.CellStyle.ForeColor = System.Drawing.Color.White;   // Texto branco para contraste
+                        e.CellStyle.BackColor = System.Drawing.Color.Red;
+                        e.CellStyle.ForeColor = System.Drawing.Color.White;
                     }
                     else if (dataVencimento.Date == hoje) // Vence hoje
                     {
-                        e.CellStyle.BackColor = System.Drawing.Color.Yellow;  // Fundo amarelo
-                        e.CellStyle.ForeColor = System.Drawing.Color.Black;   // Texto preto para contraste
+                        e.CellStyle.BackColor = System.Drawing.Color.Orange;
+                        e.CellStyle.ForeColor = System.Drawing.Color.White;
                     }
                     else // Não vencidas (futuras)
                     {
-                        e.CellStyle.BackColor = System.Drawing.Color.LightGreen; // Fundo verde claro
-                        e.CellStyle.ForeColor = System.Drawing.Color.Black;      // Texto preto
+                        e.CellStyle.BackColor = System.Drawing.Color.LightGreen;
+                        e.CellStyle.ForeColor = System.Drawing.Color.Black;
                     }
                 }
+            }
+        }
+
+        private void dgvDespesa_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvDespesa.SelectedRows.Count > 0)
+            {
+                TipoAtual = dgvDespesa.SelectedRows[0].DataBoundItem as DespesasModel;
+                btnAlterar.Enabled = true;
+                btnExcluir.Enabled = true;
+                btnExcel.Enabled = true;
+                btnPagarConta.Enabled = true;
+            }
+            else
+            {
+                TipoAtual = null;
+                btnAlterar.Enabled = false;
+                btnExcluir.Enabled = false;
+                btnExcel.Enabled = false;
+                btnPagarConta.Enabled = false;
             }
         }
     }

@@ -20,28 +20,24 @@ namespace Money
         {
             get { return parcelasGeradas; }
         }
-        public FormGerarParcelas(string descricao, decimal valorTotal, DateTime dataVencimentoInicial, string categoria, string status, int NumParcela)
+        public FormGerarParcelas(string descricao, decimal valorTotal, DateTime dataVencimentoInicial, int NumParcela)
         {
             InitializeComponent();
-            ConfigurarControles(descricao, valorTotal, dataVencimentoInicial, categoria, status, NumParcela);
+            ConfigurarControles(descricao, valorTotal, dataVencimentoInicial, NumParcela);
             ConfigurarListView();
         }
 
-        private void ConfigurarControles(string descricao, decimal valorTotal, DateTime dataVencimentoInicial, string categoria, string status, int NumParcela)
+        private void ConfigurarControles(string descricao, decimal valorTotal, DateTime dataVencimentoInicial, int NumParcela)
         {
-            txtDescricao.Text = descricao;
-            txtValorTotal.Text = valorTotal.ToString("N2");
+            lblDescricao.Text = descricao;
+            lblValorTotal.Text = valorTotal.ToString("N2");
             dtpPrimeiraParcela.Value = dataVencimentoInicial;
-            nudParcelas.Value = 1;
-            cmbCategoria.Text = categoria;
-            cmbStatus.Text = status;
+            nudParcelas.Value = 1;            
             nudParcelas.Value = NumParcela;
 
             // Desabilitar edição de campos que vêm do FrmDespesas
-            txtDescricao.Enabled = false;
-            txtValorTotal.Enabled = false;
-            cmbCategoria.Enabled = false;
-            cmbStatus.Enabled = false;
+            lblDescricao.Enabled = false;
+            lblValorTotal.Enabled = false;            
         }
 
         private void ConfigurarListView()
@@ -61,30 +57,33 @@ namespace Money
                 lvParcelas.Items.Clear();
                 parcelasGeradas.Clear();
 
-                decimal valorTotal = decimal.Parse(txtValorTotal.Text);
+                decimal valorTotal = decimal.Parse(lblValorTotal.Text);
                 int numeroParcelas = (int)nudParcelas.Value;
                 decimal valorParcela = valorTotal / numeroParcelas;
                 DateTime dataVencimento = dtpPrimeiraParcela.Value;
 
                 for (int i = 0; i < numeroParcelas; i++)
                 {
+                    string parcelaFormatada = $"{i + 1}/{numeroParcelas}"; // Formato "1/4", "2/4", etc.
                     var despesa = new DespesasModel
                     {
-                        Descricao = $"{txtDescricao.Text} - Parcela {i + 1}/{numeroParcelas}",
+                        Descricao = $"{lblDescricao.Text} - Parcela {parcelaFormatada}",
                         Valor = valorParcela,
                         DataVencimento = dataVencimento.AddMonths(i),
-                        Status = cmbStatus.Text,
-                        NumeroParcelas = numeroParcelas, // Total de parcelas
+                        NumeroParcelas = parcelaFormatada, // "1/4", "2/4", etc.
                         ValorParcela = valorParcela,
-                        CategoriaID = null, // Será preenchido no FormCadastroDespesa
-                        MetodoPgtoID = null, // Será preenchido no FormCadastroDespesa                        
+                        MetodoPgtoID = null,
                         Pago = false,
-                        DataCriacao = DateTime.Now // Será ajustado no FormCadastroDespesa
+                        DataCriacao = DateTime.Now
                     };
                     parcelasGeradas.Add(despesa);
+
                     lvParcelas.Items.Add(new ListViewItem(new[] {
-                    $"{i + 1}/{numeroParcelas}", despesa.Descricao, despesa.Valor.ToString("N2"), despesa.DataVencimento.ToString("dd/MM/yyyy")
-                }));
+                parcelaFormatada,
+                despesa.Descricao,
+                despesa.Valor.ToString("N2"),
+                despesa.DataVencimento.ToString("dd/MM/yyyy")
+            }));
                 }
             }
             catch (Exception ex)
@@ -125,106 +124,3 @@ namespace Money
     }
 }
 
-
-
-/*
- * 
- * public partial class FormGerarParcelas : KryptonForm
-{
-    private List<DespesasModel> parcelasGeradas = new List<DespesasModel>();
-
-    public List<DespesasModel> Parcelas
-    {
-        get { return parcelasGeradas; }
-    }
-
-    public FormGerarParcelas(string descricao, decimal valorTotal, DateTime dataVencimentoInicial, string categoria, string status)
-    {
-        InitializeComponent();
-        ConfigurarControles(descricao, valorTotal, dataVencimentoInicial, categoria, status);
-        ConfigurarListView();
-    }
-
-    private void ConfigurarControles(string descricao, decimal valorTotal, DateTime dataVencimentoInicial, string categoria, string status)
-    {
-        txtDescricao.Text = descricao;
-        txtValorTotal.Text = valorTotal.ToString("N2");
-        dtpPrimeiraParcela.Value = dataVencimentoInicial;
-        nudParcelas.Value = 1;
-        cmbCategoria.Text = categoria;
-        cmbStatus.Text = status;
-
-        txtDescricao.Enabled = false;
-        txtValorTotal.Enabled = false;
-        cmbCategoria.Enabled = false;
-        cmbStatus.Enabled = false;
-    }
-
-    private void ConfigurarListView()
-    {
-        lvParcelas.View = View.Details;
-        lvParcelas.FullRowSelect = true;
-        lvParcelas.GridLines = true;
-        lvParcelas.Columns.Add("Parcela", 80);
-        lvParcelas.Columns.Add("Descrição", 250);
-        lvParcelas.Columns.Add("Valor (R$)", 100);
-        lvParcelas.Columns.Add("Vencimento", 100);
-    }
-
-    private void btnGerarParcelas_Click(object sender, EventArgs e)
-    {
-        try
-        {
-            lvParcelas.Items.Clear();
-            parcelasGeradas.Clear();
-
-            decimal valorTotal = decimal.Parse(txtValorTotal.Text);
-            int numeroParcelas = (int)nudParcelas.Value;
-            decimal valorParcela = valorTotal / numeroParcelas;
-            DateTime dataVencimento = dtpPrimeiraParcela.Value;
-
-            for (int i = 0; i < numeroParcelas; i++)
-            {
-                var despesa = new DespesasModel
-                {
-                    Descricao = $"{txtDescricao.Text} - Parcela {i + 1}/{numeroParcelas}",
-                    Valor = valorParcela,
-                    DataVencimento = dataVencimento.AddMonths(i),
-                    Status = cmbStatus.Text,
-                    NumeroParcelas = numeroParcelas,
-                    ValorParcela = valorParcela,
-                    CategoriaID = null, // Será preenchido no FormCadastroDespesa
-                    MetodoPgtoID = null, // Será preenchido no FormCadastroDespesa
-                    Pago = false,
-                    DataCriacao = DateTime.Now
-                };
-                parcelasGeradas.Add(despesa);
-                lvParcelas.Items.Add(new ListViewItem(new[] {
-                    $"{i + 1}/{numeroParcelas}", despesa.Descricao, despesa.Valor.ToString("N2"), despesa.DataVencimento.ToString("dd/MM/yyyy")
-                }));
-            }
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show($"Erro ao gerar parcelas: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-    }
-
-    private void btnConfirmar_Click(object sender, EventArgs e)
-    {
-        if (parcelasGeradas.Count == 0)
-        {
-            MessageBox.Show("Gere as parcelas antes de confirmar!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
-        }
-        this.DialogResult = DialogResult.OK;
-        this.Close();
-    }
-
-    private void btnCancelar_Click(object sender, EventArgs e)
-    {
-        this.DialogResult = DialogResult.Cancel;
-        this.Close();
-    }
-}
- * */

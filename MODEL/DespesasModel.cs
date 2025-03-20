@@ -13,7 +13,7 @@ namespace Money.MODEL
         public decimal Valor { get; set; }
         public DateTime DataVencimento { get; set; }
         public string Status { get; set; }
-        public int? NumeroParcelas { get; set; }
+        public string NumeroParcelas { get; set; } = null;
         public decimal? ValorParcela { get; set; }
         public int? CategoriaID { get; set; }
         public string NomeCategoria { get; set; } // Adicionada propriedade para o nome da categoria

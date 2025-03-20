@@ -21,8 +21,29 @@ namespace Money.BLL
                 throw new ArgumentException("O valor deve ser maior que zero.");
             if (string.IsNullOrEmpty(despesa.Status))
                 throw new ArgumentException("O status é obrigatório.");
-            if (despesa.NumeroParcelas.HasValue && despesa.NumeroParcelas <= 0)
-                throw new ArgumentException("O número de parcelas deve ser maior que zero.");
+
+            // Validação de NumeroParcelas
+            if (!string.IsNullOrEmpty(despesa.NumeroParcelas))
+            {
+                if (despesa.NumeroParcelas.Contains("/"))
+                {
+                    // Formato "X/Y"
+                    string[] partes = despesa.NumeroParcelas.Split('/');
+                    if (partes.Length != 2 || !int.TryParse(partes[0], out int parcelaAtual) || !int.TryParse(partes[1], out int totalParcelas) || totalParcelas <= 0)
+                    {
+                        throw new ArgumentException("O número de parcelas deve ser um valor válido maior que zero no formato 'X/Y'.");
+                    }
+                }
+                else
+                {
+                    // Formato numérico simples (ex.: "1", "2")
+                    if (!int.TryParse(despesa.NumeroParcelas, out int numParcelas) || numParcelas <= 0)
+                    {
+                        throw new ArgumentException("O número de parcelas deve ser um valor válido maior que zero.");
+                    }
+                }
+            }
+
             if (despesa.ValorParcela.HasValue && despesa.ValorParcela <= 0)
                 throw new ArgumentException("O valor da parcela deve ser maior que zero.");
             if (despesa.DataVencimento == default)
@@ -41,8 +62,28 @@ namespace Money.BLL
                 throw new ArgumentException("O valor deve ser maior que zero.");
             if (string.IsNullOrEmpty(despesa.Status))
                 throw new ArgumentException("O status é obrigatório.");
-            if (despesa.NumeroParcelas.HasValue && despesa.NumeroParcelas <= 0)
-                throw new ArgumentException("O número de parcelas deve ser maior que zero.");
+
+            if (!string.IsNullOrEmpty(despesa.NumeroParcelas))
+            {
+                if (despesa.NumeroParcelas.Contains("/"))
+                {
+                    // Formato "X/Y"
+                    string[] partes = despesa.NumeroParcelas.Split('/');
+                    if (partes.Length != 2 || !int.TryParse(partes[0], out int parcelaAtual) || !int.TryParse(partes[1], out int totalParcelas) || totalParcelas <= 0)
+                    {
+                        throw new ArgumentException("O número de parcelas deve ser um valor válido maior que zero no formato 'X/Y'.");
+                    }
+                }
+                else
+                {
+                    // Formato numérico simples (ex.: "1", "2")
+                    if (!int.TryParse(despesa.NumeroParcelas, out int numParcelas) || numParcelas <= 0)
+                    {
+                        throw new ArgumentException("O número de parcelas deve ser um valor válido maior que zero.");
+                    }
+                }
+            }
+
             if (despesa.ValorParcela.HasValue && despesa.ValorParcela <= 0)
                 throw new ArgumentException("O valor da parcela deve ser maior que zero.");
             if (despesa.DataVencimento == default)
@@ -53,11 +94,11 @@ namespace Money.BLL
         public void AlterarStatus(DespesasModel despesa)
         {
             if (despesa.DespesaID <= 0)
-                throw new ArgumentException("ID inválido.");            
+                throw new ArgumentException("ID inválido.");
             if (string.IsNullOrEmpty(despesa.Status))
                 throw new ArgumentException("O status é obrigatório.");
             if (despesa.Pago != true)
-                throw new ArgumentException("Deve marcar como pago true");  
+                throw new ArgumentException("Deve marcar como pago true");
 
             _dal.AtualizarStatus(despesa);
         }
@@ -78,26 +119,5 @@ namespace Money.BLL
         {
             return _dal.PesquisarRelatorios(descricao);
         }
-
-
-        //public void Salvar(DespesasModel despesa)
-        //{
-        //    _dal.Salvar(despesa);
-        //}
-
-        //public void Atualizar(DespesasModel despesa)
-        //{
-        //    _dal.Atualizar(despesa);
-        //}
-
-        //public void Excluir(int despesaId)
-        //{
-        //    _dal.Excluir(despesaId);
-        //}
-
-        //public List<DespesasModel> Pesquisar(string descricao = null)
-        //{
-        //    return _dal.Pesquisar(descricao);
-        //}
     }
 }

@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.dgvDespesas = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.txtQtdItens = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtValorTotalAberto = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -49,10 +49,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioPendentes = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.radioPagas = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
+            this.dgvDespesa = new System.Windows.Forms.DataGridView();
             this.metroPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDespesas)).BeginInit();
             this.metroPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDespesa)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -123,23 +124,6 @@
             this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel2.TabIndex = 268;
             this.kryptonLabel2.Values.Text = "Manutenção de Despesas";
-            // 
-            // dgvDespesas
-            // 
-            this.dgvDespesas.AllowUserToAddRows = false;
-            this.dgvDespesas.AllowUserToDeleteRows = false;
-            this.dgvDespesas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvDespesas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDespesas.Location = new System.Drawing.Point(12, 86);
-            this.dgvDespesas.Name = "dgvDespesas";
-            this.dgvDespesas.ReadOnly = true;
-            this.dgvDespesas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDespesas.Size = new System.Drawing.Size(657, 304);
-            this.dgvDespesas.TabIndex = 212;
-            this.dgvDespesas.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvDespesas_CellFormatting);
-            this.dgvDespesas.SelectionChanged += new System.EventHandler(this.dgvTiposReceita_SelectionChanged);
             // 
             // txtQtdItens
             // 
@@ -384,12 +368,36 @@
             this.radioPagas.Values.Text = "Pago";
             this.radioPagas.CheckedChanged += new System.EventHandler(this.radioPagas_CheckedChanged);
             // 
+            // dgvDespesa
+            // 
+            this.dgvDespesa.AllowUserToAddRows = false;
+            this.dgvDespesa.AllowUserToDeleteRows = false;
+            this.dgvDespesa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDespesa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvDespesa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDespesa.Location = new System.Drawing.Point(15, 89);
+            this.dgvDespesa.Name = "dgvDespesa";
+            this.dgvDespesa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDespesa.Size = new System.Drawing.Size(654, 298);
+            this.dgvDespesa.TabIndex = 274;
+            this.dgvDespesa.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvDespesa_CellFormatting);
+            this.dgvDespesa.SelectionChanged += new System.EventHandler(this.dgvDespesa_SelectionChanged);
+            // 
             // FormManutencaoDespesas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dgvDespesa);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnPagarConta);
             this.Controls.Add(this.txtPesquisa);
@@ -400,7 +408,6 @@
             this.Controls.Add(this.metroPanel1);
             this.Controls.Add(this.kryptonLabel5);
             this.Controls.Add(this.metroPanel2);
-            this.Controls.Add(this.dgvDespesas);
             this.Name = "FormManutencaoDespesas";
             this.Palette = this.kryptonPalette1;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
@@ -408,11 +415,11 @@
             this.Load += new System.EventHandler(this.FormCadastroTiposReceita_Load);
             this.metroPanel2.ResumeLayout(false);
             this.metroPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDespesas)).EndInit();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDespesa)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -423,7 +430,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel5;
         private MetroFramework.Controls.MetroPanel metroPanel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvDespesas;
         public ComponentFactory.Krypton.Toolkit.KryptonTextBox txtQtdItens;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
         public ComponentFactory.Krypton.Toolkit.KryptonTextBox txtValorTotalAberto;
@@ -440,6 +446,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton radioPendentes;
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton radioPagas;
+        private System.Windows.Forms.DataGridView dgvDespesa;
     }
 }
 

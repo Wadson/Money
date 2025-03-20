@@ -35,18 +35,17 @@
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel6 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dtpPrimeiraParcela = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.nudParcelas = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
-            this.txtValorTotal = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.txtDescricao = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.cmbCategoria = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.cmbStatus = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.btnGerarParcelas = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbStatus)).BeginInit();
+            this.lblValorTotal = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.lblDescricao = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.lblStatus = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
+            this.kryptonPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -80,58 +79,46 @@
             // lvParcelas
             // 
             this.lvParcelas.HideSelection = false;
-            this.lvParcelas.Location = new System.Drawing.Point(1, 145);
+            this.lvParcelas.Location = new System.Drawing.Point(1, 131);
             this.lvParcelas.Name = "lvParcelas";
-            this.lvParcelas.Size = new System.Drawing.Size(642, 163);
+            this.lvParcelas.Size = new System.Drawing.Size(463, 177);
             this.lvParcelas.TabIndex = 9;
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(136, 15);
+            this.kryptonLabel1.Location = new System.Drawing.Point(9, 58);
             this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(128, 20);
+            this.kryptonLabel1.Size = new System.Drawing.Size(75, 21);
+            this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel1.TabIndex = 16;
-            this.kryptonLabel1.Values.Text = "Descrição da despesa";
+            this.kryptonLabel1.Values.Text = "Descrição:";
             // 
             // kryptonLabel2
             // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(22, 80);
+            this.kryptonLabel2.Location = new System.Drawing.Point(3, 95);
             this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(71, 20);
+            this.kryptonLabel2.Size = new System.Drawing.Size(85, 21);
+            this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel2.TabIndex = 17;
-            this.kryptonLabel2.Values.Text = "Nº de Parc.";
+            this.kryptonLabel2.Values.Text = "Nº de Parc.:";
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(136, 80);
+            this.kryptonLabel3.Location = new System.Drawing.Point(203, 95);
             this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(113, 20);
+            this.kryptonLabel3.Size = new System.Drawing.Size(132, 21);
+            this.kryptonLabel3.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel3.TabIndex = 19;
             this.kryptonLabel3.Values.Text = "Dt.Primeira Parcela";
             // 
             // kryptonLabel4
             // 
-            this.kryptonLabel4.Location = new System.Drawing.Point(16, 17);
+            this.kryptonLabel4.Location = new System.Drawing.Point(0, 34);
             this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(70, 20);
+            this.kryptonLabel4.Size = new System.Drawing.Size(84, 21);
+            this.kryptonLabel4.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel4.TabIndex = 21;
-            this.kryptonLabel4.Values.Text = "Valor Total";
-            // 
-            // kryptonLabel5
-            // 
-            this.kryptonLabel5.Location = new System.Drawing.Point(404, 80);
-            this.kryptonLabel5.Name = "kryptonLabel5";
-            this.kryptonLabel5.Size = new System.Drawing.Size(63, 20);
-            this.kryptonLabel5.TabIndex = 23;
-            this.kryptonLabel5.Values.Text = "Categoria";
-            // 
-            // kryptonLabel6
-            // 
-            this.kryptonLabel6.Location = new System.Drawing.Point(269, 80);
-            this.kryptonLabel6.Name = "kryptonLabel6";
-            this.kryptonLabel6.Size = new System.Drawing.Size(44, 20);
-            this.kryptonLabel6.TabIndex = 25;
-            this.kryptonLabel6.Values.Text = "Status";
+            this.kryptonLabel4.Values.Text = "Valor Total:";
             // 
             // dtpPrimeiraParcela
             // 
@@ -139,7 +126,7 @@
             this.dtpPrimeiraParcela.CalendarDimensions = new System.Drawing.Size(2, 2);
             this.dtpPrimeiraParcela.CalendarHeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Form;
             this.dtpPrimeiraParcela.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpPrimeiraParcela.Location = new System.Drawing.Point(125, 102);
+            this.dtpPrimeiraParcela.Location = new System.Drawing.Point(332, 88);
             this.dtpPrimeiraParcela.Name = "dtpPrimeiraParcela";
             this.dtpPrimeiraParcela.Palette = this.kryptonPalette1;
             this.dtpPrimeiraParcela.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
@@ -154,7 +141,7 @@
             // 
             // nudParcelas
             // 
-            this.nudParcelas.Location = new System.Drawing.Point(3, 103);
+            this.nudParcelas.Location = new System.Drawing.Point(82, 88);
             this.nudParcelas.Maximum = new decimal(new int[] {
             205,
             0,
@@ -170,80 +157,6 @@
             this.nudParcelas.TabIndex = 266;
             this.nudParcelas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudParcelas.ValueChanged += new System.EventHandler(this.nudParcelas_ValueChanged);
-            // 
-            // txtValorTotal
-            // 
-            this.txtValorTotal.Location = new System.Drawing.Point(1, 39);
-            this.txtValorTotal.Name = "txtValorTotal";
-            this.txtValorTotal.Size = new System.Drawing.Size(118, 35);
-            this.txtValorTotal.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.txtValorTotal.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.txtValorTotal.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.txtValorTotal.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtValorTotal.StateCommon.Border.Rounding = 20;
-            this.txtValorTotal.StateCommon.Border.Width = 1;
-            this.txtValorTotal.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
-            this.txtValorTotal.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.txtValorTotal.TabIndex = 267;
-            // 
-            // txtDescricao
-            // 
-            this.txtDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescricao.Location = new System.Drawing.Point(125, 41);
-            this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(518, 35);
-            this.txtDescricao.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.txtDescricao.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.txtDescricao.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.txtDescricao.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtDescricao.StateCommon.Border.Rounding = 20;
-            this.txtDescricao.StateCommon.Border.Width = 1;
-            this.txtDescricao.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
-            this.txtDescricao.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.txtDescricao.TabIndex = 268;
-            // 
-            // cmbCategoria
-            // 
-            this.cmbCategoria.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.cmbCategoria.Location = new System.Drawing.Point(404, 103);
-            this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(239, 35);
-            this.cmbCategoria.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.cmbCategoria.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.cmbCategoria.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.cmbCategoria.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.cmbCategoria.StateCommon.Border.Rounding = 20;
-            this.cmbCategoria.StateCommon.Border.Width = 1;
-            this.cmbCategoria.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
-            this.cmbCategoria.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.cmbCategoria.TabIndex = 301;
-            // 
-            // cmbStatus
-            // 
-            this.cmbStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbStatus.DropDownWidth = 138;
-            this.cmbStatus.Items.AddRange(new object[] {
-            "Pendente",
-            "Pago"});
-            this.cmbStatus.Location = new System.Drawing.Point(262, 104);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(136, 33);
-            this.cmbStatus.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.cmbStatus.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.cmbStatus.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.cmbStatus.StateCommon.ComboBox.Border.Rounding = 20;
-            this.cmbStatus.TabIndex = 302;
-            this.cmbStatus.TabStop = false;
-            this.cmbStatus.Text = "Pendente";
             // 
             // btnGerarParcelas
             // 
@@ -271,7 +184,7 @@
             this.btnConfirmar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmar.ForeColor = System.Drawing.Color.White;
-            this.btnConfirmar.Location = new System.Drawing.Point(529, 314);
+            this.btnConfirmar.Location = new System.Drawing.Point(346, 314);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(110, 36);
             this.btnConfirmar.TabIndex = 304;
@@ -296,34 +209,78 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // lblValorTotal
+            // 
+            this.lblValorTotal.Location = new System.Drawing.Point(84, 34);
+            this.lblValorTotal.Name = "lblValorTotal";
+            this.lblValorTotal.Size = new System.Drawing.Size(75, 21);
+            this.lblValorTotal.StateCommon.ShortText.Color1 = System.Drawing.Color.Red;
+            this.lblValorTotal.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorTotal.TabIndex = 306;
+            this.lblValorTotal.Values.Text = "Valor Total";
+            // 
+            // lblDescricao
+            // 
+            this.lblDescricao.Location = new System.Drawing.Point(84, 60);
+            this.lblDescricao.Name = "lblDescricao";
+            this.lblDescricao.Size = new System.Drawing.Size(68, 21);
+            this.lblDescricao.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescricao.TabIndex = 307;
+            this.lblDescricao.Values.Text = "Descrição";
+            // 
+            // kryptonPanel1
+            // 
+            this.kryptonPanel1.Controls.Add(this.lblStatus);
+            this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonPanel1.Name = "kryptonPanel1";
+            this.kryptonPanel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            this.kryptonPanel1.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.SeparatorHighProfile;
+            this.kryptonPanel1.Size = new System.Drawing.Size(468, 30);
+            this.kryptonPanel1.TabIndex = 308;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.BackColor = System.Drawing.Color.Transparent;
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.lblStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
+            this.lblStatus.Location = new System.Drawing.Point(171, 2);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(134, 24);
+            this.lblStatus.TabIndex = 248;
+            this.lblStatus.Text = "Gerar Parcelas";
+            // 
             // FormGerarParcelas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(651, 358);
+            this.ClientSize = new System.Drawing.Size(468, 358);
+            this.Controls.Add(this.kryptonPanel1);
+            this.Controls.Add(this.lblDescricao);
+            this.Controls.Add(this.lblValorTotal);
             this.Controls.Add(this.btnGerarParcelas);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.cmbCategoria);
-            this.Controls.Add(this.cmbStatus);
-            this.Controls.Add(this.txtValorTotal);
-            this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.nudParcelas);
             this.Controls.Add(this.dtpPrimeiraParcela);
-            this.Controls.Add(this.kryptonLabel6);
-            this.Controls.Add(this.kryptonLabel5);
             this.Controls.Add(this.kryptonLabel4);
             this.Controls.Add(this.kryptonLabel3);
             this.Controls.Add(this.kryptonLabel2);
             this.Controls.Add(this.kryptonLabel1);
             this.Controls.Add(this.lvParcelas);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormGerarParcelas";
             this.Palette = this.kryptonPalette1;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gerar parcelas";
             this.Load += new System.EventHandler(this.FormGerarParcelas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.cmbStatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
+            this.kryptonPanel1.ResumeLayout(false);
+            this.kryptonPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,17 +294,15 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel3;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel5;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel6;
         public ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpPrimeiraParcela;
         private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown nudParcelas;
-        public ComponentFactory.Krypton.Toolkit.KryptonTextBox txtValorTotal;
-        public ComponentFactory.Krypton.Toolkit.KryptonTextBox txtDescricao;
-        public ComponentFactory.Krypton.Toolkit.KryptonTextBox cmbCategoria;
-        public ComponentFactory.Krypton.Toolkit.KryptonComboBox cmbStatus;
         public System.Windows.Forms.Button btnGerarParcelas;
         public System.Windows.Forms.Button btnConfirmar;
         public System.Windows.Forms.Button btnCancelar;
+        public ComponentFactory.Krypton.Toolkit.KryptonLabel lblValorTotal;
+        public ComponentFactory.Krypton.Toolkit.KryptonLabel lblDescricao;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
+        public System.Windows.Forms.Label lblStatus;
     }
 }
 
