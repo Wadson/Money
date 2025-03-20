@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\Money\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1BBAC2C5-2E0F-425E-B1A4-E9299321AACE}|Money.csproj|D:\\Money\\formcadastrodespesa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BBAC2C5-2E0F-425E-B1A4-E9299321AACE}|Money.csproj|solutionrelative:formcadastrodespesa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1BBAC2C5-2E0F-425E-B1A4-E9299321AACE}|Money.csproj|d:\\money\\formgerarparcelas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BBAC2C5-2E0F-425E-B1A4-E9299321AACE}|Money.csproj|solutionrelative:formgerarparcelas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1BBAC2C5-2E0F-425E-B1A4-E9299321AACE}|Money.csproj|d:\\money\\formcadastrodespesa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1BBAC2C5-2E0F-425E-B1A4-E9299321AACE}|Money.csproj|solutionrelative:formcadastrodespesa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{1BBAC2C5-2E0F-425E-B1A4-E9299321AACE}|Money.csproj|d:\\money\\formgerarparcelas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1BBAC2C5-2E0F-425E-B1A4-E9299321AACE}|Money.csproj|solutionrelative:formgerarparcelas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -51,26 +51,26 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FormCadastroDespesa.cs",
-              "DocumentMoniker": "D:\\Money\\FormCadastroDespesa.cs",
-              "RelativeDocumentMoniker": "FormCadastroDespesa.cs",
-              "ToolTip": "D:\\Money\\FormCadastroDespesa.cs",
-              "RelativeToolTip": "FormCadastroDespesa.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAAAGMAAAAJAAAAAAAAAA==",
+              "Title": "FormGerarParcelas.cs",
+              "DocumentMoniker": "D:\\Money\\FormGerarParcelas.cs",
+              "RelativeDocumentMoniker": "FormGerarParcelas.cs",
+              "ToolTip": "D:\\Money\\FormGerarParcelas.cs",
+              "RelativeToolTip": "FormGerarParcelas.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAqwDwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T11:20:50.805Z",
+              "WhenOpened": "2025-03-20T14:02:51.67Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FormCadastroDespesa.cs [Design]",
-              "DocumentMoniker": "D:\\Money\\FormCadastroDespesa.cs",
-              "RelativeDocumentMoniker": "FormCadastroDespesa.cs",
-              "ToolTip": "D:\\Money\\FormCadastroDespesa.cs [Design]",
-              "RelativeToolTip": "FormCadastroDespesa.cs [Design]",
+              "Title": "FormGerarParcelas.cs [Design]",
+              "DocumentMoniker": "D:\\Money\\FormGerarParcelas.cs",
+              "RelativeDocumentMoniker": "FormGerarParcelas.cs",
+              "ToolTip": "D:\\Money\\FormGerarParcelas.cs [Design]",
+              "RelativeToolTip": "FormGerarParcelas.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T11:20:48.852Z",
+              "WhenOpened": "2025-03-20T14:02:49.329Z",
               "EditorCaption": " [Design]"
             }
           ]

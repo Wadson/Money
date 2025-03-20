@@ -32,16 +32,27 @@ namespace Money
             lblValorTotal.Text = valorTotal.ToString("N2");
             dtpPrimeiraParcela.Value = dataVencimentoInicial;
 
-            // Extrair o número total de parcelas (valor à direita do "/")
-            int totalParcelas = 1; // Valor padrão caso não seja no formato "X/Y"
-            if (!string.IsNullOrEmpty(numParcela) && numParcela.Contains("/"))
+            // Definir o número total de parcelas
+            int totalParcelas = 1; // Valor padrão caso não seja válido
+
+            if (!string.IsNullOrEmpty(numParcela))
             {
-                string[] partes = numParcela.Split('/');
-                if (partes.Length == 2 && int.TryParse(partes[1], out int valorDireita))
+                // Verificar se é um número inteiro simples (ex.: "2", "5", "8")
+                if (int.TryParse(numParcela, out int numeroInteiro))
                 {
-                    totalParcelas = valorDireita;
+                    totalParcelas = numeroInteiro;
+                }
+                // Verificar se está no formato "X/Y" (ex.: "1/3")
+                else if (numParcela.Contains("/"))
+                {
+                    string[] partes = numParcela.Split('/');
+                    if (partes.Length == 2 && int.TryParse(partes[1], out int valorDireita))
+                    {
+                        totalParcelas = valorDireita;
+                    }
                 }
             }
+
             nudParcelas.Value = totalParcelas;
 
             // Desabilitar edição de campos que vêm do FrmDespesas
