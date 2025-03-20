@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using MetroFramework.Forms;
 using MetroFramework.Controls;
 using System.Windows.Forms;
+using System.Deployment.Application;
+using System.Timers;
+using System.IO;
 
 namespace Money
 {
@@ -46,9 +49,58 @@ namespace Money
 
             formToOpen.Show();
         }
+        private void AtualizaBarraStatus()
+        {
+            // Obtém o caminho do diretório de execução
+            string currentPath = Path.GetDirectoryName(Application.ExecutablePath);
 
+
+            // Verifica se a aplicação foi publicada via ClickOnce
+            if (ApplicationDeployment.IsNetworkDeployed)
+            {
+                // Obtém a versão da publicação
+                Version version = ApplicationDeployment.CurrentDeployment.CurrentVersion;
+
+                // Exibe a versão na barra de status ou onde preferir
+                lblVersaoSistema.Text = $"Versão da Publicação: {version}";
+            }
+            else
+            {
+                lblVersaoSistema.Text = "Aplicação não publicada.";
+            }
+
+            //// Atualiza a label de usuário na barra de status
+            //string usuarioLogado = FrmLogin.UsuarioConectado;
+            //string nivelAcesso = FrmLogin.NivelAcesso;
+            //lblUsuarioLogadoo.Text = $"{usuarioLogado}";
+            //lblTipoUsuarioo.Text = $"{nivelAcesso}";
+
+            // Atualiza a data
+            string data = DateTime.Now.ToLongDateString();
+            data = data.Substring(0, 1).ToUpper() + data.Substring(1);
+            lblDat.Text = data;
+
+            // Exibe informações do computador
+            string path = System.AppDomain.CurrentDomain.BaseDirectory.ToString();
+            var informacao = Environment.UserName;
+            var nomeComputador = Environment.MachineName;
+
+            lblEstac.Text = nomeComputador;
+            lblDat.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            lblHoraAt.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+        private void OnTimedEvent(Object source, ElapsedEventArgs e)
+        {
+            // Atualiza a data e hora
+            this.Invoke(new Action(() =>
+            {
+                lblDat.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                lblHoraAt.Text = DateTime.Now.ToString("HH:mm:ss");
+            }));
+        }
         private void FormPrincipal_Load(object sender, EventArgs e)
-        {           
+        {
+            AtualizaBarraStatus();
         }
 
         private void btnReceitas_Click(object sender, EventArgs e)
@@ -97,6 +149,11 @@ namespace Money
         {
             FormFluxoFinanceiro formFluxo = new FormFluxoFinanceiro();
             formFluxo.ShowDialog();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            lblHoraAt.Text = DateTime.Now.ToString("HH:mm:ss");
         }
     }
 }

@@ -20,25 +20,46 @@ namespace Money
         {
             get { return parcelasGeradas; }
         }
-        public FormGerarParcelas(string descricao, decimal valorTotal, DateTime dataVencimentoInicial, int NumParcela)
+        public FormGerarParcelas(string descricao, decimal valorTotal, DateTime dataVencimentoInicial, string NumParcela)
         {
             InitializeComponent();
             ConfigurarControles(descricao, valorTotal, dataVencimentoInicial, NumParcela);
             ConfigurarListView();
         }
-
-        private void ConfigurarControles(string descricao, decimal valorTotal, DateTime dataVencimentoInicial, int NumParcela)
+        private void ConfigurarControles(string descricao, decimal valorTotal, DateTime dataVencimentoInicial, string numParcela)
         {
             lblDescricao.Text = descricao;
             lblValorTotal.Text = valorTotal.ToString("N2");
             dtpPrimeiraParcela.Value = dataVencimentoInicial;
-            nudParcelas.Value = 1;            
-            nudParcelas.Value = NumParcela;
+
+            // Extrair o número total de parcelas (valor à direita do "/")
+            int totalParcelas = 1; // Valor padrão caso não seja no formato "X/Y"
+            if (!string.IsNullOrEmpty(numParcela) && numParcela.Contains("/"))
+            {
+                string[] partes = numParcela.Split('/');
+                if (partes.Length == 2 && int.TryParse(partes[1], out int valorDireita))
+                {
+                    totalParcelas = valorDireita;
+                }
+            }
+            nudParcelas.Value = totalParcelas;
 
             // Desabilitar edição de campos que vêm do FrmDespesas
             lblDescricao.Enabled = false;
-            lblValorTotal.Enabled = false;            
+            lblValorTotal.Enabled = false;
         }
+        //private void ConfigurarControles(string descricao, decimal valorTotal, DateTime dataVencimentoInicial, int NumParcela)
+        //{
+        //    lblDescricao.Text = descricao;
+        //    lblValorTotal.Text = valorTotal.ToString("N2");
+        //    dtpPrimeiraParcela.Value = dataVencimentoInicial;
+        //    nudParcelas.Value = 1;            
+        //    nudParcelas.Value = NumParcela;
+
+        //    // Desabilitar edição de campos que vêm do FrmDespesas
+        //    lblDescricao.Enabled = false;
+        //    lblValorTotal.Enabled = false;            
+        //}
 
         private void ConfigurarListView()
         {
@@ -116,10 +137,6 @@ namespace Money
         private void nudParcelas_ValueChanged(object sender, EventArgs e)
         {
             GerarParcelas();
-        }
-
-        private void FormGerarParcelas_Load(object sender, EventArgs e)
-        {
         }
     }
 }

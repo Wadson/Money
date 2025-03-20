@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.pnlContainer = new MetroFramework.Controls.MetroPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +42,8 @@
             this.cópiaDeSegurançaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerarCópiaDeSegurançaBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restaurarCópiaDeSegurançaBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.financeiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirFuxoFinanceiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btnCategoria = new System.Windows.Forms.Button();
             this.btnUsuario = new System.Windows.Forms.Button();
@@ -51,20 +52,20 @@
             this.btnDespesas = new System.Windows.Forms.Button();
             this.btnRelatorio = new System.Windows.Forms.Button();
             this.metroContextMenu1 = new MetroFramework.Controls.MetroContextMenu(this.components);
-            this.financeiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.abrirFuxoFinanceiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lblEstac = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel12 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblDat = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel14 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblHoraAt = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel8 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblVersaoSistema = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(20, 726);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1069, 22);
-            this.statusStrip1.TabIndex = 16;
-            this.statusStrip1.Text = "statusStrip1";
             // 
             // pnlContainer
             // 
@@ -180,6 +181,21 @@
             this.restaurarCópiaDeSegurançaBackupToolStripMenuItem.Size = new System.Drawing.Size(281, 22);
             this.restaurarCópiaDeSegurançaBackupToolStripMenuItem.Text = "Restaurar Cópia de Segurança (Backup)";
             this.restaurarCópiaDeSegurançaBackupToolStripMenuItem.Click += new System.EventHandler(this.restaurarCópiaDeSegurançaBackupToolStripMenuItem_Click);
+            // 
+            // financeiroToolStripMenuItem
+            // 
+            this.financeiroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.abrirFuxoFinanceiroToolStripMenuItem});
+            this.financeiroToolStripMenuItem.Name = "financeiroToolStripMenuItem";
+            this.financeiroToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.financeiroToolStripMenuItem.Text = "Financeiro";
+            // 
+            // abrirFuxoFinanceiroToolStripMenuItem
+            // 
+            this.abrirFuxoFinanceiroToolStripMenuItem.Name = "abrirFuxoFinanceiroToolStripMenuItem";
+            this.abrirFuxoFinanceiroToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.abrirFuxoFinanceiroToolStripMenuItem.Text = "Abrir Fuxo Financeiro";
+            this.abrirFuxoFinanceiroToolStripMenuItem.Click += new System.EventHandler(this.abrirFuxoFinanceiroToolStripMenuItem_Click);
             // 
             // kryptonPanel1
             // 
@@ -299,29 +315,78 @@
             this.metroContextMenu1.Name = "metroContextMenu1";
             this.metroContextMenu1.Size = new System.Drawing.Size(61, 4);
             // 
-            // financeiroToolStripMenuItem
+            // statusStrip1
             // 
-            this.financeiroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.abrirFuxoFinanceiroToolStripMenuItem});
-            this.financeiroToolStripMenuItem.Name = "financeiroToolStripMenuItem";
-            this.financeiroToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
-            this.financeiroToolStripMenuItem.Text = "Financeiro";
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblEstac,
+            this.toolStripStatusLabel12,
+            this.lblDat,
+            this.toolStripStatusLabel14,
+            this.lblHoraAt,
+            this.toolStripStatusLabel8,
+            this.lblVersaoSistema});
+            this.statusStrip1.Location = new System.Drawing.Point(20, 726);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1069, 22);
+            this.statusStrip1.TabIndex = 609;
+            this.statusStrip1.Text = "statusStrip1";
             // 
-            // abrirFuxoFinanceiroToolStripMenuItem
+            // lblEstac
             // 
-            this.abrirFuxoFinanceiroToolStripMenuItem.Name = "abrirFuxoFinanceiroToolStripMenuItem";
-            this.abrirFuxoFinanceiroToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.abrirFuxoFinanceiroToolStripMenuItem.Text = "Abrir Fuxo Financeiro";
-            this.abrirFuxoFinanceiroToolStripMenuItem.Click += new System.EventHandler(this.abrirFuxoFinanceiroToolStripMenuItem_Click);
+            this.lblEstac.Name = "lblEstac";
+            this.lblEstac.Size = new System.Drawing.Size(47, 17);
+            this.lblEstac.Text = "Estação";
+            // 
+            // toolStripStatusLabel12
+            // 
+            this.toolStripStatusLabel12.Name = "toolStripStatusLabel12";
+            this.toolStripStatusLabel12.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel12.Text = "|";
+            // 
+            // lblDat
+            // 
+            this.lblDat.Name = "lblDat";
+            this.lblDat.Size = new System.Drawing.Size(31, 17);
+            this.lblDat.Text = "Data";
+            // 
+            // toolStripStatusLabel14
+            // 
+            this.toolStripStatusLabel14.Name = "toolStripStatusLabel14";
+            this.toolStripStatusLabel14.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel14.Text = "|";
+            // 
+            // lblHoraAt
+            // 
+            this.lblHoraAt.Name = "lblHoraAt";
+            this.lblHoraAt.Size = new System.Drawing.Size(33, 17);
+            this.lblHoraAt.Text = "Hora";
+            // 
+            // toolStripStatusLabel8
+            // 
+            this.toolStripStatusLabel8.Name = "toolStripStatusLabel8";
+            this.toolStripStatusLabel8.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel8.Text = "|";
+            // 
+            // lblVersaoSistema
+            // 
+            this.lblVersaoSistema.Name = "lblVersaoSistema";
+            this.lblVersaoSistema.Size = new System.Drawing.Size(41, 17);
+            this.lblVersaoSistema.Text = "Versao";
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1109, 768);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.kryptonPanel1);
             this.Controls.Add(this.pnlContainer);
-            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPrincipal";
@@ -332,13 +397,14 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.StatusStrip statusStrip1;
         private MetroFramework.Controls.MetroPanel pnlContainer;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem;
@@ -362,5 +428,14 @@
         private MetroFramework.Controls.MetroContextMenu metroContextMenu1;
         private System.Windows.Forms.ToolStripMenuItem financeiroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem abrirFuxoFinanceiroToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel lblEstac;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel12;
+        private System.Windows.Forms.ToolStripStatusLabel lblDat;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel14;
+        private System.Windows.Forms.ToolStripStatusLabel lblHoraAt;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel8;
+        private System.Windows.Forms.ToolStripStatusLabel lblVersaoSistema;
+        private System.Windows.Forms.Timer timer;
     }
 }

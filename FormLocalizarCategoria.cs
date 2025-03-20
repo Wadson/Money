@@ -23,7 +23,7 @@ namespace Money
 
         private bool isSelectingVendedor = false;
         private Form formChamador;
-        public new int ObterLinhaAtual()
+        public int ObterLinhaAtual()
         {
             return LinhaAtual;
         }

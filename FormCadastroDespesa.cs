@@ -60,22 +60,37 @@ namespace Money
             }
             base.OnFormClosing(e);
         }
+
         private void CalcularValorParcela()
         {
             if (decimal.TryParse(txtValorTotal.Text, out decimal valorTotal) &&
                 !string.IsNullOrWhiteSpace(txtNumeroParcelas.Text))
             {
-                string numeroParcelasText = txtNumeroParcelas.Text;
-                string[] partes = numeroParcelasText.Split('/');
+                string numeroParcelasText = txtNumeroParcelas.Text.Trim();
+                int totalParcelas;
 
-                if (partes.Length == 2 && int.TryParse(partes[1], out int totalParcelas) && totalParcelas > 0)
+                // Verifica se está no formato "X/Y" ou é apenas um número
+                if (numeroParcelasText.Contains("/"))
+                {
+                    string[] partes = numeroParcelasText.Split('/');
+                    if (partes.Length == 2 && int.TryParse(partes[1], out totalParcelas) && totalParcelas > 0)
+                    {
+                        decimal valorParcela = valorTotal / totalParcelas;
+                        txtValorParcela.Text = valorParcela.ToString("F2", CultureInfo.CurrentCulture);
+                    }
+                    else
+                    {
+                        txtValorParcela.Text = valorTotal.ToString("F2", CultureInfo.CurrentCulture); // Assume compra à vista se inválido
+                    }
+                }
+                else if (int.TryParse(numeroParcelasText, out totalParcelas) && totalParcelas > 0)
                 {
                     decimal valorParcela = valorTotal / totalParcelas;
-                    txtValorParcela.Text = valorParcela.ToString("F2", CultureInfo.CurrentCulture); // ou "N2" se preferir separador de milhares
+                    txtValorParcela.Text = valorParcela.ToString("F2", CultureInfo.CurrentCulture);
                 }
                 else
                 {
-                    txtValorParcela.Text = valorTotal.ToString("F2", CultureInfo.CurrentCulture); // Assume compra à vista se o formato estiver errado
+                    txtValorParcela.Text = valorTotal.ToString("F2", CultureInfo.CurrentCulture); // Assume compra à vista se inválido
                 }
             }
             else
@@ -83,7 +98,7 @@ namespace Money
                 txtValorParcela.Text = txtValorTotal.Text; // Se falhar, usa o valor total
             }
         }
-       
+
         private void ConfigurarFormularioInicial()
         {
             if (StatusOperacao == "NOVO")
@@ -187,7 +202,21 @@ namespace Money
                     return;
                 }
 
-                if (!int.TryParse(txtNumeroParcelas.Text.Trim(), out int numeroParcelas) || numeroParcelas <= 0)
+                // Pegar o texto do número de parcelas
+                string numeroParcelasTexto = txtNumeroParcelas.Text.Trim();
+                int numeroParcelas;
+
+                // Verificar se está no formato "X/Y" ou é apenas um número
+                if (numeroParcelasTexto.Contains("/"))
+                {
+                    string[] partes = numeroParcelasTexto.Split('/');
+                    if (partes.Length != 2 || !int.TryParse(partes[1], out numeroParcelas) || numeroParcelas <= 0)
+                    {
+                        MessageBox.Show("O número total de parcelas (à direita do '/') deve ser maior que zero!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+                else if (!int.TryParse(numeroParcelasTexto, out numeroParcelas) || numeroParcelas <= 0)
                 {
                     MessageBox.Show("O número de parcelas deve ser maior que zero!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -195,11 +224,12 @@ namespace Money
 
                 decimal valorTotal = decimal.Parse(txtValorTotal.Text, CultureInfo.CurrentCulture);
 
+                // Passar o texto original como string para FormGerarParcelas
                 var frmGerarParcelas = new FormGerarParcelas(
                     txtDescricao.Text.Trim(),
                     valorTotal,
                     dtpDataVencimento.Value,
-                    numeroParcelas
+                    numeroParcelasTexto // Passa a string original, como "1/7" ou "5"
                 );
 
                 if (frmGerarParcelas.ShowDialog() == DialogResult.OK)
@@ -255,8 +285,8 @@ namespace Money
         //            ParcelasGeradas = frmGerarParcelas.Parcelas;
         //            if (ParcelasGeradas.Count > 0)
         //            {
-        //                txtNumeroParcelas.Text = ParcelasGeradas.Count.ToString();
-        //                // Correção: Formatar ValorParcela com "N2" usando CultureInfo
+        //                // Mantém o formato "X/Y" da última parcela para refletir o total
+        //                txtNumeroParcelas.Text = ParcelasGeradas.Last().NumeroParcelas; // Ex.: "2/2" ou "8/8"
         //                txtValorParcela.Text = ParcelasGeradas.First().ValorParcela.HasValue
         //                    ? ParcelasGeradas.First().ValorParcela.Value.ToString("N2", CultureInfo.CurrentCulture)
         //                    : "0.00";
@@ -273,6 +303,7 @@ namespace Money
         //        MessageBox.Show($"Erro ao gerar parcelas: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         //    }
         //}
+
         private void btnGerarParcelas_Click(object sender, EventArgs e)
         {            
         }
@@ -296,13 +327,22 @@ namespace Money
                 try
                 {
                     decimal valorTotal = decimal.Parse(txtValorTotal.Text);
-                    string numeroParcelasText = txtNumeroParcelas.Text;
+                    string numeroParcelasText = txtNumeroParcelas.Text.Trim();
 
-                    // Extrai o total de parcelas (número à direita do "/")
-                    string[] partes = numeroParcelasText.Split('/');
-                    if (partes.Length != 2 || !int.TryParse(partes[1], out int totalParcelas) || totalParcelas <= 0)
+                    int totalParcelas;
+
+                    // Verifica se está no formato "X/Y" ou é apenas um número
+                    if (numeroParcelasText.Contains("/"))
                     {
-                        throw new FormatException("O número de parcelas deve estar no formato 'X/Y' e o total deve ser maior que zero.");
+                        string[] partes = numeroParcelasText.Split('/');
+                        if (partes.Length != 2 || !int.TryParse(partes[1], out totalParcelas) || totalParcelas <= 0)
+                        {
+                            throw new FormatException("O número de parcelas no formato 'X/Y' deve ter o total (à direita do '/') maior que zero.");
+                        }
+                    }
+                    else if (!int.TryParse(numeroParcelasText, out totalParcelas) || totalParcelas <= 0)
+                    {
+                        throw new FormatException("O número de parcelas deve ser um inteiro maior que zero.");
                     }
 
                     decimal valorParcela = valorTotal / totalParcelas;
