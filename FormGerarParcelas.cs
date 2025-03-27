@@ -58,19 +58,7 @@ namespace Money
             // Desabilitar edição de campos que vêm do FrmDespesas
             lblDescricao.Enabled = false;
             lblValorTotal.Enabled = false;
-        }
-        //private void ConfigurarControles(string descricao, decimal valorTotal, DateTime dataVencimentoInicial, int NumParcela)
-        //{
-        //    lblDescricao.Text = descricao;
-        //    lblValorTotal.Text = valorTotal.ToString("N2");
-        //    dtpPrimeiraParcela.Value = dataVencimentoInicial;
-        //    nudParcelas.Value = 1;            
-        //    nudParcelas.Value = NumParcela;
-
-        //    // Desabilitar edição de campos que vêm do FrmDespesas
-        //    lblDescricao.Enabled = false;
-        //    lblValorTotal.Enabled = false;            
-        //}
+        }      
 
         private void ConfigurarListView()
         {
@@ -100,7 +88,7 @@ namespace Money
                     var despesa = new DespesasModel
                     {
                         Descricao = $"{lblDescricao.Text} - Parcela {parcelaFormatada}",
-                        Valor = valorParcela,
+                        ValorDaCompra = valorParcela,
                         DataVencimento = dataVencimento.AddMonths(i),
                         NumeroParcelas = parcelaFormatada, // "1/4", "2/4", etc.
                         ValorParcela = valorParcela,
@@ -113,7 +101,7 @@ namespace Money
                     lvParcelas.Items.Add(new ListViewItem(new[] {
                 parcelaFormatada,
                 despesa.Descricao,
-                despesa.Valor.ToString("N2"),
+                despesa.ValorDaCompra.ToString("N2"),
                 despesa.DataVencimento.ToString("dd/MM/yyyy")
             }));
                 }

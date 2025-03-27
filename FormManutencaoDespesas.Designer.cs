@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
@@ -49,11 +48,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioPendentes = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.radioPagas = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.dgvDespesa = new System.Windows.Forms.DataGridView();
+            this.lstvDespesas = new System.Windows.Forms.ListView();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.metroPanel2.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDespesa)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -188,7 +188,6 @@
             this.metroPanel1.BackColor = System.Drawing.Color.Red;
             this.metroPanel1.Controls.Add(this.kryptonLabel1);
             this.metroPanel1.Controls.Add(this.txtQtdItens);
-            this.metroPanel1.Controls.Add(this.btnSair);
             this.metroPanel1.Controls.Add(this.txtValorTotalAberto);
             this.metroPanel1.Controls.Add(this.kryptonLabel3);
             this.metroPanel1.HorizontalScrollbarBarColor = true;
@@ -196,7 +195,7 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(12, 411);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(788, 42);
+            this.metroPanel1.Size = new System.Drawing.Size(657, 42);
             this.metroPanel1.Style = MetroFramework.MetroColorStyle.Green;
             this.metroPanel1.TabIndex = 262;
             this.metroPanel1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -216,7 +215,7 @@
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnSair.ForeColor = System.Drawing.Color.White;
-            this.btnSair.Location = new System.Drawing.Point(666, 1);
+            this.btnSair.Location = new System.Drawing.Point(11, 387);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(110, 36);
             this.btnSair.TabIndex = 267;
@@ -233,7 +232,7 @@
             this.btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnExcel.ForeColor = System.Drawing.Color.White;
-            this.btnExcel.Location = new System.Drawing.Point(675, 257);
+            this.btnExcel.Location = new System.Drawing.Point(11, 267);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(110, 36);
             this.btnExcel.TabIndex = 268;
@@ -250,7 +249,7 @@
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnNovo.ForeColor = System.Drawing.Color.White;
-            this.btnNovo.Location = new System.Drawing.Point(675, 89);
+            this.btnNovo.Location = new System.Drawing.Point(11, 99);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(110, 36);
             this.btnNovo.TabIndex = 269;
@@ -267,7 +266,7 @@
             this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnAlterar.ForeColor = System.Drawing.Color.White;
-            this.btnAlterar.Location = new System.Drawing.Point(675, 131);
+            this.btnAlterar.Location = new System.Drawing.Point(11, 141);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(110, 36);
             this.btnAlterar.TabIndex = 270;
@@ -284,7 +283,7 @@
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnExcluir.ForeColor = System.Drawing.Color.White;
-            this.btnExcluir.Location = new System.Drawing.Point(675, 215);
+            this.btnExcluir.Location = new System.Drawing.Point(11, 225);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(110, 36);
             this.btnExcluir.TabIndex = 271;
@@ -298,7 +297,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPesquisa.Location = new System.Drawing.Point(80, 45);
             this.txtPesquisa.Name = "txtPesquisa";
-            this.txtPesquisa.Size = new System.Drawing.Size(551, 35);
+            this.txtPesquisa.Size = new System.Drawing.Size(578, 35);
             this.txtPesquisa.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.txtPesquisa.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
             this.txtPesquisa.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
@@ -321,7 +320,7 @@
             this.btnPagarConta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPagarConta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnPagarConta.ForeColor = System.Drawing.Color.White;
-            this.btnPagarConta.Location = new System.Drawing.Point(675, 173);
+            this.btnPagarConta.Location = new System.Drawing.Point(11, 183);
             this.btnPagarConta.Name = "btnPagarConta";
             this.btnPagarConta.Size = new System.Drawing.Size(110, 36);
             this.btnPagarConta.TabIndex = 272;
@@ -336,9 +335,9 @@
             this.groupBox1.Controls.Add(this.radioPendentes);
             this.groupBox1.Controls.Add(this.radioPagas);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(637, 31);
+            this.groupBox1.Location = new System.Drawing.Point(11, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(148, 49);
+            this.groupBox1.Size = new System.Drawing.Size(110, 61);
             this.groupBox1.TabIndex = 273;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Status";
@@ -347,7 +346,7 @@
             // 
             this.radioPendentes.Checked = true;
             this.radioPendentes.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.radioPendentes.Location = new System.Drawing.Point(11, 19);
+            this.radioPendentes.Location = new System.Drawing.Point(5, 16);
             this.radioPendentes.Name = "radioPendentes";
             this.radioPendentes.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.radioPendentes.Size = new System.Drawing.Size(79, 22);
@@ -359,7 +358,7 @@
             // radioPagas
             // 
             this.radioPagas.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.radioPagas.Location = new System.Drawing.Point(90, 19);
+            this.radioPagas.Location = new System.Drawing.Point(6, 38);
             this.radioPagas.Name = "radioPagas";
             this.radioPagas.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.radioPagas.Size = new System.Drawing.Size(53, 22);
@@ -368,28 +367,36 @@
             this.radioPagas.Values.Text = "Pago";
             this.radioPagas.CheckedChanged += new System.EventHandler(this.radioPagas_CheckedChanged);
             // 
-            // dgvDespesa
+            // lstvDespesas
             // 
-            this.dgvDespesa.AllowUserToAddRows = false;
-            this.dgvDespesa.AllowUserToDeleteRows = false;
-            this.dgvDespesa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lstvDespesas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDespesa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvDespesa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDespesa.Location = new System.Drawing.Point(15, 89);
-            this.dgvDespesa.Name = "dgvDespesa";
-            this.dgvDespesa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDespesa.Size = new System.Drawing.Size(654, 298);
-            this.dgvDespesa.TabIndex = 274;
-            this.dgvDespesa.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvDespesa_CellFormatting);
-            this.dgvDespesa.SelectionChanged += new System.EventHandler(this.dgvDespesa_SelectionChanged);
+            this.lstvDespesas.Location = new System.Drawing.Point(12, 89);
+            this.lstvDespesas.Name = "lstvDespesas";
+            this.lstvDespesas.Size = new System.Drawing.Size(646, 316);
+            this.lstvDespesas.TabIndex = 277;
+            this.lstvDespesas.UseCompatibleStateImageBehavior = false;
+            this.lstvDespesas.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.lstvDespesas_DrawColumnHeader);
+            this.lstvDespesas.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.lstvDespesas_DrawItem);
+            this.lstvDespesas.DrawSubItem += new System.Windows.Forms.DrawListViewSubItemEventHandler(this.lstvDespesas_DrawSubItem);
+            this.lstvDespesas.SelectedIndexChanged += new System.EventHandler(this.lstvDespesas_SelectedIndexChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.btnExcel);
+            this.panel1.Controls.Add(this.btnPagarConta);
+            this.panel1.Controls.Add(this.btnNovo);
+            this.panel1.Controls.Add(this.btnSair);
+            this.panel1.Controls.Add(this.btnAlterar);
+            this.panel1.Controls.Add(this.btnExcluir);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(664, 25);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(136, 425);
+            this.panel1.TabIndex = 278;
             // 
             // FormManutencaoDespesas
             // 
@@ -397,14 +404,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dgvDespesa);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnPagarConta);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.lstvDespesas);
             this.Controls.Add(this.txtPesquisa);
-            this.Controls.Add(this.btnExcluir);
-            this.Controls.Add(this.btnAlterar);
-            this.Controls.Add(this.btnNovo);
-            this.Controls.Add(this.btnExcel);
             this.Controls.Add(this.metroPanel1);
             this.Controls.Add(this.kryptonLabel5);
             this.Controls.Add(this.metroPanel2);
@@ -419,7 +421,7 @@
             this.metroPanel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDespesa)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -446,7 +448,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton radioPendentes;
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton radioPagas;
-        private System.Windows.Forms.DataGridView dgvDespesa;
+        private System.Windows.Forms.ListView lstvDespesas;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

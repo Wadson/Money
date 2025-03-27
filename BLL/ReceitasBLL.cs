@@ -16,11 +16,11 @@ namespace Money.BLL
         {
             if (string.IsNullOrEmpty(receita.Descricao))
                 throw new ArgumentException("A descrição é obrigatória.");
-            if (receita.Valor <= 0)
+            if (receita.ValorDaReceita <= 0)
                 throw new ArgumentException("O valor deve ser maior que zero.");
             if (receita.TipoID <= 0)
                 throw new ArgumentException("O tipo de receita é inválido.");
-            if (receita.Data == default)
+            if (receita.DataRecebimento == default)
                 throw new ArgumentException("A data é obrigatória.");
 
             _dal.Salvar(receita);
@@ -32,11 +32,11 @@ namespace Money.BLL
                 throw new ArgumentException("ID inválido.");
             if (string.IsNullOrEmpty(receita.Descricao))
                 throw new ArgumentException("A descrição é obrigatória.");
-            if (receita.Valor <= 0)
+            if (receita.ValorDaReceita <= 0)
                 throw new ArgumentException("O valor deve ser maior que zero.");
             if (receita.TipoID <= 0)
                 throw new ArgumentException("O tipo de receita é inválido.");
-            if (receita.Data == default)
+            if (receita.DataRecebimento == default)
                 throw new ArgumentException("A data é obrigatória.");
 
             _dal.Alterar(receita);

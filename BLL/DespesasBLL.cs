@@ -17,7 +17,7 @@ namespace Money.BLL
         {
             if (string.IsNullOrEmpty(despesa.Descricao))
                 throw new ArgumentException("A descrição é obrigatória.");
-            if (despesa.Valor <= 0)
+            if (despesa.ValorDaCompra <= 0)
                 throw new ArgumentException("O valor deve ser maior que zero.");
             if (string.IsNullOrEmpty(despesa.Status))
                 throw new ArgumentException("O status é obrigatório.");
@@ -58,7 +58,7 @@ namespace Money.BLL
                 throw new ArgumentException("ID inválido.");
             if (string.IsNullOrEmpty(despesa.Descricao))
                 throw new ArgumentException("A descrição é obrigatória.");
-            if (despesa.Valor <= 0)
+            if (despesa.ValorDaCompra <= 0)
                 throw new ArgumentException("O valor deve ser maior que zero.");
             if (string.IsNullOrEmpty(despesa.Status))
                 throw new ArgumentException("O status é obrigatório.");

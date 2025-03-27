@@ -255,6 +255,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.groupBox1.Controls.Add(this.cmbMetodoPgto);
             this.groupBox1.Controls.Add(this.kryptonLabel5);
             this.groupBox1.Controls.Add(this.cmbCategoria);

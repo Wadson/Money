@@ -59,8 +59,8 @@
             this.lblDataCadastro_e_Pagamento = new System.Windows.Forms.Label();
             this.btnParcelar = new System.Windows.Forms.Button();
             this.groupBoxParcelar = new System.Windows.Forms.GroupBox();
-            this.radiobtnSim = new System.Windows.Forms.RadioButton();
             this.radiobtnNao = new System.Windows.Forms.RadioButton();
+            this.radiobtnSim = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.cmbStatus)).BeginInit();
             this.panelTitulo.SuspendLayout();
             this.groupBoxParcelar.SuspendLayout();
@@ -118,7 +118,7 @@
             this.txtDescricao.StateCommon.Border.Width = 1;
             this.txtDescricao.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
             this.txtDescricao.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.txtDescricao.TabIndex = 1;
+            this.txtDescricao.TabIndex = 2;
             // 
             // txtDespesaID
             // 
@@ -206,7 +206,7 @@
             this.txtValorTotal.StateCommon.Border.Width = 1;
             this.txtValorTotal.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
             this.txtValorTotal.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.txtValorTotal.TabIndex = 0;
+            this.txtValorTotal.TabIndex = 1;
             this.txtValorTotal.TextChanged += new System.EventHandler(this.txtValorTotal_TextChanged);
             this.txtValorTotal.Leave += new System.EventHandler(this.txtValor_Leave);
             // 
@@ -318,7 +318,7 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.dtpDataVencimento.StateCommon.Border.Rounding = 20;
             this.dtpDataVencimento.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
-            this.dtpDataVencimento.TabIndex = 2;
+            this.dtpDataVencimento.TabIndex = 3;
             // 
             // kryptonLabel9
             // 
@@ -347,8 +347,7 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.cmbStatus.StateCommon.ComboBox.Border.Rounding = 20;
-            this.cmbStatus.TabIndex = 300;
-            this.cmbStatus.TabStop = false;
+            this.cmbStatus.TabIndex = 0;
             this.cmbStatus.Text = "Pendente";
             // 
             // btnSalvar
@@ -363,7 +362,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(12, 312);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(110, 36);
-            this.btnSalvar.TabIndex = 5;
+            this.btnSalvar.TabIndex = 6;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -419,7 +418,7 @@
             this.txtMetodoPgto.StateCommon.Border.Width = 1;
             this.txtMetodoPgto.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
             this.txtMetodoPgto.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.txtMetodoPgto.TabIndex = 4;
+            this.txtMetodoPgto.TabIndex = 5;
             this.txtMetodoPgto.TextChanged += new System.EventHandler(this.txtMetodoPgto_TextChanged);
             // 
             // btnLocalizarMetodoPagamento
@@ -453,7 +452,7 @@
             this.txtCategoria.StateCommon.Border.Width = 1;
             this.txtCategoria.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
             this.txtCategoria.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.txtCategoria.TabIndex = 3;
+            this.txtCategoria.TabIndex = 4;
             this.txtCategoria.TextChanged += new System.EventHandler(this.txtCategoria_TextChanged);
             // 
             // btnLocalizarCategoria
@@ -540,18 +539,6 @@
             this.groupBoxParcelar.TabStop = false;
             this.groupBoxParcelar.Text = "Parcelar?";
             // 
-            // radiobtnSim
-            // 
-            this.radiobtnSim.AutoSize = true;
-            this.radiobtnSim.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
-            this.radiobtnSim.Location = new System.Drawing.Point(6, 22);
-            this.radiobtnSim.Name = "radiobtnSim";
-            this.radiobtnSim.Size = new System.Drawing.Size(48, 20);
-            this.radiobtnSim.TabIndex = 306;
-            this.radiobtnSim.Text = "Sim";
-            this.radiobtnSim.UseVisualStyleBackColor = true;
-            this.radiobtnSim.CheckedChanged += new System.EventHandler(this.radiobtnSim_CheckedChanged);
-            // 
             // radiobtnNao
             // 
             this.radiobtnNao.AutoSize = true;
@@ -565,6 +552,18 @@
             this.radiobtnNao.Text = "Não";
             this.radiobtnNao.UseVisualStyleBackColor = true;
             this.radiobtnNao.CheckedChanged += new System.EventHandler(this.radiobtnNao_CheckedChanged);
+            // 
+            // radiobtnSim
+            // 
+            this.radiobtnSim.AutoSize = true;
+            this.radiobtnSim.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
+            this.radiobtnSim.Location = new System.Drawing.Point(6, 22);
+            this.radiobtnSim.Name = "radiobtnSim";
+            this.radiobtnSim.Size = new System.Drawing.Size(48, 20);
+            this.radiobtnSim.TabIndex = 306;
+            this.radiobtnSim.Text = "Sim";
+            this.radiobtnSim.UseVisualStyleBackColor = true;
+            this.radiobtnSim.CheckedChanged += new System.EventHandler(this.radiobtnSim_CheckedChanged);
             // 
             // FormCadastroDespesa
             // 

@@ -13,6 +13,12 @@ using DocumentFormat.OpenXml.Wordprocessing;
 using Money.BLL;
 using Money.DAL;
 using Money.MODEL;
+using Color = System.Drawing.Color;
+using View = System.Windows.Forms.View;
+using System.Runtime.InteropServices; // Para P/Invoke
+
+
+
 namespace Money
 {
     public partial class FormManutencaoDespesas : KryptonForm   
@@ -24,127 +30,102 @@ namespace Money
         public FormManutencaoDespesas(string statusOperacao = "CONSULTA")
         {
             InitializeComponent();
-            StatusOperacao = statusOperacao;
-            AtualizarDataGrid(); // Carrega os dados e totais ao abrir o formulário
-            dgvDespesa.SelectionChanged += dgvDespesa_SelectionChanged; // Associe o evento aqui
-
+            StatusOperacao = statusOperacao;           
+           
             radioPagas.CheckedChanged += radioPagas_CheckedChanged;
             radioPendentes.CheckedChanged += radioPendentes_CheckedChanged;
-
             Utilitario.AdicionarEfeitoFocoEmTodos(this);
+
+            AtualizarListView(); // Substitui AtualizarDataGrid
+            lstvDespesas.SelectedIndexChanged += lstvDespesas_SelectedIndexChanged; // Novo evento
         }
 
-
-        public void PersonalizarDataGridView(DataGridView dgvDespesa)
+        private void PersonalizarListView(ListView lstvDespesas)
         {
-            dgvDespesa.AutoGenerateColumns = false;
-            dgvDespesa.EnableHeadersVisualStyles = false; // Permite personalizar o cabeçalho
+            lstvDespesas.View = View.Details;
+            lstvDespesas.FullRowSelect = true;
+            lstvDespesas.GridLines = true;
 
-            // Alternância de cores das linhas
-            dgvDespesa.RowsDefaultCellStyle.BackColor = System.Drawing.Color.WhiteSmoke;
-            dgvDespesa.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+            // Configuração visual
+            lstvDespesas.BackColor = Color.FromArgb(0, 33, 71); // Cinza escuro para o fundo
+            lstvDespesas.ForeColor = Color.White; // Letras brancas
 
-            // Personalização do cabeçalho
-            dgvDespesa.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.DarkBlue;
-            dgvDespesa.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            dgvDespesa.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            dgvDespesa.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            // Configuração do cabeçalho
+            lstvDespesas.HeaderStyle = ColumnHeaderStyle.Clickable;
+            lstvDespesas.OwnerDraw = false; // Desativado para melhorar desempenho e evitar flickering
 
-            // Centralizar colunas específicas
-            string[] colunasCentralizadas = { "DespesaID", "CategoriaID", "MetodoPgtoID", "NumeroParcelas" };
-            foreach (var coluna in colunasCentralizadas)
-            {
-                if (dgvDespesa.Columns.Contains(coluna))
-                {
-                    dgvDespesa.Columns[coluna].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                }
-            }
+            // Adicionar colunas
+            lstvDespesas.Columns.Clear();
+            lstvDespesas.Columns.Add("DespesaID", 0); // Oculta
+            lstvDespesas.Columns.Add("Descrição", 400);
+            lstvDespesas.Columns.Add("Valor da Compra", 100, HorizontalAlignment.Right);
+            lstvDespesas.Columns.Add("Data Vencto", 80, HorizontalAlignment.Center);
+            lstvDespesas.Columns.Add("Status", 60, HorizontalAlignment.Center);
+            lstvDespesas.Columns.Add("Nº Parc.", 60, HorizontalAlignment.Center);
+            lstvDespesas.Columns.Add("Valor Parcela", 80, HorizontalAlignment.Right);
+            lstvDespesas.Columns.Add("Categoria", 100);
+            lstvDespesas.Columns.Add("Data Pagamento", 100, HorizontalAlignment.Center);
 
-            // Ajuste do AutoSizeMode para evitar que a tabela fique muito apertada
-            dgvDespesa.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-
-            // Definições das colunas
-            if (dgvDespesa.Columns.Contains("DespesaID"))
-            {
-                dgvDespesa.Columns["DespesaID"].Visible = false; // Oculta a coluna
-            }
-
-            if (dgvDespesa.Columns.Contains("Descricao"))
-            {
-                dgvDespesa.Columns["Descricao"].HeaderText = "Descrição";
-                dgvDespesa.Columns["Descricao"].Width = 350;
-            }
-
-            if (dgvDespesa.Columns.Contains("Valor"))
-            {
-                dgvDespesa.Columns["Valor"].HeaderText = "Valor";
-                dgvDespesa.Columns["Valor"].Width = 80;
-                dgvDespesa.Columns["Valor"].DefaultCellStyle.Format = "C2";
-                dgvDespesa.Columns["Valor"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dgvDespesa.Columns["Valor"].DefaultCellStyle.ForeColor = System.Drawing.Color.DarkRed;
-            }
-
-            if (dgvDespesa.Columns.Contains("DataVencimento"))
-            {
-                dgvDespesa.Columns["DataVencimento"].HeaderText = " Data\nVencto";
-                dgvDespesa.Columns["DataVencimento"].Width = 80;
-                dgvDespesa.Columns["DataVencimento"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            }
-            if (dgvDespesa.Columns.Contains("Status"))
-            {
-                dgvDespesa.Columns["Status"].HeaderText = "Status";
-                dgvDespesa.Columns["Status"].Width = 60;                
-            }
-            if (dgvDespesa.Columns.Contains("NumeroParcelas"))
-            {
-                dgvDespesa.Columns["NumeroParcelas"].HeaderText = "  Nº\nParc.";
-                dgvDespesa.Columns["NumeroParcelas"].Width = 60;
-            }
-            if (dgvDespesa.Columns.Contains("ValorParcela"))
-            {
-                dgvDespesa.Columns["ValorParcela"].HeaderText = "  Valor \nParcela";
-                dgvDespesa.Columns["ValorParcela"].Width = 80;
-                dgvDespesa.Columns["ValorParcela"].DefaultCellStyle.Format = "C2";
-                dgvDespesa.Columns["ValorParcela"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dgvDespesa.Columns["ValorParcela"].DefaultCellStyle.ForeColor = System.Drawing.Color.DarkRed;
-            }
-            if (dgvDespesa.Columns.Contains("NomeCategoria"))
-            {
-                dgvDespesa.Columns["NomeCategoria"].HeaderText = "Categoria";
-                dgvDespesa.Columns["NomeCategoria"].Width = 100;
-            }
-            if (dgvDespesa.Columns.Contains("CategoriaID"))
-            {
-                dgvDespesa.Columns["CategoriaID"].Visible = false; // Oculta a coluna
-            }
-
-            if (dgvDespesa.Columns.Contains("MetodoPgtoID"))
-            {
-                dgvDespesa.Columns["MetodoPgtoID"].Visible = false; // Oculta a coluna
-            }
-            if (dgvDespesa.Columns.Contains("DataCriacao"))
-            {
-                dgvDespesa.Columns["DataCriacao"].Visible = false; // Oculta a coluna
-            }
-            if (dgvDespesa.Columns.Contains("DataPgto"))
-            {
-                dgvDespesa.Columns["DataPgto"].HeaderText = " Data\nPagamento";
-                dgvDespesa.Columns["DataPgto"].Width = 100;
-                dgvDespesa.Columns["DataPgto"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            }
-
-            dgvDespesa.ReadOnly = true;
+            // Aplicar cor ao cabeçalho via P/Invoke
+            ApplyHeaderBackgroundColor(lstvDespesas, Color.FromArgb(0, 120, 215)); // RoyalBlue
         }
 
         private void CarregarDados(string nomeTipo = null, bool? pago = null)
         {
             try
             {
-                var tipos = despesasBLL.Pesquisar(nomeTipo, pago); // Passar o filtro de pagamento
-                dgvDespesa.DataSource = null;
-                dgvDespesa.DataSource = tipos;
-                PersonalizarDataGridView(dgvDespesa);
-                AtualizarTotais();
+                lstvDespesas.BeginUpdate();
+                lstvDespesas.Items.Clear();
+                PersonalizarListView(lstvDespesas);
+
+                var tipos = despesasBLL.Pesquisar(nomeTipo, pago);
+                DateTime hoje = DateTime.Today;
+
+                foreach (var despesa in tipos)
+                {
+                    var item = new ListViewItem(new[] {
+                despesa.DespesaID.ToString(),                              // 0: DespesaID (oculta)
+                despesa.Descricao,                                        // 1: Descrição
+                despesa.ValorDaCompra.ToString("C2", CultureInfo.CurrentCulture), // 2: Valor da Compra
+                despesa.DataVencimento.ToString("dd/MM/yyyy"),            // 3: Data Vencto
+                despesa.Status,                                           // 4: Status
+                despesa.NumeroParcelas.ToString(),                        // 5: Nº Parc.
+                despesa.ValorParcela?.ToString("C2", CultureInfo.CurrentCulture) ?? string.Empty, // 6: Valor Parcela
+                despesa.NomeCategoria,                                    // 7: Categoria
+                despesa.DataPgto?.ToString("dd/MM/yyyy") ?? ""            // 8: Data Pagamento
+            });
+
+                    // Armazenar o objeto DespesasModel completo no Tag
+                    item.Tag = despesa;
+
+                    // Alternância de cores nas linhas
+                    item.UseItemStyleForSubItems = false;
+                    item.BackColor = lstvDespesas.Items.Count % 2 == 0 ?
+                        Color.FromArgb(0, 33, 71) : // Cor ajustada para combinar com o fundo
+                        Color.FromArgb(70, 70, 70);
+                    item.ForeColor = Color.White;
+
+                    foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
+                    {
+                        subItem.BackColor = item.BackColor;
+                        subItem.ForeColor = Color.White;
+                    }
+
+                    if (despesa.DataVencimento < hoje)
+                        item.SubItems[3].BackColor = Color.Red;
+                    else if (despesa.DataVencimento.Date == hoje)
+                        item.SubItems[3].BackColor = Color.Orange;
+                    else
+                        item.SubItems[3].BackColor = Color.Green;
+
+                    item.SubItems[6].BackColor = Color.FromArgb(255, 245, 220); // Valor Parcela
+                    item.SubItems[6].ForeColor = Color.DarkRed;
+
+                    lstvDespesas.Items.Add(item);
+                }
+
+                lstvDespesas.EndUpdate();
+                AtualizarTotais(tipos);
             }
             catch (Exception ex)
             {
@@ -152,31 +133,35 @@ namespace Money
             }
         }
 
-        private void LimparCampos()
+        // Métodos para colorir o cabeçalho via P/Invoke
+        private const int LVM_SETBKCOLOR = 0x1001;
+        private const int HDM_SETBKCOLOR = 0x1204;
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
+
+        private void ApplyHeaderBackgroundColor(ListView listView, Color color)
         {
-            txtPesquisa.Clear();
-            TipoAtual = null;
-            btnAlterar.Enabled = false;
-            btnExcluir.Enabled = false;
+            IntPtr header = SendMessage(listView.Handle, 0x1200, IntPtr.Zero, IntPtr.Zero); // LVM_GETHEADER
+            if (header != IntPtr.Zero)
+            {
+                int colorRef = ColorTranslator.ToWin32(color);
+                SendMessage(header, HDM_SETBKCOLOR, IntPtr.Zero, (IntPtr)colorRef);
+                listView.Refresh(); // Força a atualização
+            }
         }
 
-        public void AtualizarDataGrid()
-        {
-            CarregarDados(); // Chama o método de carregamento de dados
-        }
-
-        private void AtualizarTotais()
+        private void AtualizarTotais(List<DespesasModel> despesas)
         {
             try
             {
-                var despesas = dgvDespesa.DataSource as List<DespesasModel>;
                 if (despesas != null)
                 {
                     var despesasAbertas = despesas.Where(d => !d.Pago);
-                    decimal valorTotalAberto = despesasAbertas.Sum(d => d.Valor);
+                    decimal valorTotalAberto = despesasAbertas.Sum(d => d.ValorParcela ?? 0);
                     int qtdItensPendentes = despesasAbertas.Count();
-                                       
-                    txtValorTotalAberto.Text = valorTotalAberto.ToString("C2", CultureInfo.CurrentCulture);
+
+                    txtValorTotalAberto.Text = valorTotalAberto.ToString("N2", CultureInfo.CurrentCulture);
                     txtQtdItens.Text = qtdItensPendentes.ToString();
                 }
                 else
@@ -189,6 +174,25 @@ namespace Money
             {
                 MessageBox.Show($"Erro ao calcular totais: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        public void AtualizarListView() // Substitui AtualizarDataGrid
+        {
+            CarregarDados();
+        }
+
+
+        private void LimparCampos()
+        {
+            txtPesquisa.Clear();
+            TipoAtual = null;
+            btnAlterar.Enabled = false;
+            btnExcluir.Enabled = false;
+        }
+
+        public void AtualizarDataGrid()
+        {
+            CarregarDados(); // Chama o método de carregamento de dados
         }
 
         private void AbrirFormularioCadastro()
@@ -265,22 +269,110 @@ namespace Money
                 // Preenche os campos de texto e data
                 form.txtDespesaID.Text = TipoAtual.DespesaID.ToString();
                 form.txtDescricao.Text = TipoAtual.Descricao;
-                form.txtValorTotal.Text = TipoAtual.Valor.ToString();
+                form.txtValorTotal.Text = TipoAtual.ValorDaCompra.ToString();
                 form.dtpDataVencimento.Value = TipoAtual.DataVencimento;
                 form.cmbStatus.SelectedItem = TipoAtual.Status;
                 form.txtNumeroParcelas.Text = TipoAtual.NumeroParcelas.ToString();
                 form.txtValorParcela.Text = TipoAtual.ValorParcela.ToString();
-                
-                
+
                 form.CategoriaID = Convert.ToInt32(TipoAtual.CategoriaID);
                 form.MetodoPgtoID = Convert.ToInt32(TipoAtual.MetodoPgtoID);
 
-                int _categoriaID = Convert.ToInt32(TipoAtual.CategoriaID);                
-                form.txtCategoria.Text = Utilitario.PesquisarPorCodigoExibirEmTexbox("Categorias", "CategoriaID", "NomeCategoria",_categoriaID);
+                int _categoriaID = Convert.ToInt32(TipoAtual.CategoriaID);
+                form.txtCategoria.Text = Utilitario.PesquisarPorCodigoExibirEmTexbox("Categorias", "CategoriaID", "NomeCategoria", _categoriaID);
 
                 int _metodoPgtoID = Convert.ToInt32(TipoAtual.MetodoPgtoID);
                 form.txtMetodoPgto.Text = Utilitario.PesquisarPorCodigoExibirEmTexbox("MetodosPagamento", "MetodoPgtoID", "NomeMetodoPagamento", _metodoPgtoID);
+            }
+        }
 
+        private void lstvDespesas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstvDespesas.SelectedItems.Count > 0)
+            {
+                var selectedItem = lstvDespesas.SelectedItems[0];
+                TipoAtual = selectedItem.Tag as DespesasModel; // Recupera o objeto completo do Tag
+
+                btnAlterar.Enabled = true;
+                btnExcluir.Enabled = true;
+                btnExcel.Enabled = true;
+                btnPagarConta.Enabled = true;
+            }
+            else
+            {
+                TipoAtual = null;
+                btnAlterar.Enabled = false;
+                btnExcluir.Enabled = false;
+                btnExcel.Enabled = false;
+                btnPagarConta.Enabled = false;
+            }
+        }
+
+        private void lstvDespesas_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
+        {
+            using (SolidBrush brush = new SolidBrush(Color.FromArgb(0, 120, 215))) // Azul escuro (RoyalBlue)
+            {
+                e.Graphics.FillRectangle(brush, e.Bounds);
+            }
+            using (SolidBrush textBrush = new SolidBrush(Color.White))
+            {
+                StringFormat sf = new StringFormat
+                {
+                    Alignment = StringAlignment.Center,
+                    LineAlignment = StringAlignment.Center
+                };
+                e.Graphics.DrawString(e.Header.Text, lstvDespesas.Font, textBrush, e.Bounds, sf);
+            }
+            e.DrawDefault = false;
+        }
+
+        private void lstvDespesas_DrawItem(object sender, DrawListViewItemEventArgs e)
+        {
+            e.DrawBackground();
+            e.Item.BackColor = e.Item.Index % 2 == 0 ?
+                Color.FromArgb(0, 33, 71) : // Cinza escuro
+                Color.FromArgb(70, 70, 70); // Cinza um pouco mais claro
+            e.Item.ForeColor = Color.White;
+        }
+
+        private void lstvDespesas_DrawSubItem(object sender, DrawListViewSubItemEventArgs e)
+        {
+            // Aplica a cor de fundo padrão do item
+            e.DrawBackground();
+
+            // Colorir "Data Vencto" (índice 3)
+            if (e.ColumnIndex == 3 && DateTime.TryParseExact(e.SubItem.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dataVencimento))
+            {
+                DateTime hoje = DateTime.Today;
+                Color dataColor = dataVencimento < hoje ? Color.Red :
+                                 dataVencimento.Date == hoje ? Color.Orange :
+                                 Color.LightGreen;
+
+                using (SolidBrush brush = new SolidBrush(dataColor))
+                {
+                    e.Graphics.FillRectangle(brush, e.Bounds);
+                }
+            }
+            // Destacar "Valor Parcela" (índice 6)
+            else if (e.ColumnIndex == 6)
+            {
+                using (SolidBrush brush = new SolidBrush(Color.FromArgb(255, 245, 220))) // Amarelo claro
+                {
+                    e.Graphics.FillRectangle(brush, e.Bounds);
+                }
+                e.SubItem.ForeColor = Color.DarkRed;
+            }
+
+            // Desenhar o texto
+            using (SolidBrush textBrush = new SolidBrush(e.SubItem.ForeColor))
+            {
+                StringFormat sf = new StringFormat
+                {
+                    Alignment = e.Header.TextAlign == HorizontalAlignment.Right ? StringAlignment.Far :
+                                e.Header.TextAlign == HorizontalAlignment.Center ? StringAlignment.Center :
+                                StringAlignment.Near
+                };
+                e.Graphics.DrawString(e.SubItem.Text, e.SubItem.Font ?? lstvDespesas.Font, textBrush, e.Bounds, sf);
             }
         }
 
@@ -340,39 +432,33 @@ namespace Money
 
         private void btnExcel_Click(object sender, EventArgs e)
         {
-            using (var workbook = new ClosedXML.Excel.XLWorkbook())
-            {
-                var worksheet = workbook.Worksheets.Add("Relatório Despesas");
-                var data = dgvDespesa.DataSource as List<DespesasModel>;
-                if (data != null)
-                {
-                    worksheet.Cell(1, 1).InsertTable(data);
-                    worksheet.Columns().AdjustToContents();
-                }
-                workbook.SaveAs("RelatorioDespesas.xlsx");
-            }
-            MessageBox.Show("Relatório exportado para Excel!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //using (var workbook = new ClosedXML.Excel.XLWorkbook())
+            //{
+            //    var worksheet = workbook.Worksheets.Add("Relatório Despesas");
+            //    var data = dgvDespesa.DataSource as List<DespesasModel>;
+            //    if (data != null)
+            //    {
+            //        worksheet.Cell(1, 1).InsertTable(data);
+            //        worksheet.Columns().AdjustToContents();
+            //    }
+            //    workbook.SaveAs("RelatorioDespesas.xlsx");
+            //}
+            //MessageBox.Show("Relatório exportado para Excel!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            // Verifica se há pelo menos uma linha selecionada
-            if (dgvDespesa.SelectedRows.Count == 0) // Substitua "dataGridView1" pelo nome real do seu DataGridView
+            if (lstvDespesas.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Selecione pelo menos um registro para excluir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Se apenas uma linha estiver selecionada ou se o usuário escolher excluir apenas uma
-            if (dgvDespesa.SelectedRows.Count == 1 ||
+            if (lstvDespesas.SelectedItems.Count == 1 ||
                 MessageBox.Show("Deseja excluir apenas o registro atual?",
                                 "Excluir Despesas",
                                 MessageBoxButtons.YesNo,
-                                MessageBoxIcon.Question,
-                                MessageBoxDefaultButton.Button1,
-                                0,
-                                "Único",
-                                "Todos") == DialogResult.Yes)
+                                MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (TipoAtual == null)
                 {
@@ -380,11 +466,11 @@ namespace Money
                     return;
                 }
                 StatusOperacao = "EXCLUSÃO";
-                AbrirFormularioCadastro(); // Mantém o fluxo atual para excluir um único registro
+                AbrirFormularioCadastro();
             }
-            else // Excluir todos os selecionados
+            else
             {
-                int numeroSelecionados = dgvDespesa.SelectedRows.Count;
+                int numeroSelecionados = lstvDespesas.SelectedItems.Count;
                 if (MessageBox.Show($"Deseja realmente excluir todos os {numeroSelecionados} registros selecionados?",
                                     "Confirmação de Exclusão",
                                     MessageBoxButtons.YesNo,
@@ -392,14 +478,14 @@ namespace Money
                 {
                     try
                     {
-                        DespesasBLL objetoBll = new DespesasBLL(); // Instancie sua BLL aqui
-                        foreach (DataGridViewRow row in dgvDespesa.SelectedRows)
+                        DespesasBLL objetoBll = new DespesasBLL();
+                        foreach (ListViewItem item in lstvDespesas.SelectedItems)
                         {
-                            int despesaId = Convert.ToInt32(row.Cells["DespesaID"].Value); // Substitua "DespesaID" pelo nome real da coluna
+                            int despesaId = Convert.ToInt32(item.SubItems[0].Text);
                             objetoBll.Excluir(despesaId);
                         }
                         MessageBox.Show($"{numeroSelecionados} despesas excluídas com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        AtualizarDataGrid(); // Atualiza o DataGrid após a exclusão
+                        AtualizarListView();
                     }
                     catch (Exception ex)
                     {
@@ -442,6 +528,7 @@ namespace Money
             }
         }
 
+
         private void radioPendentes_CheckedChanged(object sender, EventArgs e)
         {
             if (radioPendentes.Checked)
@@ -449,52 +536,7 @@ namespace Money
                 CarregarDados(txtPesquisa.Text, false); // Exibir apenas pendentes
             }
         }
-
-        private void dgvDespesa_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (dgvDespesa.Columns[e.ColumnIndex].Name == "DataVencimento")
-            {
-                if (e.Value != null && DateTime.TryParse(e.Value.ToString(), out DateTime dataVencimento))
-                {
-                    DateTime hoje = DateTime.Today;
-
-                    if (dataVencimento < hoje) // Vencidas
-                    {
-                        e.CellStyle.BackColor = System.Drawing.Color.Red;
-                        e.CellStyle.ForeColor = System.Drawing.Color.White;
-                    }
-                    else if (dataVencimento.Date == hoje) // Vence hoje
-                    {
-                        e.CellStyle.BackColor = System.Drawing.Color.Orange;
-                        e.CellStyle.ForeColor = System.Drawing.Color.White;
-                    }
-                    else // Não vencidas (futuras)
-                    {
-                        e.CellStyle.BackColor = System.Drawing.Color.LightGreen;
-                        e.CellStyle.ForeColor = System.Drawing.Color.Black;
-                    }
-                }
-            }
-        }
-
-        private void dgvDespesa_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvDespesa.SelectedRows.Count > 0)
-            {
-                TipoAtual = dgvDespesa.SelectedRows[0].DataBoundItem as DespesasModel;
-                btnAlterar.Enabled = true;
-                btnExcluir.Enabled = true;
-                btnExcel.Enabled = true;
-                btnPagarConta.Enabled = true;
-            }
-            else
-            {
-                TipoAtual = null;
-                btnAlterar.Enabled = false;
-                btnExcluir.Enabled = false;
-                btnExcel.Enabled = false;
-                btnPagarConta.Enabled = false;
-            }
-        }
+       
+       
     }
 }

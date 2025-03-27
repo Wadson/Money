@@ -29,12 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.dtpMesAno = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.dgvReceitas = new System.Windows.Forms.DataGridView();
-            this.dgvDespesas = new System.Windows.Forms.DataGridView();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.txtTotalSelecionado = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,8 +44,8 @@
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReceitas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDespesas)).BeginInit();
+            this.listViewDespesas = new System.Windows.Forms.ListView();
+            this.listViewReceitas = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             this.kryptonPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
@@ -103,49 +99,6 @@
             this.dtpMesAno.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
             this.dtpMesAno.TabIndex = 311;
             this.dtpMesAno.ValueChanged += new System.EventHandler(this.dtpMesAno_ValueChanged);
-            // 
-            // dgvReceitas
-            // 
-            this.dgvReceitas.AllowUserToAddRows = false;
-            this.dgvReceitas.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(96)))), ((int)(((byte)(189)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(96)))), ((int)(((byte)(189)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvReceitas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvReceitas.ColumnHeadersHeight = 25;
-            this.dgvReceitas.Location = new System.Drawing.Point(19, 50);
-            this.dgvReceitas.MultiSelect = false;
-            this.dgvReceitas.Name = "dgvReceitas";
-            this.dgvReceitas.ReadOnly = true;
-            this.dgvReceitas.RowHeadersWidth = 25;
-            this.dgvReceitas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReceitas.Size = new System.Drawing.Size(387, 390);
-            this.dgvReceitas.TabIndex = 314;
-            this.dgvReceitas.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvReceitas_CellFormatting);
-            // 
-            // dgvDespesas
-            // 
-            this.dgvDespesas.AllowUserToAddRows = false;
-            this.dgvDespesas.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(96)))), ((int)(((byte)(189)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(96)))), ((int)(((byte)(189)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvDespesas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvDespesas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvDespesas.ColumnHeadersHeight = 25;
-            this.dgvDespesas.Location = new System.Drawing.Point(412, 50);
-            this.dgvDespesas.MultiSelect = false;
-            this.dgvDespesas.Name = "dgvDespesas";
-            this.dgvDespesas.RowHeadersWidth = 25;
-            this.dgvDespesas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDespesas.Size = new System.Drawing.Size(513, 390);
-            this.dgvDespesas.TabIndex = 315;
-            this.dgvDespesas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDespesas_CellContentClick);
-            this.dgvDespesas.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvDespesas_CellFormatting);
-            this.dgvDespesas.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvDespesas_DataError);
             // 
             // kryptonPanel2
             // 
@@ -353,24 +306,42 @@
             this.lblStatus.TabIndex = 248;
             this.lblStatus.Text = "Fluxo Financeiro";
             // 
+            // listViewDespesas
+            // 
+            this.listViewDespesas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewDespesas.HideSelection = false;
+            this.listViewDespesas.Location = new System.Drawing.Point(412, 50);
+            this.listViewDespesas.Name = "listViewDespesas";
+            this.listViewDespesas.Size = new System.Drawing.Size(522, 366);
+            this.listViewDespesas.TabIndex = 323;
+            this.listViewDespesas.UseCompatibleStateImageBehavior = false;
+            this.listViewDespesas.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.listViewDespesas_ItemCheck);
+            // 
+            // listViewReceitas
+            // 
+            this.listViewReceitas.HideSelection = false;
+            this.listViewReceitas.Location = new System.Drawing.Point(19, 50);
+            this.listViewReceitas.Name = "listViewReceitas";
+            this.listViewReceitas.Size = new System.Drawing.Size(377, 366);
+            this.listViewReceitas.TabIndex = 324;
+            this.listViewReceitas.UseCompatibleStateImageBehavior = false;
+            // 
             // FormFluxoFinanceiro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.ClientSize = new System.Drawing.Size(937, 529);
+            this.Controls.Add(this.listViewReceitas);
+            this.Controls.Add(this.listViewDespesas);
             this.Controls.Add(this.kryptonPanel1);
             this.Controls.Add(this.kryptonPanel2);
-            this.Controls.Add(this.dgvDespesas);
-            this.Controls.Add(this.dgvReceitas);
             this.KeyPreview = true;
             this.Name = "FormFluxoFinanceiro";
             this.Palette = this.kryptonPalette1;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Fluxo Financeiro";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReceitas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDespesas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             this.kryptonPanel2.ResumeLayout(false);
             this.kryptonPanel2.PerformLayout();
@@ -385,8 +356,6 @@
 
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
         public ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpMesAno;
-        private System.Windows.Forms.DataGridView dgvReceitas;
-        private System.Windows.Forms.DataGridView dgvDespesas;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel2;
         public System.Windows.Forms.Label lblSald;
         public System.Windows.Forms.Label lblTotalReceita;
@@ -400,6 +369,8 @@
         public System.Windows.Forms.Label label1;
         public ComponentFactory.Krypton.Toolkit.KryptonTextBox txtTotalSelecionado;
         public System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListView listViewDespesas;
+        private System.Windows.Forms.ListView listViewReceitas;
     }
 }
 

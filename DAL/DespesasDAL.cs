@@ -15,14 +15,14 @@ namespace Money.DAL
             using (var conn = Conexao.Conex())
             {
                 conn.Open();
-                string sql = "INSERT INTO Despesas (Descricao, Valor, DataVencimento, Status, NumeroParcelas, " +
+                string sql = "INSERT INTO Despesas (Descricao, ValorDaCompra, DataVencimento, Status, NumeroParcelas, " +
                              "ValorParcela, CategoriaID, MetodoPgtoID, Pago, DataCriacao, DataPgto) " +
-                             "VALUES (@Descricao, @Valor, @DataVencimento, @Status, @NumeroParcelas, " +
+                             "VALUES (@Descricao, @ValorDaCompra, @DataVencimento, @Status, @NumeroParcelas, " +
                              "@ValorParcela, @CategoriaID, @MetodoPgtoID, @Pago, @DataCriacao, @DataPgto)";
                 using (var cmd = new SqlCeCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@Descricao", despesa.Descricao);
-                    cmd.Parameters.AddWithValue("@Valor", despesa.Valor);
+                    cmd.Parameters.AddWithValue("@ValorDaCompra", despesa.ValorDaCompra);
                     cmd.Parameters.AddWithValue("@DataVencimento", despesa.DataVencimento);
                     cmd.Parameters.AddWithValue("@Status", despesa.Status);
                     cmd.Parameters.AddWithValue("@NumeroParcelas", string.IsNullOrEmpty(despesa.NumeroParcelas) ? (object)DBNull.Value : despesa.NumeroParcelas);
@@ -46,7 +46,7 @@ namespace Money.DAL
             using (var conn = Conexao.Conex())
             {
                 conn.Open();
-                string sql = "UPDATE Despesas SET Descricao = @Descricao, Valor = @Valor, " +
+                string sql = "UPDATE Despesas SET Descricao = @Descricao, ValorDaCompra = @ValorDaCompra, " +
                              "DataVencimento = @DataVencimento, Status = @Status, NumeroParcelas = @NumeroParcelas, " +
                              "ValorParcela = @ValorParcela, CategoriaID = @CategoriaID, MetodoPgtoID = @MetodoPgtoID, " +
                              "Pago = @Pago, DataCriacao = @DataCriacao " + // Adicionado espaço aqui
@@ -54,7 +54,7 @@ namespace Money.DAL
                 using (var cmd = new SqlCeCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@Descricao", despesa.Descricao);
-                    cmd.Parameters.AddWithValue("@Valor", despesa.Valor);
+                    cmd.Parameters.AddWithValue("@ValorDaCompra", despesa.ValorDaCompra);
                     cmd.Parameters.AddWithValue("@DataVencimento", despesa.DataVencimento);
                     cmd.Parameters.AddWithValue("@Status", despesa.Status);                    
                     cmd.Parameters.AddWithValue("@NumeroParcelas", string.IsNullOrEmpty(despesa.NumeroParcelas) ? (object)DBNull.Value : despesa.NumeroParcelas);
@@ -112,8 +112,8 @@ namespace Money.DAL
                 conn.Open();
                 string sql = @"SELECT 
                         d.DespesaID, 
-                        d.Descricao, 
-                        d.Valor, 
+                        d.Descricao,  
+                        d.ValorDaCompra,
                         d.DataVencimento, 
                         d.Status, 
                         d.NumeroParcelas, 
@@ -165,7 +165,7 @@ namespace Money.DAL
                             {
                                 DespesaID = reader.GetInt32(0),
                                 Descricao = reader.GetString(1),
-                                Valor = reader.GetDecimal(2),
+                                ValorDaCompra = reader.GetDecimal(2),
                                 DataVencimento = reader.GetDateTime(3),
                                 Status = reader.GetString(4),                                
                                 NumeroParcelas = reader.IsDBNull(5) ? null : reader.GetValue(5).ToString(),
@@ -190,7 +190,10 @@ namespace Money.DAL
             using (var conn = Conexao.Conex())
             {
                 conn.Open();
-                string sql = "SELECT d.*, c.NomeCategoria FROM Despesas d LEFT JOIN Categorias c ON d.CategoriaID = c.CategoriaID";
+                string sql = "SELECT d.DespesaID, d.Descricao, d.DataVencimento, d.Status, " +
+                             "d.NumeroParcelas, d.ValorParcela, d.CategoriaID, d.MetodoPgtoID, " +
+                             "d.Pago, d.DataCriacao, d.DataPgto, d.ValorDaCompra, c.NomeCategoria " +
+                             "FROM Despesas d LEFT JOIN Categorias c ON d.CategoriaID = c.CategoriaID";
                 if (!string.IsNullOrEmpty(descricao))
                     sql += " WHERE d.Descricao LIKE @Descricao";
                 using (var cmd = new SqlCeCommand(sql, conn))
@@ -203,20 +206,19 @@ namespace Money.DAL
                         {
                             lista.Add(new DespesasModel
                             {
-                                DespesaID = reader.GetInt32(0),
-                                Descricao = reader.GetString(1),
-                                Valor = reader.GetDecimal(2),
-                                DataVencimento = (DateTime)(reader.IsDBNull(3) ? null : (DateTime?)reader.GetDateTime(3)), // Nullable                                
-                                Status = reader.GetString(4),                                
-                                
-                                NumeroParcelas = reader.IsDBNull(5) ? null : reader.GetValue(5).ToString(),
-                                ValorParcela = reader.IsDBNull(6) ? null : (decimal?)reader.GetDecimal(6),
-                                CategoriaID = reader.IsDBNull(7) ? null : (int?)reader.GetInt32(7),
-                                MetodoPgtoID = reader.IsDBNull(8) ? null : (int?)reader.GetInt32(8),
-                                Pago = reader.GetBoolean(9),
-                                DataCriacao = reader.GetDateTime(10),
-                                DataPgto = reader.IsDBNull(11) ? null : (DateTime?)reader.GetDateTime(11),
-                                NomeCategoria = reader.IsDBNull(12) ? null : reader.GetString(12)
+                                DespesaID = reader.GetInt32(0),       // Índice 0
+                                Descricao = reader.GetString(1),      // Índice 1
+                                DataVencimento = (DateTime)(reader.IsDBNull(2) ? (DateTime?)null : reader.GetDateTime(2)), // Índice 2
+                                Status = reader.GetString(3),         // Índice 3
+                                NumeroParcelas = reader.IsDBNull(4) ? null : reader.GetValue(4).ToString(), // Índice 4
+                                ValorParcela = reader.IsDBNull(5) ? null : (decimal?)reader.GetDecimal(5), // Índice 5
+                                CategoriaID = reader.IsDBNull(6) ? null : (int?)reader.GetInt32(6), // Índice 6
+                                MetodoPgtoID = reader.IsDBNull(7) ? null : (int?)reader.GetInt32(7), // Índice 7
+                                Pago = reader.GetBoolean(8),          // Índice 8
+                                DataCriacao = reader.GetDateTime(9),  // Índice 9
+                                DataPgto = reader.IsDBNull(10) ? (DateTime?)null : reader.GetDateTime(10), // Índice 10
+                                ValorDaCompra = reader.IsDBNull(11) ? 0m : reader.GetDecimal(11), // Índice 11
+                                NomeCategoria = reader.IsDBNull(12) ? null : reader.GetString(12) // Índice 12
                             });
                         }
                     }
@@ -224,45 +226,5 @@ namespace Money.DAL
             }
             return lista;
         }
-
-        //public List<DespesasModel> PesquisarRelatorios(string descricao = null)
-        //{
-        //    var lista = new List<DespesasModel>();
-        //    using (var conn = Conexao.Conex())
-        //    {
-        //        conn.Open();
-        //        string sql = "SELECT d.*, c.NomeCategoria FROM Despesas d LEFT JOIN Categorias c ON d.CategoriaID = c.CategoriaID";
-        //        if (!string.IsNullOrEmpty(descricao))
-        //            sql += " WHERE d.Descricao LIKE @Descricao";
-        //        using (var cmd = new SqlCeCommand(sql, conn))
-        //        {
-        //            if (!string.IsNullOrEmpty(descricao))
-        //                cmd.Parameters.AddWithValue("@Descricao", "%" + descricao + "%");
-        //            using (var reader = cmd.ExecuteReader())
-        //            {
-        //                while (reader.Read())
-        //                {
-        //                    lista.Add(new DespesasModel
-        //                    {
-        //                        DespesaID = reader.GetInt32(reader.GetOrdinal("DespesaID")),
-        //                        Descricao = reader.GetString(reader.GetOrdinal("Descricao")),
-        //                        Valor = reader.GetDecimal(reader.GetOrdinal("Valor")),
-        //                        DataVencimento = reader.GetDateTime(reader.GetOrdinal("DataVencimento")),
-        //                        Status = reader.GetString(reader.GetOrdinal("Status")),
-        //                        NumeroParcelas = reader.IsDBNull(reader.GetOrdinal("NumeroParcelas")) ? null : (int?)reader.GetInt32(reader.GetOrdinal("NumeroParcelas")),
-        //                        ValorParcela = reader.IsDBNull(reader.GetOrdinal("ValorParcela")) ? null : (decimal?)reader.GetDecimal(reader.GetOrdinal("ValorParcela")),
-        //                        CategoriaID = reader.IsDBNull(reader.GetOrdinal("CategoriaID")) ? null : (int?)reader.GetInt32(reader.GetOrdinal("CategoriaID")),
-        //                        MetodoPgtoID = reader.IsDBNull(reader.GetOrdinal("MetodoPgtoID")) ? null : (int?)reader.GetInt32(reader.GetOrdinal("MetodoPgtoID")),
-        //                        Pago = reader.GetBoolean(reader.GetOrdinal("Pago")),
-        //                        DataCriacao = reader.GetDateTime(reader.GetOrdinal("DataCriacao")),
-        //                        DataPgto = reader.IsDBNull(reader.GetOrdinal("DataPgto")) ? null : (DateTime?)reader.GetDateTime(reader.GetOrdinal("DataPgto")),
-        //                        NomeCategoria = reader.IsDBNull(reader.GetOrdinal("NomeCategoria")) ? null : reader.GetString(reader.GetOrdinal("NomeCategoria"))
-        //                    });
-        //                }
-        //            }
-        //        }
-        //    }
-        //    return lista;
-        //}
     }
 }

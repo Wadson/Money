@@ -10,7 +10,7 @@ namespace Money.MODEL
     {
         public int DespesaID { get; set; }
         public string Descricao { get; set; }
-        public decimal Valor { get; set; }
+        public decimal ValorDaCompra { get; set; }
         public DateTime DataVencimento { get; set; }
         public string Status { get; set; }
         public string NumeroParcelas { get; set; } = null;

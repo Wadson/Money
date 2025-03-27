@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.pnlContainer = new MetroFramework.Controls.MetroPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -193,7 +194,7 @@
             // abrirFuxoFinanceiroToolStripMenuItem
             // 
             this.abrirFuxoFinanceiroToolStripMenuItem.Name = "abrirFuxoFinanceiroToolStripMenuItem";
-            this.abrirFuxoFinanceiroToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.abrirFuxoFinanceiroToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.abrirFuxoFinanceiroToolStripMenuItem.Text = "Abrir Fuxo Financeiro";
             this.abrirFuxoFinanceiroToolStripMenuItem.Click += new System.EventHandler(this.abrirFuxoFinanceiroToolStripMenuItem_Click);
             // 
@@ -388,6 +389,7 @@
             this.Controls.Add(this.kryptonPanel1);
             this.Controls.Add(this.pnlContainer);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPrincipal";
             this.Text = "Money - Sistema de Controle Financeiro";

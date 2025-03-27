@@ -46,10 +46,10 @@ namespace Money
                         var novoTipo = new ReceitasModel
                         {
                             Descricao = txtDescricao.Text,
-                            Valor = valor,
-                            Data = dtpDataRecebimento.Value,
+                            ValorDaReceita = valor,
+                            DataRecebimento = dtpDataRecebimento.Value,
                             TipoID = cmbTipoReceita.SelectedValue != null ? (int?)Convert.ToInt32(cmbTipoReceita.SelectedValue) : null,
-                            DataCriacao = dtpDataCadastro.Value
+                            DataCadastro = dtpDataCadastro.Value
                         };
                         objetoBll.Salvar(novoTipo);
                         MessageBox.Show("Categoria salva com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -68,10 +68,10 @@ namespace Money
                         {
                             ReceitaID = receitaId,
                             Descricao = txtDescricao.Text,
-                            Valor = valor,
-                            Data = dtpDataRecebimento.Value,
+                            ValorDaReceita = valor,
+                            DataRecebimento = dtpDataRecebimento.Value,
                             TipoID = cmbTipoReceita.SelectedValue != null ? (int?)Convert.ToInt32(cmbTipoReceita.SelectedValue) : null,
-                            DataCriacao = dtpDataCadastro.Value
+                            DataCadastro = dtpDataCadastro.Value
                         };
                         objetoBll.Alterar(tipo);
                         MessageBox.Show("Categoria alterada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -99,76 +99,7 @@ namespace Money
                 MessageBox.Show($"Erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        //private void SalvarRegistro()
-        //{
-        //    try
-        //    {
-        //        var tipo = new CategoriasModel
-        //        {
-        //            NomeCategoria = txtDescricao.Text
-        //        };
-        //        objetoBll.Salvar(tipo);
-        //        MessageBox.Show("Categoria salvo com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-        //        Utilitario.LimpaCampoKrypton(this);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"Erro ao salvar: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-        //public void AlterarRegistro()
-        //{
-        //    try
-        //    {
-        //        CategoriasModel objetoModel = new CategoriasModel
-        //        {
-        //            CategoriaID = Convert.ToInt32(txtReceitaID.Text),
-        //            NomeCategoria = txtDescricao.Text
-        //        };
-
-        //        CategoriasBLL objetoBll = new CategoriasBLL();
-        //        objetoBll.Alterar(objetoModel);
-
-        //        MessageBox.Show("Registro alterado com sucesso!", "Alteração", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);                
-        //        Utilitario.LimpaCampoKrypton(this);
-        //        this.Close();
-        //    }
-        //    catch (Exception erro)
-        //    {
-        //        MessageBox.Show("Erro ao alterar o registro: " + erro.Message);
-        //    }
-        //}
-        //public void ExcluirRegistro()
-        //{
-        //    try
-        //    {
-        //        if (string.IsNullOrEmpty(txtReceitaID.Text))
-        //        {
-        //            MessageBox.Show("Selecione um Tipo de receita para excluir!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //            return;
-        //        }
-
-        //        int tipoReceitaID = Convert.ToInt32(txtReceitaID.Text);
-
-        //        CategoriasModel objetoModel = new CategoriasModel
-        //        {
-        //            CategoriaID = tipoReceitaID,
-        //        };
-
-        //        CategoriasBLL objetoBll = new CategoriasBLL();
-        //        objetoBll.Excluir(tipoReceitaID);
-
-        //        MessageBox.Show("Registro excluído com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
-        //        Utilitario.LimpaCampoKrypton(this);// Limpa os campos e fecha o formulário
-        //        this.Close();
-        //    }
-        //    catch (Exception erro)
-        //    {
-        //        MessageBox.Show("Erro ao excluir o registro: " + erro.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
+       
         private void btnNovo_Click(object sender, EventArgs e)
         {
             int NovoCodigo = Utilitario.GerarProximoCodigo(QueryCategoria);
@@ -201,6 +132,22 @@ namespace Money
                 // Envia a tecla Tab
                 SendKeys.Send("{TAB}");
             }
+        }
+
+        private void txtValor_Leave(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(txtValor.Text, out decimal valor))
+            {
+                // Formata o valor como moeda com duas casas decimais
+                txtValor.Text = valor.ToString("N2");
+            }
+            else
+            {
+                // Mostra uma mensagem de erro ou limpa o texto se não for um número válido
+                txtValor.Text = string.Empty;
+                MessageBox.Show("Por favor, insira um valor numérico válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
     }
 }

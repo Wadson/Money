@@ -15,15 +15,15 @@ namespace Money.DAL
             using (var conn = Conexao.Conex())
             {
                 conn.Open();
-                string sql = "INSERT INTO Receitas (Descricao, Valor, Data, TipoID, DataCriacao) " +
-                             "VALUES (@Descricao, @Valor, @Data, @TipoID, @DataCriacao)";
+                string sql = "INSERT INTO Receitas (Descricao, Valor, DataRecebimento, TipoID, DataCadastro) " +
+                             "VALUES (@Descricao, @Valor, @DataRecebimento, @TipoID, @DataCadastro)";
                 using (var cmd = new SqlCeCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@Descricao", receita.Descricao);
-                    cmd.Parameters.AddWithValue("@Valor", receita.Valor);
-                    cmd.Parameters.AddWithValue("@Data", receita.Data);
+                    cmd.Parameters.AddWithValue("@Valor", receita.ValorDaReceita);
+                    cmd.Parameters.AddWithValue("@DataRecebimento", receita.DataRecebimento);
                     cmd.Parameters.AddWithValue("@TipoID", receita.TipoID);                    
-                    cmd.Parameters.AddWithValue("@DataCriacao", receita.DataCriacao);
+                    cmd.Parameters.AddWithValue("@DataCadastro", receita.DataCadastro);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -34,17 +34,17 @@ namespace Money.DAL
             using (var conn = Conexao.Conex())
             {
                 conn.Open();
-                string sql = "UPDATE Receitas SET Descricao = @Descricao, Valor = @Valor, Data = @Data, " +
-                             "TipoID = @TipoID, DataCriacao = @DataCriacao " +
+                string sql = "UPDATE Receitas SET Descricao = @Descricao, Valor = @Valor, DataRecebimento = @DataRecebimento, " +
+                             "TipoID = @TipoID, DataCadastro = @DataCadastro " +
                              "WHERE ReceitaID = @ReceitaID";
                 using (var cmd = new SqlCeCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@ReceitaID", receita.ReceitaID);
                     cmd.Parameters.AddWithValue("@Descricao", receita.Descricao);
-                    cmd.Parameters.AddWithValue("@Valor", receita.Valor);
-                    cmd.Parameters.AddWithValue("@Data", receita.Data);
+                    cmd.Parameters.AddWithValue("@Valor", receita.ValorDaReceita);
+                    cmd.Parameters.AddWithValue("@DataRecebimento", receita.DataRecebimento);
                     cmd.Parameters.AddWithValue("@TipoID", receita.TipoID);                    
-                    cmd.Parameters.AddWithValue("@DataCriacao", receita.DataCriacao);
+                    cmd.Parameters.AddWithValue("@DataCadastro", receita.DataCadastro);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -103,7 +103,7 @@ namespace Money.DAL
             {
                 conn.Open();
                 string sql = @"
-                SELECT r.ReceitaID, r.Descricao, r.Valor, r.Data, r.TipoID, r.DataCriacao, t.NomeTipo
+                SELECT r.ReceitaID, r.Descricao, r.Valor, r.TipoID, t.NomeTipo, r.DataRecebimento, r.DataCadastro
                 FROM Receitas r
                 LEFT JOIN TiposReceita t ON r.TipoID = t.TipoID";
                 if (!string.IsNullOrEmpty(descricao))
@@ -122,11 +122,11 @@ namespace Money.DAL
                             {
                                 ReceitaID = reader.GetInt32(0),
                                 Descricao = reader.GetString(1),
-                                Valor = reader.GetDecimal(2),
-                                Data = reader.GetDateTime(3),
-                                TipoID = reader.IsDBNull(4) ? (int?)null : reader.GetInt32(4),
-                                DataCriacao = reader.GetDateTime(5),
-                                NomeTipoReceita = reader.IsDBNull(6) ? null : reader.GetString(6)
+                                ValorDaReceita = reader.GetDecimal(2),                                
+                                TipoID = reader.IsDBNull(3) ? (int?)null : reader.GetInt32(3),                                
+                                NomeTipoReceita = reader.IsDBNull(4) ? null : reader.GetString(4),
+                                DataRecebimento = reader.GetDateTime(5),
+                                DataCadastro = reader.GetDateTime(6)
                             });
                         }
                     }

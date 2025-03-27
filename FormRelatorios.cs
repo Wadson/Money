@@ -95,11 +95,11 @@ namespace Money
 
             if (dgv.Columns.Contains("Valor"))
             {
-                dgv.Columns["Valor"].HeaderText = "Valor";
-                dgv.Columns["Valor"].Width = 100;
-                dgv.Columns["Valor"].DefaultCellStyle.Format = "C2";
-                dgv.Columns["Valor"].DefaultCellStyle.ForeColor = Color.DarkRed;
-                dgv.Columns["Valor"].DefaultCellStyle.BackColor = Color.LightYellow;
+                dgv.Columns["ValorDaCompra"].HeaderText = " Valor \nda Compra";
+                dgv.Columns["ValorDaCompra"].Width = 100;
+                dgv.Columns["ValorDaCompra"].DefaultCellStyle.Format = "C2";
+                dgv.Columns["ValorDaCompra"].DefaultCellStyle.ForeColor = Color.DarkRed;
+                dgv.Columns["ValorDaCompra"].DefaultCellStyle.BackColor = Color.LightYellow;
             }
 
             if (dgv.Columns.Contains("DataVencimento"))
@@ -245,12 +245,12 @@ namespace Money
                 var despesasTotais = despesasBLL.PesquisarRelatorio();
 
                 decimal totalReceitasAnteriores = receitasTotais
-                    .Where(r => r.Data <= fimMesAnterior)
-                    .Sum(r => r.Valor);
+                    .Where(r => r.DataRecebimento <= fimMesAnterior)
+                    .Sum(r => r.ValorDaReceita);
 
                 decimal totalDespesasAnteriores = despesasTotais
                     .Where(d => d.DataVencimento <= fimMesAnterior)
-                    .Sum(d => d.Valor);
+                    .Sum(d => d.ValorDaCompra);
 
                 decimal saldoAcumulado = totalReceitasAnteriores - totalDespesasAnteriores;
 
@@ -301,13 +301,13 @@ namespace Money
                 }
                 else
                 {
-                    decimal totalValor = listaFiltrada.Sum(d => d.Valor);
+                    decimal totalValor = listaFiltrada.Sum(d => d.ValorDaCompra);
                     decimal? totalValorParcela = listaFiltrada.Where(d => d.ValorParcela.HasValue).Sum(d => d.ValorParcela);
 
                     var linhaTotal = new DespesasModel
                     {
                         Descricao = "Total",
-                        Valor = totalValor,
+                        ValorDaCompra = totalValor,
                         ValorParcela = totalValorParcela,
                         DataVencimento = DateTime.MinValue,
                         DataPgto = null,
@@ -322,22 +322,22 @@ namespace Money
                     dgvRelatorio.DataSource = listaFiltrada;
                     PersonalizarDataGridView(dgvRelatorio);
 
-                    totalAberto = listaFiltrada.Where(d => !d.Pago && d.Descricao != "Total").Sum(d => d.Valor);
-                    totalPago = listaFiltrada.Where(d => d.Pago && d.Descricao != "Total").Sum(d => d.Valor);
+                    totalAberto = listaFiltrada.Where(d => !d.Pago && d.Descricao != "Total").Sum(d => d.ValorDaCompra);
+                    totalPago = listaFiltrada.Where(d => d.Pago && d.Descricao != "Total").Sum(d => d.ValorDaCompra);
                     lblTotalAberto.Text = $"Total Aberto: {totalAberto:C2}";
                     lblTotalPago.Text = $"Total Pago: {totalPago:C2}";
                 }
 
                 // Passo 3: Calcular receitas e despesas do mês atual
-                var receitasMes = receitasTotais.Where(r => r.Data.Month == mesAno.Month && r.Data.Year == mesAno.Year);
-                decimal totalReceitasMes = receitasMes.Sum(r => r.Valor);
+                var receitasMes = receitasTotais.Where(r => r.DataRecebimento.Month == mesAno.Month && r.DataRecebimento.Year == mesAno.Year);
+                decimal totalReceitasMes = receitasMes.Sum(r => r.ValorDaReceita);
 
                 // Incluir despesas acumuladas não pagas de meses anteriores + despesas do mês atual
                 decimal totalDespesasAcumuladas = despesasTotais
                     .Where(d => !d.Pago && d.DataVencimento <= fimMesAnterior)
-                    .Sum(d => d.Valor);
+                    .Sum(d => d.ValorDaCompra);
 
-                decimal totalDespesasMes = listaFiltrada.Where(d => d.Descricao != "Total").Sum(d => d.Valor);
+                decimal totalDespesasMes = listaFiltrada.Where(d => d.Descricao != "Total").Sum(d => d.ValorDaCompra);
 
                 // Passo 4: Calcular o saldo final
                 decimal saldoFinal = saldoAcumulado + totalReceitasMes - (totalDespesasAcumuladas + totalDespesasMes);               
@@ -403,7 +403,7 @@ namespace Money
                             var dadosExportacao = data.Select(d => new
                             {
                                 Descricao = d.Descricao,
-                                Valor = d.Valor,
+                                Valor = d.ValorDaCompra,
                                 DataVencimento = d.DataVencimento.ToString("dd/MM/yyyy"),
                                 Status = d.Status,
                                 NomeCategoria = d.NomeCategoria,

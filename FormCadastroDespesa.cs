@@ -123,7 +123,6 @@ namespace Money
                 btnLocalizarMetodoPagamento.Enabled = false;
             }           
         }
-
         private void FormCadastroCategorias_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -133,8 +132,7 @@ namespace Money
                 // Envia a tecla Tab
                 SendKeys.Send("{TAB}");
             }
-        }
-        
+        }       
 
         private void txtValor_Leave(object sender, EventArgs e)
         {
@@ -255,59 +253,7 @@ namespace Money
                 MessageBox.Show($"Erro ao gerar parcelas: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        //private void Parcelamento()
-        //{
-        //    try
-        //    {
-        //        if (string.IsNullOrWhiteSpace(txtDescricao.Text) || string.IsNullOrWhiteSpace(txtValorTotal.Text))
-        //        {
-        //            MessageBox.Show("Preencha a descrição e o valor antes de gerar parcelas!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //            return;
-        //        }
-
-        //        if (!int.TryParse(txtNumeroParcelas.Text.Trim(), out int numeroParcelas) || numeroParcelas <= 0)
-        //        {
-        //            MessageBox.Show("O número de parcelas deve ser maior que zero!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //            return;
-        //        }
-
-        //        decimal valorTotal = decimal.Parse(txtValorTotal.Text, CultureInfo.CurrentCulture);
-
-        //        var frmGerarParcelas = new FormGerarParcelas(
-        //            txtDescricao.Text.Trim(),
-        //            valorTotal,
-        //            dtpDataVencimento.Value,
-        //            numeroParcelas
-        //        );
-
-        //        if (frmGerarParcelas.ShowDialog() == DialogResult.OK)
-        //        {
-        //            ParcelasGeradas = frmGerarParcelas.Parcelas;
-        //            if (ParcelasGeradas.Count > 0)
-        //            {
-        //                // Mantém o formato "X/Y" da última parcela para refletir o total
-        //                txtNumeroParcelas.Text = ParcelasGeradas.Last().NumeroParcelas; // Ex.: "2/2" ou "8/8"
-        //                txtValorParcela.Text = ParcelasGeradas.First().ValorParcela.HasValue
-        //                    ? ParcelasGeradas.First().ValorParcela.Value.ToString("N2", CultureInfo.CurrentCulture)
-        //                    : "0.00";
-        //                MessageBox.Show($"{ParcelasGeradas.Count} parcelas geradas com sucesso! Clique em 'Salvar' para persistir.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //            }
-        //        }
-        //    }
-        //    catch (FormatException)
-        //    {
-        //        MessageBox.Show("O valor informado é inválido!", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"Erro ao gerar parcelas: {ex.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        private void btnGerarParcelas_Click(object sender, EventArgs e)
-        {            
-        }
-
+       
         private void txtValorParcela_Leave(object sender, EventArgs e)
         {
             if (decimal.TryParse(txtValorTotal.Text, NumberStyles.Any, CultureInfo.CurrentCulture, out decimal valorParcela))
@@ -415,7 +361,7 @@ namespace Money
                     {
                         parcela.DespesaID = Utilitario.GerarProximoCodigo(QueryDespesa);
                         parcela.Descricao = parcela.Descricao;
-                        parcela.Valor = decimal.Parse(txtValorTotal.Text);
+                        parcela.ValorDaCompra = decimal.Parse(txtValorTotal.Text);
                         parcela.DataVencimento = parcela.DataVencimento;
                         parcela.Status = "Pendente";
                         parcela.NumeroParcelas = parcela.NumeroParcelas;
@@ -449,7 +395,7 @@ namespace Money
                             {
                                 DespesaID = int.Parse(txtDespesaID.Text),
                                 Descricao = txtDescricao.Text,
-                                Valor = decimal.Parse(txtValorTotal.Text),
+                                ValorDaCompra = decimal.Parse(txtValorTotal.Text),
                                 DataVencimento = dtpDataVencimento.Value,
                                 Status = cmbStatus.SelectedItem.ToString(),
                                 NumeroParcelas = "1/1",
@@ -476,7 +422,7 @@ namespace Money
                             {
                                 DespesaID = int.Parse(txtDespesaID.Text),
                                 Descricao = txtDescricao.Text,
-                                Valor = decimal.Parse(txtValorTotal.Text),
+                                ValorDaCompra = decimal.Parse(txtValorTotal.Text),
                                 DataVencimento = dtpDataVencimento.Value,
                                 Status = cmbStatus.SelectedItem.ToString(),
                                 NumeroParcelas = "1/1",

@@ -62,11 +62,11 @@ namespace Money
                 dgv.Columns["Valor"].DefaultCellStyle.Format = "C2"; // Formato monetário
             }
 
-            if (dgv.Columns.Contains("Data"))
+            if (dgv.Columns.Contains("DataRecebimento"))
             {
-                dgv.Columns["Data"].HeaderText = "Data";
-                dgv.Columns["Data"].Width = 100;
-                dgv.Columns["Data"].DefaultCellStyle.Format = "dd/MM/yyyy"; // Formato short
+                dgv.Columns["DataRecebimento"].HeaderText = "Data do\nRecebimento";
+                dgv.Columns["DataRecebimento"].Width = 100;
+                dgv.Columns["DataRecebimento"].DefaultCellStyle.Format = "dd/MM/yyyy"; // Formato short
             }
 
             if (dgv.Columns.Contains("NomeTipoReceita"))
@@ -75,11 +75,11 @@ namespace Money
                 dgv.Columns["NomeTipoReceita"].Width = 200;
             }
 
-            if (dgv.Columns.Contains("DataCriacao"))
+            if (dgv.Columns.Contains("DataCadastro"))
             {
-                dgv.Columns["DataCriacao"].HeaderText = "Data de Criação";
-                dgv.Columns["DataCriacao"].Width = 120;
-                dgv.Columns["DataCriacao"].DefaultCellStyle.Format = "dd/MM/yyyy"; // Formato short
+                dgv.Columns["DataCadastro"].HeaderText = "Data do\nCadastro";
+                dgv.Columns["DataCadastro"].Width = 120;
+                dgv.Columns["DataCadastro"].DefaultCellStyle.Format = "dd/MM/yyyy"; // Formato short
             }
 
             if (dgv.Columns.Contains("TipoID"))
@@ -155,10 +155,10 @@ namespace Money
             {
                 form.txtReceitaID.Text = TipoAtual.ReceitaID.ToString();
                 form.txtDescricao.Text = TipoAtual.Descricao;
-                form.txtValor.Text = TipoAtual.Valor.ToString();
-                form.dtpDataCadastro.Value = TipoAtual.Data;
+                form.txtValor.Text = TipoAtual.ValorDaReceita.ToString();
+                form.dtpDataCadastro.Value = TipoAtual.DataCadastro;
                 form.cmbTipoReceita.SelectedValue = TipoAtual.TipoID;
-                form.dtpDataRecebimento.Value = TipoAtual.DataCriacao;
+                form.dtpDataRecebimento.Value = TipoAtual.DataRecebimento;
             }
         }
 
@@ -194,10 +194,10 @@ namespace Money
                 {
                     ReceitaID = Convert.ToInt32(selectedRow.Cells["ReceitaID"].Value),
                     Descricao = selectedRow.Cells["Descricao"].Value.ToString(),
-                    Valor = Convert.ToDecimal(selectedRow.Cells["Valor"].Value),
-                    Data = Convert.ToDateTime(selectedRow.Cells["Data"].Value),
+                    ValorDaReceita = Convert.ToDecimal(selectedRow.Cells["ValorDaReceita"].Value),
+                    DataRecebimento = Convert.ToDateTime(selectedRow.Cells["DataRecebimento"].Value),
                     TipoID = selectedRow.Cells["TipoID"].Value == null ? (int?)null : Convert.ToInt32(selectedRow.Cells["TipoID"].Value),
-                    DataCriacao = Convert.ToDateTime(selectedRow.Cells["DataCriacao"].Value),
+                    DataCadastro = Convert.ToDateTime(selectedRow.Cells["DataCadastro"].Value),
                     NomeTipoReceita = selectedRow.Cells["NomeTipoReceita"].Value?.ToString() // Corrigido de "NomeTipo" para "NomeTipoReceita"
                 };
                 btnAlterar.Enabled = true;
@@ -242,6 +242,11 @@ namespace Money
         {
             StatusOperacao = "NOVO";
             CarregaDados();
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

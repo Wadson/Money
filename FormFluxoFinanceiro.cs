@@ -22,15 +22,15 @@ namespace Money
             InitializeComponent();
            
             InicializarControles();
-            dtpMesAno.ValueChanged += dtpMesAno_ValueChanged;
-            dgvReceitas.CellFormatting += dgvReceitas_CellFormatting;
-            dgvDespesas.CellFormatting += dgvDespesas_CellFormatting;
-            dgvDespesas.CellValueChanged += dgvDespesas_CellValueChanged;
-            dgvDespesas.DataError += dgvDespesas_DataError;
+            dtpMesAno.ValueChanged += dtpMesAno_ValueChanged;            
+
+            listViewDespesas.ItemCheck += listViewDespesas_ItemCheck; // Evento para atualizar total selecionado
         }
         private void InicializarControles()
         {
             dtpMesAno.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            PersonalizarListViewReceitas();
+            PersonalizarListViewDespesas();
             AtualizarFluxoFinanceiro();
         }
         private void AtualizarFluxoFinanceiro()
@@ -41,21 +41,31 @@ namespace Money
 
                 // Filtrar e adicionar linha de totais para receitas
                 var receitas = receitasBLL.Pesquisar()
-                    .Where(r => r.Data.Month == mesAno.Month && r.Data.Year == mesAno.Year)
+                    .Where(r => r.DataRecebimento.Month == mesAno.Month && r.DataRecebimento.Year == mesAno.Year)
                     .ToList();
-                decimal totalReceitas = receitas.Sum(r => r.Valor);
+                decimal totalReceitas = receitas.Sum(r => r.ValorDaReceita);
                 if (receitas.Count > 0)
                 {
                     receitas.Add(new ReceitasModel
                     {
                         Descricao = "Total",
-                        Valor = totalReceitas,
-                        Data = DateTime.MinValue
+                        ValorDaReceita = totalReceitas,
+                        DataRecebimento = DateTime.MinValue
                     });
                 }
-                dgvReceitas.DataSource = null;
-                dgvReceitas.DataSource = receitas;
-                PersonalizarDgvReceitas();
+                listViewReceitas.Items.Clear();
+                foreach (var receita in receitas)
+                {
+                    var item = new ListViewItem(receita.DataRecebimento == DateTime.MinValue ? "" : receita.DataRecebimento.ToString("dd/MM/yyyy"));
+                    item.SubItems.Add(receita.ValorDaReceita.ToString("C2"));
+                    item.SubItems.Add(receita.Descricao);
+                    if (receita.Descricao == "Total")
+                    {
+                        item.Font = new Font(listViewReceitas.Font, FontStyle.Bold);
+                        item.BackColor = Color.LightGray;
+                    }
+                    listViewReceitas.Items.Add(item);
+                }
 
                 // Filtrar e adicionar linha de totais para despesas
                 var despesas = despesasBLL.PesquisarRelatorio()
@@ -63,32 +73,50 @@ namespace Money
                     .Select(d => new DespesaViewModel
                     {
                         Descricao = d.Descricao,
-                        Valor = d.Valor,
+                        ValorDaCompra = d.ValorDaCompra,
                         DataVencimento = d.DataVencimento,
                         Pago = d.Pago,
                         NumeroParcelas = d.NumeroParcelas,
                         ValorParcela = d.ValorParcela,
                         NomeCategoria = d.NomeCategoria,
-                        Selecionado = false // Inicialmente não selecionado
+                        Selecionado = false
                     }).ToList();
-                decimal totalDespesas = despesas.Sum(d => d.Valor);
+
+                decimal totalDespesas = despesas.Sum(d => d.ValorParcela ?? 0);
+                Console.WriteLine($"Total Despesas Calculado: {totalDespesas:C2}");
                 if (despesas.Count > 0)
                 {
                     despesas.Add(new DespesaViewModel
                     {
                         Descricao = "Total",
-                        Valor = totalDespesas,
+                        ValorParcela = totalDespesas,
                         DataVencimento = DateTime.MinValue,
                         Pago = false,
                         NumeroParcelas = null,
-                        ValorParcela = null,
+                        ValorDaCompra = 0m,
                         NomeCategoria = null,
-                        Selecionado = false // Não selecionável na linha de totais
+                        Selecionado = false
                     });
                 }
-                dgvDespesas.DataSource = null;
-                dgvDespesas.DataSource = despesas;
-                PersonalizarDgvDespesas();
+                listViewDespesas.Items.Clear();
+                foreach (var despesa in despesas)
+                {
+                    var item = new ListViewItem
+                    {
+                        Checked = despesa.Selecionado,
+                        Text = despesa.Descricao // Primeira coluna será "Descrição" para alinhar com o checkbox
+                    };
+                    item.SubItems.Add((despesa.ValorParcela ?? 0).ToString("C2"));
+                    item.SubItems.Add(despesa.DataVencimento == DateTime.MinValue ? "" : despesa.DataVencimento.ToString("dd/MM/yyyy"));
+                    item.SubItems.Add(despesa.Pago.ToString());
+                    if (despesa.Descricao == "Total")
+                    {
+                        item.Font = new Font(listViewDespesas.Font, FontStyle.Bold);
+                        item.BackColor = Color.LightGray;
+                        item.Checked = false; // Total não deve ser selecionável
+                    }
+                    listViewDespesas.Items.Add(item);
+                }
 
                 // Calcular saldo e atualizar TextBox
                 decimal saldo = totalReceitas - totalDespesas;
@@ -106,121 +134,58 @@ namespace Money
             }
         }
 
-        private void PersonalizarDgvReceitas()
+        private void PersonalizarListViewReceitas()
         {
-            dgvReceitas.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(70, 130, 180);
-            dgvReceitas.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgvReceitas.ColumnHeadersDefaultCellStyle.Font = new Font(dgvReceitas.Font, FontStyle.Bold);
-            dgvReceitas.EnableHeadersVisualStyles = false;
-
-            if (dgvReceitas.Columns.Contains("Data"))
-            {
-                dgvReceitas.Columns["Data"].HeaderText = "Data";
-                dgvReceitas.Columns["Data"].Width = 90;
-                dgvReceitas.Columns["Data"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            }
-
-            if (dgvReceitas.Columns.Contains("Valor"))
-            {
-                dgvReceitas.Columns["Valor"].HeaderText = "Valor";
-                dgvReceitas.Columns["Valor"].Width = 90;
-                dgvReceitas.Columns["Valor"].DefaultCellStyle.Format = "C2";
-                dgvReceitas.Columns["Valor"].DefaultCellStyle.ForeColor = Color.DarkGreen;
-            }
-
-            if (dgvReceitas.Columns.Contains("Descricao"))
-            {
-                dgvReceitas.Columns["Descricao"].HeaderText = "Descrição";
-                dgvReceitas.Columns["Descricao"].Width = 200;
-            }
-
-            foreach (DataGridViewColumn col in dgvReceitas.Columns)
-            {
-                if (!new[] { "Data", "Valor", "Descricao" }.Contains(col.Name))
-                    col.Visible = false;
-            }
+            listViewReceitas.View = View.Details;
+            listViewReceitas.FullRowSelect = true;
+            listViewReceitas.GridLines = true;
+            listViewReceitas.Columns.Clear();
+            listViewReceitas.Columns.Add("DataRecebimento", 90);
+            var valorReceitaColumn = listViewReceitas.Columns.Add("Valor da Receita", 90);
+            valorReceitaColumn.TextAlign = HorizontalAlignment.Right; // Alinhar texto à direita
+            listViewReceitas.Columns.Add("Descrição", 200);
+            listViewReceitas.HeaderStyle = ColumnHeaderStyle.Clickable;
+            listViewReceitas.BackColor = Color.White;
         }
 
-        private void PersonalizarDgvDespesas()
+        private void PersonalizarListViewDespesas()
         {
-            dgvDespesas.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(70, 130, 180);
-            dgvDespesas.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgvDespesas.ColumnHeadersDefaultCellStyle.Font = new Font(dgvDespesas.Font, FontStyle.Bold);
-            dgvDespesas.EnableHeadersVisualStyles = false;
-
-            // Adicionar coluna de checkbox
-            if (!dgvDespesas.Columns.Contains("Selecionado"))
-            {
-                var checkBoxColumn = new DataGridViewCheckBoxColumn
-                {
-                    Name = "Selecionado",
-                    HeaderText = "Selecionar",
-                    Width = 70,
-                    ReadOnly = false
-                };
-                dgvDespesas.Columns.Insert(0, checkBoxColumn); // Inserir como primeira coluna
-            }
-
-            if (dgvDespesas.Columns.Contains("Descricao"))
-            {
-                dgvDespesas.Columns["Descricao"].HeaderText = "Descrição";
-                dgvDespesas.Columns["Descricao"].Width = 180;
-                dgvDespesas.Columns["Descricao"].ReadOnly = true;
-            }
-
-            if (dgvDespesas.Columns.Contains("Valor"))
-            {
-                dgvDespesas.Columns["Valor"].HeaderText = "Valor";
-                dgvDespesas.Columns["Valor"].Width = 90;
-                dgvDespesas.Columns["Valor"].DefaultCellStyle.Format = "C2";
-                dgvDespesas.Columns["Valor"].DefaultCellStyle.ForeColor = Color.DarkRed;
-                dgvDespesas.Columns["Valor"].ReadOnly = true;
-            }
-
-            if (dgvDespesas.Columns.Contains("DataVencimento"))
-            {
-                dgvDespesas.Columns["DataVencimento"].HeaderText = "Vencimento";
-                dgvDespesas.Columns["DataVencimento"].Width = 90;
-                dgvDespesas.Columns["DataVencimento"].DefaultCellStyle.Format = "dd/MM/yyyy";
-                dgvDespesas.Columns["DataVencimento"].ReadOnly = true;
-            }
-
-            if (dgvDespesas.Columns.Contains("Pago"))
-            {
-                dgvDespesas.Columns["Pago"].HeaderText = "Pago";
-                dgvDespesas.Columns["Pago"].Width = 50;
-                dgvDespesas.Columns["Pago"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dgvDespesas.Columns["Pago"].ReadOnly = true;
-            }
-
-            foreach (DataGridViewColumn col in dgvDespesas.Columns)
-            {
-                if (!new[] { "Selecionado", "Descricao", "Valor", "DataVencimento", "Pago" }.Contains(col.Name))
-                    col.Visible = false;
-            }
+            listViewDespesas.View = View.Details;
+            listViewDespesas.FullRowSelect = true;
+            listViewDespesas.GridLines = true;
+            listViewDespesas.CheckBoxes = true; // Habilitar checkboxes
+            listViewDespesas.Columns.Clear();
+            listViewDespesas.Columns.Add("Descrição", 180); // Checkbox será exibido aqui
+            var valorParcelaColumn = listViewDespesas.Columns.Add("Valor da Parcela", 90);
+            valorParcelaColumn.TextAlign = HorizontalAlignment.Right; // Alinhar texto à direita
+            listViewDespesas.Columns.Add("Vencimento", 90);
+            listViewDespesas.Columns.Add("Pago", 50);
+            listViewDespesas.HeaderStyle = ColumnHeaderStyle.Clickable;
+            listViewDespesas.BackColor = Color.White;
         }
 
         private void AtualizarTotalSelecionado()
         {
             decimal totalSelecionado = 0m;
 
-            // Iterar pelas linhas do DataGridView diretamente
-            foreach (DataGridViewRow row in dgvDespesas.Rows)
+            foreach (ListViewItem item in listViewDespesas.Items)
             {
-                // Verificar se a linha não é "Total" e se o checkbox está marcado
-                if (row.Cells["Descricao"].Value?.ToString() != "Total" &&
-                    row.Cells["Selecionado"].Value != null &&
-                    Convert.ToBoolean(row.Cells["Selecionado"].Value))
+                if (item.Text != "Total" && item.Checked)
                 {
-                    decimal valor = Convert.ToDecimal(row.Cells["Valor"].Value);
+                    decimal valor = decimal.Parse(item.SubItems[1].Text, System.Globalization.NumberStyles.Currency);
                     totalSelecionado += valor;
-                    // Depuração: exibir os valores sendo somados
                     Console.WriteLine($"Somando: {valor:C2}, Total até agora: {totalSelecionado:C2}");
                 }
             }
 
             txtTotalSelecionado.Text = $"{totalSelecionado:C2}";
         }
+
+
+
+
+
+
 
         private void dtpMesAno_ValueChanged(object sender, EventArgs e)
         {
@@ -232,60 +197,17 @@ namespace Money
             this.Close();
         }
 
-        private void dgvDespesas_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void listViewDespesas_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            if (e.RowIndex >= 0 && dgvDespesas.Rows[e.RowIndex].Cells["Descricao"].Value?.ToString() == "Total")
+            // Impedir que a linha "Total" seja marcada
+            if (listViewDespesas.Items[e.Index].Text == "Total")
             {
-                e.CellStyle.Font = new Font(dgvDespesas.Font, FontStyle.Bold);
-                e.CellStyle.BackColor = Color.LightGray;
-                e.CellStyle.ForeColor = Color.Black;
-
-                if (dgvDespesas.Columns[e.ColumnIndex].Name == "Selecionado" ||
-                    dgvDespesas.Columns[e.ColumnIndex].Name == "DataVencimento" ||
-                    dgvDespesas.Columns[e.ColumnIndex].Name == "Pago" ||
-                    dgvDespesas.Columns[e.ColumnIndex].Name == "NumeroParcelas" ||
-                    dgvDespesas.Columns[e.ColumnIndex].Name == "ValorParcela" ||
-                    dgvDespesas.Columns[e.ColumnIndex].Name == "NomeCategoria")
-                {
-                    e.Value = "";
-                    e.FormattingApplied = true;
-                }
+                e.NewValue = CheckState.Unchecked;
             }
-        }
-
-        private void dgvReceitas_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (e.RowIndex >= 0 && dgvReceitas.Rows[e.RowIndex].Cells["Descricao"].Value?.ToString() == "Total")
+            else
             {
-                e.CellStyle.Font = new Font(dgvReceitas.Font, FontStyle.Bold);
-                e.CellStyle.BackColor = Color.LightGray;
-                e.CellStyle.ForeColor = Color.Black;
-
-                if (dgvReceitas.Columns[e.ColumnIndex].Name == "Data")
-                {
-                    e.Value = "";
-                    e.FormattingApplied = true;
-                }
-            }
-        }
-
-        private void dgvDespesas_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
-            Console.WriteLine($"Erro no DataGridView Despesas: {e.Exception.Message} na coluna {e.ColumnIndex}, linha {e.RowIndex}");
-            e.ThrowException = false;
-        }
-
-        private void dgvDespesas_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {           
-        }
-
-        private void dgvDespesas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == dgvDespesas.Columns["Selecionado"].Index && e.RowIndex >= 0)
-            {
-                // Forçar o commit da edição da célula
-                dgvDespesas.EndEdit();
-                AtualizarTotalSelecionado();
+                // Atualizar o total selecionado após a mudança
+                BeginInvoke((MethodInvoker)delegate { AtualizarTotalSelecionado(); });
             }
         }
     }
@@ -293,7 +215,7 @@ namespace Money
     public class DespesaViewModel
     {
         public string Descricao { get; set; }
-        public decimal Valor { get; set; }
+        public decimal ValorDaCompra { get; set; }
         public DateTime DataVencimento { get; set; }
         public bool Pago { get; set; }
         public string NumeroParcelas { get; set; }

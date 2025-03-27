@@ -36,6 +36,7 @@
             this.txtReceitaID = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.dtpDataCadastro = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSair = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnNovo = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -46,7 +47,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cmbTipoReceita = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.dtpDataRecebimento = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.dtpDataCadastro = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbTipoReceita)).BeginInit();
@@ -167,6 +167,25 @@
             this.kryptonPanel1.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.SeparatorHighProfile;
             this.kryptonPanel1.Size = new System.Drawing.Size(599, 66);
             this.kryptonPanel1.TabIndex = 18;
+            // 
+            // dtpDataCadastro
+            // 
+            this.dtpDataCadastro.CalendarDayStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Gallery;
+            this.dtpDataCadastro.CalendarDimensions = new System.Drawing.Size(2, 2);
+            this.dtpDataCadastro.CalendarHeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Form;
+            this.dtpDataCadastro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataCadastro.Location = new System.Drawing.Point(420, 26);
+            this.dtpDataCadastro.Name = "dtpDataCadastro";
+            this.dtpDataCadastro.Palette = this.kryptonPalette1;
+            this.dtpDataCadastro.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.dtpDataCadastro.Size = new System.Drawing.Size(161, 37);
+            this.dtpDataCadastro.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.dtpDataCadastro.StateCommon.Border.Rounding = 20;
+            this.dtpDataCadastro.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
+            this.dtpDataCadastro.TabIndex = 254;
+            this.dtpDataCadastro.TabStop = false;
             // 
             // label4
             // 
@@ -376,6 +395,7 @@
             this.txtValor.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
             this.txtValor.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.txtValor.TabIndex = 1;
+            this.txtValor.Leave += new System.EventHandler(this.txtValor_Leave);
             // 
             // label3
             // 
@@ -440,25 +460,6 @@
             this.dtpDataRecebimento.StateCommon.Border.Rounding = 20;
             this.dtpDataRecebimento.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
             this.dtpDataRecebimento.TabIndex = 2;
-            // 
-            // dtpDataCadastro
-            // 
-            this.dtpDataCadastro.CalendarDayStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Gallery;
-            this.dtpDataCadastro.CalendarDimensions = new System.Drawing.Size(2, 2);
-            this.dtpDataCadastro.CalendarHeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Form;
-            this.dtpDataCadastro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataCadastro.Location = new System.Drawing.Point(420, 26);
-            this.dtpDataCadastro.Name = "dtpDataCadastro";
-            this.dtpDataCadastro.Palette = this.kryptonPalette1;
-            this.dtpDataCadastro.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-            this.dtpDataCadastro.Size = new System.Drawing.Size(161, 37);
-            this.dtpDataCadastro.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.dtpDataCadastro.StateCommon.Border.Rounding = 20;
-            this.dtpDataCadastro.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
-            this.dtpDataCadastro.TabIndex = 254;
-            this.dtpDataCadastro.TabStop = false;
             // 
             // FormCadastroReceita
             // 

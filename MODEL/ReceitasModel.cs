@@ -10,11 +10,11 @@ namespace Money
     {
         public int ReceitaID { get; set; }
         public string Descricao { get; set; }
-        public decimal Valor { get; set; }
-        public DateTime Data { get; set; }
+        public decimal ValorDaReceita { get; set; }
+        public DateTime DataRecebimento { get; set; }
         public int? TipoID { get; set; } // Agora aceita valores nulos       
         public string NomeTipoReceita { get; set; }
 
-        public DateTime DataCriacao { get; set; }
+        public DateTime DataCadastro { get; set; }
     }
 }
