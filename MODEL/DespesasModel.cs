@@ -11,15 +11,26 @@ namespace Money.MODEL
         public int DespesaID { get; set; }
         public string Descricao { get; set; }
         public decimal ValorDaCompra { get; set; }
-        public DateTime DataVencimento { get; set; }
-        public string Status { get; set; }
-        public string NumeroParcelas { get; set; } = null;
-        public decimal? ValorParcela { get; set; }
+        public DateTime DataDaCompra { get; set; }
+        public string NomeCategoria { get; set; }
         public int? CategoriaID { get; set; }
-        public string NomeCategoria { get; set; } // Adicionada propriedade para o nome da categoria
         public int? MetodoPgtoID { get; set; }
-        public bool Pago { get; set; }
-        public DateTime DataCriacao { get; set; }
-        public DateTime? DataPgto { get; set; }
+        public List<ParcelasModel> Parcelas { get; set; } = new List<ParcelasModel>(); // Garantir inicialização aqui
+
+        //public int DespesaID { get; set; }
+        //public string Descricao { get; set; }
+        //public int? CategoriaID { get; set; }
+        //public int? MetodoPgtoID { get; set; }
+        //public DateTime DataDaCompra { get; set; }
+        //public decimal ValorDaCompra { get; set; }
+        public decimal ValorPago { get; set; }
+        public decimal ValorParcela { get; set; }
+        public bool? Pago { get; set; }
+        //public DateTime? DataPgto { get; set; }
+        public DateTime? DataVencimento { get; set; }
+        //public List<ParcelasModel> Parcelas { get; set; }
+        //public string NomeCategoria { get; set; }
+        public int NumeroParcelas { get; set; }
+
     }
 }

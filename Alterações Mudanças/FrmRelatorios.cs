@@ -1,4 +1,12 @@
-﻿using System;
+
+
+
+
+
+
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,10 +19,7 @@ using System.Windows.Forms;
 using ClosedXML.Excel;
 using ComponentFactory.Krypton.Toolkit;
 using Money.BLL;
-using Money.DAL;
 using Money.MODEL;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
 
 namespace Money
 {
@@ -26,7 +31,8 @@ namespace Money
 
         public FormRelatorios()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            dgvRelatorio.CellFormatting += DgvRelatorio_CellFormatting;
             InicializarControles();
             dgvRelatorio.DataError += dgvRelatorio_DataError;
         }
@@ -35,7 +41,7 @@ namespace Money
         {
             cmbStatus.SelectedIndex = 0;
 
-            var categorias = new List<string> { "Todos" };
+            var categorias = new List<string> { "Todos" }; // Adiciona "Todos" como primeira opção
             using (var conn = Conexao.Conex())
             {
                 conn.Open();
@@ -52,9 +58,9 @@ namespace Money
                 }
             }
             cmbCategoria.DataSource = categorias;
-            cmbCategoria.SelectedIndex = 0;
+            cmbCategoria.SelectedIndex = 0; // "Todos" por padrão
 
-            var metodosPagamento = new List<string> { "Todos" };
+            var metodosPagamento = new List<string> { "Todos" }; // Adiciona "Todos" como primeira opção
             using (var conn = Conexao.Conex())
             {
                 conn.Open();
@@ -71,18 +77,20 @@ namespace Money
                 }
             }
             cmbMetodoPgto.DataSource = metodosPagamento;
-            cmbMetodoPgto.SelectedIndex = 0;
+            cmbMetodoPgto.SelectedIndex = 0; // "Todos" por padrão
         }
 
         private void PersonalizarDataGridView(KryptonDataGridView dgv)
         {
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
 
+            // Ocultar colunas de ID
             if (dgv.Columns.Contains("DespesaID")) dgv.Columns["DespesaID"].Visible = false;
             if (dgv.Columns.Contains("ParcelaID")) dgv.Columns["ParcelaID"].Visible = false;
             if (dgv.Columns.Contains("CategoriaID")) dgv.Columns["CategoriaID"].Visible = false;
             if (dgv.Columns.Contains("MetodoPgtoID")) dgv.Columns["MetodoPgtoID"].Visible = false;
 
+            // Configurar colunas visíveis
             if (dgv.Columns.Contains("Descricao"))
             {
                 dgv.Columns["Descricao"].HeaderText = "Descrição";
@@ -98,11 +106,11 @@ namespace Money
                 dgv.Columns["ValorDaCompra"].DefaultCellStyle.BackColor = Color.LightYellow;
             }
 
-            if (dgv.Columns.Contains("DataDaCompra"))
+            if (dgv.Columns.Contains("DataCriacao"))
             {
-                dgv.Columns["DataDaCompra"].HeaderText = "Data da Compra";
-                dgv.Columns["DataDaCompra"].Width = 120;
-                dgv.Columns["DataDaCompra"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgv.Columns["DataCriacao"].HeaderText = "Data da Compra";
+                dgv.Columns["DataCriacao"].Width = 120;
+                dgv.Columns["DataCriacao"].DefaultCellStyle.Format = "dd/MM/yyyy";
             }
 
             if (dgv.Columns.Contains("DataVencimento"))
@@ -142,18 +150,38 @@ namespace Money
                 dgv.Columns["Pago"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
 
-            if (dgv.Columns.Contains("DataPgto"))
+            if (dgv.Columns.Contains("DataPagamento"))
             {
-                dgv.Columns["DataPgto"].HeaderText = "Data Pgto";
-                dgv.Columns["DataPgto"].Width = 120;
-                dgv.Columns["DataPgto"].DefaultCellStyle.Format = "dd/MM/yyyy";
-                dgv.Columns["DataPgto"].DefaultCellStyle.NullValue = "";
-                dgv.Columns["DataPgto"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgv.Columns["DataPagamento"].HeaderText = "Data Pgto";
+                dgv.Columns["DataPagamento"].Width = 120;
+                dgv.Columns["DataPagamento"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgv.Columns["DataPagamento"].DefaultCellStyle.NullValue = "";
+                dgv.Columns["DataPagamento"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
 
             dgv.ReadOnly = true;
         }
 
+        private void DgvRelatorio_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvRelatorio.Rows[e.RowIndex].Cells["Descricao"].Value?.ToString() == "Total")
+            {
+                e.CellStyle.Font = new Font(dgvRelatorio.Font, FontStyle.Bold);
+                e.CellStyle.BackColor = Color.LightGray;
+                e.CellStyle.ForeColor = Color.Black;
+
+                if (dgvRelatorio.Columns[e.ColumnIndex].Name == "DataCriacao" ||
+                    dgvRelatorio.Columns[e.ColumnIndex].Name == "DataVencimento" ||
+                    dgvRelatorio.Columns[e.ColumnIndex].Name == "DataPagamento" ||
+                    dgvRelatorio.Columns[e.ColumnIndex].Name == "NumeroParcela" ||
+                    dgvRelatorio.Columns[e.ColumnIndex].Name == "NomeCategoria" ||
+                    dgvRelatorio.Columns[e.ColumnIndex].Name == "Pago")
+                {
+                    e.Value = "";
+                    e.FormattingApplied = true;
+                }
+            }
+        }
 
         private void FormRelatorios_KeyDown(object sender, KeyEventArgs e)
         {
@@ -185,6 +213,7 @@ namespace Money
                 MessageBox.Show($"Nenhum MetodoPgtoID encontrado para '{nomeMetodoPgto}'", "Debug");
             return metodoPgtoID;
         }
+
         private void GerarRelatorio()
         {
             try
@@ -192,25 +221,15 @@ namespace Money
                 string categoria = cmbCategoria.Text.Trim();
                 string metodoPagamento = cmbMetodoPgto.Text.Trim();
                 DateTime mesAno = dtpMesAno.Value;
-                string status = cmbStatus.SelectedItem?.ToString() ?? "Todos";
+                string status = cmbStatus.SelectedItem.ToString();
 
                 DateTime inicioMesAtual = new DateTime(mesAno.Year, mesAno.Month, 1);
                 DateTime fimMesAnterior = inicioMesAtual.AddDays(-1);
 
+                // Calcular saldo acumulado até o mês anterior
                 var receitasTotais = receitasBLL.Pesquisar();
                 var parcelasTotais = parcelasBLL.Pesquisar();
-
                 var despesasTotais = despesasBLL.PesquisarRelatorio();
-
-                // Log das datas distintas em Parcelas
-                var datasDistintas = parcelasTotais.Select(p => new { Mes = p.DataVencimento.Month, Ano = p.DataVencimento.Year })
-                                                  .Distinct()
-                                                  .OrderBy(d => d.Ano).ThenBy(d => d.Mes);
-                Console.WriteLine("Datas distintas em Parcelas:");
-                foreach (var data in datasDistintas)
-                {
-                    Console.WriteLine($"Mês: {data.Mes}, Ano: {data.Ano}");
-                }
 
                 decimal totalReceitasAnteriores = receitasTotais
                     .Where(r => r.DataRecebimento <= fimMesAnterior)
@@ -222,38 +241,35 @@ namespace Money
 
                 decimal saldoAcumulado = totalReceitasAnteriores - totalDespesasAnteriores;
 
-                var relatorio = from p in parcelasTotais
-                                join d in despesasTotais on p.DespesaID equals d.DespesaID into despesaJoin
-                                from d in despesaJoin.DefaultIfEmpty()
+                // Buscar e filtrar parcelas do mês atual
+                var parcelas = parcelasBLL.Pesquisar();
+                var despesas = despesasBLL.PesquisarRelatorio();
+                var relatorio = from p in parcelas
+                                join d in despesas on p.DespesaID equals d.DespesaID
                                 select new
                                 {
                                     p.ParcelaID,
                                     p.DespesaID,
-                                    Descricao = d?.Descricao ?? "Sem descrição",
-                                    ValorDaCompra = d?.ValorDaCompra ?? 0m,
-                                    DataDaCompra = d?.DataDaCompra ?? DateTime.MinValue,
+                                    d.Descricao,
+                                    d.ValorDaCompra,
+                                    d.DataCriacao,
                                     p.NumeroParcela,
                                     p.ValorParcela,
                                     p.DataVencimento,
                                     p.Pago,
-                                    p.DataPgto,
-                                    NomeCategoria = d?.NomeCategoria ?? "Sem categoria",
-                                    CategoriaID = d?.CategoriaID,
-                                    MetodoPgtoID = d?.MetodoPgtoID
+                                    p.DataPagamento,
+                                    d.NomeCategoria,
+                                    d.CategoriaID,
+                                    d.MetodoPgtoID
                                 };
 
-                int totalAntesFiltros = relatorio.Count();
-                Console.WriteLine($"Parcelas: {parcelasTotais.Count}, Despesas: {despesasTotais.Count}, Total antes filtros: {totalAntesFiltros}");
-
                 var relatorioFiltrado = relatorio.AsEnumerable();
-                Console.WriteLine($"Após conversão para Enumerable: {relatorioFiltrado.Count()}");
 
                 if (categoria != "Todos")
                 {
                     int categoriaId = GetCategoriaId();
                     if (categoriaId > 0)
                         relatorioFiltrado = relatorioFiltrado.Where(r => r.CategoriaID == categoriaId);
-                    Console.WriteLine($"Após filtro de categoria ({categoria}): {relatorioFiltrado.Count()}");
                 }
 
                 if (metodoPagamento != "Todos")
@@ -261,19 +277,18 @@ namespace Money
                     int metodoPgtoId = GetMetodoPgtoId();
                     if (metodoPgtoId > 0)
                         relatorioFiltrado = relatorioFiltrado.Where(r => r.MetodoPgtoID == metodoPgtoId);
-                    Console.WriteLine($"Após filtro de método de pagamento ({metodoPagamento}): {relatorioFiltrado.Count()}");
                 }
 
                 relatorioFiltrado = relatorioFiltrado.Where(r => r.DataVencimento.Month == mesAno.Month && r.DataVencimento.Year == mesAno.Year);
-                Console.WriteLine($"Após filtro de mês/ano ({mesAno:MM/yyyy}): {relatorioFiltrado.Count()}");
 
                 if (status != "Todos")
                 {
-                    if (status == "Pago")
-                        relatorioFiltrado = relatorioFiltrado.Where(r => r.Pago == true);
+                    if (status == "Atrasado")
+                        relatorioFiltrado = relatorioFiltrado.Where(r => !r.Pago && r.DataVencimento < DateTime.Now);
+                    else if (status == "Pago")
+                        relatorioFiltrado = relatorioFiltrado.Where(r => r.Pago);
                     else if (status == "Pendente")
-                        relatorioFiltrado = relatorioFiltrado.Where(r => r.Pago == false);
-                    Console.WriteLine($"Após filtro de status ({status}): {relatorioFiltrado.Count()}");
+                        relatorioFiltrado = relatorioFiltrado.Where(r => !r.Pago && r.DataVencimento >= DateTime.Now);
                 }
 
                 var listaFiltrada = relatorioFiltrado.Select(r => new
@@ -282,12 +297,12 @@ namespace Money
                     r.ParcelaID,
                     r.Descricao,
                     r.ValorDaCompra,
-                    r.DataDaCompra,
+                    r.DataCriacao,
                     r.NumeroParcela,
                     r.ValorParcela,
                     r.DataVencimento,
                     r.Pago,
-                    r.DataPgto,
+                    r.DataPagamento,
                     r.NomeCategoria,
                     r.CategoriaID,
                     r.MetodoPgtoID
@@ -295,9 +310,7 @@ namespace Money
 
                 if (listaFiltrada.Count == 0)
                 {
-                    string debugInfo = $"Filtros aplicados: Categoria={categoria}, MetodoPgto={metodoPagamento}, Mes/Ano={mesAno:MM/yyyy}, Status={status}\n" +
-                                       $"Parcelas: {parcelasTotais.Count}, Despesas: {despesasTotais.Count}, Total antes filtros: {totalAntesFiltros}";
-                    MessageBox.Show("Nenhum registro encontrado com os filtros aplicados.\n" + debugInfo, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Nenhum registro encontrado com os filtros aplicados.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dgvRelatorio.DataSource = null;
                     lblTotalAberto.Text = "Total Aberto: R$ 0,00";
                     lblTotalPago.Text = "Total Pago: R$ 0,00";
@@ -313,15 +326,15 @@ namespace Money
                         ParcelaID = 0,
                         Descricao = "Total",
                         ValorDaCompra = totalValorCompra,
-                        DataDaCompra = DateTime.MinValue,
+                        DataCriacao = DateTime.MinValue,
                         NumeroParcela = 0,
                         ValorParcela = totalValorParcela,
                         DataVencimento = DateTime.MinValue,
-                        Pago = (bool?)null,
-                        DataPgto = (DateTime?)null,
+                        Pago = false,
+                        DataPagamento = (DateTime?)null,
                         NomeCategoria = "",
-                        CategoriaID = (int?)null,
-                        MetodoPgtoID = (int?)null
+                        CategoriaID = 0,
+                        MetodoPgtoID = 0
                     };
                     listaFiltrada.Add(linhaTotal);
 
@@ -329,8 +342,8 @@ namespace Money
                     dgvRelatorio.DataSource = listaFiltrada;
                     PersonalizarDataGridView(dgvRelatorio);
 
-                    decimal totalAberto = listaFiltrada.Where(d => d.Pago == false && d.Descricao != "Total").Sum(d => d.ValorParcela);
-                    decimal totalPago = listaFiltrada.Where(d => d.Pago == true && d.Descricao != "Total").Sum(d => d.ValorParcela);
+                    decimal totalAberto = listaFiltrada.Where(d => !d.Pago && d.Descricao != "Total").Sum(d => d.ValorParcela);
+                    decimal totalPago = listaFiltrada.Where(d => d.Pago && d.Descricao != "Total").Sum(d => d.ValorParcela);
                     lblTotalAberto.Text = $"Total Aberto: {totalAberto:C2}";
                     lblTotalPago.Text = $"Total Pago: {totalPago:C2}";
                 }
@@ -338,22 +351,26 @@ namespace Money
                 var receitasMes = receitasTotais.Where(r => r.DataRecebimento.Month == mesAno.Month && r.DataRecebimento.Year == mesAno.Year);
                 decimal totalReceitasMes = receitasMes.Sum(r => r.ValorDaReceita);
 
-                decimal totalDespesasAcumuladas = parcelasTotais.Where(p => p.Pago == false && p.DataVencimento <= fimMesAnterior).Sum(p => p.ValorParcela);
+                decimal totalDespesasAcumuladas = parcelasTotais
+                    .Where(p => !p.Pago && p.DataVencimento <= fimMesAnterior)
+                    .Sum(p => p.ValorParcela);
 
                 decimal totalDespesasMes = listaFiltrada.Where(d => d.Descricao != "Total").Sum(d => d.ValorParcela);
 
                 decimal saldoFinal = saldoAcumulado + totalReceitasMes - (totalDespesasAcumuladas + totalDespesasMes);
+                // Aqui você pode exibir o saldoFinal em algum controle, se desejar
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Erro ao gerar relatório: {ex.Message}\nStackTrace: {ex.StackTrace}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-      
+
         private void btnGerarRelatorio_Click(object sender, EventArgs e)
         {
             GerarRelatorio();
         }
+
         private void btnExcel_Click(object sender, EventArgs e)
         {
             var data = dgvRelatorio.DataSource as List<dynamic>;
@@ -414,27 +431,6 @@ namespace Money
         {
             Console.WriteLine($"DataGridView DataError: {e.Exception.Message} na coluna {e.ColumnIndex}, linha {e.RowIndex}");
             e.ThrowException = false;
-        }
-
-        private void dgvRelatorio_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (e.RowIndex >= 0 && dgvRelatorio.Rows[e.RowIndex].Cells["Descricao"].Value?.ToString() == "Total")
-            {
-                e.CellStyle.Font = new Font(dgvRelatorio.Font, FontStyle.Bold);
-                e.CellStyle.BackColor = Color.LightGray;
-                e.CellStyle.ForeColor = Color.Black;
-
-                if (dgvRelatorio.Columns[e.ColumnIndex].Name == "DataDaCompra" ||
-                    dgvRelatorio.Columns[e.ColumnIndex].Name == "DataVencimento" ||
-                    dgvRelatorio.Columns[e.ColumnIndex].Name == "DataPgto" ||
-                    dgvRelatorio.Columns[e.ColumnIndex].Name == "NumeroParcela" ||
-                    dgvRelatorio.Columns[e.ColumnIndex].Name == "NomeCategoria" ||
-                    dgvRelatorio.Columns[e.ColumnIndex].Name == "Pago")
-                {
-                    e.Value = "";
-                    e.FormattingApplied = true;
-                }
-            }
         }
     }
 }

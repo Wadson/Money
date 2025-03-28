@@ -25,24 +25,26 @@ namespace Money
             dtpMesAno.ValueChanged += dtpMesAno_ValueChanged;            
 
             listViewDespesas.ItemCheck += listViewDespesas_ItemCheck; // Evento para atualizar total selecionado
+            AtualizarFluxoFinanceiro(); // Certifique-se de que isso é chamado após InitializeComponent
         }
         private void InicializarControles()
         {
             dtpMesAno.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             PersonalizarListViewReceitas();
-            PersonalizarListViewDespesas();
-            AtualizarFluxoFinanceiro();
+            PersonalizarListViewDespesas();           
         }
         private void AtualizarFluxoFinanceiro()
         {
             try
             {
                 DateTime mesAno = dtpMesAno.Value;
+                Console.WriteLine($"Mês/Ano selecionado: {mesAno:MM/yyyy}");
 
                 // Filtrar e adicionar linha de totais para receitas
                 var receitas = receitasBLL.Pesquisar()
                     .Where(r => r.DataRecebimento.Month == mesAno.Month && r.DataRecebimento.Year == mesAno.Year)
                     .ToList();
+                Console.WriteLine($"Receitas encontradas: {receitas.Count}");
                 decimal totalReceitas = receitas.Sum(r => r.ValorDaReceita);
                 if (receitas.Count > 0)
                 {
@@ -68,23 +70,29 @@ namespace Money
                 }
 
                 // Filtrar e adicionar linha de totais para despesas
-                var despesas = despesasBLL.PesquisarRelatorio()
-                    .Where(d => d.DataVencimento.Month == mesAno.Month && d.DataVencimento.Year == mesAno.Year)
-                    .Select(d => new DespesaViewModel
+                var todasDespesas = despesasBLL.PesquisarRelatorioComVencimento();
+                Console.WriteLine($"Total de despesas retornadas: {todasDespesas.Count}");
+
+                var despesas = todasDespesas
+                    .SelectMany(d => d.Parcelas.Select(p => new DespesaViewModel
                     {
-                        Descricao = d.Descricao,
+                        Descricao = $"{d.Descricao} (Parcela {p.NumeroParcela})",
                         ValorDaCompra = d.ValorDaCompra,
-                        DataVencimento = d.DataVencimento,
-                        Pago = d.Pago,
-                        NumeroParcelas = d.NumeroParcelas,
-                        ValorParcela = d.ValorParcela,
+                        DataVencimento = p.DataVencimento,
+                        Pago = (bool)p.Pago,
+                        NumeroParcelas = p.NumeroParcela.ToString(),
+                        ValorParcela = p.ValorParcela,
                         NomeCategoria = d.NomeCategoria,
                         Selecionado = false
-                    }).ToList();
+                    }))
+                    .Where(d => d.DataVencimento.Month == mesAno.Month && d.DataVencimento.Year == mesAno.Year)
+                    .ToList();
+                Console.WriteLine($"Despesas filtradas por vencimento para {mesAno:MM/yyyy}: {despesas.Count}");
 
                 decimal totalDespesas = despesas.Sum(d => d.ValorParcela ?? 0);
                 Console.WriteLine($"Total Despesas Calculado: {totalDespesas:C2}");
-                if (despesas.Count > 0)
+
+                if (despesas.Any())
                 {
                     despesas.Add(new DespesaViewModel
                     {
@@ -98,17 +106,19 @@ namespace Money
                         Selecionado = false
                     });
                 }
+
                 listViewDespesas.Items.Clear();
                 foreach (var despesa in despesas)
                 {
                     var item = new ListViewItem
                     {
                         Checked = despesa.Selecionado,
-                        Text = despesa.Descricao // Primeira coluna será "Descrição" para alinhar com o checkbox
+                        Text = despesa.Descricao
                     };
                     item.SubItems.Add((despesa.ValorParcela ?? 0).ToString("C2"));
                     item.SubItems.Add(despesa.DataVencimento == DateTime.MinValue ? "" : despesa.DataVencimento.ToString("dd/MM/yyyy"));
                     item.SubItems.Add(despesa.Pago.ToString());
+
                     if (despesa.Descricao == "Total")
                     {
                         item.Font = new Font(listViewDespesas.Font, FontStyle.Bold);
@@ -131,9 +141,9 @@ namespace Money
             catch (Exception ex)
             {
                 MessageBox.Show($"Erro ao atualizar o fluxo financeiro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine($"Exceção: {ex}");
             }
         }
-
         private void PersonalizarListViewReceitas()
         {
             listViewReceitas.View = View.Details;
@@ -180,12 +190,6 @@ namespace Money
 
             txtTotalSelecionado.Text = $"{totalSelecionado:C2}";
         }
-
-
-
-
-
-
 
         private void dtpMesAno_ValueChanged(object sender, EventArgs e)
         {

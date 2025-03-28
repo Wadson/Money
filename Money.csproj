@@ -201,9 +201,7 @@
     <Compile Include="BLL\CartoesCreditoBLL.cs" />
     <Compile Include="BLL\CategoriasBLL.cs" />
     <Compile Include="BLL\DespesasBLL.cs" />
-    <Compile Include="BLL\GastosCombustivelBLL.cs" />
     <Compile Include="BLL\MetodosPagamentoBLL.cs" />
-    <Compile Include="BLL\PagamentosBLL.cs" />
     <Compile Include="BLL\ParcelasBLL.cs" />
     <Compile Include="BLL\ReceitasBLL.cs" />
     <Compile Include="BLL\TiposReceitaBLL.cs" />
@@ -211,9 +209,7 @@
     <Compile Include="DAL\CartoesCreditoDAL.cs" />
     <Compile Include="DAL\CategoriasDAL.cs" />
     <Compile Include="DAL\DespesasDAL.cs" />
-    <Compile Include="DAL\GastosCombustivelDAL.cs" />
     <Compile Include="DAL\MetodosPagamentoDAL.cs" />
-    <Compile Include="DAL\PagamentosDAL.cs" />
     <Compile Include="DAL\ParcelasDAL.cs" />
     <Compile Include="DAL\ReceitasDAL.cs" />
     <Compile Include="DAL\TiposReceitaDAL.cs" />
@@ -328,9 +324,7 @@
     <Compile Include="MODEL\CartoesCreditoModel.cs" />
     <Compile Include="MODEL\CategoriasModel.cs" />
     <Compile Include="MODEL\DespesasModel.cs" />
-    <Compile Include="MODEL\GastosCombustivelModel.cs" />
     <Compile Include="MODEL\MetodosPagamentoModel.cs" />
-    <Compile Include="MODEL\PagamentosModel.cs" />
     <Compile Include="MODEL\ParcelasModel.cs" />
     <Compile Include="MODEL\TiposReceitaModel.cs" />
     <Compile Include="Program.cs" />

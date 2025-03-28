@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Money
         // Lista para armazenar as parcelas geradas
         private List<DespesasModel> parcelasGeradas = new List<DespesasModel>();
         // Propriedade pública para retornar as parcelas
-        public List<DespesasModel> Parcelas
+        internal List<DespesasModel> Parcelas
         {
             get { return parcelasGeradas; }
         }
@@ -77,32 +78,48 @@ namespace Money
                 lvParcelas.Items.Clear();
                 parcelasGeradas.Clear();
 
-                decimal valorTotal = decimal.Parse(lblValorTotal.Text);
-                int numeroParcelas = (int)nudParcelas.Value;
+                if (!decimal.TryParse(lblValorTotal.Text, NumberStyles.Any, CultureInfo.CurrentCulture, out decimal valorTotal) || valorTotal < 0)
+                {
+                    MessageBox.Show("Valor total inválido! Digite um número válido.", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    lblValorTotal.Text = "0,00";
+                    return;
+                }
+
+                int numeroParcelas = (int)nudParcelas.Value; // Usar .Value em vez de .Text
+                if (numeroParcelas <= 0)
+                {
+                    MessageBox.Show("Número de parcelas inválido! Deve ser maior que zero.", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    nudParcelas.Value = 1; // Ajustar o valor diretamente
+                    return;
+                }
+
                 decimal valorParcela = valorTotal / numeroParcelas;
+                lblValorTotal.Text = valorParcela.ToString("N2", CultureInfo.CurrentCulture);
+
                 DateTime dataVencimento = dtpPrimeiraParcela.Value;
 
                 for (int i = 0; i < numeroParcelas; i++)
                 {
-                    string parcelaFormatada = $"{i + 1}/{numeroParcelas}"; // Formato "1/4", "2/4", etc.
+                    string parcelaFormatada = $"{i + 1}/{numeroParcelas}";
                     var despesa = new DespesasModel
                     {
                         Descricao = $"{lblDescricao.Text} - Parcela {parcelaFormatada}",
                         ValorDaCompra = valorParcela,
                         DataVencimento = dataVencimento.AddMonths(i),
-                        NumeroParcelas = parcelaFormatada, // "1/4", "2/4", etc.
+                        NumeroParcelas = i + 1, // Ajuste aqui: usar apenas o número da parcela atual
                         ValorParcela = valorParcela,
                         MetodoPgtoID = null,
                         Pago = false,
-                        DataCriacao = DateTime.Now
+                        DataDaCompra = DateTime.Now
                     };
                     parcelasGeradas.Add(despesa);
 
-                    lvParcelas.Items.Add(new ListViewItem(new[] {
+                    lvParcelas.Items.Add(new ListViewItem(new[]
+                    {
                 parcelaFormatada,
                 despesa.Descricao,
                 despesa.ValorDaCompra.ToString("N2"),
-                despesa.DataVencimento.ToString("dd/MM/yyyy")
+                despesa.DataVencimento?.ToString("dd/MM/yyyy")
             }));
                 }
             }

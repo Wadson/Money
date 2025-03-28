@@ -16,30 +16,25 @@ namespace Money.BLL
         {
             if (parcela.DespesaID <= 0)
                 throw new ArgumentException("O ID da despesa é inválido.");
-            if (parcela.NumeroParcela <= 0)
-                throw new ArgumentException("O número da parcela deve ser maior que zero.");
             if (parcela.ValorParcela <= 0)
                 throw new ArgumentException("O valor da parcela deve ser maior que zero.");
-            if (string.IsNullOrEmpty(parcela.Status))
-                throw new ArgumentException("O status é obrigatório.");
             if (parcela.DataVencimento == default)
                 throw new ArgumentException("A data de vencimento é obrigatória.");
 
             _dal.Salvar(parcela);
         }
-
+        public void QuitarParcela(int parcelaID, DateTime? dataPgto = null)
+        {
+            _dal.QuitarParcela(parcelaID, dataPgto);
+        }
         public void Alterar(ParcelasModel parcela)
         {
             if (parcela.ParcelaID <= 0)
                 throw new ArgumentException("ID inválido.");
             if (parcela.DespesaID <= 0)
                 throw new ArgumentException("O ID da despesa é inválido.");
-            if (parcela.NumeroParcela <= 0)
-                throw new ArgumentException("O número da parcela deve ser maior que zero.");
             if (parcela.ValorParcela <= 0)
                 throw new ArgumentException("O valor da parcela deve ser maior que zero.");
-            if (string.IsNullOrEmpty(parcela.Status))
-                throw new ArgumentException("O status é obrigatório.");
             if (parcela.DataVencimento == default)
                 throw new ArgumentException("A data de vencimento é obrigatória.");
 

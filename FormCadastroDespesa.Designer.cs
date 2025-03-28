@@ -37,7 +37,6 @@
             this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtValorTotal = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel6 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel7 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtNumeroParcelas = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel8 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -46,7 +45,6 @@
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dtpDataVencimento = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.kryptonLabel9 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.cmbStatus = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
@@ -61,9 +59,12 @@
             this.groupBoxParcelar = new System.Windows.Forms.GroupBox();
             this.radiobtnNao = new System.Windows.Forms.RadioButton();
             this.radiobtnSim = new System.Windows.Forms.RadioButton();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbStatus)).BeginInit();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radiobtnPendente = new System.Windows.Forms.RadioButton();
+            this.radiobtnPago = new System.Windows.Forms.RadioButton();
             this.panelTitulo.SuspendLayout();
             this.groupBoxParcelar.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -105,9 +106,9 @@
             // 
             // txtDescricao
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(211, 102);
+            this.txtDescricao.Location = new System.Drawing.Point(215, 102);
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(398, 35);
+            this.txtDescricao.Size = new System.Drawing.Size(394, 35);
             this.txtDescricao.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.txtDescricao.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
             this.txtDescricao.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
@@ -173,7 +174,7 @@
             // 
             // kryptonLabel4
             // 
-            this.kryptonLabel4.Location = new System.Drawing.Point(221, 79);
+            this.kryptonLabel4.Location = new System.Drawing.Point(230, 76);
             this.kryptonLabel4.Name = "kryptonLabel4";
             this.kryptonLabel4.Size = new System.Drawing.Size(138, 21);
             this.kryptonLabel4.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
@@ -183,13 +184,13 @@
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(111, 79);
+            this.kryptonLabel3.Location = new System.Drawing.Point(121, 79);
             this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(109, 21);
+            this.kryptonLabel3.Size = new System.Drawing.Size(75, 21);
             this.kryptonLabel3.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
             this.kryptonLabel3.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel3.TabIndex = 38;
-            this.kryptonLabel3.Values.Text = "Valor Total ( R$ )";
+            this.kryptonLabel3.Values.Text = "Valor Total";
             // 
             // txtValorTotal
             // 
@@ -209,16 +210,6 @@
             this.txtValorTotal.TabIndex = 1;
             this.txtValorTotal.TextChanged += new System.EventHandler(this.txtValorTotal_TextChanged);
             this.txtValorTotal.Leave += new System.EventHandler(this.txtValor_Leave);
-            // 
-            // kryptonLabel6
-            // 
-            this.kryptonLabel6.Location = new System.Drawing.Point(26, 79);
-            this.kryptonLabel6.Name = "kryptonLabel6";
-            this.kryptonLabel6.Size = new System.Drawing.Size(47, 21);
-            this.kryptonLabel6.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
-            this.kryptonLabel6.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel6.TabIndex = 254;
-            this.kryptonLabel6.Values.Text = "Status";
             // 
             // kryptonLabel7
             // 
@@ -329,26 +320,6 @@
             this.kryptonLabel9.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel9.TabIndex = 264;
             this.kryptonLabel9.Values.Text = "Data de Vencto";
-            // 
-            // cmbStatus
-            // 
-            this.cmbStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbStatus.DropDownWidth = 138;
-            this.cmbStatus.Items.AddRange(new object[] {
-            "Pendente",
-            "Pago"});
-            this.cmbStatus.Location = new System.Drawing.Point(5, 102);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(98, 33);
-            this.cmbStatus.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.cmbStatus.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.cmbStatus.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.cmbStatus.StateCommon.ComboBox.Border.Rounding = 20;
-            this.cmbStatus.TabIndex = 0;
-            this.cmbStatus.Text = "Pendente";
             // 
             // btnSalvar
             // 
@@ -565,12 +536,52 @@
             this.radiobtnSim.UseVisualStyleBackColor = true;
             this.radiobtnSim.CheckedChanged += new System.EventHandler(this.radiobtnSim_CheckedChanged);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radiobtnPendente);
+            this.groupBox1.Controls.Add(this.radiobtnPago);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
+            this.groupBox1.Location = new System.Drawing.Point(5, 71);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(95, 67);
+            this.groupBox1.TabIndex = 307;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Status";
+            // 
+            // radiobtnPendente
+            // 
+            this.radiobtnPendente.AutoSize = true;
+            this.radiobtnPendente.Checked = true;
+            this.radiobtnPendente.ForeColor = System.Drawing.Color.Red;
+            this.radiobtnPendente.Location = new System.Drawing.Point(3, 39);
+            this.radiobtnPendente.Name = "radiobtnPendente";
+            this.radiobtnPendente.Size = new System.Drawing.Size(83, 20);
+            this.radiobtnPendente.TabIndex = 307;
+            this.radiobtnPendente.TabStop = true;
+            this.radiobtnPendente.Text = "Pendente";
+            this.radiobtnPendente.UseVisualStyleBackColor = true;
+            this.radiobtnPendente.CheckedChanged += new System.EventHandler(this.radiobtnPendente_CheckedChanged);
+            // 
+            // radiobtnPago
+            // 
+            this.radiobtnPago.AutoSize = true;
+            this.radiobtnPago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(172)))));
+            this.radiobtnPago.Location = new System.Drawing.Point(6, 19);
+            this.radiobtnPago.Name = "radiobtnPago";
+            this.radiobtnPago.Size = new System.Drawing.Size(58, 20);
+            this.radiobtnPago.TabIndex = 306;
+            this.radiobtnPago.Text = "Pago";
+            this.radiobtnPago.UseVisualStyleBackColor = true;
+            this.radiobtnPago.CheckedChanged += new System.EventHandler(this.radiobtnPago_CheckedChanged);
+            // 
             // FormCadastroDespesa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.ClientSize = new System.Drawing.Size(612, 367);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxParcelar);
             this.Controls.Add(this.panelTitulo);
             this.Controls.Add(this.btnLocalizarCategoria);
@@ -580,7 +591,6 @@
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnNovo);
-            this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.kryptonLabel9);
             this.Controls.Add(this.dtpDataVencimento);
             this.Controls.Add(this.kryptonLabel5);
@@ -588,7 +598,6 @@
             this.Controls.Add(this.kryptonLabel1);
             this.Controls.Add(this.txtNumeroParcelas);
             this.Controls.Add(this.kryptonLabel8);
-            this.Controls.Add(this.kryptonLabel6);
             this.Controls.Add(this.kryptonLabel7);
             this.Controls.Add(this.txtValorTotal);
             this.Controls.Add(this.kryptonLabel4);
@@ -605,11 +614,12 @@
             this.Text = "Cadastro de Despesas";
             this.Load += new System.EventHandler(this.FormCadastroTipoReceita_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormCadastroCategorias_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.cmbStatus)).EndInit();
             this.panelTitulo.ResumeLayout(false);
             this.panelTitulo.PerformLayout();
             this.groupBoxParcelar.ResumeLayout(false);
             this.groupBoxParcelar.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -624,7 +634,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel3;
         public ComponentFactory.Krypton.Toolkit.KryptonTextBox txtValorTotal;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel6;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel7;
         public ComponentFactory.Krypton.Toolkit.KryptonTextBox txtNumeroParcelas;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel8;
@@ -634,7 +643,6 @@
         public ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpDataVencimento;
         public ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpDataCadastro;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel9;
-        public ComponentFactory.Krypton.Toolkit.KryptonComboBox cmbStatus;
         public System.Windows.Forms.Button btnSalvar;
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnNovo;
@@ -649,6 +657,9 @@
         private System.Windows.Forms.RadioButton radiobtnNao;
         private System.Windows.Forms.RadioButton radiobtnSim;
         public System.Windows.Forms.GroupBox groupBoxParcelar;
+        public System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.RadioButton radiobtnPendente;
+        public System.Windows.Forms.RadioButton radiobtnPago;
     }
 }
 

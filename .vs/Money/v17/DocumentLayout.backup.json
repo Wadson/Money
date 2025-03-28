@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "D:\\Money\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1BBAC2C5-2E0F-425E-B1A4-E9299321AACE}|Money.csproj|d:\\money\\formcadastrodespesa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1BBAC2C5-2E0F-425E-B1A4-E9299321AACE}|Money.csproj|solutionrelative:formcadastrodespesa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{1BBAC2C5-2E0F-425E-B1A4-E9299321AACE}|Money.csproj|d:\\money\\model\\despesasmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BBAC2C5-2E0F-425E-B1A4-E9299321AACE}|Money.csproj|solutionrelative:model\\despesasmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BBAC2C5-2E0F-425E-B1A4-E9299321AACE}|Money.csproj|d:\\money\\dal\\despesasdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BBAC2C5-2E0F-425E-B1A4-E9299321AACE}|Money.csproj|solutionrelative:dal\\despesasdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BBAC2C5-2E0F-425E-B1A4-E9299321AACE}|Money.csproj|d:\\money\\formfluxofinanceiro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BBAC2C5-2E0F-425E-B1A4-E9299321AACE}|Money.csproj|solutionrelative:formfluxofinanceiro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BBAC2C5-2E0F-425E-B1A4-E9299321AACE}|Money.csproj|d:\\money\\bll\\despesasbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BBAC2C5-2E0F-425E-B1A4-E9299321AACE}|Money.csproj|solutionrelative:bll\\despesasbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BBAC2C5-2E0F-425E-B1A4-E9299321AACE}|Money.csproj|d:\\money\\formfluxofinanceiro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1BBAC2C5-2E0F-425E-B1A4-E9299321AACE}|Money.csproj|solutionrelative:formfluxofinanceiro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -49,15 +65,71 @@
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:19:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FormCadastroDespesa.cs [Design]",
-              "DocumentMoniker": "D:\\Money\\FormCadastroDespesa.cs",
-              "RelativeDocumentMoniker": "FormCadastroDespesa.cs",
-              "ToolTip": "D:\\Money\\FormCadastroDespesa.cs [Design]",
-              "RelativeToolTip": "FormCadastroDespesa.cs [Design]",
+              "Title": "DespesasModel.cs",
+              "DocumentMoniker": "D:\\Money\\MODEL\\DespesasModel.cs",
+              "RelativeDocumentMoniker": "MODEL\\DespesasModel.cs",
+              "ToolTip": "D:\\Money\\MODEL\\DespesasModel.cs",
+              "RelativeToolTip": "MODEL\\DespesasModel.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA1wB0AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T01:50:13.787Z",
+              "WhenOpened": "2025-03-28T16:06:33.944Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DespesasDAL.cs",
+              "DocumentMoniker": "D:\\Money\\DAL\\DespesasDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\DespesasDAL.cs",
+              "ToolTip": "D:\\Money\\DAL\\DespesasDAL.cs",
+              "RelativeToolTip": "DAL\\DespesasDAL.cs",
+              "ViewState": "AgIAAIEBAAAAAAAAAAAAAJQBAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T16:03:57.492Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DespesasBLL.cs",
+              "DocumentMoniker": "D:\\Money\\BLL\\DespesasBLL.cs",
+              "RelativeDocumentMoniker": "BLL\\DespesasBLL.cs",
+              "ToolTip": "D:\\Money\\BLL\\DespesasBLL.cs",
+              "RelativeToolTip": "BLL\\DespesasBLL.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAUwFEAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T15:57:37.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormFluxoFinanceiro.cs",
+              "DocumentMoniker": "D:\\Money\\FormFluxoFinanceiro.cs",
+              "RelativeDocumentMoniker": "FormFluxoFinanceiro.cs",
+              "ToolTip": "D:\\Money\\FormFluxoFinanceiro.cs",
+              "RelativeToolTip": "FormFluxoFinanceiro.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAiwCEAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T15:37:27.955Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormFluxoFinanceiro.cs [Design]",
+              "DocumentMoniker": "D:\\Money\\FormFluxoFinanceiro.cs",
+              "RelativeDocumentMoniker": "FormFluxoFinanceiro.cs",
+              "ToolTip": "D:\\Money\\FormFluxoFinanceiro.cs [Design]",
+              "RelativeToolTip": "FormFluxoFinanceiro.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T15:37:24.455Z",
               "EditorCaption": " [Design]"
             }
           ]

@@ -15,29 +15,79 @@ namespace Money.DAL
             using (var conn = Conexao.Conex())
             {
                 conn.Open();
-                string sql = "INSERT INTO Despesas (Descricao, ValorDaCompra, DataVencimento, Status, NumeroParcelas, " +
-                             "ValorParcela, CategoriaID, MetodoPgtoID, Pago, DataCriacao, DataPgto) " +
-                             "VALUES (@Descricao, @ValorDaCompra, @DataVencimento, @Status, @NumeroParcelas, " +
-                             "@ValorParcela, @CategoriaID, @MetodoPgtoID, @Pago, @DataCriacao, @DataPgto)";
+                string sql = "INSERT INTO Despesas (Descricao, ValorDaCompra, CategoriaID, MetodoPgtoID, DataDaCompra) " +
+                             "VALUES (@Descricao, @ValorDaCompra, @CategoriaID, @MetodoPgtoID, @DataDaCompra)";
                 using (var cmd = new SqlCeCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@Descricao", despesa.Descricao);
                     cmd.Parameters.AddWithValue("@ValorDaCompra", despesa.ValorDaCompra);
-                    cmd.Parameters.AddWithValue("@DataVencimento", despesa.DataVencimento);
-                    cmd.Parameters.AddWithValue("@Status", despesa.Status);
-                    cmd.Parameters.AddWithValue("@NumeroParcelas", string.IsNullOrEmpty(despesa.NumeroParcelas) ? (object)DBNull.Value : despesa.NumeroParcelas);
-                    cmd.Parameters.AddWithValue("@ValorParcela", (object)despesa.ValorParcela ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@CategoriaID", (object)despesa.CategoriaID ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@MetodoPgtoID", (object)despesa.MetodoPgtoID ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Pago", despesa.Pago);
-                    cmd.Parameters.AddWithValue("@DataCriacao", despesa.DataCriacao);
-                    if (despesa.DataPgto.HasValue)
-                        cmd.Parameters.AddWithValue("@DataPgto", despesa.DataPgto.Value);
-                    else
-                        cmd.Parameters.AddWithValue("@DataPgto", DBNull.Value);
-
-                    Console.WriteLine($"DAL - Pago: {despesa.Pago}, DataPgto: {despesa.DataPgto}");
+                    cmd.Parameters.AddWithValue("@DataDaCompra", despesa.DataDaCompra); // Usando DataCriacao como DataDaCompra
                     cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        public void AtualizarDespesasEParcelas(DespesasModel despesa)
+        {
+            using (var conn = Conexao.Conex())
+            {
+                conn.Open();
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        // Atualizar a tabela Despesas
+                        string sqlDespesa = "UPDATE Despesas SET Descricao = @Descricao, ValorDaCompra = @ValorDaCompra, " +
+                                           "CategoriaID = @CategoriaID, MetodoPgtoID = @MetodoPgtoID, DataDaCompra = @DataDaCompra " +
+                                           "WHERE DespesaID = @DespesaID";
+                        using (var cmdDespesa = new SqlCeCommand(sqlDespesa, conn, transaction))
+                        {
+                            cmdDespesa.Parameters.AddWithValue("@Descricao", despesa.Descricao);
+                            cmdDespesa.Parameters.AddWithValue("@ValorDaCompra", despesa.ValorDaCompra);
+                            cmdDespesa.Parameters.AddWithValue("@CategoriaID", (object)despesa.CategoriaID ?? DBNull.Value);
+                            cmdDespesa.Parameters.AddWithValue("@MetodoPgtoID", (object)despesa.MetodoPgtoID ?? DBNull.Value);
+                            cmdDespesa.Parameters.AddWithValue("@DataDaCompra", despesa.DataDaCompra);
+                            cmdDespesa.Parameters.AddWithValue("@DespesaID", despesa.DespesaID);
+                            int rowsAffected = cmdDespesa.ExecuteNonQuery();
+                            if (rowsAffected == 0)
+                                throw new Exception("Nenhum registro foi atualizado. Verifique se o DespesaID existe.");
+                        }
+
+                        // Buscar o número de parcelas associadas
+                        string sqlCountParcelas = "SELECT COUNT(*) FROM Parcelas WHERE DespesaID = @DespesaID";
+                        int numeroParcelas;
+                        using (var cmdCount = new SqlCeCommand(sqlCountParcelas, conn, transaction))
+                        {
+                            cmdCount.Parameters.AddWithValue("@DespesaID", despesa.DespesaID);
+                            numeroParcelas = (int)cmdCount.ExecuteScalar();
+                        }
+
+                        if (numeroParcelas > 0)
+                        {
+                            // Recalcular o valor das parcelas com base no novo ValorDaCompra
+                            decimal novoValorParcela = despesa.ValorDaCompra / numeroParcelas;
+
+                            // Atualizar as parcelas na tabela Parcelas
+                            string sqlParcelas = "UPDATE Parcelas SET ValorParcela = @ValorParcela " +
+                                                "WHERE DespesaID = @DespesaID";
+                            using (var cmdParcelas = new SqlCeCommand(sqlParcelas, conn, transaction))
+                            {
+                                cmdParcelas.Parameters.AddWithValue("@ValorParcela", novoValorParcela);
+                                cmdParcelas.Parameters.AddWithValue("@DespesaID", despesa.DespesaID);
+                                cmdParcelas.ExecuteNonQuery();
+                            }
+                        }
+
+                        // Confirmar a transação
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Reverter a transação em caso de erro
+                        transaction.Rollback();
+                        throw new Exception($"Erro ao atualizar despesa e parcelas: {ex.Message}", ex);
+                    }
                 }
             }
         }
@@ -47,22 +97,15 @@ namespace Money.DAL
             {
                 conn.Open();
                 string sql = "UPDATE Despesas SET Descricao = @Descricao, ValorDaCompra = @ValorDaCompra, " +
-                             "DataVencimento = @DataVencimento, Status = @Status, NumeroParcelas = @NumeroParcelas, " +
-                             "ValorParcela = @ValorParcela, CategoriaID = @CategoriaID, MetodoPgtoID = @MetodoPgtoID, " +
-                             "Pago = @Pago, DataCriacao = @DataCriacao " + // Adicionado espaço aqui
+                             "CategoriaID = @CategoriaID, MetodoPgtoID = @MetodoPgtoID, DataDaCompra = @DataDaCompra " +
                              "WHERE DespesaID = @DespesaID";
                 using (var cmd = new SqlCeCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@Descricao", despesa.Descricao);
                     cmd.Parameters.AddWithValue("@ValorDaCompra", despesa.ValorDaCompra);
-                    cmd.Parameters.AddWithValue("@DataVencimento", despesa.DataVencimento);
-                    cmd.Parameters.AddWithValue("@Status", despesa.Status);                    
-                    cmd.Parameters.AddWithValue("@NumeroParcelas", string.IsNullOrEmpty(despesa.NumeroParcelas) ? (object)DBNull.Value : despesa.NumeroParcelas);
-                    cmd.Parameters.AddWithValue("@ValorParcela", (object)despesa.ValorParcela ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@CategoriaID", (object)despesa.CategoriaID ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@MetodoPgtoID", (object)despesa.MetodoPgtoID ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Pago", despesa.Pago);
-                    cmd.Parameters.AddWithValue("@DataCriacao", despesa.DataCriacao);
+                    cmd.Parameters.AddWithValue("@DataDaCompra", despesa.DataDaCompra);
                     cmd.Parameters.AddWithValue("@DespesaID", despesa.DespesaID);
                     int rowsAffected = cmd.ExecuteNonQuery();
                     if (rowsAffected == 0)
@@ -70,25 +113,24 @@ namespace Money.DAL
                 }
             }
         }
+
+        // O método AtualizarStatus não é mais necessário aqui, pois Pago e DataPgto estão em Parcelas
         public void AtualizarStatus(DespesasModel despesa)
         {
             using (var conn = Conexao.Conex())
             {
                 conn.Open();
-                string sql = "UPDATE Despesas SET Status = @Status, Pago = @Pago, DataPgto = @DataPgto WHERE DespesaID = @DespesaID";
+                string sql = "UPDATE Despesas SET /* Adicione aqui o campo de status, ex: Pago = @Pago */ WHERE DespesaID = @DespesaID";
                 using (var cmd = new SqlCeCommand(sql, conn))
-                {                   
-                    cmd.Parameters.AddWithValue("@Status", despesa.Status);                   
-                    cmd.Parameters.AddWithValue("@Pago", despesa.Pago);
-                    cmd.Parameters.AddWithValue("@DataPgto", despesa.DataPgto);
+                {
                     cmd.Parameters.AddWithValue("@DespesaID", despesa.DespesaID);
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    if (rowsAffected == 0)
-                        throw new Exception("Nenhum registro foi atualizado. Verifique se o DespesaID existe.");
+                    // Se houver um campo "Pago" na tabela Despesas, adicione-o aqui
+                    cmd.ExecuteNonQuery();
                 }
             }
         }
-        public void Excluir(int despesaId)
+
+        public void Excluir(int despesaID)
         {
             using (var conn = Conexao.Conex())
             {
@@ -96,10 +138,45 @@ namespace Money.DAL
                 string sql = "DELETE FROM Despesas WHERE DespesaID = @DespesaID";
                 using (var cmd = new SqlCeCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@DespesaID", despesaId);
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    if (rowsAffected == 0)
-                        throw new Exception("Nenhum registro foi excluído. Verifique se o DespesaID existe.");
+                    cmd.Parameters.AddWithValue("@DespesaID", despesaID);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        public void ExcluirEmCascata(int despesaID)
+        {
+            using (var conn = Conexao.Conex())
+            {
+                conn.Open();
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        // Primeiro, excluir as parcelas associadas
+                        string sqlParcelas = "DELETE FROM Parcelas WHERE DespesaID = @DespesaID";
+                        using (var cmdParcelas = new SqlCeCommand(sqlParcelas, conn, transaction))
+                        {
+                            cmdParcelas.Parameters.AddWithValue("@DespesaID", despesaID);
+                            cmdParcelas.ExecuteNonQuery();
+                        }
+
+                        // Depois, excluir a despesa
+                        string sqlDespesa = "DELETE FROM Despesas WHERE DespesaID = @DespesaID";
+                        using (var cmdDespesa = new SqlCeCommand(sqlDespesa, conn, transaction))
+                        {
+                            cmdDespesa.Parameters.AddWithValue("@DespesaID", despesaID);
+                            cmdDespesa.ExecuteNonQuery();
+                        }
+
+                        // Confirmar a transação
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Reverter a transação em caso de erro
+                        transaction.Rollback();
+                        throw new Exception($"Erro ao excluir despesa: {ex.Message}", ex);
+                    }
                 }
             }
         }
@@ -111,51 +188,34 @@ namespace Money.DAL
             {
                 conn.Open();
                 string sql = @"SELECT 
-                        d.DespesaID, 
-                        d.Descricao,  
-                        d.ValorDaCompra,
-                        d.DataVencimento, 
-                        d.Status, 
-                        d.NumeroParcelas, 
-                        d.ValorParcela, 
-                        d.CategoriaID, 
-                        c.NomeCategoria AS NomeCategoria,  -- Ajustado para o nome correto
-                        d.MetodoPgtoID, 
-                        d.Pago, 
-                        d.DataCriacao, 
-                        d.DataPgto 
-                      FROM Despesas d
-                      LEFT JOIN Categorias c ON d.CategoriaID = c.CategoriaID";
-                var conditions = new List<string>();
+                    d.DespesaID, 
+                    d.Descricao,  
+                    d.ValorDaCompra,
+                    d.CategoriaID, 
+                    c.NomeCategoria,
+                    d.MetodoPgtoID, 
+                    d.DataDaCompra 
+                FROM Despesas d
+                LEFT JOIN Categorias c ON d.CategoriaID = c.CategoriaID";
 
-                // Filtro de pagamento
-                if (pago.HasValue)
+                if (!string.IsNullOrEmpty(descricao) || pago.HasValue)
                 {
-                    conditions.Add("d.Pago = @Pago");
-                }
-
-                // Filtro de descrição
-                if (!string.IsNullOrEmpty(descricao))
-                {
-                    conditions.Add("d.Descricao LIKE @Descricao");
-                }
-
-                // Combinar condições, se existirem
-                if (conditions.Count > 0)
-                {
-                    sql += " WHERE " + string.Join(" AND ", conditions);
+                    sql += " WHERE ";
+                    if (!string.IsNullOrEmpty(descricao))
+                        sql += "d.Descricao LIKE @Descricao";
+                    if (pago.HasValue)
+                    {
+                        if (!string.IsNullOrEmpty(descricao)) sql += " AND ";
+                        sql += "/* Adicione aqui o campo de status, ex: d.Pago = @Pago */";
+                    }
                 }
 
                 using (var cmd = new SqlCeCommand(sql, conn))
                 {
-                    if (pago.HasValue)
-                    {
-                        cmd.Parameters.AddWithValue("@Pago", pago.Value);
-                    }
                     if (!string.IsNullOrEmpty(descricao))
-                    {
                         cmd.Parameters.AddWithValue("@Descricao", "%" + descricao + "%");
-                    }
+                    if (pago.HasValue)
+                        cmd.Parameters.AddWithValue("@Pago", pago.Value);
 
                     using (var reader = cmd.ExecuteReader())
                     {
@@ -165,17 +225,11 @@ namespace Money.DAL
                             {
                                 DespesaID = reader.GetInt32(0),
                                 Descricao = reader.GetString(1),
-                                ValorDaCompra = reader.GetDecimal(2),
-                                DataVencimento = reader.GetDateTime(3),
-                                Status = reader.GetString(4),                                
-                                NumeroParcelas = reader.IsDBNull(5) ? null : reader.GetValue(5).ToString(),
-                                ValorParcela = reader.IsDBNull(6) ? null : (decimal?)reader.GetDecimal(6),
-                                CategoriaID = reader.IsDBNull(7) ? null : (int?)reader.GetInt32(7),
-                                NomeCategoria = reader.IsDBNull(8) ? null : reader.GetString(8),
-                                MetodoPgtoID = reader.IsDBNull(9) ? null : (int?)reader.GetInt32(9),
-                                Pago = reader.GetBoolean(10),
-                                DataCriacao = reader.GetDateTime(11),
-                                DataPgto = reader.IsDBNull(12) ? null : (DateTime?)reader.GetDateTime(12)
+                                ValorDaCompra = reader.IsDBNull(2) ? 0m : reader.GetDecimal(2),
+                                CategoriaID = reader.IsDBNull(3) ? null : (int?)reader.GetInt32(3),
+                                NomeCategoria = reader.IsDBNull(4) ? null : reader.GetString(4),
+                                MetodoPgtoID = reader.IsDBNull(5) ? null : (int?)reader.GetInt32(5),
+                                DataDaCompra = reader.GetDateTime(6)
                             });
                         }
                     }
@@ -183,47 +237,176 @@ namespace Money.DAL
             }
             return lista;
         }
-
+        public List<DespesasModel> PesquisarRelatorio()
+        {
+            var lista = new List<DespesasModel>();
+            using (var conn = Conexao.Conex())
+            {
+                conn.Open();
+                string sql = "SELECT d.DespesaID, d.Descricao, d.ValorDaCompra, d.DataDaCompra, " +
+                             "d.CategoriaID, c.NomeCategoria, d.MetodoPgtoID " +
+                             "FROM Despesas d " +
+                             "LEFT JOIN Categorias c ON d.CategoriaID = c.CategoriaID";
+                using (var cmd = new SqlCeCommand(sql, conn))
+                {
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var despesa = new DespesasModel
+                            {
+                                DespesaID = reader.GetInt32(0),
+                                Descricao = reader.GetString(1),
+                                ValorDaCompra = reader.GetDecimal(2),
+                                DataDaCompra = reader.GetDateTime(3),
+                                CategoriaID = reader.IsDBNull(4) ? (int?)null : reader.GetInt32(4),
+                                NomeCategoria = reader.IsDBNull(5) ? null : reader.GetString(5),
+                                MetodoPgtoID = reader.IsDBNull(6) ? (int?)null : reader.GetInt32(6)
+                            };
+                            lista.Add(despesa);
+                        }
+                    }
+                }
+            }
+            return lista;
+        }
         public List<DespesasModel> PesquisarRelatorios(string descricao = null)
         {
             var lista = new List<DespesasModel>();
             using (var conn = Conexao.Conex())
             {
                 conn.Open();
-                string sql = "SELECT d.DespesaID, d.Descricao, d.DataVencimento, d.Status, " +
-                             "d.NumeroParcelas, d.ValorParcela, d.CategoriaID, d.MetodoPgtoID, " +
-                             "d.Pago, d.DataCriacao, d.DataPgto, d.ValorDaCompra, c.NomeCategoria " +
-                             "FROM Despesas d LEFT JOIN Categorias c ON d.CategoriaID = c.CategoriaID";
+                string sql = @"
+            SELECT 
+                d.DespesaID, 
+                d.Descricao, 
+                d.ValorDaCompra, 
+                d.DataDaCompra, 
+                c.NomeCategoria, 
+                c.CategoriaID, 
+                m.MetodoPgtoID,
+                m.NomeMetodoPagamento
+            FROM Despesas d
+            LEFT JOIN Categorias c ON d.CategoriaID = c.CategoriaID
+            LEFT JOIN MetodosPagamento m ON d.MetodoPgtoID = m.MetodoPgtoID";
+
                 if (!string.IsNullOrEmpty(descricao))
+                {
                     sql += " WHERE d.Descricao LIKE @Descricao";
+                }
+
                 using (var cmd = new SqlCeCommand(sql, conn))
                 {
                     if (!string.IsNullOrEmpty(descricao))
+                    {
                         cmd.Parameters.AddWithValue("@Descricao", "%" + descricao + "%");
+                    }
+
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            lista.Add(new DespesasModel
+                            var despesa = new DespesasModel
                             {
-                                DespesaID = reader.GetInt32(0),       // Índice 0
-                                Descricao = reader.GetString(1),      // Índice 1
-                                DataVencimento = (DateTime)(reader.IsDBNull(2) ? (DateTime?)null : reader.GetDateTime(2)), // Índice 2
-                                Status = reader.GetString(3),         // Índice 3
-                                NumeroParcelas = reader.IsDBNull(4) ? null : reader.GetValue(4).ToString(), // Índice 4
-                                ValorParcela = reader.IsDBNull(5) ? null : (decimal?)reader.GetDecimal(5), // Índice 5
-                                CategoriaID = reader.IsDBNull(6) ? null : (int?)reader.GetInt32(6), // Índice 6
-                                MetodoPgtoID = reader.IsDBNull(7) ? null : (int?)reader.GetInt32(7), // Índice 7
-                                Pago = reader.GetBoolean(8),          // Índice 8
-                                DataCriacao = reader.GetDateTime(9),  // Índice 9
-                                DataPgto = reader.IsDBNull(10) ? (DateTime?)null : reader.GetDateTime(10), // Índice 10
-                                ValorDaCompra = reader.IsDBNull(11) ? 0m : reader.GetDecimal(11), // Índice 11
-                                NomeCategoria = reader.IsDBNull(12) ? null : reader.GetString(12) // Índice 12
-                            });
+                                DespesaID = reader.GetInt32(0),
+                                Descricao = reader.GetString(1),
+                                ValorDaCompra = reader.GetDecimal(2),
+                                DataDaCompra = reader.GetDateTime(3),
+                                NomeCategoria = reader.IsDBNull(4) ? "Sem categoria" : reader.GetString(4),
+                                CategoriaID = reader.IsDBNull(5) ? (int?)null : reader.GetInt32(5),
+                                MetodoPgtoID = reader.IsDBNull(6) ? (int?)null : reader.GetInt32(6)
+                            };
+                            lista.Add(despesa);
                         }
                     }
                 }
             }
+            Console.WriteLine($"DespesaDAL.PesquisarRelatorios retornou {lista.Count} registros.");
+            return lista;
+        }
+
+        public List<DespesasModel> PesquisarRelatoriosComVencimento(string descricao = null)
+        {
+            var lista = new List<DespesasModel>();
+            using (var conn = Conexao.Conex())
+            {
+                conn.Open();
+                string sql = @"
+            SELECT 
+                d.DespesaID, 
+                d.Descricao, 
+                d.ValorDaCompra, 
+                d.DataDaCompra, 
+                c.NomeCategoria, 
+                c.CategoriaID, 
+                m.MetodoPgtoID, 
+                m.NomeMetodoPagamento,
+                p.ParcelaID,
+                p.NumeroParcela,
+                p.ValorParcela,
+                p.DataVencimento,
+                p.DataPgto,
+                p.Pago
+            FROM Despesas d
+            LEFT JOIN Categorias c ON d.CategoriaID = c.CategoriaID
+            LEFT JOIN MetodosPagamento m ON d.MetodoPgtoID = m.MetodoPgtoID
+            LEFT JOIN Parcelas p ON d.DespesaID = p.DespesaID";
+
+                if (!string.IsNullOrEmpty(descricao))
+                {
+                    sql += " WHERE d.Descricao LIKE @Descricao";
+                }
+
+                using (var cmd = new SqlCeCommand(sql, conn))
+                {
+                    if (!string.IsNullOrEmpty(descricao))
+                    {
+                        cmd.Parameters.AddWithValue("@Descricao", "%" + descricao + "%");
+                    }
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        var despesasDict = new Dictionary<int, DespesasModel>();
+                        while (reader.Read())
+                        {
+                            int despesaId = reader.GetInt32(0);
+                            if (!despesasDict.ContainsKey(despesaId))
+                            {
+                                var despesa = new DespesasModel
+                                {
+                                    DespesaID = despesaId,
+                                    Descricao = reader.GetString(1),
+                                    ValorDaCompra = reader.GetDecimal(2),
+                                    DataDaCompra = reader.GetDateTime(3),
+                                    NomeCategoria = reader.IsDBNull(4) ? "Sem categoria" : reader.GetString(4),
+                                    CategoriaID = reader.IsDBNull(5) ? (int?)null : reader.GetInt32(5),
+                                    MetodoPgtoID = reader.IsDBNull(6) ? (int?)null : reader.GetInt32(6),
+                                    Parcelas = new List<ParcelasModel>() // Garantir inicialização aqui também
+                                };
+                                despesasDict[despesaId] = despesa;
+                            }
+
+                            // Adicionar parcela, se existir
+                            if (!reader.IsDBNull(8)) // Verifica se ParcelaID não é nulo
+                            {
+                                var parcela = new ParcelasModel
+                                {
+                                    ParcelaID = reader.GetInt32(8),
+                                    DespesaID = despesaId,
+                                    NumeroParcela = reader.GetInt32(9),
+                                    ValorParcela = reader.GetDecimal(10),
+                                    DataVencimento = reader.GetDateTime(11),
+                                    DataPgto = reader.IsDBNull(12) ? (DateTime?)null : reader.GetDateTime(12),
+                                    Pago = reader.GetBoolean(13)
+                                };
+                                despesasDict[despesaId].Parcelas.Add(parcela); // Agora Parcelas nunca será null
+                            }
+                        }
+                        lista.AddRange(despesasDict.Values);
+                    }
+                }
+            }
+            Console.WriteLine($"DespesaDAL.PesquisarRelatoriosComVencimento retornou {lista.Count} despesas.");
             return lista;
         }
     }

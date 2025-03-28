@@ -79,9 +79,9 @@
             // lvParcelas
             // 
             this.lvParcelas.HideSelection = false;
-            this.lvParcelas.Location = new System.Drawing.Point(1, 131);
+            this.lvParcelas.Location = new System.Drawing.Point(1, 103);
             this.lvParcelas.Name = "lvParcelas";
-            this.lvParcelas.Size = new System.Drawing.Size(463, 177);
+            this.lvParcelas.Size = new System.Drawing.Size(524, 205);
             this.lvParcelas.TabIndex = 9;
             // 
             // kryptonLabel1
@@ -95,7 +95,7 @@
             // 
             // kryptonLabel2
             // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(3, 95);
+            this.kryptonLabel2.Location = new System.Drawing.Point(284, 36);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Size = new System.Drawing.Size(85, 21);
             this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -104,7 +104,7 @@
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(203, 95);
+            this.kryptonLabel3.Location = new System.Drawing.Point(393, 36);
             this.kryptonLabel3.Name = "kryptonLabel3";
             this.kryptonLabel3.Size = new System.Drawing.Size(132, 21);
             this.kryptonLabel3.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -126,7 +126,7 @@
             this.dtpPrimeiraParcela.CalendarDimensions = new System.Drawing.Size(2, 2);
             this.dtpPrimeiraParcela.CalendarHeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Form;
             this.dtpPrimeiraParcela.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpPrimeiraParcela.Location = new System.Drawing.Point(332, 88);
+            this.dtpPrimeiraParcela.Location = new System.Drawing.Point(394, 57);
             this.dtpPrimeiraParcela.Name = "dtpPrimeiraParcela";
             this.dtpPrimeiraParcela.Palette = this.kryptonPalette1;
             this.dtpPrimeiraParcela.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
@@ -141,7 +141,7 @@
             // 
             // nudParcelas
             // 
-            this.nudParcelas.Location = new System.Drawing.Point(82, 88);
+            this.nudParcelas.Location = new System.Drawing.Point(267, 60);
             this.nudParcelas.Maximum = new decimal(new int[] {
             205,
             0,
@@ -184,7 +184,7 @@
             this.btnConfirmar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmar.ForeColor = System.Drawing.Color.White;
-            this.btnConfirmar.Location = new System.Drawing.Point(346, 314);
+            this.btnConfirmar.Location = new System.Drawing.Point(415, 314);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(110, 36);
             this.btnConfirmar.TabIndex = 304;
@@ -236,7 +236,7 @@
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
             this.kryptonPanel1.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.SeparatorHighProfile;
-            this.kryptonPanel1.Size = new System.Drawing.Size(468, 30);
+            this.kryptonPanel1.Size = new System.Drawing.Size(537, 30);
             this.kryptonPanel1.TabIndex = 308;
             // 
             // lblStatus
@@ -256,7 +256,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(468, 358);
+            this.ClientSize = new System.Drawing.Size(537, 358);
             this.Controls.Add(this.kryptonPanel1);
             this.Controls.Add(this.lblDescricao);
             this.Controls.Add(this.lblValorTotal);

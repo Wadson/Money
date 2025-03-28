@@ -444,7 +444,7 @@
             this.Palette = this.kryptonPalette1;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.Text = "Relatorios";
-            this.Load += new System.EventHandler(this.FormRelatorios_Load);
+            
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormRelatorios_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.cmbCategoria)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbStatus)).EndInit();

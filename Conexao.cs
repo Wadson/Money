@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Money
 {
-    internal class Conexao
+    public class Conexao
     {
         // String de conexão centralizada e flexível
         private static string GetConnectionString()
